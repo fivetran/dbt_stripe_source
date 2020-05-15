@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: stripe
+    
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+      
+    freshness:
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 168, period: hour}
+
+
+    tables:
+      - name: balance_transaction
+      - name: card
+      - name: charge
+      - name: customer
+      - name: fee
+      - name: payment_intent
+      - name: payment_method
+      - name: payment_method_card
+      - name: payout
+      - name: refund
