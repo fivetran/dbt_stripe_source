@@ -1,0 +1,8 @@
+config-version: 2
+
+name: 'stripe_source'
+version: '0.0.1'
+
+models:
+    stripe_source:
+        materialized: ephemeral
