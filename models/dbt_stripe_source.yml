@@ -13,12 +13,20 @@ sources:
 
     tables:
       - name: balance_transaction
+        description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
       - name: card
       - name: charge
+        description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
       - name: customer
+        description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer. The API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.
       - name: fee
+        description: The details of a fee associated with a balance_transation
       - name: payment_intent
+        description: A PaymentIntent guides you through the process of collecting a payment from your customer.
       - name: payment_method
+        description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
       - name: payment_method_card
+        description: Table with the relationships between a payment methos and a card
       - name: payout
+        description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
       - name: refund
