@@ -15,6 +15,7 @@ sources:
       - name: balance_transaction
         description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
       - name: card
+        description: details of a credit card that has been saved to the system.
       - name: charge
         description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
       - name: customer
