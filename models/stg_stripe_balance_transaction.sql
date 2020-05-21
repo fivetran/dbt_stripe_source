@@ -15,7 +15,6 @@ with balance_transaction as (
       exchange_rate,
       fee,
       net,
-      payout_id,
       source,
       status,
       type

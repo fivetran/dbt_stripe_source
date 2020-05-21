@@ -20,10 +20,8 @@ with customer as (
       shipping_address_line_2,
       shipping_address_postal_code,
       shipping_address_state,
-      shipping_carrier,
       shipping_name,
-      shipping_phone,
-      shipping_tracking_number
+      shipping_phone
     from customer
     where not is_deleted
 

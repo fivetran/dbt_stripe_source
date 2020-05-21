@@ -6,3 +6,5 @@ version: '0.0.1'
 models:
     stripe_source:
         materialized: ephemeral
+
+profile: dbt_test

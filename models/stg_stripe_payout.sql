@@ -10,7 +10,7 @@ with payout as (
       amount,
       arrival_date,
       automatic as is_automatic,
-      balance_transaction_id.
+      balance_transaction_id,
       created as created_at,
       currency,
       description,

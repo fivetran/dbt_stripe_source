@@ -7,7 +7,6 @@ with fee as (
 
     select 
       balance_transaction_id,
-      index,
       amount,
       application,
       currency,
