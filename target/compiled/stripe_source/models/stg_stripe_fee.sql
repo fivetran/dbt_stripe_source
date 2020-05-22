@@ -1,7 +1,7 @@
 with fee as (
 
     select *
-    from {{ source('stripe', 'fee') }}
+    from `dbt-package-testing`.`stripe`.`fee`
 
 ), fields as (
 

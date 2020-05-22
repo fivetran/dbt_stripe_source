@@ -1,7 +1,7 @@
 with card as (
 
     select *
-    from {{ source('stripe', 'card') }}
+    from `dbt-package-testing`.`stripe`.`card`
 
 ), fields as (
 

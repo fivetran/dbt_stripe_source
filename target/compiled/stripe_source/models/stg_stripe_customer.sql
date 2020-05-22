@@ -1,7 +1,7 @@
 with customer as (
 
     select *
-    from {{ source('stripe', 'customer') }}
+    from `dbt-package-testing`.`stripe`.`customer`
 
 ), fields as (
 

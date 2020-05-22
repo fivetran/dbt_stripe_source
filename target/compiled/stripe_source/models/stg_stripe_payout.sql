@@ -1,7 +1,7 @@
 with payout as (
 
     select *
-    from {{ source('stripe', 'payout') }}
+    from `dbt-package-testing`.`stripe`.`payout`
 
 ), fields as (
 

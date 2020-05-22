@@ -1,7 +1,7 @@
 with charge as (
 
     select *
-    from {{ source('stripe', 'charge') }}
+    from `dbt-package-testing`.`stripe`.`charge`
 
 ), fields as (
 

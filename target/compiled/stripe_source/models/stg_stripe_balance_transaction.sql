@@ -1,7 +1,7 @@
 with balance_transaction as (
 
     select *
-    from {{ source('stripe', 'balance_transaction') }}
+    from `dbt-package-testing`.`stripe`.`balance_transaction`
 
 ), fields as (
 
