@@ -1,8 +1,9 @@
 version: 2
-
 sources:
   - name: stripe
-    
+    database: "{{var ('stripe_database', target.database)}}"
+    schema: "{{var ('stripe_schema', 'stripe')}}"
+
     loader: fivetran
     loaded_at_field: _fivetran_synced
       
@@ -24,7 +25,7 @@ sources:
           - name: amount
             description: Gross amount of the transaction, in cents.
           - name: available_on
-            description:
+            description: The date the transaction’s net funds will become available in the Stripe balance.
           - name: created
             description: Timestamp of when the transaction was created.
           - name: currency
@@ -32,7 +33,7 @@ sources:
           - name: description
             description: An arbitrary string attached to the object. Often useful for displaying to users.
           - name: exchange_rate
-            description:
+            description: The exchange rate used, if applicable, for this transaction. Specifically, if money was converted from currency A to currency B, then the amount in currency A, times exchange_rate, would be the amount in currency B.
           - name: fee
             description: fees (in cents) paid for this transaction.
           - name: net
