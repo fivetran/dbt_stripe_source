@@ -9,7 +9,7 @@ with balance_transaction as (
       id as balance_transaction_id,
       amount,
       available_on,
-      created,
+      created as created_at,
       currency,
       description,
       exchange_rate,

@@ -15,6 +15,7 @@ with charge as (
       card_id,
       created as created_at,
       customer_id,
+      currency,
       description,
       failure_code,
       failure_message,
