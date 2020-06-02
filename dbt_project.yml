@@ -7,4 +7,17 @@ models:
     stripe_source:
         materialized: ephemeral
 
+vars:
+  stripe_source:
+    balance_transaction: "{{ source('stripe', 'balance_transaction') }}"
+    card: "{{ source('stripe', 'card') }}"
+    charge: "{{ source('stripe', 'charge') }}"
+    customer: "{{ source('stripe', 'customer') }}"
+    fee: "{{ source('stripe', 'fee') }}"
+    payment_intent: "{{ source('stripe', 'payment_intent') }}"
+    payment_method_card: "{{ source('stripe', 'payment_method_card') }}"
+    payment_method: "{{ source('stripe', 'payment_method') }}"
+    payout: "{{ source('stripe', 'payout') }}"
+    refund: "{{ source('stripe', 'refund') }}"
+
 profile: dbt_test
