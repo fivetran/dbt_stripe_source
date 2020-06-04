@@ -116,7 +116,7 @@ sources:
 
       - name: customer
         description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer. The API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.
-        loaded_at_field: _fivetran_synced
+        freshness: null
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -175,7 +175,7 @@ sources:
 
       - name: payment_intent
         description: A PaymentIntent guides you through the process of collecting a payment from your customer.
-        loaded_at_field: _fivetran_synced
+        freshness: null
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -230,7 +230,7 @@ sources:
 
       - name: payment_method
         description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
-        loaded_at_field: _fivetran_synced
+        freshness: null
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -280,7 +280,7 @@ sources:
 
       - name: refund
         description: Details of transactions that have been refunded
-        loaded_at_field: _fivetran_synced
+        freshness: null
         columns:
           - name: id 
             description: Unique identifier for the object.
