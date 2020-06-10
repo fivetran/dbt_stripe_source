@@ -14,7 +14,6 @@ with invoice as (
       amount_remaining,
       attempt_count,
       auto_advance,
-      billing,
       billing_reason,
       charge_id,
       created as created_at,
