@@ -12,9 +12,10 @@ with card as (
       created as created_at,
       customer_id,
       name,
-      recipient
+      recipient,
+      funding
     from card
-    where not is_deleted
+    where not coalesce(is_deleted, false)
 
 )
 

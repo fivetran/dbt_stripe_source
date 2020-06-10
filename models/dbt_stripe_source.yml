@@ -306,4 +306,114 @@ sources:
           - name: status 
             description: Status of the refund. For credit card refunds, this can be pending, succeeded, or failed. For other types of refunds, it can be pending, succeeded, failed, or canceled.
 
+      - name: invoice_line_item
+        description: The different items that an invoice contains
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: invoice_id 
+            description: The ID of the invoice this item is a part of
+          - name: amount 
+            description: The amount, in cents.
+          - name: currency 
+            description: Three-letter ISO currency code, in lowercase.
+          - name: description 
+            description: An arbitrary string attached to the object. Often useful for displaying to users.
+          - name: discountable 
+            description: If true, discounts will apply to this line item. Always false for prorations.
+          - name: plan_id 
+            description: The ID of the plan of the subscription, if the line item is a subscription or a proration.
+          - name: proration 
+            description: Whether this is a proration.
+          - name: quantity 
+            description: The quantity of the subscription, if the line item is a subscription or a proration.
+          - name: subscription_id 
+            description: The ID of the subscription that the invoice item pertains to, if any.
+          - name: subscription_item_id 
+            description: The subscription item that generated this invoice item. Left empty if the line item is not an explicit result of a subscription.
+          - name: type 
+            description: A string identifying the type of the source of this line item, either an invoiceitem or a subscription.
+          - name: unique_id 
+            description: A unique id generated for old invoice ID's from a past version of the API
+
+      - name: invoice
+        description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: amount_due 
+            description: Final amount due at this time for this invoice. If the invoice’s total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the amount_due may be 0. If there is a positive starting_balance for the invoice (the customer owes money), the amount_due will also take that into account. The charge that gets generated for the invoice will be for the amount specified in amount_due.
+          - name: amount_paid 
+            description: The amount, in cents, that was paid.
+          - name: amount_remaining 
+            description: The amount remaining, in cents, that is due.
+          - name: attempt_count 
+            description: Number of payment attempts made for this invoice, from the perspective of the payment retry schedule.
+          - name: auto_advance 
+            description: Controls whether Stripe will perform automatic collection of the invoice. When false, the invoice’s state will not automatically advance without an explicit action.
+          - name: billing_reason 
+            description: Indicates the reason why the invoice was created.
+          - name: charge_id 
+            description: ID of the latest charge generated for this invoice, if any.
+          - name: created 
+            description: Time at which the object was created.
+          - name: currency 
+            description: Three-letter ISO currency code, in lowercase.
+          - name: customer_id 
+            description: The ID of the customer who will be billed.
+          - name: due_date 
+            description: The date on which payment for this invoice is due. This value will be null for invoices where collection_method=charge_automatically.
+          - name: number 
+            description: A unique, identifying string that appears on emails sent to the customer for this invoice. This starts with the customer’s unique invoice_prefix if it is specified.
+          - name: paid 
+            description: Whether payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer’s account balance.
+          - name: receipt_number 
+            description: This is the transaction number that appears on email receipts sent for this invoice.
+          - name: status 
+            description: Status of the invoice.
+          - name: subtotal 
+            description: Total of all subscriptions, invoice items, and prorations on the invoice before any discount or tax is applied.
+          - name: tax 
+            description: The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice.
+          - name: tax_percent 
+            description: The percent used to calculate the tax amount.
+          - name: total 
+            description: Total after discounts and taxes.  
+
+      - name: subscription
+        description: Subscriptions allow you to charge a customer on a recurring basis.
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: status 
+            description: Possible values are incomplete, incomplete_expired, trialing, active, past_due, canceled, or unpaid.
+          - name: billing 
+            description: How the invoice is billed
+          - name: billing_cycle_anchor 
+            description: Determines the date of the first full invoice, and, for plans with month or year intervals, the day of the month for subsequent invoices.
+          - name: cancel_at 
+            description: A date in the future at which the subscription will automatically get canceled
+          - name: cancel_at_period_end 
+            description: Boolean indicating whether this subscription should cancel at the end of the current period.
+          - name: canceled_at 
+            description: If the subscription has been canceled, the date of that cancellation.
+          - name: created 
+            description: Time at which the object was created.
+          - name: current_period_start 
+            description: Start of the current period that the subscription has been invoiced for.
+          - name: current_period_end 
+            description: End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.
+          - name: customer_id 
+            description: ID of the customer who owns the subscription.
+          - name: days_until_due 
+            description: Number of days a customer has to pay invoices generated by this subscription. This value will be null for subscriptions where collection_method=charge_automatically.
+          - name: start_date 
+            description: Date when the subscription was first created. The date might differ from the created date due to backdating.
+          - name: ended_at 
+            description: If the subscription has ended, the date the subscription ended.
+
+          
 
