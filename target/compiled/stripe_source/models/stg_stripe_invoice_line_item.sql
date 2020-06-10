@@ -8,12 +8,12 @@ with invoice_line_item as (
 ), fields as (
 
     select
-      id,
+      id as invoice_line_item_id,
       invoice_id,
       amount,
       currency,
       description,
-      discountable,
+      discountable as is_discountable,
       plan_id,
       proration,
       quantity,
@@ -22,6 +22,7 @@ with invoice_line_item as (
       type,
       unique_id
     from invoice_line_item
+    where id not like 'sub%'
 
 )
 

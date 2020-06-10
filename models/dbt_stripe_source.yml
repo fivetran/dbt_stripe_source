@@ -363,6 +363,8 @@ sources:
             description: Three-letter ISO currency code, in lowercase.
           - name: customer_id 
             description: The ID of the customer who will be billed.
+          - name: description 
+            description: An arbitrary string attached to the object. Often useful for displaying to users. Referenced as ‘memo’ in the Dashboard.
           - name: due_date 
             description: The date on which payment for this invoice is due. This value will be null for invoices where collection_method=charge_automatically.
           - name: number 

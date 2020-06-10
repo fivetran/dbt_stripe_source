@@ -8,7 +8,7 @@ with subscription as (
 ), fields as (
 
     select
-      id,
+      id as subscription_id,
       status,
       billing,
       billing_cycle_anchor,

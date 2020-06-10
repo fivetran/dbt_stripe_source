@@ -15,7 +15,7 @@ with subscription as (
       cancel_at,
       cancel_at_period_end,
       canceled_at,
-      created,
+      created as created_at,
       current_period_start,
       current_period_end,
       customer_id,
