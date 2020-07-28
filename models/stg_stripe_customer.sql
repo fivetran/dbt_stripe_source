@@ -1,7 +1,7 @@
 with customer as (
 
     select *
-    from {{ source('stripe', 'customer') }}
+    from {{ var('customer') }}
 
 ), fields as (
 
@@ -11,7 +11,7 @@ with customer as (
       created as created_at,
       currency,
       default_card_id,
-      delinquent as is_deliguent,
+      delinquent as is_delinquent,
       description,
       email,
       shipping_address_city,

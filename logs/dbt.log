@@ -2334,3 +2334,3329 @@ dbt.exceptions.CompilationException: Compilation Error in model stg_stripe_invoi
 2020-06-10 18:17:20.843532 (MainThread): 11:17:20 | Done.
 2020-06-10 18:17:20.843886 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xa21d26250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xa22275210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xa22209290>]}
 2020-06-10 18:17:20.844203 (MainThread): Flushing usage events
+2020-07-23 18:22:57.319217 (MainThread): Running with dbt=0.17.0-rc1
+2020-07-23 18:22:57.683655 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, fail_fast=False, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/kristin/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-07-23 18:22:57.685378 (MainThread): Tracking: tracking
+2020-07-23 18:22:57.696890 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2cab50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dadb3a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dadb9a0>]}
+2020-07-23 18:22:57.729538 (MainThread): Partial parsing not enabled
+2020-07-23 18:22:57.732440 (MainThread): Parsing macros/core.sql
+2020-07-23 18:22:57.740809 (MainThread): Parsing macros/materializations/helpers.sql
+2020-07-23 18:22:57.753302 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-07-23 18:22:57.756898 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-07-23 18:22:57.783437 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-07-23 18:22:57.826051 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-07-23 18:22:57.855981 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-07-23 18:22:57.858734 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-07-23 18:22:57.867816 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-07-23 18:22:57.887677 (MainThread): Parsing macros/materializations/table/table.sql
+2020-07-23 18:22:57.896931 (MainThread): Parsing macros/materializations/view/view.sql
+2020-07-23 18:22:57.905900 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-07-23 18:22:57.911985 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-07-23 18:22:57.913318 (MainThread): Parsing macros/etc/query.sql
+2020-07-23 18:22:57.914781 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-07-23 18:22:57.917081 (MainThread): Parsing macros/etc/datetime.sql
+2020-07-23 18:22:57.929390 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-07-23 18:22:57.931919 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-07-23 18:22:57.933823 (MainThread): Parsing macros/adapters/common.sql
+2020-07-23 18:22:57.999570 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-07-23 18:22:58.001333 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-07-23 18:22:58.002968 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-07-23 18:22:58.004773 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-07-23 18:22:58.008115 (MainThread): Parsing macros/etc.sql
+2020-07-23 18:22:58.009379 (MainThread): Parsing macros/catalog.sql
+2020-07-23 18:22:58.017769 (MainThread): Parsing macros/adapters.sql
+2020-07-23 18:22:58.038057 (MainThread): Parsing macros/materializations/seed.sql
+2020-07-23 18:22:58.040727 (MainThread): Parsing macros/materializations/view.sql
+2020-07-23 18:22:58.043556 (MainThread): Parsing macros/materializations/table.sql
+2020-07-23 18:22:58.055954 (MainThread): Parsing macros/materializations/incremental.sql
+2020-07-23 18:22:58.071903 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-07-23 18:22:58.097585 (MainThread): Partial parsing not enabled
+2020-07-23 18:22:58.175859 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_card".
+2020-07-23 18:22:58.176043 (MainThread): Opening a new connection, currently in state init
+2020-07-23 18:22:58.201695 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice_line_item".
+2020-07-23 18:22:58.201845 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.217951 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method_card".
+2020-07-23 18:22:58.218123 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.233162 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_charge".
+2020-07-23 18:22:58.233300 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.247677 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payout".
+2020-07-23 18:22:58.247810 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.261052 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_customer".
+2020-07-23 18:22:58.261184 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.273518 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_refund".
+2020-07-23 18:22:58.273683 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.286546 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_subscription".
+2020-07-23 18:22:58.286751 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.301181 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method".
+2020-07-23 18:22:58.301353 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.314509 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_intent".
+2020-07-23 18:22:58.314632 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.327635 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice".
+2020-07-23 18:22:58.327763 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.341685 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_fee".
+2020-07-23 18:22:58.341822 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:22:58.354540 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_balance_transaction".
+2020-07-23 18:22:58.354707 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:01.203533 (MainThread): WARNING: Found documentation for resource "payment_method_card" which was not found or is disabled
+2020-07-23 18:23:01.769291 (MainThread): Found 13 models, 34 tests, 0 snapshots, 0 analyses, 146 macros, 0 operations, 0 seed files, 13 sources
+2020-07-23 18:23:01.828464 (MainThread): 
+2020-07-23 18:23:01.829021 (MainThread): Acquiring new bigquery connection "master".
+2020-07-23 18:23:01.829149 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:01.859351 (ThreadPoolExecutor-0_0): Acquiring new bigquery connection "list_dbt-package-testing".
+2020-07-23 18:23:01.859624 (ThreadPoolExecutor-0_0): Opening a new connection, currently in state init
+2020-07-23 18:23:01.861944 (ThreadPoolExecutor-0_0): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:23:03.777556 (ThreadPoolExecutor-1_0): Acquiring new bigquery connection "list_dbt-package-testing_dbt_kristin_2".
+2020-07-23 18:23:03.777887 (ThreadPoolExecutor-1_0): Re-using an available connection from the pool (formerly list_dbt-package-testing).
+2020-07-23 18:23:03.778028 (ThreadPoolExecutor-1_0): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:03.968067 (MainThread): Acquiring new bigquery connection "master".
+2020-07-23 18:23:03.968243 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:03.968574 (MainThread): 11:23:03 | Concurrency: 4 threads (target='dev_bigquery_dbt_testing')
+2020-07-23 18:23:03.968800 (MainThread): 11:23:03 | 
+2020-07-23 18:23:03.974366 (Thread-1): Began running node model.stripe_source.stg_stripe_balance_transaction
+2020-07-23 18:23:03.974614 (Thread-1): 11:23:03 | 1 of 13 START table model dbt_kristin_2.stg_stripe_balance_transaction [RUN]
+2020-07-23 18:23:03.974797 (Thread-2): Began running node model.stripe_source.stg_stripe_card
+2020-07-23 18:23:03.975213 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_balance_transaction".
+2020-07-23 18:23:03.975326 (Thread-2): 11:23:03 | 2 of 13 START table model dbt_kristin_2.stg_stripe_card.............. [RUN]
+2020-07-23 18:23:03.975454 (Thread-3): Began running node model.stripe_source.stg_stripe_charge
+2020-07-23 18:23:03.975618 (Thread-4): Began running node model.stripe_source.stg_stripe_customer
+2020-07-23 18:23:03.975742 (Thread-1): Re-using an available connection from the pool (formerly list_dbt-package-testing_dbt_kristin_2).
+2020-07-23 18:23:03.976129 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_card".
+2020-07-23 18:23:03.976249 (Thread-3): 11:23:03 | 3 of 13 START table model dbt_kristin_2.stg_stripe_charge............ [RUN]
+2020-07-23 18:23:03.976417 (Thread-4): 11:23:03 | 4 of 13 START table model dbt_kristin_2.stg_stripe_customer.......... [RUN]
+2020-07-23 18:23:03.976572 (Thread-1): Compiling model.stripe_source.stg_stripe_balance_transaction
+2020-07-23 18:23:03.976687 (Thread-2): Opening a new connection, currently in state init
+2020-07-23 18:23:03.977044 (Thread-3): Acquiring new bigquery connection "model.stripe_source.stg_stripe_charge".
+2020-07-23 18:23:03.977497 (Thread-4): Acquiring new bigquery connection "model.stripe_source.stg_stripe_customer".
+2020-07-23 18:23:03.988359 (Thread-2): Compiling model.stripe_source.stg_stripe_card
+2020-07-23 18:23:04.008749 (Thread-3): Opening a new connection, currently in state init
+2020-07-23 18:23:04.008951 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_balance_transaction"
+2020-07-23 18:23:04.009206 (Thread-4): Opening a new connection, currently in state init
+2020-07-23 18:23:04.020669 (Thread-3): Compiling model.stripe_source.stg_stripe_charge
+2020-07-23 18:23:04.025686 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_card"
+2020-07-23 18:23:04.026049 (Thread-4): Compiling model.stripe_source.stg_stripe_customer
+2020-07-23 18:23:04.043271 (Thread-3): Writing injected SQL for node "model.stripe_source.stg_stripe_charge"
+2020-07-23 18:23:04.043553 (Thread-1): finished collecting timing info
+2020-07-23 18:23:04.058485 (Thread-4): Writing injected SQL for node "model.stripe_source.stg_stripe_customer"
+2020-07-23 18:23:04.063943 (Thread-2): finished collecting timing info
+2020-07-23 18:23:04.084766 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:04.089525 (Thread-3): finished collecting timing info
+2020-07-23 18:23:04.090554 (Thread-4): finished collecting timing info
+2020-07-23 18:23:04.090901 (Thread-2): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:23:04.096532 (Thread-3): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:23:04.111254 (Thread-4): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:23:04.286682 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_balance_transaction"
+2020-07-23 18:23:04.287988 (Thread-1): On model.stripe_source.stg_stripe_balance_transaction: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_balance_transaction"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_balance_transaction`
+  
+  
+  OPTIONS()
+  as (
+    with balance_transaction as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`balance_transaction`
+
+), fields as (
+
+    select 
+      id as balance_transaction_id,
+      amount,
+      available_on,
+      created as created_at,
+      currency,
+      description,
+      exchange_rate,
+      fee,
+      net,
+      source,
+      status,
+      type
+    from balance_transaction
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:05.312767 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:05.387408 (Thread-4): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:05.505564 (Thread-3): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:05.652328 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_card"
+2020-07-23 18:23:05.652854 (Thread-2): On model.stripe_source.stg_stripe_card: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_card"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_card`
+  
+  
+  OPTIONS()
+  as (
+    with card as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`card`
+
+), fields as (
+
+    select 
+      id as card_id,
+      brand,
+      country,
+      created as created_at,
+      customer_id,
+      name,
+      recipient,
+      funding
+    from card
+    where not coalesce(is_deleted, false)
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:05.709013 (Thread-4): Writing runtime SQL for node "model.stripe_source.stg_stripe_customer"
+2020-07-23 18:23:05.709564 (Thread-4): On model.stripe_source.stg_stripe_customer: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_customer"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_customer`
+  
+  
+  OPTIONS()
+  as (
+    with customer as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`customer`
+
+), fields as (
+
+    select 
+      id as customer_id,
+      account_balance,
+      created as created_at,
+      currency,
+      default_card_id,
+      delinquent as is_delinquent,
+      description,
+      email,
+      shipping_address_city,
+      shipping_address_country,
+      shipping_address_line_1,
+      shipping_address_line_2,
+      shipping_address_postal_code,
+      shipping_address_state,
+      shipping_name,
+      shipping_phone
+    from customer
+    where not is_deleted
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:05.820647 (Thread-3): Writing runtime SQL for node "model.stripe_source.stg_stripe_charge"
+2020-07-23 18:23:05.821288 (Thread-3): On model.stripe_source.stg_stripe_charge: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_charge"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_charge`
+  
+  
+  OPTIONS()
+  as (
+    with charge as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`charge`
+
+), fields as (
+
+    select 
+      id as charge_id, 
+      amount,
+      amount_refunded,
+      application_fee_amount,
+      balance_transaction_id,
+      captured as is_captured,
+      card_id,
+      created as created_at,
+      customer_id,
+      currency,
+      description,
+      failure_code,
+      failure_message,
+      paid as is_paid,
+      payment_intent_id,
+      receipt_email,
+      receipt_number,
+      refunded as is_refunded,
+      status,
+      invoice_id
+    from charge
+    
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:06.286247 (Thread-1): finished collecting timing info
+2020-07-23 18:23:06.287564 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de8deb0>]}
+2020-07-23 18:23:06.287978 (Thread-1): 11:23:06 | 1 of 13 OK created table model dbt_kristin_2.stg_stripe_balance_transaction [CREATE TABLE (8) in 2.31s]
+2020-07-23 18:23:06.288155 (Thread-1): Finished running node model.stripe_source.stg_stripe_balance_transaction
+2020-07-23 18:23:06.288401 (Thread-1): Began running node model.stripe_source.stg_stripe_fee
+2020-07-23 18:23:06.288624 (Thread-1): 11:23:06 | 5 of 13 START table model dbt_kristin_2.stg_stripe_fee............... [RUN]
+2020-07-23 18:23:06.289338 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_fee".
+2020-07-23 18:23:06.289457 (Thread-1): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_balance_transaction).
+2020-07-23 18:23:06.289579 (Thread-1): Compiling model.stripe_source.stg_stripe_fee
+2020-07-23 18:23:06.304750 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_fee"
+2020-07-23 18:23:06.305357 (Thread-1): finished collecting timing info
+2020-07-23 18:23:06.311813 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:06.459396 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_fee"
+2020-07-23 18:23:06.459963 (Thread-1): On model.stripe_source.stg_stripe_fee: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_fee"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_fee`
+  
+  
+  OPTIONS()
+  as (
+    with fee as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`fee`
+
+), fields as (
+
+    select 
+      balance_transaction_id,
+      amount,
+      application,
+      currency,
+      description,
+      type
+    from fee
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:07.320529 (Thread-2): finished collecting timing info
+2020-07-23 18:23:07.321389 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e019130>]}
+2020-07-23 18:23:07.321693 (Thread-2): 11:23:07 | 2 of 13 OK created table model dbt_kristin_2.stg_stripe_card......... [CREATE TABLE (4) in 3.35s]
+2020-07-23 18:23:07.321839 (Thread-2): Finished running node model.stripe_source.stg_stripe_card
+2020-07-23 18:23:07.321986 (Thread-2): Began running node model.stripe_source.stg_stripe_invoice
+2020-07-23 18:23:07.322248 (Thread-2): 11:23:07 | 6 of 13 START table model dbt_kristin_2.stg_stripe_invoice........... [RUN]
+2020-07-23 18:23:07.322573 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice".
+2020-07-23 18:23:07.322673 (Thread-2): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_card).
+2020-07-23 18:23:07.322770 (Thread-2): Compiling model.stripe_source.stg_stripe_invoice
+2020-07-23 18:23:07.344317 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_invoice"
+2020-07-23 18:23:07.344816 (Thread-2): finished collecting timing info
+2020-07-23 18:23:07.349867 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:07.455896 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_invoice"
+2020-07-23 18:23:07.456575 (Thread-2): On model.stripe_source.stg_stripe_invoice: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice`
+
+), fields as (
+
+    select
+      id as invoice_id,
+      amount_due,
+      amount_paid,
+      amount_remaining,
+      attempt_count,
+      auto_advance,
+      billing_reason,
+      charge_id,
+      created as created_at,
+      currency,
+      customer_id,
+      description,
+      due_date,
+      number,
+      paid as is_paid,
+      receipt_number,
+      status,
+      subtotal,
+      tax,
+      tax_percent,
+      total
+    from invoice
+    where not coalesce(is_deleted, false)
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:23:07.657838 (Thread-2): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice`
+
+), fields as (
+
+    select
+      id as invoice_id,
+      amount_due,
+      amount_paid,
+      amount_remaining,
+      attempt_count,
+      auto_advance,
+      billing_reason,
+      charge_id,
+      created as created_at,
+      currency,
+      customer_id,
+      description,
+      due_date,
+      number,
+      paid as is_paid,
+      receipt_number,
+      status,
+      subtotal,
+      tax,
+      tax_percent,
+      total
+    from invoice
+    where not coalesce(is_deleted, false)
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:23:07.658012 (Thread-2): 404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+
+(job ID: f70fc7b1-a2e5-4370-b319-7d964e46b00f)
+
+                                                                             -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_id,
+  20:      amount_due,
+  21:      amount_paid,
+  22:      amount_remaining,
+  23:      attempt_count,
+  24:      auto_advance,
+  25:      billing_reason,
+  26:      charge_id,
+  27:      created as created_at,
+  28:      currency,
+  29:      customer_id,
+  30:      description,
+  31:      due_date,
+  32:      number,
+  33:      paid as is_paid,
+  34:      receipt_number,
+  35:      status,
+  36:      subtotal,
+  37:      tax,
+  38:      tax_percent,
+  39:      total
+  40:    from invoice
+  41:    where not coalesce(is_deleted, false)
+  42:
+  43:)
+  44:
+  45:select * from fields
+  46:  );
+  47:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:23:07.658201 (Thread-2): finished collecting timing info
+2020-07-23 18:23:07.658721 (Thread-2): Runtime Error in model stg_stripe_invoice (models/stg_stripe_invoice.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+  
+  (job ID: f70fc7b1-a2e5-4370-b319-7d964e46b00f)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+
+(job ID: f70fc7b1-a2e5-4370-b319-7d964e46b00f)
+
+                                                                             -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_id,
+  20:      amount_due,
+  21:      amount_paid,
+  22:      amount_remaining,
+  23:      attempt_count,
+  24:      auto_advance,
+  25:      billing_reason,
+  26:      charge_id,
+  27:      created as created_at,
+  28:      currency,
+  29:      customer_id,
+  30:      description,
+  31:      due_date,
+  32:      number,
+  33:      paid as is_paid,
+  34:      receipt_number,
+  35:      status,
+  36:      subtotal,
+  37:      tax,
+  38:      tax_percent,
+  39:      total
+  40:    from invoice
+  41:    where not coalesce(is_deleted, false)
+  42:
+  43:)
+  44:
+  45:select * from fields
+  46:  );
+  47:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_invoice (models/stg_stripe_invoice.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+  
+  (job ID: f70fc7b1-a2e5-4370-b319-7d964e46b00f)
+2020-07-23 18:23:07.670281 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc4ab50>]}
+2020-07-23 18:23:07.670554 (Thread-2): 11:23:07 | 6 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_invoice.. [ERROR in 0.35s]
+2020-07-23 18:23:07.670693 (Thread-2): Finished running node model.stripe_source.stg_stripe_invoice
+2020-07-23 18:23:07.670843 (Thread-2): Began running node model.stripe_source.stg_stripe_invoice_line_item
+2020-07-23 18:23:07.671187 (Thread-2): 11:23:07 | 7 of 13 START table model dbt_kristin_2.stg_stripe_invoice_line_item. [RUN]
+2020-07-23 18:23:07.671479 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice_line_item".
+2020-07-23 18:23:07.671574 (Thread-2): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_invoice).
+2020-07-23 18:23:07.671664 (Thread-2): Compiling model.stripe_source.stg_stripe_invoice_line_item
+2020-07-23 18:23:07.688762 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_invoice_line_item"
+2020-07-23 18:23:07.689486 (Thread-2): finished collecting timing info
+2020-07-23 18:23:07.694724 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:07.793884 (Thread-3): finished collecting timing info
+2020-07-23 18:23:07.794609 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dcce700>]}
+2020-07-23 18:23:07.794869 (Thread-3): 11:23:07 | 3 of 13 OK created table model dbt_kristin_2.stg_stripe_charge....... [CREATE TABLE (4) in 3.82s]
+2020-07-23 18:23:07.795011 (Thread-3): Finished running node model.stripe_source.stg_stripe_charge
+2020-07-23 18:23:07.795157 (Thread-3): Began running node model.stripe_source.stg_stripe_payment_intent
+2020-07-23 18:23:07.795412 (Thread-3): 11:23:07 | 8 of 13 START table model dbt_kristin_2.stg_stripe_payment_intent.... [RUN]
+2020-07-23 18:23:07.795701 (Thread-3): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_intent".
+2020-07-23 18:23:07.795809 (Thread-3): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_charge).
+2020-07-23 18:23:07.795931 (Thread-3): Compiling model.stripe_source.stg_stripe_payment_intent
+2020-07-23 18:23:07.815396 (Thread-3): Writing injected SQL for node "model.stripe_source.stg_stripe_payment_intent"
+2020-07-23 18:23:07.815864 (Thread-3): finished collecting timing info
+2020-07-23 18:23:07.822348 (Thread-3): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:07.885371 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_invoice_line_item"
+2020-07-23 18:23:07.886819 (Thread-2): On model.stripe_source.stg_stripe_invoice_line_item: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice_line_item as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+
+), fields as (
+
+    select
+      id as invoice_line_item_id,
+      invoice_id,
+      amount,
+      currency,
+      description,
+      discountable as is_discountable,
+      plan_id,
+      proration,
+      quantity,
+      subscription_id,
+      subscription_item_id,
+      type,
+      unique_id
+    from invoice_line_item
+    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:23:07.959921 (Thread-3): Writing runtime SQL for node "model.stripe_source.stg_stripe_payment_intent"
+2020-07-23 18:23:07.961140 (Thread-3): On model.stripe_source.stg_stripe_payment_intent: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payment_intent"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payment_intent`
+  
+  
+  OPTIONS()
+  as (
+    with payment_intent as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payment_intent`
+
+), fields as (
+
+    select 
+      id as payment_intent_id,
+      amount,
+      amount_capturable,
+      amount_received,
+      application,
+      application_fee_amount,
+      canceled_at,
+      cancellation_reason,
+      capture_method,
+      confirmation_method,
+      created as created_at,
+      currency,
+      customer_id,
+      description,
+      payment_method_id,
+      receipt_email,
+      statement_descriptor,
+      status
+    from payment_intent
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:07.971015 (Thread-4): finished collecting timing info
+2020-07-23 18:23:07.972079 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc1c4c0>]}
+2020-07-23 18:23:07.972397 (Thread-4): 11:23:07 | 4 of 13 OK created table model dbt_kristin_2.stg_stripe_customer..... [CREATE TABLE (1) in 3.99s]
+2020-07-23 18:23:07.972557 (Thread-4): Finished running node model.stripe_source.stg_stripe_customer
+2020-07-23 18:23:07.972729 (Thread-4): Began running node model.stripe_source.stg_stripe_payment_method
+2020-07-23 18:23:07.973048 (Thread-4): 11:23:07 | 9 of 13 START table model dbt_kristin_2.stg_stripe_payment_method.... [RUN]
+2020-07-23 18:23:07.973382 (Thread-4): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method".
+2020-07-23 18:23:07.973584 (Thread-4): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_customer).
+2020-07-23 18:23:07.973725 (Thread-4): Compiling model.stripe_source.stg_stripe_payment_method
+2020-07-23 18:23:07.988577 (Thread-4): Writing injected SQL for node "model.stripe_source.stg_stripe_payment_method"
+2020-07-23 18:23:07.989110 (Thread-4): finished collecting timing info
+2020-07-23 18:23:07.995925 (Thread-4): Writing runtime SQL for node "model.stripe_source.stg_stripe_payment_method"
+2020-07-23 18:23:07.997063 (Thread-4): On model.stripe_source.stg_stripe_payment_method: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payment_method"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payment_method`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with payment_method as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payment_method`
+
+), fields as (
+
+    select 
+      id as payment_method_id,
+      created as created_at,
+      customer_id,
+      type
+    from payment_method
+    where not is_deleted
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:08.080274 (Thread-1): finished collecting timing info
+2020-07-23 18:23:08.080913 (Thread-2): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice_line_item as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+
+), fields as (
+
+    select
+      id as invoice_line_item_id,
+      invoice_id,
+      amount,
+      currency,
+      description,
+      discountable as is_discountable,
+      plan_id,
+      proration,
+      quantity,
+      subscription_id,
+      subscription_item_id,
+      type,
+      unique_id
+    from invoice_line_item
+    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:23:08.081496 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df35820>]}
+2020-07-23 18:23:08.081700 (Thread-2): 404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+
+(job ID: a4e923cc-bc31-4ed0-b805-7aaa2ce96d48)
+
+                                                                                  -----Query Job SQL Follows-----                                                                                  
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice_line_item as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_line_item_id,
+  20:      invoice_id,
+  21:      amount,
+  22:      currency,
+  23:      description,
+  24:      discountable as is_discountable,
+  25:      plan_id,
+  26:      proration,
+  27:      quantity,
+  28:      subscription_id,
+  29:      subscription_item_id,
+  30:      type,
+  31:      unique_id
+  32:    from invoice_line_item
+  33:    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:23:08.082012 (Thread-2): finished collecting timing info
+2020-07-23 18:23:08.082702 (Thread-1): 11:23:08 | 5 of 13 OK created table model dbt_kristin_2.stg_stripe_fee.......... [CREATE TABLE (4) in 1.79s]
+2020-07-23 18:23:08.082890 (Thread-1): Finished running node model.stripe_source.stg_stripe_fee
+2020-07-23 18:23:08.083092 (Thread-1): Began running node model.stripe_source.stg_stripe_payment_method_card
+2020-07-23 18:23:08.083515 (Thread-1): 11:23:08 | 10 of 13 START table model dbt_kristin_2.stg_stripe_payment_method_card [RUN]
+2020-07-23 18:23:08.083814 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method_card".
+2020-07-23 18:23:08.083918 (Thread-1): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_fee).
+2020-07-23 18:23:08.084017 (Thread-1): Compiling model.stripe_source.stg_stripe_payment_method_card
+2020-07-23 18:23:08.094249 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_payment_method_card"
+2020-07-23 18:23:08.082403 (Thread-2): Runtime Error in model stg_stripe_invoice_line_item (models/stg_stripe_invoice_line_item.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+  
+  (job ID: a4e923cc-bc31-4ed0-b805-7aaa2ce96d48)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+
+(job ID: a4e923cc-bc31-4ed0-b805-7aaa2ce96d48)
+
+                                                                                  -----Query Job SQL Follows-----                                                                                  
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice_line_item as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_line_item_id,
+  20:      invoice_id,
+  21:      amount,
+  22:      currency,
+  23:      description,
+  24:      discountable as is_discountable,
+  25:      plan_id,
+  26:      proration,
+  27:      quantity,
+  28:      subscription_id,
+  29:      subscription_item_id,
+  30:      type,
+  31:      unique_id
+  32:    from invoice_line_item
+  33:    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_invoice_line_item (models/stg_stripe_invoice_line_item.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+  
+  (job ID: a4e923cc-bc31-4ed0-b805-7aaa2ce96d48)
+2020-07-23 18:23:08.095731 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dbfac40>]}
+2020-07-23 18:23:08.096290 (Thread-2): 11:23:08 | 7 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_invoice_line_item [ERROR in 0.42s]
+2020-07-23 18:23:08.096725 (Thread-2): Finished running node model.stripe_source.stg_stripe_invoice_line_item
+2020-07-23 18:23:08.097432 (Thread-1): finished collecting timing info
+2020-07-23 18:23:08.098379 (Thread-2): Began running node model.stripe_source.stg_stripe_payout
+2020-07-23 18:23:08.104197 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_payment_method_card"
+2020-07-23 18:23:08.104416 (Thread-2): 11:23:08 | 11 of 13 START table model dbt_kristin_2.stg_stripe_payout........... [RUN]
+2020-07-23 18:23:08.104937 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payout".
+2020-07-23 18:23:08.105048 (Thread-2): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_invoice_line_item).
+2020-07-23 18:23:08.105193 (Thread-2): Compiling model.stripe_source.stg_stripe_payout
+2020-07-23 18:23:08.123757 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_payout"
+2020-07-23 18:23:08.124148 (Thread-1): On model.stripe_source.stg_stripe_payment_method_card: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payment_method_card"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payment_method_card`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with payment_method_card as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payment_method_card`
+
+), fields as (
+
+    select 
+      payment_method_id,
+      brand,
+      funding
+    from payment_method_card
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:08.125523 (Thread-2): finished collecting timing info
+2020-07-23 18:23:08.134410 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:08.280361 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_payout"
+2020-07-23 18:23:08.280862 (Thread-2): On model.stripe_source.stg_stripe_payout: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payout"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payout`
+  
+  
+  OPTIONS()
+  as (
+    with payout as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payout`
+
+), fields as (
+
+    select 
+      id as payout_id,
+      amount,
+      arrival_date,
+      automatic as is_automatic,
+      balance_transaction_id,
+      created as created_at,
+      currency,
+      description,
+      method,
+      source_type,
+      status,
+      type
+    from payout
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:09.733478 (Thread-4): finished collecting timing info
+2020-07-23 18:23:09.734365 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dba2250>]}
+2020-07-23 18:23:09.734691 (Thread-4): 11:23:09 | 9 of 13 OK created table model dbt_kristin_2.stg_stripe_payment_method [CREATE TABLE (1) in 1.76s]
+2020-07-23 18:23:09.734847 (Thread-4): Finished running node model.stripe_source.stg_stripe_payment_method
+2020-07-23 18:23:09.735028 (Thread-4): Began running node model.stripe_source.stg_stripe_refund
+2020-07-23 18:23:09.735391 (Thread-4): 11:23:09 | 12 of 13 START table model dbt_kristin_2.stg_stripe_refund........... [RUN]
+2020-07-23 18:23:09.735741 (Thread-4): Acquiring new bigquery connection "model.stripe_source.stg_stripe_refund".
+2020-07-23 18:23:09.735843 (Thread-4): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_payment_method).
+2020-07-23 18:23:09.735939 (Thread-4): Compiling model.stripe_source.stg_stripe_refund
+2020-07-23 18:23:09.748773 (Thread-4): Writing injected SQL for node "model.stripe_source.stg_stripe_refund"
+2020-07-23 18:23:09.749252 (Thread-4): finished collecting timing info
+2020-07-23 18:23:09.755445 (Thread-4): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:09.912104 (Thread-4): Writing runtime SQL for node "model.stripe_source.stg_stripe_refund"
+2020-07-23 18:23:09.912643 (Thread-4): On model.stripe_source.stg_stripe_refund: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+  
+  
+  OPTIONS()
+  as (
+    with refund as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`refund`
+
+), fields as (
+
+    select 
+      id as refund_id,
+      amount,
+      balance_transaction_id,
+      charge_id,
+      created as created_at,
+      currency,
+      description,
+      reason,
+      receipt_number,
+      status
+    from refund
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:09.974672 (Thread-1): finished collecting timing info
+2020-07-23 18:23:09.976409 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10db08e20>]}
+2020-07-23 18:23:09.976726 (Thread-1): 11:23:09 | 10 of 13 OK created table model dbt_kristin_2.stg_stripe_payment_method_card [CREATE TABLE (1) in 1.89s]
+2020-07-23 18:23:09.976878 (Thread-1): Finished running node model.stripe_source.stg_stripe_payment_method_card
+2020-07-23 18:23:09.977034 (Thread-1): Began running node model.stripe_source.stg_stripe_subscription
+2020-07-23 18:23:09.977239 (Thread-1): 11:23:09 | 13 of 13 START table model dbt_kristin_2.stg_stripe_subscription..... [RUN]
+2020-07-23 18:23:09.977688 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_subscription".
+2020-07-23 18:23:09.977796 (Thread-1): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_payment_method_card).
+2020-07-23 18:23:09.977894 (Thread-1): Compiling model.stripe_source.stg_stripe_subscription
+2020-07-23 18:23:09.997501 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_subscription"
+2020-07-23 18:23:09.998356 (Thread-1): finished collecting timing info
+2020-07-23 18:23:10.007206 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:23:10.072863 (Thread-2): finished collecting timing info
+2020-07-23 18:23:10.073897 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dcb3640>]}
+2020-07-23 18:23:10.074250 (Thread-2): 11:23:10 | 11 of 13 OK created table model dbt_kristin_2.stg_stripe_payout...... [CREATE TABLE (4) in 1.97s]
+2020-07-23 18:23:10.074415 (Thread-2): Finished running node model.stripe_source.stg_stripe_payout
+2020-07-23 18:23:10.153498 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_subscription"
+2020-07-23 18:23:10.155281 (Thread-4): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+  
+  
+  OPTIONS()
+  as (
+    with refund as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`refund`
+
+), fields as (
+
+    select 
+      id as refund_id,
+      amount,
+      balance_transaction_id,
+      charge_id,
+      created as created_at,
+      currency,
+      description,
+      reason,
+      receipt_number,
+      status
+    from refund
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:23:10.155489 (Thread-4): 404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+
+(job ID: 7653122e-e85c-45b7-a376-c5d6d155d534)
+
+                                                                            -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    with refund as (
+  10:
+  11:    select *
+  12:    from `dbt-package-testing`.`stripe`.`refund`
+  13:
+  14:), fields as (
+  15:
+  16:    select 
+  17:      id as refund_id,
+  18:      amount,
+  19:      balance_transaction_id,
+  20:      charge_id,
+  21:      created as created_at,
+  22:      currency,
+  23:      description,
+  24:      reason,
+  25:      receipt_number,
+  26:      status
+  27:    from refund
+  28:
+  29:)
+  30:
+  31:select *
+  32:from fields
+  33:  );
+  34:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:23:10.155678 (Thread-4): finished collecting timing info
+2020-07-23 18:23:10.156170 (Thread-4): Runtime Error in model stg_stripe_refund (models/stg_stripe_refund.sql)
+  404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+  
+  (job ID: 7653122e-e85c-45b7-a376-c5d6d155d534)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+
+(job ID: 7653122e-e85c-45b7-a376-c5d6d155d534)
+
+                                                                            -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    with refund as (
+  10:
+  11:    select *
+  12:    from `dbt-package-testing`.`stripe`.`refund`
+  13:
+  14:), fields as (
+  15:
+  16:    select 
+  17:      id as refund_id,
+  18:      amount,
+  19:      balance_transaction_id,
+  20:      charge_id,
+  21:      created as created_at,
+  22:      currency,
+  23:      description,
+  24:      reason,
+  25:      receipt_number,
+  26:      status
+  27:    from refund
+  28:
+  29:)
+  30:
+  31:select *
+  32:from fields
+  33:  );
+  34:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_refund (models/stg_stripe_refund.sql)
+  404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+  
+  (job ID: 7653122e-e85c-45b7-a376-c5d6d155d534)
+2020-07-23 18:23:10.157234 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dece730>]}
+2020-07-23 18:23:10.157527 (Thread-4): 11:23:10 | 12 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_refund.. [ERROR in 0.42s]
+2020-07-23 18:23:10.157711 (Thread-1): On model.stripe_source.stg_stripe_subscription: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with subscription as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`subscription`
+
+), fields as (
+
+    select
+      id as subscription_id,
+      status,
+      billing,
+      billing_cycle_anchor,
+      cancel_at,
+      cancel_at_period_end,
+      canceled_at,
+      created as created_at,
+      current_period_start,
+      current_period_end,
+      customer_id,
+      days_until_due,
+      start_date,
+      ended_at
+    from subscription
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:23:10.157916 (Thread-4): Finished running node model.stripe_source.stg_stripe_refund
+2020-07-23 18:23:10.362944 (Thread-1): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with subscription as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`subscription`
+
+), fields as (
+
+    select
+      id as subscription_id,
+      status,
+      billing,
+      billing_cycle_anchor,
+      cancel_at,
+      cancel_at_period_end,
+      canceled_at,
+      created as created_at,
+      current_period_start,
+      current_period_end,
+      customer_id,
+      days_until_due,
+      start_date,
+      ended_at
+    from subscription
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:23:10.363104 (Thread-1): 404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+
+(job ID: 4c2bb42a-7042-4379-ba58-2b1636a0aaeb)
+
+                                                                               -----Query Job SQL Follows-----                                                                                
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with subscription as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`subscription`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as subscription_id,
+  20:      status,
+  21:      billing,
+  22:      billing_cycle_anchor,
+  23:      cancel_at,
+  24:      cancel_at_period_end,
+  25:      canceled_at,
+  26:      created as created_at,
+  27:      current_period_start,
+  28:      current_period_end,
+  29:      customer_id,
+  30:      days_until_due,
+  31:      start_date,
+  32:      ended_at
+  33:    from subscription
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:23:10.363266 (Thread-1): finished collecting timing info
+2020-07-23 18:23:10.363716 (Thread-1): Runtime Error in model stg_stripe_subscription (models/stg_stripe_subscription.sql)
+  404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+  
+  (job ID: 4c2bb42a-7042-4379-ba58-2b1636a0aaeb)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+
+(job ID: 4c2bb42a-7042-4379-ba58-2b1636a0aaeb)
+
+                                                                               -----Query Job SQL Follows-----                                                                                
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with subscription as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`subscription`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as subscription_id,
+  20:      status,
+  21:      billing,
+  22:      billing_cycle_anchor,
+  23:      cancel_at,
+  24:      cancel_at_period_end,
+  25:      canceled_at,
+  26:      created as created_at,
+  27:      current_period_start,
+  28:      current_period_end,
+  29:      customer_id,
+  30:      days_until_due,
+  31:      start_date,
+  32:      ended_at
+  33:    from subscription
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_subscription (models/stg_stripe_subscription.sql)
+  404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+  
+  (job ID: 4c2bb42a-7042-4379-ba58-2b1636a0aaeb)
+2020-07-23 18:23:10.364481 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dec51f0>]}
+2020-07-23 18:23:10.364761 (Thread-1): 11:23:10 | 13 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_subscription [ERROR in 0.39s]
+2020-07-23 18:23:10.364898 (Thread-1): Finished running node model.stripe_source.stg_stripe_subscription
+2020-07-23 18:23:10.388546 (Thread-3): finished collecting timing info
+2020-07-23 18:23:10.389809 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8524718b-ff46-41a1-bf24-1f45d639c4d6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc542b0>]}
+2020-07-23 18:23:10.390112 (Thread-3): 11:23:10 | 8 of 13 OK created table model dbt_kristin_2.stg_stripe_payment_intent [CREATE TABLE (4) in 2.59s]
+2020-07-23 18:23:10.390254 (Thread-3): Finished running node model.stripe_source.stg_stripe_payment_intent
+2020-07-23 18:23:10.391951 (MainThread): Acquiring new bigquery connection "master".
+2020-07-23 18:23:10.392095 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:10.392471 (MainThread): 11:23:10 | 
+2020-07-23 18:23:10.392607 (MainThread): 11:23:10 | Finished running 13 table models in 8.56s.
+2020-07-23 18:23:10.392715 (MainThread): Connection 'master' was properly closed.
+2020-07-23 18:23:10.392796 (MainThread): Connection 'model.stripe_source.stg_stripe_subscription' was left open.
+2020-07-23 18:23:10.392872 (MainThread): Connection 'model.stripe_source.stg_stripe_payout' was left open.
+2020-07-23 18:23:10.392945 (MainThread): Connection 'model.stripe_source.stg_stripe_payment_intent' was left open.
+2020-07-23 18:23:10.393017 (MainThread): Connection 'model.stripe_source.stg_stripe_refund' was left open.
+2020-07-23 18:23:10.458795 (MainThread): 
+2020-07-23 18:23:10.459084 (MainThread): Completed with 4 errors and 0 warnings:
+2020-07-23 18:23:10.459272 (MainThread): 
+2020-07-23 18:23:10.459455 (MainThread): Runtime Error in model stg_stripe_invoice (models/stg_stripe_invoice.sql)
+2020-07-23 18:23:10.459577 (MainThread):   404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+2020-07-23 18:23:10.459688 (MainThread):   
+2020-07-23 18:23:10.459814 (MainThread):   (job ID: f70fc7b1-a2e5-4370-b319-7d964e46b00f)
+2020-07-23 18:23:10.460035 (MainThread): 
+2020-07-23 18:23:10.460270 (MainThread): Runtime Error in model stg_stripe_invoice_line_item (models/stg_stripe_invoice_line_item.sql)
+2020-07-23 18:23:10.460597 (MainThread):   404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+2020-07-23 18:23:10.460750 (MainThread):   
+2020-07-23 18:23:10.460872 (MainThread):   (job ID: a4e923cc-bc31-4ed0-b805-7aaa2ce96d48)
+2020-07-23 18:23:10.460994 (MainThread): 
+2020-07-23 18:23:10.461126 (MainThread): Runtime Error in model stg_stripe_refund (models/stg_stripe_refund.sql)
+2020-07-23 18:23:10.461270 (MainThread):   404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+2020-07-23 18:23:10.461463 (MainThread):   
+2020-07-23 18:23:10.461626 (MainThread):   (job ID: 7653122e-e85c-45b7-a376-c5d6d155d534)
+2020-07-23 18:23:10.461833 (MainThread): 
+2020-07-23 18:23:10.462051 (MainThread): Runtime Error in model stg_stripe_subscription (models/stg_stripe_subscription.sql)
+2020-07-23 18:23:10.462237 (MainThread):   404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+2020-07-23 18:23:10.462419 (MainThread):   
+2020-07-23 18:23:10.462669 (MainThread):   (job ID: 4c2bb42a-7042-4379-ba58-2b1636a0aaeb)
+2020-07-23 18:23:10.462896 (MainThread): 
+Done. PASS=9 WARN=0 ERROR=4 SKIP=0 TOTAL=13
+2020-07-23 18:23:10.463189 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dbd41c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de8d520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df22940>]}
+2020-07-23 18:23:10.463430 (MainThread): Flushing usage events
+2020-07-23 18:23:39.860823 (MainThread): Running with dbt=0.17.0-rc1
+2020-07-23 18:23:40.132687 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, fail_fast=False, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/kristin/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-07-23 18:23:40.133817 (MainThread): Tracking: tracking
+2020-07-23 18:23:40.141855 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b38340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a349910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3497f0>]}
+2020-07-23 18:23:40.168826 (MainThread): Partial parsing not enabled
+2020-07-23 18:23:40.171085 (MainThread): Parsing macros/core.sql
+2020-07-23 18:23:40.177091 (MainThread): Parsing macros/materializations/helpers.sql
+2020-07-23 18:23:40.186740 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-07-23 18:23:40.189368 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-07-23 18:23:40.209033 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-07-23 18:23:40.245108 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-07-23 18:23:40.272684 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-07-23 18:23:40.274960 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-07-23 18:23:40.283441 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-07-23 18:23:40.300828 (MainThread): Parsing macros/materializations/table/table.sql
+2020-07-23 18:23:40.309139 (MainThread): Parsing macros/materializations/view/view.sql
+2020-07-23 18:23:40.316462 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-07-23 18:23:40.321968 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-07-23 18:23:40.323010 (MainThread): Parsing macros/etc/query.sql
+2020-07-23 18:23:40.324254 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-07-23 18:23:40.326028 (MainThread): Parsing macros/etc/datetime.sql
+2020-07-23 18:23:40.336703 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-07-23 18:23:40.339319 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-07-23 18:23:40.340585 (MainThread): Parsing macros/adapters/common.sql
+2020-07-23 18:23:40.395486 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-07-23 18:23:40.396725 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-07-23 18:23:40.397562 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-07-23 18:23:40.398554 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-07-23 18:23:40.401433 (MainThread): Parsing macros/etc.sql
+2020-07-23 18:23:40.402051 (MainThread): Parsing macros/catalog.sql
+2020-07-23 18:23:40.408327 (MainThread): Parsing macros/adapters.sql
+2020-07-23 18:23:40.428515 (MainThread): Parsing macros/materializations/seed.sql
+2020-07-23 18:23:40.430584 (MainThread): Parsing macros/materializations/view.sql
+2020-07-23 18:23:40.432881 (MainThread): Parsing macros/materializations/table.sql
+2020-07-23 18:23:40.448508 (MainThread): Parsing macros/materializations/incremental.sql
+2020-07-23 18:23:40.465904 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-07-23 18:23:40.495012 (MainThread): Partial parsing not enabled
+2020-07-23 18:23:40.572564 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_card".
+2020-07-23 18:23:40.572744 (MainThread): Opening a new connection, currently in state init
+2020-07-23 18:23:40.598495 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice_line_item".
+2020-07-23 18:23:40.598656 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.614078 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method_card".
+2020-07-23 18:23:40.614223 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.628357 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_charge".
+2020-07-23 18:23:40.628500 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.643951 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payout".
+2020-07-23 18:23:40.644298 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.660268 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_customer".
+2020-07-23 18:23:40.660570 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.674875 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_refund".
+2020-07-23 18:23:40.675022 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.688626 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_subscription".
+2020-07-23 18:23:40.688791 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.704518 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method".
+2020-07-23 18:23:40.704732 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.718785 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_intent".
+2020-07-23 18:23:40.718962 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.731340 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice".
+2020-07-23 18:23:40.731472 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.744847 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_fee".
+2020-07-23 18:23:40.744983 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:40.757271 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_balance_transaction".
+2020-07-23 18:23:40.757425 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:23:43.210320 (MainThread): WARNING: Found documentation for resource "payment_method_card" which was not found or is disabled
+2020-07-23 18:23:43.210734 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a55feb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4d4b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4b8130>]}
+2020-07-23 18:23:43.210931 (MainThread): Flushing usage events
+2020-07-23 18:23:43.565624 (MainThread): Connection 'model.stripe_source.stg_stripe_balance_transaction' was properly closed.
+2020-07-23 18:23:43.565811 (MainThread): Encountered an error:
+2020-07-23 18:23:43.565955 (MainThread): Compilation Error in model stg_stripe_balance_transaction (models/stg_stripe_balance_transaction.sql)
+  Model 'model.stripe_source.stg_stripe_balance_transaction' (models/stg_stripe_balance_transaction.sql) depends on a source named 'stripe.balance_transaction' which was not found
+2020-07-23 18:23:43.572158 (MainThread): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/main.py", line 81, in main
+    results, succeeded = handle_and_check(args)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/main.py", line 159, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/main.py", line 212, in run_from_args
+    results = task.run()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/task/runnable.py", line 396, in run
+    self._runtime_initialize()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/task/runnable.py", line 110, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/task/runnable.py", line 78, in _runtime_initialize
+    self.load_manifest()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/task/runnable.py", line 66, in load_manifest
+    self.manifest = get_full_manifest(self.config)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/perf_utils.py", line 23, in get_full_manifest
+    return load_manifest(config, internal, set_header)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/parser/manifest.py", line 641, in load_manifest
+    return ManifestLoader.load_all(config, internal_manifest, macro_hook)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/parser/manifest.py", line 358, in load_all
+    manifest = loader.create_manifest()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/parser/manifest.py", line 334, in create_manifest
+    self.process_manifest(manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/parser/manifest.py", line 305, in process_manifest
+    process_sources(manifest, project_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/parser/manifest.py", line 600, in process_sources
+    _process_sources_for_node(manifest, current_project, node)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/parser/manifest.py", line 583, in _process_sources_for_node
+    dbt.utils.invalid_source_fail_unless_test(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/utils.py", line 343, in invalid_source_fail_unless_test
+    dbt.exceptions.source_target_not_found(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/exceptions.py", line 554, in source_target_not_found
+    raise_compiler_error(msg, model)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/exceptions.py", line 392, in raise_compiler_error
+    raise CompilationException(msg, node)
+dbt.exceptions.CompilationException: Compilation Error in model stg_stripe_balance_transaction (models/stg_stripe_balance_transaction.sql)
+  Model 'model.stripe_source.stg_stripe_balance_transaction' (models/stg_stripe_balance_transaction.sql) depends on a source named 'stripe.balance_transaction' which was not found
+
+2020-07-23 18:24:30.726757 (MainThread): Running with dbt=0.17.0-rc1
+2020-07-23 18:24:31.022865 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, fail_fast=False, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/kristin/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-07-23 18:24:31.023920 (MainThread): Tracking: tracking
+2020-07-23 18:24:31.030940 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1644c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c978970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c9788b0>]}
+2020-07-23 18:24:31.059006 (MainThread): Partial parsing not enabled
+2020-07-23 18:24:31.061184 (MainThread): Parsing macros/core.sql
+2020-07-23 18:24:31.067589 (MainThread): Parsing macros/materializations/helpers.sql
+2020-07-23 18:24:31.077970 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-07-23 18:24:31.079811 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-07-23 18:24:31.104228 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-07-23 18:24:31.149296 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-07-23 18:24:31.184205 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-07-23 18:24:31.187159 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-07-23 18:24:31.196499 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-07-23 18:24:31.215813 (MainThread): Parsing macros/materializations/table/table.sql
+2020-07-23 18:24:31.226787 (MainThread): Parsing macros/materializations/view/view.sql
+2020-07-23 18:24:31.235638 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-07-23 18:24:31.242206 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-07-23 18:24:31.243611 (MainThread): Parsing macros/etc/query.sql
+2020-07-23 18:24:31.244755 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-07-23 18:24:31.246834 (MainThread): Parsing macros/etc/datetime.sql
+2020-07-23 18:24:31.258781 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-07-23 18:24:31.261440 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-07-23 18:24:31.263011 (MainThread): Parsing macros/adapters/common.sql
+2020-07-23 18:24:31.326231 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-07-23 18:24:31.329110 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-07-23 18:24:31.330462 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-07-23 18:24:31.332011 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-07-23 18:24:31.336749 (MainThread): Parsing macros/etc.sql
+2020-07-23 18:24:31.338234 (MainThread): Parsing macros/catalog.sql
+2020-07-23 18:24:31.345711 (MainThread): Parsing macros/adapters.sql
+2020-07-23 18:24:31.368239 (MainThread): Parsing macros/materializations/seed.sql
+2020-07-23 18:24:31.371570 (MainThread): Parsing macros/materializations/view.sql
+2020-07-23 18:24:31.374228 (MainThread): Parsing macros/materializations/table.sql
+2020-07-23 18:24:31.387304 (MainThread): Parsing macros/materializations/incremental.sql
+2020-07-23 18:24:31.405528 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-07-23 18:24:31.434170 (MainThread): Partial parsing not enabled
+2020-07-23 18:24:31.526256 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_card".
+2020-07-23 18:24:31.526568 (MainThread): Opening a new connection, currently in state init
+2020-07-23 18:24:31.553026 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice_line_item".
+2020-07-23 18:24:31.553200 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.567317 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method_card".
+2020-07-23 18:24:31.567501 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.581958 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_charge".
+2020-07-23 18:24:31.582109 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.596621 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payout".
+2020-07-23 18:24:31.596782 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.610443 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_customer".
+2020-07-23 18:24:31.610586 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.624932 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_refund".
+2020-07-23 18:24:31.625092 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.638533 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_subscription".
+2020-07-23 18:24:31.638688 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.652056 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method".
+2020-07-23 18:24:31.652246 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.665974 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_intent".
+2020-07-23 18:24:31.666155 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.679321 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice".
+2020-07-23 18:24:31.679478 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.694516 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_fee".
+2020-07-23 18:24:31.694657 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:31.707289 (MainThread): Acquiring new bigquery connection "model.stripe_source.stg_stripe_balance_transaction".
+2020-07-23 18:24:31.707482 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:34.205105 (MainThread): WARNING: Found documentation for resource "payment_method_card" which was not found or is disabled
+2020-07-23 18:24:34.641613 (MainThread): Found 13 models, 32 tests, 0 snapshots, 0 analyses, 146 macros, 0 operations, 0 seed files, 12 sources
+2020-07-23 18:24:34.691558 (MainThread): 
+2020-07-23 18:24:34.692026 (MainThread): Acquiring new bigquery connection "master".
+2020-07-23 18:24:34.692143 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:34.713071 (ThreadPoolExecutor-0_0): Acquiring new bigquery connection "list_dbt-package-testing".
+2020-07-23 18:24:34.713241 (ThreadPoolExecutor-0_0): Opening a new connection, currently in state init
+2020-07-23 18:24:34.714571 (ThreadPoolExecutor-0_0): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:24:36.569949 (ThreadPoolExecutor-1_0): Acquiring new bigquery connection "list_dbt-package-testing_dbt_kristin_2".
+2020-07-23 18:24:36.570472 (ThreadPoolExecutor-1_0): Re-using an available connection from the pool (formerly list_dbt-package-testing).
+2020-07-23 18:24:36.570791 (ThreadPoolExecutor-1_0): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:36.759273 (MainThread): Acquiring new bigquery connection "master".
+2020-07-23 18:24:36.759472 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:36.759814 (MainThread): 11:24:36 | Concurrency: 4 threads (target='dev_bigquery_dbt_testing')
+2020-07-23 18:24:36.759990 (MainThread): 11:24:36 | 
+2020-07-23 18:24:36.764761 (Thread-1): Began running node model.stripe_source.stg_stripe_balance_transaction
+2020-07-23 18:24:36.764984 (Thread-2): Began running node model.stripe_source.stg_stripe_card
+2020-07-23 18:24:36.765205 (Thread-1): 11:24:36 | 1 of 13 START table model dbt_kristin_2.stg_stripe_balance_transaction [RUN]
+2020-07-23 18:24:36.765380 (Thread-3): Began running node model.stripe_source.stg_stripe_charge
+2020-07-23 18:24:36.765621 (Thread-2): 11:24:36 | 2 of 13 START table model dbt_kristin_2.stg_stripe_card.............. [RUN]
+2020-07-23 18:24:36.765863 (Thread-4): Began running node model.stripe_source.stg_stripe_customer
+2020-07-23 18:24:36.766342 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_balance_transaction".
+2020-07-23 18:24:36.766505 (Thread-3): 11:24:36 | 3 of 13 START table model dbt_kristin_2.stg_stripe_charge............ [RUN]
+2020-07-23 18:24:36.766874 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_card".
+2020-07-23 18:24:36.767025 (Thread-4): 11:24:36 | 4 of 13 START table model dbt_kristin_2.stg_stripe_customer.......... [RUN]
+2020-07-23 18:24:36.767167 (Thread-1): Re-using an available connection from the pool (formerly list_dbt-package-testing_dbt_kristin_2).
+2020-07-23 18:24:36.767491 (Thread-3): Acquiring new bigquery connection "model.stripe_source.stg_stripe_charge".
+2020-07-23 18:24:36.767609 (Thread-2): Opening a new connection, currently in state init
+2020-07-23 18:24:36.767989 (Thread-4): Acquiring new bigquery connection "model.stripe_source.stg_stripe_customer".
+2020-07-23 18:24:36.768151 (Thread-1): Compiling model.stripe_source.stg_stripe_balance_transaction
+2020-07-23 18:24:36.768286 (Thread-3): Opening a new connection, currently in state init
+2020-07-23 18:24:36.768527 (Thread-2): Compiling model.stripe_source.stg_stripe_card
+2020-07-23 18:24:36.768731 (Thread-4): Opening a new connection, currently in state init
+2020-07-23 18:24:36.786165 (Thread-3): Compiling model.stripe_source.stg_stripe_charge
+2020-07-23 18:24:36.813413 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_balance_transaction"
+2020-07-23 18:24:36.813552 (Thread-4): Compiling model.stripe_source.stg_stripe_customer
+2020-07-23 18:24:36.817607 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_card"
+2020-07-23 18:24:36.845055 (Thread-3): Writing injected SQL for node "model.stripe_source.stg_stripe_charge"
+2020-07-23 18:24:36.857731 (Thread-4): Writing injected SQL for node "model.stripe_source.stg_stripe_customer"
+2020-07-23 18:24:36.858182 (Thread-1): finished collecting timing info
+2020-07-23 18:24:36.858690 (Thread-2): finished collecting timing info
+2020-07-23 18:24:36.881188 (Thread-3): finished collecting timing info
+2020-07-23 18:24:36.912685 (Thread-4): finished collecting timing info
+2020-07-23 18:24:36.935131 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:36.941486 (Thread-3): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:24:36.941709 (Thread-4): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:24:36.945565 (Thread-2): Your application has authenticated using end user credentials from Google Cloud SDK. We recommend that most server applications use service accounts instead. If your application continues to use end user credentials from Cloud SDK, you might receive a "quota exceeded" or "API not enabled" error. For more information about service accounts, see https://cloud.google.com/docs/authentication/
+2020-07-23 18:24:37.190806 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_balance_transaction"
+2020-07-23 18:24:37.191469 (Thread-1): On model.stripe_source.stg_stripe_balance_transaction: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_balance_transaction"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_balance_transaction`
+  
+  
+  OPTIONS()
+  as (
+    with balance_transaction as (
+
+    select *
+    from stripe.balance_transaction
+
+), fields as (
+
+    select 
+      id as balance_transaction_id,
+      amount,
+      available_on,
+      created as created_at,
+      currency,
+      description,
+      exchange_rate,
+      fee,
+      net,
+      source,
+      status,
+      type
+    from balance_transaction
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:38.229929 (Thread-4): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:38.231571 (Thread-3): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:38.249123 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:38.503711 (Thread-4): Writing runtime SQL for node "model.stripe_source.stg_stripe_customer"
+2020-07-23 18:24:38.504835 (Thread-4): On model.stripe_source.stg_stripe_customer: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_customer"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_customer`
+  
+  
+  OPTIONS()
+  as (
+    with customer as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`customer`
+
+), fields as (
+
+    select 
+      id as customer_id,
+      account_balance,
+      created as created_at,
+      currency,
+      default_card_id,
+      delinquent as is_delinquent,
+      description,
+      email,
+      shipping_address_city,
+      shipping_address_country,
+      shipping_address_line_1,
+      shipping_address_line_2,
+      shipping_address_postal_code,
+      shipping_address_state,
+      shipping_name,
+      shipping_phone
+    from customer
+    where not is_deleted
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:38.505968 (Thread-3): Writing runtime SQL for node "model.stripe_source.stg_stripe_charge"
+2020-07-23 18:24:38.507348 (Thread-3): On model.stripe_source.stg_stripe_charge: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_charge"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_charge`
+  
+  
+  OPTIONS()
+  as (
+    with charge as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`charge`
+
+), fields as (
+
+    select 
+      id as charge_id, 
+      amount,
+      amount_refunded,
+      application_fee_amount,
+      balance_transaction_id,
+      captured as is_captured,
+      card_id,
+      created as created_at,
+      customer_id,
+      currency,
+      description,
+      failure_code,
+      failure_message,
+      paid as is_paid,
+      payment_intent_id,
+      receipt_email,
+      receipt_number,
+      refunded as is_refunded,
+      status,
+      invoice_id
+    from charge
+    
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:38.555777 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_card"
+2020-07-23 18:24:38.556303 (Thread-2): On model.stripe_source.stg_stripe_card: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_card"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_card`
+  
+  
+  OPTIONS()
+  as (
+    with card as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`card`
+
+), fields as (
+
+    select 
+      id as card_id,
+      brand,
+      country,
+      created as created_at,
+      customer_id,
+      name,
+      recipient,
+      funding
+    from card
+    where not coalesce(is_deleted, false)
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:39.122764 (Thread-1): finished collecting timing info
+2020-07-23 18:24:39.123560 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c181430>]}
+2020-07-23 18:24:39.123851 (Thread-1): 11:24:39 | 1 of 13 OK created table model dbt_kristin_2.stg_stripe_balance_transaction [CREATE TABLE (8) in 2.36s]
+2020-07-23 18:24:39.124003 (Thread-1): Finished running node model.stripe_source.stg_stripe_balance_transaction
+2020-07-23 18:24:39.124159 (Thread-1): Began running node model.stripe_source.stg_stripe_fee
+2020-07-23 18:24:39.124303 (Thread-1): 11:24:39 | 5 of 13 START table model dbt_kristin_2.stg_stripe_fee............... [RUN]
+2020-07-23 18:24:39.124739 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_fee".
+2020-07-23 18:24:39.124851 (Thread-1): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_balance_transaction).
+2020-07-23 18:24:39.124957 (Thread-1): Compiling model.stripe_source.stg_stripe_fee
+2020-07-23 18:24:39.139997 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_fee"
+2020-07-23 18:24:39.140487 (Thread-1): finished collecting timing info
+2020-07-23 18:24:39.144918 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:39.264865 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_fee"
+2020-07-23 18:24:39.265445 (Thread-1): On model.stripe_source.stg_stripe_fee: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_fee"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_fee`
+  
+  
+  OPTIONS()
+  as (
+    with fee as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`fee`
+
+), fields as (
+
+    select 
+      balance_transaction_id,
+      amount,
+      application,
+      currency,
+      description,
+      type
+    from fee
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:40.353764 (Thread-4): finished collecting timing info
+2020-07-23 18:24:40.354626 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c9a3880>]}
+2020-07-23 18:24:40.354910 (Thread-4): 11:24:40 | 4 of 13 OK created table model dbt_kristin_2.stg_stripe_customer..... [CREATE TABLE (1) in 3.59s]
+2020-07-23 18:24:40.355053 (Thread-4): Finished running node model.stripe_source.stg_stripe_customer
+2020-07-23 18:24:40.355203 (Thread-4): Began running node model.stripe_source.stg_stripe_invoice
+2020-07-23 18:24:40.355469 (Thread-4): 11:24:40 | 6 of 13 START table model dbt_kristin_2.stg_stripe_invoice........... [RUN]
+2020-07-23 18:24:40.355815 (Thread-4): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice".
+2020-07-23 18:24:40.355903 (Thread-4): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_customer).
+2020-07-23 18:24:40.356012 (Thread-4): Compiling model.stripe_source.stg_stripe_invoice
+2020-07-23 18:24:40.375618 (Thread-4): Writing injected SQL for node "model.stripe_source.stg_stripe_invoice"
+2020-07-23 18:24:40.379977 (Thread-2): finished collecting timing info
+2020-07-23 18:24:40.381175 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cae26d0>]}
+2020-07-23 18:24:40.383005 (Thread-2): 11:24:40 | 2 of 13 OK created table model dbt_kristin_2.stg_stripe_card......... [CREATE TABLE (4) in 3.61s]
+2020-07-23 18:24:40.383173 (Thread-4): finished collecting timing info
+2020-07-23 18:24:40.383653 (Thread-2): Finished running node model.stripe_source.stg_stripe_card
+2020-07-23 18:24:40.396845 (Thread-4): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:40.397308 (Thread-2): Began running node model.stripe_source.stg_stripe_invoice_line_item
+2020-07-23 18:24:40.398633 (Thread-2): 11:24:40 | 7 of 13 START table model dbt_kristin_2.stg_stripe_invoice_line_item. [RUN]
+2020-07-23 18:24:40.401286 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_invoice_line_item".
+2020-07-23 18:24:40.401849 (Thread-2): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_card).
+2020-07-23 18:24:40.402071 (Thread-2): Compiling model.stripe_source.stg_stripe_invoice_line_item
+2020-07-23 18:24:40.428288 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_invoice_line_item"
+2020-07-23 18:24:40.429646 (Thread-2): finished collecting timing info
+2020-07-23 18:24:40.440943 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:40.563798 (Thread-4): Writing runtime SQL for node "model.stripe_source.stg_stripe_invoice"
+2020-07-23 18:24:40.564310 (Thread-4): On model.stripe_source.stg_stripe_invoice: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice`
+
+), fields as (
+
+    select
+      id as invoice_id,
+      amount_due,
+      amount_paid,
+      amount_remaining,
+      attempt_count,
+      auto_advance,
+      billing_reason,
+      charge_id,
+      created as created_at,
+      currency,
+      customer_id,
+      description,
+      due_date,
+      number,
+      paid as is_paid,
+      receipt_number,
+      status,
+      subtotal,
+      tax,
+      tax_percent,
+      total
+    from invoice
+    where not coalesce(is_deleted, false)
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:24:40.585320 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_invoice_line_item"
+2020-07-23 18:24:40.586076 (Thread-2): On model.stripe_source.stg_stripe_invoice_line_item: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice_line_item as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+
+), fields as (
+
+    select
+      id as invoice_line_item_id,
+      invoice_id,
+      amount,
+      currency,
+      description,
+      discountable as is_discountable,
+      plan_id,
+      proration,
+      quantity,
+      subscription_id,
+      subscription_item_id,
+      type,
+      unique_id
+    from invoice_line_item
+    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:24:40.662382 (Thread-3): finished collecting timing info
+2020-07-23 18:24:40.663078 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c99dee0>]}
+2020-07-23 18:24:40.663340 (Thread-3): 11:24:40 | 3 of 13 OK created table model dbt_kristin_2.stg_stripe_charge....... [CREATE TABLE (4) in 3.90s]
+2020-07-23 18:24:40.663491 (Thread-3): Finished running node model.stripe_source.stg_stripe_charge
+2020-07-23 18:24:40.663636 (Thread-3): Began running node model.stripe_source.stg_stripe_payment_intent
+2020-07-23 18:24:40.663878 (Thread-3): 11:24:40 | 8 of 13 START table model dbt_kristin_2.stg_stripe_payment_intent.... [RUN]
+2020-07-23 18:24:40.664172 (Thread-3): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_intent".
+2020-07-23 18:24:40.664273 (Thread-3): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_charge).
+2020-07-23 18:24:40.664371 (Thread-3): Compiling model.stripe_source.stg_stripe_payment_intent
+2020-07-23 18:24:40.683604 (Thread-3): Writing injected SQL for node "model.stripe_source.stg_stripe_payment_intent"
+2020-07-23 18:24:40.684168 (Thread-3): finished collecting timing info
+2020-07-23 18:24:40.690840 (Thread-3): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:40.797428 (Thread-4): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice`
+
+), fields as (
+
+    select
+      id as invoice_id,
+      amount_due,
+      amount_paid,
+      amount_remaining,
+      attempt_count,
+      auto_advance,
+      billing_reason,
+      charge_id,
+      created as created_at,
+      currency,
+      customer_id,
+      description,
+      due_date,
+      number,
+      paid as is_paid,
+      receipt_number,
+      status,
+      subtotal,
+      tax,
+      tax_percent,
+      total
+    from invoice
+    where not coalesce(is_deleted, false)
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:24:40.797586 (Thread-4): 404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+
+(job ID: 400cb65f-27ae-4365-9f08-c811b9838d44)
+
+                                                                             -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_id,
+  20:      amount_due,
+  21:      amount_paid,
+  22:      amount_remaining,
+  23:      attempt_count,
+  24:      auto_advance,
+  25:      billing_reason,
+  26:      charge_id,
+  27:      created as created_at,
+  28:      currency,
+  29:      customer_id,
+  30:      description,
+  31:      due_date,
+  32:      number,
+  33:      paid as is_paid,
+  34:      receipt_number,
+  35:      status,
+  36:      subtotal,
+  37:      tax,
+  38:      tax_percent,
+  39:      total
+  40:    from invoice
+  41:    where not coalesce(is_deleted, false)
+  42:
+  43:)
+  44:
+  45:select * from fields
+  46:  );
+  47:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:24:40.797761 (Thread-4): finished collecting timing info
+2020-07-23 18:24:40.798231 (Thread-4): Runtime Error in model stg_stripe_invoice (models/stg_stripe_invoice.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+  
+  (job ID: 400cb65f-27ae-4365-9f08-c811b9838d44)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+
+(job ID: 400cb65f-27ae-4365-9f08-c811b9838d44)
+
+                                                                             -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_id,
+  20:      amount_due,
+  21:      amount_paid,
+  22:      amount_remaining,
+  23:      attempt_count,
+  24:      auto_advance,
+  25:      billing_reason,
+  26:      charge_id,
+  27:      created as created_at,
+  28:      currency,
+  29:      customer_id,
+  30:      description,
+  31:      due_date,
+  32:      number,
+  33:      paid as is_paid,
+  34:      receipt_number,
+  35:      status,
+  36:      subtotal,
+  37:      tax,
+  38:      tax_percent,
+  39:      total
+  40:    from invoice
+  41:    where not coalesce(is_deleted, false)
+  42:
+  43:)
+  44:
+  45:select * from fields
+  46:  );
+  47:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_invoice (models/stg_stripe_invoice.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+  
+  (job ID: 400cb65f-27ae-4365-9f08-c811b9838d44)
+2020-07-23 18:24:40.801302 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cafe190>]}
+2020-07-23 18:24:40.801599 (Thread-4): 11:24:40 | 6 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_invoice.. [ERROR in 0.45s]
+2020-07-23 18:24:40.801745 (Thread-4): Finished running node model.stripe_source.stg_stripe_invoice
+2020-07-23 18:24:40.801898 (Thread-4): Began running node model.stripe_source.stg_stripe_payment_method
+2020-07-23 18:24:40.802207 (Thread-4): 11:24:40 | 9 of 13 START table model dbt_kristin_2.stg_stripe_payment_method.... [RUN]
+2020-07-23 18:24:40.802534 (Thread-4): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method".
+2020-07-23 18:24:40.802635 (Thread-4): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_invoice).
+2020-07-23 18:24:40.802733 (Thread-4): Compiling model.stripe_source.stg_stripe_payment_method
+2020-07-23 18:24:40.815255 (Thread-4): Writing injected SQL for node "model.stripe_source.stg_stripe_payment_method"
+2020-07-23 18:24:40.816046 (Thread-2): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with invoice_line_item as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+
+), fields as (
+
+    select
+      id as invoice_line_item_id,
+      invoice_id,
+      amount,
+      currency,
+      description,
+      discountable as is_discountable,
+      plan_id,
+      proration,
+      quantity,
+      subscription_id,
+      subscription_item_id,
+      type,
+      unique_id
+    from invoice_line_item
+    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:24:40.816240 (Thread-2): 404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+
+(job ID: a8f9d2a8-c2d1-488e-ae6f-d89c033d09c4)
+
+                                                                                  -----Query Job SQL Follows-----                                                                                  
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice_line_item as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_line_item_id,
+  20:      invoice_id,
+  21:      amount,
+  22:      currency,
+  23:      description,
+  24:      discountable as is_discountable,
+  25:      plan_id,
+  26:      proration,
+  27:      quantity,
+  28:      subscription_id,
+  29:      subscription_item_id,
+  30:      type,
+  31:      unique_id
+  32:    from invoice_line_item
+  33:    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:24:40.816662 (Thread-2): finished collecting timing info
+2020-07-23 18:24:40.817180 (Thread-4): finished collecting timing info
+2020-07-23 18:24:40.825303 (Thread-4): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:40.817921 (Thread-2): Runtime Error in model stg_stripe_invoice_line_item (models/stg_stripe_invoice_line_item.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+  
+  (job ID: a8f9d2a8-c2d1-488e-ae6f-d89c033d09c4)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+
+(job ID: a8f9d2a8-c2d1-488e-ae6f-d89c033d09c4)
+
+                                                                                  -----Query Job SQL Follows-----                                                                                  
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_invoice_line_item"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_invoice_line_item`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with invoice_line_item as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`invoice_line_item`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as invoice_line_item_id,
+  20:      invoice_id,
+  21:      amount,
+  22:      currency,
+  23:      description,
+  24:      discountable as is_discountable,
+  25:      plan_id,
+  26:      proration,
+  27:      quantity,
+  28:      subscription_id,
+  29:      subscription_item_id,
+  30:      type,
+  31:      unique_id
+  32:    from invoice_line_item
+  33:    where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_invoice_line_item (models/stg_stripe_invoice_line_item.sql)
+  404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+  
+  (job ID: a8f9d2a8-c2d1-488e-ae6f-d89c033d09c4)
+2020-07-23 18:24:40.827768 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cdc85b0>]}
+2020-07-23 18:24:40.828343 (Thread-2): 11:24:40 | 7 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_invoice_line_item [ERROR in 0.43s]
+2020-07-23 18:24:40.828770 (Thread-2): Finished running node model.stripe_source.stg_stripe_invoice_line_item
+2020-07-23 18:24:40.829019 (Thread-2): Began running node model.stripe_source.stg_stripe_payment_method_card
+2020-07-23 18:24:40.829448 (Thread-2): 11:24:40 | 10 of 13 START table model dbt_kristin_2.stg_stripe_payment_method_card [RUN]
+2020-07-23 18:24:40.829937 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payment_method_card".
+2020-07-23 18:24:40.830405 (Thread-2): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_invoice_line_item).
+2020-07-23 18:24:40.830946 (Thread-2): Compiling model.stripe_source.stg_stripe_payment_method_card
+2020-07-23 18:24:40.848463 (Thread-3): Writing runtime SQL for node "model.stripe_source.stg_stripe_payment_intent"
+2020-07-23 18:24:40.861317 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_payment_method_card"
+2020-07-23 18:24:40.863287 (Thread-3): On model.stripe_source.stg_stripe_payment_intent: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payment_intent"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payment_intent`
+  
+  
+  OPTIONS()
+  as (
+    with payment_intent as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payment_intent`
+
+), fields as (
+
+    select 
+      id as payment_intent_id,
+      amount,
+      amount_capturable,
+      amount_received,
+      application,
+      application_fee_amount,
+      canceled_at,
+      cancellation_reason,
+      capture_method,
+      confirmation_method,
+      created as created_at,
+      currency,
+      customer_id,
+      description,
+      payment_method_id,
+      receipt_email,
+      statement_descriptor,
+      status
+    from payment_intent
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:40.864717 (Thread-2): finished collecting timing info
+2020-07-23 18:24:40.878821 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:40.973874 (Thread-4): Writing runtime SQL for node "model.stripe_source.stg_stripe_payment_method"
+2020-07-23 18:24:40.974389 (Thread-4): On model.stripe_source.stg_stripe_payment_method: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payment_method"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payment_method`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with payment_method as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payment_method`
+
+), fields as (
+
+    select 
+      id as payment_method_id,
+      created as created_at,
+      customer_id,
+      type
+    from payment_method
+    where not is_deleted
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:41.014415 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_payment_method_card"
+2020-07-23 18:24:41.015203 (Thread-2): On model.stripe_source.stg_stripe_payment_method_card: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payment_method_card"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payment_method_card`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with payment_method_card as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payment_method_card`
+
+), fields as (
+
+    select 
+      payment_method_id,
+      brand,
+      funding
+    from payment_method_card
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:41.159298 (Thread-1): finished collecting timing info
+2020-07-23 18:24:41.160191 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cd1f730>]}
+2020-07-23 18:24:41.160504 (Thread-1): 11:24:41 | 5 of 13 OK created table model dbt_kristin_2.stg_stripe_fee.......... [CREATE TABLE (4) in 2.04s]
+2020-07-23 18:24:41.160663 (Thread-1): Finished running node model.stripe_source.stg_stripe_fee
+2020-07-23 18:24:41.160816 (Thread-1): Began running node model.stripe_source.stg_stripe_payout
+2020-07-23 18:24:41.161053 (Thread-1): 11:24:41 | 11 of 13 START table model dbt_kristin_2.stg_stripe_payout........... [RUN]
+2020-07-23 18:24:41.161360 (Thread-1): Acquiring new bigquery connection "model.stripe_source.stg_stripe_payout".
+2020-07-23 18:24:41.161462 (Thread-1): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_fee).
+2020-07-23 18:24:41.161561 (Thread-1): Compiling model.stripe_source.stg_stripe_payout
+2020-07-23 18:24:41.177883 (Thread-1): Writing injected SQL for node "model.stripe_source.stg_stripe_payout"
+2020-07-23 18:24:41.178544 (Thread-1): finished collecting timing info
+2020-07-23 18:24:41.183793 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:41.311126 (Thread-1): Writing runtime SQL for node "model.stripe_source.stg_stripe_payout"
+2020-07-23 18:24:41.312314 (Thread-1): On model.stripe_source.stg_stripe_payout: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_payout"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_payout`
+  
+  
+  OPTIONS()
+  as (
+    with payout as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`payout`
+
+), fields as (
+
+    select 
+      id as payout_id,
+      amount,
+      arrival_date,
+      automatic as is_automatic,
+      balance_transaction_id,
+      created as created_at,
+      currency,
+      description,
+      method,
+      source_type,
+      status,
+      type
+    from payout
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:42.542043 (Thread-3): finished collecting timing info
+2020-07-23 18:24:42.542770 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb4f160>]}
+2020-07-23 18:24:42.543040 (Thread-3): 11:24:42 | 8 of 13 OK created table model dbt_kristin_2.stg_stripe_payment_intent [CREATE TABLE (4) in 1.88s]
+2020-07-23 18:24:42.543184 (Thread-3): Finished running node model.stripe_source.stg_stripe_payment_intent
+2020-07-23 18:24:42.543333 (Thread-3): Began running node model.stripe_source.stg_stripe_refund
+2020-07-23 18:24:42.543474 (Thread-3): 11:24:42 | 12 of 13 START table model dbt_kristin_2.stg_stripe_refund........... [RUN]
+2020-07-23 18:24:42.543914 (Thread-3): Acquiring new bigquery connection "model.stripe_source.stg_stripe_refund".
+2020-07-23 18:24:42.544096 (Thread-3): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_payment_intent).
+2020-07-23 18:24:42.544234 (Thread-3): Compiling model.stripe_source.stg_stripe_refund
+2020-07-23 18:24:42.564092 (Thread-3): Writing injected SQL for node "model.stripe_source.stg_stripe_refund"
+2020-07-23 18:24:42.564589 (Thread-3): finished collecting timing info
+2020-07-23 18:24:42.569999 (Thread-3): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:42.722325 (Thread-3): Writing runtime SQL for node "model.stripe_source.stg_stripe_refund"
+2020-07-23 18:24:42.722829 (Thread-3): On model.stripe_source.stg_stripe_refund: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+  
+  
+  OPTIONS()
+  as (
+    with refund as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`refund`
+
+), fields as (
+
+    select 
+      id as refund_id,
+      amount,
+      balance_transaction_id,
+      charge_id,
+      created as created_at,
+      currency,
+      description,
+      reason,
+      receipt_number,
+      status
+    from refund
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:42.838929 (Thread-2): finished collecting timing info
+2020-07-23 18:24:42.840617 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb16760>]}
+2020-07-23 18:24:42.842062 (Thread-2): 11:24:42 | 10 of 13 OK created table model dbt_kristin_2.stg_stripe_payment_method_card [CREATE TABLE (1) in 2.01s]
+2020-07-23 18:24:42.843237 (Thread-2): Finished running node model.stripe_source.stg_stripe_payment_method_card
+2020-07-23 18:24:42.844591 (Thread-2): Began running node model.stripe_source.stg_stripe_subscription
+2020-07-23 18:24:42.845130 (Thread-2): 11:24:42 | 13 of 13 START table model dbt_kristin_2.stg_stripe_subscription..... [RUN]
+2020-07-23 18:24:42.845619 (Thread-2): Acquiring new bigquery connection "model.stripe_source.stg_stripe_subscription".
+2020-07-23 18:24:42.845761 (Thread-2): Re-using an available connection from the pool (formerly model.stripe_source.stg_stripe_payment_method_card).
+2020-07-23 18:24:42.845847 (Thread-2): Compiling model.stripe_source.stg_stripe_subscription
+2020-07-23 18:24:42.866009 (Thread-2): Writing injected SQL for node "model.stripe_source.stg_stripe_subscription"
+2020-07-23 18:24:42.867218 (Thread-2): finished collecting timing info
+2020-07-23 18:24:42.876625 (Thread-2): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-07-23 18:24:42.883560 (Thread-4): finished collecting timing info
+2020-07-23 18:24:42.884566 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cafe730>]}
+2020-07-23 18:24:42.884889 (Thread-4): 11:24:42 | 9 of 13 OK created table model dbt_kristin_2.stg_stripe_payment_method [CREATE TABLE (1) in 2.08s]
+2020-07-23 18:24:42.885066 (Thread-4): Finished running node model.stripe_source.stg_stripe_payment_method
+2020-07-23 18:24:42.942463 (Thread-3): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+  
+  
+  OPTIONS()
+  as (
+    with refund as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`refund`
+
+), fields as (
+
+    select 
+      id as refund_id,
+      amount,
+      balance_transaction_id,
+      charge_id,
+      created as created_at,
+      currency,
+      description,
+      reason,
+      receipt_number,
+      status
+    from refund
+
+)
+
+select *
+from fields
+  );
+    
+2020-07-23 18:24:42.942676 (Thread-3): 404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+
+(job ID: 4274198b-7a54-40fc-a9db-05bf4cc60bc3)
+
+                                                                            -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    with refund as (
+  10:
+  11:    select *
+  12:    from `dbt-package-testing`.`stripe`.`refund`
+  13:
+  14:), fields as (
+  15:
+  16:    select 
+  17:      id as refund_id,
+  18:      amount,
+  19:      balance_transaction_id,
+  20:      charge_id,
+  21:      created as created_at,
+  22:      currency,
+  23:      description,
+  24:      reason,
+  25:      receipt_number,
+  26:      status
+  27:    from refund
+  28:
+  29:)
+  30:
+  31:select *
+  32:from fields
+  33:  );
+  34:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:24:42.942882 (Thread-3): finished collecting timing info
+2020-07-23 18:24:42.943486 (Thread-3): Runtime Error in model stg_stripe_refund (models/stg_stripe_refund.sql)
+  404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+  
+  (job ID: 4274198b-7a54-40fc-a9db-05bf4cc60bc3)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+
+(job ID: 4274198b-7a54-40fc-a9db-05bf4cc60bc3)
+
+                                                                            -----Query Job SQL Follows-----                                                                             
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_refund"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_refund`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    with refund as (
+  10:
+  11:    select *
+  12:    from `dbt-package-testing`.`stripe`.`refund`
+  13:
+  14:), fields as (
+  15:
+  16:    select 
+  17:      id as refund_id,
+  18:      amount,
+  19:      balance_transaction_id,
+  20:      charge_id,
+  21:      created as created_at,
+  22:      currency,
+  23:      description,
+  24:      reason,
+  25:      receipt_number,
+  26:      status
+  27:    from refund
+  28:
+  29:)
+  30:
+  31:select *
+  32:from fields
+  33:  );
+  34:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_refund (models/stg_stripe_refund.sql)
+  404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+  
+  (job ID: 4274198b-7a54-40fc-a9db-05bf4cc60bc3)
+2020-07-23 18:24:42.944187 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ca6f880>]}
+2020-07-23 18:24:42.944486 (Thread-3): 11:24:42 | 12 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_refund.. [ERROR in 0.40s]
+2020-07-23 18:24:42.944659 (Thread-3): Finished running node model.stripe_source.stg_stripe_refund
+2020-07-23 18:24:43.022406 (Thread-2): Writing runtime SQL for node "model.stripe_source.stg_stripe_subscription"
+2020-07-23 18:24:43.022944 (Thread-2): On model.stripe_source.stg_stripe_subscription: /* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with subscription as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`subscription`
+
+), fields as (
+
+    select
+      id as subscription_id,
+      status,
+      billing,
+      billing_cycle_anchor,
+      cancel_at,
+      cancel_at_period_end,
+      canceled_at,
+      created as created_at,
+      current_period_start,
+      current_period_end,
+      customer_id,
+      days_until_due,
+      start_date,
+      ended_at
+    from subscription
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:24:43.126283 (Thread-1): finished collecting timing info
+2020-07-23 18:24:43.127105 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ca05550>]}
+2020-07-23 18:24:43.127389 (Thread-1): 11:24:43 | 11 of 13 OK created table model dbt_kristin_2.stg_stripe_payout...... [CREATE TABLE (4) in 1.97s]
+2020-07-23 18:24:43.127531 (Thread-1): Finished running node model.stripe_source.stg_stripe_payout
+2020-07-23 18:24:43.257612 (Thread-2): Unhandled error while running:
+/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+
+
+  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+  
+  
+  OPTIONS()
+  as (
+    
+
+with subscription as (
+
+    select *
+    from `dbt-package-testing`.`stripe`.`subscription`
+
+), fields as (
+
+    select
+      id as subscription_id,
+      status,
+      billing,
+      billing_cycle_anchor,
+      cancel_at,
+      cancel_at_period_end,
+      canceled_at,
+      created as created_at,
+      current_period_start,
+      current_period_end,
+      customer_id,
+      days_until_due,
+      start_date,
+      ended_at
+    from subscription
+
+)
+
+select * from fields
+  );
+    
+2020-07-23 18:24:43.257788 (Thread-2): 404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+
+(job ID: 8a376498-0be8-4325-bbed-13ef88aff6fc)
+
+                                                                               -----Query Job SQL Follows-----                                                                                
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with subscription as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`subscription`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as subscription_id,
+  20:      status,
+  21:      billing,
+  22:      billing_cycle_anchor,
+  23:      cancel_at,
+  24:      cancel_at_period_end,
+  25:      canceled_at,
+  26:      created as created_at,
+  27:      current_period_start,
+  28:      current_period_end,
+  29:      customer_id,
+  30:      days_until_due,
+  31:      start_date,
+  32:      ended_at
+  33:    from subscription
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+2020-07-23 18:24:43.257969 (Thread-2): finished collecting timing info
+2020-07-23 18:24:43.258449 (Thread-2): Runtime Error in model stg_stripe_subscription (models/stg_stripe_subscription.sql)
+  404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+  
+  (job ID: 8a376498-0be8-4325-bbed-13ef88aff6fc)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 83, in exception_handler
+    yield
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 220, in fn
+    return self._query_and_results(client, sql, conn, job_params)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 347, in _query_and_results
+    iterator = query_job.result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 3196, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/cloud/bigquery/job.py", line 818, in result
+    return super(_AsyncJob, self).result(timeout=timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/google/api_core/future/polling.py", line 127, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+
+(job ID: 8a376498-0be8-4325-bbed-13ef88aff6fc)
+
+                                                                               -----Query Job SQL Follows-----                                                                                
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:/* {"app": "dbt", "dbt_version": "0.17.0rc1", "profile_name": "integration_test", "target_name": "dev_bigquery_dbt_testing", "node_id": "model.stripe_source.stg_stripe_subscription"} */
+   2:
+   3:
+   4:  create or replace table `dbt-package-testing`.`dbt_kristin_2`.`stg_stripe_subscription`
+   5:  
+   6:  
+   7:  OPTIONS()
+   8:  as (
+   9:    
+  10:
+  11:with subscription as (
+  12:
+  13:    select *
+  14:    from `dbt-package-testing`.`stripe`.`subscription`
+  15:
+  16:), fields as (
+  17:
+  18:    select
+  19:      id as subscription_id,
+  20:      status,
+  21:      billing,
+  22:      billing_cycle_anchor,
+  23:      cancel_at,
+  24:      cancel_at_period_end,
+  25:      canceled_at,
+  26:      created as created_at,
+  27:      current_period_start,
+  28:      current_period_end,
+  29:      customer_id,
+  30:      days_until_due,
+  31:      start_date,
+  32:      ended_at
+  33:    from subscription
+  34:
+  35:)
+  36:
+  37:select * from fields
+  38:  );
+  39:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 227, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 170, in compile_and_execute
+    result = self.run(ctx.node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 272, in run
+    return self.execute(compiled_node, manifest)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/node_runners.py", line 454, in execute
+    result = MacroGenerator(materialization_macro, context)()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 128, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 296, in __call__
+    return self.call_macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/clients/jinja.py", line 226, in call_macro
+    return macro(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 675, in __call__
+    return self._invoke(arguments, autoescape)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "<template>", line 41, in macro
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/sandbox.py", line 462, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jinja2/runtime.py", line 290, in call
+    return __obj(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/base/impl.py", line 225, in execute
+    return self.connections.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 229, in execute
+    query_job, iterator = self.raw_execute(sql, fetch=fetch)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 222, in raw_execute
+    query_job, iterator = self._retry_and_handle(msg=sql, conn=conn, fn=fn)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 354, in _retry_and_handle
+    return retry.retry_target(
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/dbt/adapters/bigquery/connections.py", line 106, in exception_handler
+    raise RuntimeException(exc_message)
+dbt.exceptions.RuntimeException: Runtime Error in model stg_stripe_subscription (models/stg_stripe_subscription.sql)
+  404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+  
+  (job ID: 8a376498-0be8-4325-bbed-13ef88aff6fc)
+2020-07-23 18:24:43.259242 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '753a8a6b-cfa6-4f54-86c8-88d3bd5ba0d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb167c0>]}
+2020-07-23 18:24:43.259529 (Thread-2): 11:24:43 | 13 of 13 ERROR creating table model dbt_kristin_2.stg_stripe_subscription [ERROR in 0.41s]
+2020-07-23 18:24:43.259672 (Thread-2): Finished running node model.stripe_source.stg_stripe_subscription
+2020-07-23 18:24:43.260969 (MainThread): Acquiring new bigquery connection "master".
+2020-07-23 18:24:43.261093 (MainThread): Opening a new connection, currently in state closed
+2020-07-23 18:24:43.261435 (MainThread): 11:24:43 | 
+2020-07-23 18:24:43.261573 (MainThread): 11:24:43 | Finished running 13 table models in 8.57s.
+2020-07-23 18:24:43.261684 (MainThread): Connection 'master' was properly closed.
+2020-07-23 18:24:43.261766 (MainThread): Connection 'model.stripe_source.stg_stripe_payout' was left open.
+2020-07-23 18:24:43.261844 (MainThread): Connection 'model.stripe_source.stg_stripe_subscription' was left open.
+2020-07-23 18:24:43.261920 (MainThread): Connection 'model.stripe_source.stg_stripe_refund' was left open.
+2020-07-23 18:24:43.261994 (MainThread): Connection 'model.stripe_source.stg_stripe_payment_method' was left open.
+2020-07-23 18:24:43.317462 (MainThread): 
+2020-07-23 18:24:43.317655 (MainThread): Completed with 4 errors and 0 warnings:
+2020-07-23 18:24:43.317862 (MainThread): 
+2020-07-23 18:24:43.318047 (MainThread): Runtime Error in model stg_stripe_invoice (models/stg_stripe_invoice.sql)
+2020-07-23 18:24:43.318168 (MainThread):   404 Not found: Table dbt-package-testing:stripe.invoice was not found in location US
+2020-07-23 18:24:43.318270 (MainThread):   
+2020-07-23 18:24:43.318365 (MainThread):   (job ID: 400cb65f-27ae-4365-9f08-c811b9838d44)
+2020-07-23 18:24:43.318464 (MainThread): 
+2020-07-23 18:24:43.318569 (MainThread): Runtime Error in model stg_stripe_invoice_line_item (models/stg_stripe_invoice_line_item.sql)
+2020-07-23 18:24:43.318784 (MainThread):   404 Not found: Table dbt-package-testing:stripe.invoice_line_item was not found in location US
+2020-07-23 18:24:43.319005 (MainThread):   
+2020-07-23 18:24:43.319160 (MainThread):   (job ID: a8f9d2a8-c2d1-488e-ae6f-d89c033d09c4)
+2020-07-23 18:24:43.319278 (MainThread): 
+2020-07-23 18:24:43.319391 (MainThread): Runtime Error in model stg_stripe_refund (models/stg_stripe_refund.sql)
+2020-07-23 18:24:43.319497 (MainThread):   404 Not found: Table dbt-package-testing:stripe.refund was not found in location US
+2020-07-23 18:24:43.319590 (MainThread):   
+2020-07-23 18:24:43.319680 (MainThread):   (job ID: 4274198b-7a54-40fc-a9db-05bf4cc60bc3)
+2020-07-23 18:24:43.319778 (MainThread): 
+2020-07-23 18:24:43.319884 (MainThread): Runtime Error in model stg_stripe_subscription (models/stg_stripe_subscription.sql)
+2020-07-23 18:24:43.319981 (MainThread):   404 Not found: Table dbt-package-testing:stripe.subscription was not found in location US
+2020-07-23 18:24:43.320072 (MainThread):   
+2020-07-23 18:24:43.320161 (MainThread):   (job ID: 8a376498-0be8-4325-bbed-13ef88aff6fc)
+2020-07-23 18:24:43.320281 (MainThread): 
+Done. PASS=9 WARN=0 ERROR=4 SKIP=0 TOTAL=13
+2020-07-23 18:24:43.320487 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb3ea30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb272e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cb09be0>]}
+2020-07-23 18:24:43.320717 (MainThread): Flushing usage events

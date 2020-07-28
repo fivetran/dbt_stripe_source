@@ -15,7 +15,6 @@ sources:
     tables:
       - name: balance_transaction
         description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
-        loaded_at_field: _fivetran_synced
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -48,7 +47,6 @@ sources:
               
       - name: card
         description: details of a credit card that has been saved to the system.
-        loaded_at_field: _fivetran_synced
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -71,7 +69,6 @@ sources:
 
       - name: charge
         description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
-        loaded_at_field: _fivetran_synced
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -90,7 +87,7 @@ sources:
             description: If the charge was created without capturing, this Boolean represents whether it is still uncaptured or has since been captured.
           - name: card_id 
             description: ID of the card that was charged.
-          - name: created_at 
+          - name: created
             description: Timestamp of the when the charge took place.
           - name: customer_id 
             description: ID of the customer this charge is for if one exists.
@@ -112,10 +109,12 @@ sources:
             description: Whether the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.
           - name: status 
             description: The status of the payment is either succeeded, pending, or failed.
+          - name: invoice_id 
+            description: The id of the invoice associated with this charge.
 
 
       - name: customer
-        description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer. The API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.
+        description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
         freshness: null
         columns:
           - name: id 
@@ -131,33 +130,32 @@ sources:
             description: Three-letter ISO code for the currency the customer can be charged in for recurring billing purposes.
           - name: default_card_id 
             description: ID for the default card used by the cusomter.
-          - name: deliguent 
+          - name: delinquent 
             description: When the customer’s latest invoice is billed by charging automatically, delinquent is true if the invoice’s latest charge is failed. When the customer’s latest invoice is billed by sending an invoice, delinquent is true if the invoice is not paid by its due date.
           - name: description 
             description: An arbitrary string attached to the object. Often useful for displaying to users.
           - name: email 
             description: The customer’s email address.
           - name: shipping_address_city 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
           - name: shipping_address_country 
-            description: Attribute of the cusotmer's shipping address. 
+            description: Attribute of the customer's shipping address. 
           - name: shipping_address_line_1 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
           - name: shipping_address_line_2 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
           - name: shipping_address_postal_code 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
           - name: shipping_address_state 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
           - name: shipping_name 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
           - name: shipping_phone 
-            description: Attribute of the cusotmer's shipping address.
+            description: Attribute of the customer's shipping address.
 
 
       - name: fee
         description: The details of a fee associated with a balance_transation
-        loaded_at_field: _fivetran_synced
         columns:
           - name: balance_transaction_id 
             description: ID of the balance transaction entry the fee applies to
@@ -174,7 +172,7 @@ sources:
 
 
       - name: payment_intent
-        description: A PaymentIntent guides you through the process of collecting a payment from your customer.
+        description: A Payment Intent guides you through the process of collecting a payment from your customer.
         freshness: null
         columns:
           - name: id 
@@ -219,7 +217,6 @@ sources:
 
       - name: payment_method_card
         description: Table with the relationships between a payment methods and a card
-        loaded_at_field: _fivetran_synced
         columns:
           - name: payment_method_id 
             description: ID of the payment method
@@ -234,9 +231,6 @@ sources:
         columns:
           - name: id 
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: created 
             description: Time at which the object was created.
           - name: customer_id 
@@ -247,7 +241,6 @@ sources:
 
       - name: payout
         description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
-        loaded_at_field: _fivetran_synced
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -416,6 +409,24 @@ sources:
             description: Date when the subscription was first created. The date might differ from the created date due to backdating.
           - name: ended_at 
             description: If the subscription has ended, the date the subscription ended.
-
-          
-
+      
+      - name: plan
+        description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
+        freshness: null
+        columns:
+          - name: id
+            description: Unique identifier for the object.
+          - name: active
+            description: Whether the plan can be used for new purchases.
+          - name: amount
+            description: The unit amount in cents to be charged, represented as a whole integer if possible.
+          - name: currency
+            description: Three-letter ISO currency code, in lowercase.
+          - name: interval
+            description: The frequency at which a subscription is billed. One of day, week, month or year.
+          - name: interval_count
+            description: The number of intervals between subscription billings. For example, interval_count=3 bills every 3 months.
+          - name: nickname
+            description: A brief description of the plan, hidden from customers.
+          - name: product
+            description: The product whose pricing this plan determines.

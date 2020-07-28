@@ -1,7 +1,7 @@
 with balance_transaction as (
 
     select *
-    from {{ source('stripe', 'balance_transaction') }}
+    from {{ var('balance_transaction') }}
 
 ), fields as (
 

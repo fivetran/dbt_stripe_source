@@ -19,6 +19,7 @@ with invoice as (
       created as created_at,
       currency,
       customer_id,
+      description,
       due_date,
       number,
       paid as is_paid,

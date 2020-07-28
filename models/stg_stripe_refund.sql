@@ -1,7 +1,7 @@
 with refund as (
 
     select *
-    from {{ source('stripe', 'refund') }}
+    from {{ var('refund') }}
 
 ), fields as (
 

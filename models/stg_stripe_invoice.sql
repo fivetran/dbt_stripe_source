@@ -3,7 +3,7 @@
 with invoice as (
 
     select *
-    from {{ source('stripe', 'invoice') }}
+    from {{ var('invoice') }}
 
 ), fields as (
 

@@ -1,7 +1,9 @@
+{{ config(enabled=var('using_payment_method', True)) }}
+
 with payment_method as (
 
     select *
-    from {{ source('stripe', 'payment_method') }}
+    from {{ var('payment_method') }}
 
 ), fields as (
 

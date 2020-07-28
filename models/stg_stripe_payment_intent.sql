@@ -1,7 +1,7 @@
 with payment_intent as (
 
     select *
-    from {{ source('stripe', 'payment_intent') }}
+    from {{ var('payment_intent') }}
 
 ), fields as (
 

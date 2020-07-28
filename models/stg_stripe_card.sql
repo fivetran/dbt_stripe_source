@@ -1,7 +1,7 @@
 with card as (
 
     select *
-    from {{ source('stripe', 'card') }}
+    from {{ var('card') }}
 
 ), fields as (
 

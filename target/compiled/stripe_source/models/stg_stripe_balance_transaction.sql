@@ -1,7 +1,7 @@
 with balance_transaction as (
 
     select *
-    from `dbt-package-testing`.`stripe`.`balance_transaction`
+    from stripe.balance_transaction
 
 ), fields as (
 

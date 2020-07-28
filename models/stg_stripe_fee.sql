@@ -1,7 +1,7 @@
 with fee as (
 
     select *
-    from {{ source('stripe', 'fee') }}
+    from {{ var('fee') }}
 
 ), fields as (
 
