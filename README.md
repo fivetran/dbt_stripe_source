@@ -22,9 +22,18 @@ This package contains staging models, designed to work simultaneously with our [
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration
-The [variables](https://docs.getdbt.com/docs/using-variables) needed to configure this package are as follows:
+By default this package will look for your Stripe data in the `stripe` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Stripe data is, please add the following configuration to your `dbt_project.yml` file:
 
-TBD
+```yml
+# dbt_project.yml
+
+...
+config-version: 2
+
+vars:
+    stripe_schema: your_database_name
+    stripe_database: your_schema_name 
+```
 
 ### Contributions ###
 
