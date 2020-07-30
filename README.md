@@ -1,6 +1,6 @@
 # Stripe 
 
-This package models Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1DgcGgNNcH8KPiAjaFNkvT6nEpY6hJd6DZ7ux_CdIF8A/edit).
+This package models Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1nqPBWtH_h_8iVjF9-GselWhIyfLH7dgEk7P92s66eEc).
 
 This package is designed to do the following:
 * Add descriptions to tables and columns that are synced using Fivetran
