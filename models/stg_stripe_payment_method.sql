@@ -13,7 +13,6 @@ with payment_method as (
       customer_id,
       type
     from payment_method
-    where not is_deleted
 
 )
 
