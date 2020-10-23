@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: stg_stripe_balance_transaction
+  - name: stg_stripe__balance_transaction
     description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
     columns:
       - name: balance_transaction_id
@@ -34,7 +34,7 @@ models:
         description: the type of tranaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
           
-  - name: stg_stripe_card
+  - name: stg_stripe__card
     description: Details of a credit card that has been saved to the system.
     columns:
       - name: card_id
@@ -56,7 +56,7 @@ models:
         description: The recipient that this card belongs to. NULL if the card belongs to a customer or account instead.
   
 
-  - name: stg_stripe_charge
+  - name: stg_stripe__charge
     description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
     columns:
       - name: charge_id 
@@ -102,7 +102,7 @@ models:
         description: The id of the invoice associated with this charge.
 
 
-  - name: stg_stripe_customer
+  - name: stg_stripe__customer
     description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
     columns:
       - name: customer_id 
@@ -142,7 +142,7 @@ models:
         description: Attribute of the customer's shipping address.
 
 
-  - name: stg_stripe_fee
+  - name: stg_stripe__fee
     description: The details of a fee associated with a balance_transation
     columns:
       - name: balance_transaction_id 
@@ -159,7 +159,7 @@ models:
         description: Type of the fee, can be application_fee, stripe_fee or tax.
 
 
-  - name: stg_stripe_payment_intent
+  - name: stg_stripe__payment_intent
     description: A Payment Intent guides you through the process of collecting a payment from your customer.
     columns:
       - name: payment_intent_id
@@ -212,7 +212,7 @@ models:
       - name: funding 
         description: Card funding type. Can be credit, debit, prepaid, or unknown.
 
-  - name: stg_stripe_payment_method
+  - name: stg_stripe__payment_method
     description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
     columns:
       - name: payment_method_id 
@@ -228,7 +228,7 @@ models:
         description: The type of the PaymentMethod. An additional hash is included on the PaymentMethod with a name matching this value. It contains additional information specific to the PaymentMethod type.
 
 
-  - name: stg_stripe_payout
+  - name: stg_stripe__payout
     description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
     columns:
       - name: payout_id 
@@ -260,7 +260,7 @@ models:
         description: Can be bank_account or card.
 
 
-  - name: stg_stripe_refund
+  - name: stg_stripe__refund
     description: Details of transactions that have been refunded
     columns:
       - name: refund_id 
@@ -287,7 +287,7 @@ models:
       - name: status 
         description: Status of the refund. For credit card refunds, this can be pending, succeeded, or failed. For other types of refunds, it can be pending, succeeded, failed, or canceled.
 
-  - name: stg_stripe_invoice_line_item
+  - name: stg_stripe__invoice_line_item
     description: The different items that an invoice contains
     columns:
       - name: invoice_line_item_id 
@@ -319,7 +319,7 @@ models:
         tests:
             - unique
 
-  - name: stg_stripe_invoice
+  - name: stg_stripe__invoice
     description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
     columns:
       - name: invoice_id 
@@ -368,7 +368,7 @@ models:
       - name: total 
         description: Total after discounts and taxes.  
 
-  - name: stg_stripe_subscription
+  - name: stg_stripe__subscription
     description: Subscriptions allow you to charge a customer on a recurring basis.
     columns:
       - name: subscription_id
@@ -400,7 +400,7 @@ models:
       - name: ended_at 
         description: If the subscription has ended, the date the subscription ended.
 
-  - name: stg_stripe_plan
+  - name: stg_stripe__plan
     description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
     columns:
       - name: plan_id
