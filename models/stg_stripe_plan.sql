@@ -15,7 +15,7 @@ with plan as (
       active as is_active,
       amount,
       currency,
-      "interval" as plan_interval,
+      `interval` as plan_interval,
       interval_count,
       nickname,
       product_id
