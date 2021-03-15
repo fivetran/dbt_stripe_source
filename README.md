@@ -31,8 +31,8 @@ By default, this package will look for your Stripe data in the `stripe` schema o
 config-version: 2
 
 vars:
-    stripe_schema: your_database_name
-    stripe_database: your_schema_name 
+    stripe_schema: your_schema_name
+    stripe_database: your_database_name 
 ```
 
 ### Contributions ###
