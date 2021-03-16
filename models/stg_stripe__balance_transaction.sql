@@ -28,7 +28,7 @@ fields as (
 final as (
     
     select 
-        balance_transaction_id,
+        id as balance_transaction_id,
         amount,
         available_on,
         created as created_at,

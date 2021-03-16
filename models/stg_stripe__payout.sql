@@ -1,4 +1,3 @@
-{{ config(enabled=var('using_payment_method', True)) }}
 
 with base as (
 
@@ -29,9 +28,17 @@ fields as (
 final as (
     
     select 
-        id as payment_method_id,
+        id as payout_id,
+        amount,
+        arrival_date,
+        automatic as is_automatic,
+        balance_transaction_id,
         created as created_at,
-        customer_id,
+        currency,
+        description,
+        method,
+        source_type,
+        status,
         type
     from fields
 )

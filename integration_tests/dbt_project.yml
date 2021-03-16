@@ -1,0 +1,47 @@
+config-version: 2
+
+name: 'stripe_source_integration_tests'
+version: '0.3.0'
+
+require-dbt-version: [">=0.18.0", "<0.20.0"]
+profile: 'integration_tests'
+
+vars:
+  stripe_schema: stripe_source_integration_tests
+  stripe_source:
+    group:                  "{{ ref('group_data') }}"
+    balance_transaction:    "{{ ref('balance_transaction_data') }}"
+    card:                   "{{ ref('card_data') }}"
+    charge:                 "{{ ref('charge_data') }}"
+    customer:               "{{ ref('customer_data') }}"
+    fee:                    "{{ ref('fee_data') }}"
+    invoice:                "{{ ref('invoice_data') }}"
+    invoice_line_item:      "{{ ref('invoice_line_item_data') }}"
+    payment_intent:         "{{ ref('payment_intent_data') }}"
+    payment_method_card:    "{{ ref('payment_method_card_data') }}"
+    payment_method:         "{{ ref('payment_method_data') }}"
+    payout:                 "{{ ref('payout_data') }}"
+    plan:                   "{{ ref('plan_data') }}"
+    refund:                 "{{ ref('refund_data') }}"
+    subscription:           "{{ ref('subscription_data') }}"
+    
+seeds:
+  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+  stripe_source_integration_tests:
+    +column_types:
+      _fivetran_synced: timestamp
+    group_data:
+    balance_transaction_data:
+    card_data:
+    charge_data:
+    customer_data:
+    fee_data:
+    invoice_data:
+    invoice_line_item_data:
+    payment_intent_data:
+    payment_method_card_data:
+    payment_method_data:
+    payout_data:
+    plan_data:
+    refund_data:
+    subscription_data:

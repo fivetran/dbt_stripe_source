@@ -1,6 +1,6 @@
 # Stripe 
 
-This package models Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1nqPBWtH_h_8iVjF9-GselWhIyfLH7dgEk7P92s66eEc).
+This package models Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/stripe#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 * Add descriptions to tables and columns that are synced using Fivetran
@@ -15,7 +15,7 @@ This package contains staging models, designed to work simultaneously with our [
 * Name columns consistently across all packages:
     * Boolean fields are prefixed with `is_` or `has_`
     * Timestamps are appended with `_at`
-    * ID primary keys are prefixed with the name of the table.  For example, the user table's ID column is renamed `user_id`.
+    * ID primary keys are prefixed with the name of the table.  For example, the card table's ID column is renamed `card_id`.
 
 
 ## Installation Instructions
@@ -34,6 +34,33 @@ vars:
     stripe_schema: your_schema_name
     stripe_database: your_database_name 
 ```
+### Disabling Models
+This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, or `subscription` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true`. Add variables for only the tables you want to disable:
+```yml
+# dbt_project.yml
+
+...
+vars:
+    using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
+    using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
+    using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
+
+```
+
+### Changing the Build Schema
+By default this package will build the Stripe staging models within a schema titled (<target_schema> + `_stg_stripe`). If this is not where you would like you Stripe staging to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+  stripe_source:
+    +schema: my_new_final_models_schema # leave blank for just the target_schema
+
+```
+
+*Read more about using custom schemas in dbt [here](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/using-custom-schemas).*
 
 ### Contributions ###
 
@@ -42,13 +69,19 @@ or open PRs against `master`. Check out
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
 on the best workflow for contributing to a package.
 
+## Database support
+This package has been tested on BigQuery, Snowflake, and Redshift.
+
 ### Resources:
+- Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
+- Have questions, feedback, or need help? Book a time during our office hours [using Calendly](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or email us at solutions@fivetran.com
 - Find all of Fivetran's pre-built dbt packages in our [dbt hub](https://hub.getdbt.com/fivetran/)
-- Learn more about Fivetran [here](https://fivetran.com/docs)
+- Learn how to orchestrate [dbt transformations with Fivetran](https://fivetran.com/docs/transformations/dbt)
+- Learn more about Fivetran overall [in our docs](https://fivetran.com/docs)
 - Check out [Fivetran's blog](https://fivetran.com/blog)
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
+- Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
 - Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- Check out [the dbt blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
 

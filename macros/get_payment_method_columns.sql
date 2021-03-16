@@ -15,9 +15,6 @@
     {"name": "customer_id", "datatype": dbt_utils.type_string()},
     {"name": "id", "datatype": dbt_utils.type_string()},
     {"name": "livemode", "datatype": "boolean"},
-    {"name": "metadata", "datatype": dbt_utils.type_string()},
-    {"name": "metadata_fivetran_payment_method_id", "datatype": dbt_utils.type_string()},
-    {"name": "metadata_netsuite_payment_source", "datatype": dbt_utils.type_string()},
     {"name": "type", "datatype": dbt_utils.type_string()}
 ] %}
 

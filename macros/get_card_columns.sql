@@ -26,8 +26,6 @@
     {"name": "id", "datatype": dbt_utils.type_string()},
     {"name": "is_deleted", "datatype": "boolean"},
     {"name": "last_4", "datatype": dbt_utils.type_string()},
-    {"name": "metadata", "datatype": dbt_utils.type_string()},
-    {"name": "metadata_netsuite_payment_source", "datatype": dbt_utils.type_string()},
     {"name": "name", "datatype": dbt_utils.type_string()},
     {"name": "network", "datatype": dbt_utils.type_string()},
     {"name": "recipient", "datatype": dbt_utils.type_string()},

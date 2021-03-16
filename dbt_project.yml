@@ -1,30 +1,35 @@
 config-version: 2
 
 name: 'stripe_source'
-version: '0.2.0'
+version: '0.3.0'
 require-dbt-version: [">=0.18.0", "<0.20.0"]
 
 models:
     stripe_source:
         materialized: table
+        +schema: stg_stripe
+        tmp:
+          materialized: view
 
 vars:
   stripe_source:
-    balance_transaction: "{{ source('stripe', 'balance_transaction') }}"
-    card: "{{ source('stripe', 'card') }}"
-    charge: "{{ source('stripe', 'charge') }}"
-    customer: "{{ source('stripe', 'customer') }}"
-    fee: "{{ source('stripe', 'fee') }}"
-    invoice: "{{ source('stripe', 'invoice') }}"
-    invoice_line_item: "{{ source('stripe', 'invoice_line_item') }}"
-    payment_intent: "{{ source('stripe', 'payment_intent') }}"
-    payment_method_card: "{{ source('stripe', 'payment_method_card') }}"
-    payment_method: "{{ source('stripe', 'payment_method') }}"
-    payout: "{{ source('stripe', 'payout') }}"
-    plan: "{{ source('stripe', 'plan') }}"
-    refund: "{{ source('stripe', 'refund') }}"
-    subscription: "{{ source('stripe', 'subscription') }}"
-    using_invoices: True
-    using_payment_method: True
-    using_subscriptions: True
+    balance_transaction:  "{{ source('stripe', 'balance_transaction') }}"
+    card:                 "{{ source('stripe', 'card') }}"
+    charge:               "{{ source('stripe', 'charge') }}"
+    customer:             "{{ source('stripe', 'customer') }}"
+    fee:                  "{{ source('stripe', 'fee') }}"
+    invoice:              "{{ source('stripe', 'invoice') }}"
+    invoice_line_item:    "{{ source('stripe', 'invoice_line_item') }}"
+    payment_intent:       "{{ source('stripe', 'payment_intent') }}"
+    payment_method_card:  "{{ source('stripe', 'payment_method_card') }}"
+    payment_method:       "{{ source('stripe', 'payment_method') }}"
+    payout:               "{{ source('stripe', 'payout') }}"
+    plan:                 "{{ source('stripe', 'plan') }}"
+    refund:               "{{ source('stripe', 'refund') }}"
+    subscription:         "{{ source('stripe', 'subscription') }}"
+    
+    #Variables to enable or disable models if you do not have the respective table.
+    using_invoices:         True
+    using_payment_method:   True
+    using_subscriptions:    True
 

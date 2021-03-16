@@ -1,3 +1,4 @@
+{{ config(enabled=var('using_subscriptions', True)) }}
 
 with base as (
 

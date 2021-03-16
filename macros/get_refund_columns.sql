@@ -11,11 +11,6 @@
     {"name": "failure_balance_transaction_id", "datatype": dbt_utils.type_string()},
     {"name": "failure_reason", "datatype": dbt_utils.type_string()},
     {"name": "id", "datatype": dbt_utils.type_string()},
-    {"name": "metadata", "datatype": dbt_utils.type_string()},
-    {"name": "metadata_netsuite_credit_memo_id", "datatype": dbt_utils.type_int()},
-    {"name": "metadata_netsuite_credit_memo_link", "datatype": dbt_utils.type_string()},
-    {"name": "metadata_netsuite_customer_refund_id", "datatype": dbt_utils.type_int()},
-    {"name": "metadata_netsuite_customer_refund_link", "datatype": dbt_utils.type_string()},
     {"name": "reason", "datatype": dbt_utils.type_string()},
     {"name": "receipt_number", "datatype": dbt_utils.type_string()},
     {"name": "status", "datatype": dbt_utils.type_string()}

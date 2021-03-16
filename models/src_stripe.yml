@@ -18,9 +18,6 @@ sources:
         columns:
           - name: id
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: amount
             description: Gross amount of the transaction, in cents.
           - name: available_on
@@ -42,7 +39,7 @@ sources:
           - name: status
             description: If the transaction’s net funds are available in the Stripe balance yet. Either 'available' or 'pending'.
           - name: type
-            description: the type of tranaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
+            description: the type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
               
       - name: card
@@ -50,9 +47,6 @@ sources:
         columns:
           - name: id
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: brand
             description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
           - name: country
@@ -65,16 +59,15 @@ sources:
             description: Cardholder name
           - name: recipient
             description: The recipient that this card belongs to. NULL if the card belongs to a customer or account instead.
-     
+          - name: funding
+            description: Card funding type. Can be credit, debit, prepaid, or unknown.
+
 
       - name: charge
         description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
         columns:
           - name: id 
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: amount 
             description: Amount intended to be collected by this payment. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
           - name: amount_refunded 
@@ -111,6 +104,10 @@ sources:
             description: The status of the payment is either succeeded, pending, or failed.
           - name: invoice_id 
             description: The id of the invoice associated with this charge.
+          - name: currency
+            description: The currency of the charge.
+          - name: created
+            description: Timestamp of the date the charge was created.
 
 
       - name: customer
@@ -119,17 +116,14 @@ sources:
         columns:
           - name: id 
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: account_balance 
             description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice.
-          - name: created_at 
-            description: Timestamp of when the customer emtry was created.
+          - name: created 
+            description: Timestamp of when the customer entry was created.
           - name: currency 
             description: Three-letter ISO code for the currency the customer can be charged in for recurring billing purposes.
           - name: default_card_id 
-            description: ID for the default card used by the cusomter.
+            description: ID for the default card used by the customer.
           - name: delinquent 
             description: When the customer’s latest invoice is billed by charging automatically, delinquent is true if the invoice’s latest charge is failed. When the customer’s latest invoice is billed by sending an invoice, delinquent is true if the invoice is not paid by its due date.
           - name: description 
@@ -177,9 +171,6 @@ sources:
         columns:
           - name: id 
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: amount 
             description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
           - name: amount_capturable 
@@ -197,9 +188,7 @@ sources:
           - name: capture_method 
             description: Controls when the funds will be captured from the customer’s account.
           - name: confirmation_method 
-            description: Whether confirmed automatically or manualy
-          - name: created 
-            description: Time at which the object was created.
+            description: Whether confirmed automatically or manually
           - name: currency 
             description: Three-letter ISO currency code, in lowercase.
           - name: customer_id 
@@ -244,9 +233,6 @@ sources:
         columns:
           - name: id 
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: amount 
             description: Amount (in cents) to be transferred to your bank account or debit card.
           - name: arrival_date 
@@ -277,9 +263,6 @@ sources:
         columns:
           - name: id 
             description: Unique identifier for the object.
-            tests:
-                - unique
-                - not_null
           - name: amount 
             description: Amount, in cents.
           - name: balance_transaction_id 
@@ -326,7 +309,7 @@ sources:
           - name: subscription_item_id 
             description: The subscription item that generated this invoice item. Left empty if the line item is not an explicit result of a subscription.
           - name: type 
-            description: A string identifying the type of the source of this line item, either an invoiceitem or a subscription.
+            description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
           - name: unique_id 
             description: A unique id generated for old invoice ID's from a past version of the API
 

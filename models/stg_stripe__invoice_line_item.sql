@@ -1,3 +1,4 @@
+{{ config(enabled=var('using_invoices', True)) }}
 
 with base as (
 
