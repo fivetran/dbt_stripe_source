@@ -41,7 +41,9 @@ final as (
         subscription_id,
         subscription_item_id,
         type,
-        unique_id
+        unique_id,
+        period_start,
+        period_end
     from fields
     where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
 
