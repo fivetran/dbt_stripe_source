@@ -48,7 +48,7 @@ vars:
 ```
 
 ### Changing the Build Schema
-By default this package will build the Stripe staging models within a schema titled (<target_schema> + `_stg_stripe`). If this is not where you would like you Stripe staging to be written to, add the following configuration to your `dbt_project.yml` file:
+By default this package will build the Stripe staging models within a schema titled (<target_schema> + `_stg_stripe`). If this is not where you would like your Stripe staging models to be written to, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -56,7 +56,7 @@ By default this package will build the Stripe staging models within a schema tit
 ...
 models:
   stripe_source:
-    +schema: my_new_final_models_schema # leave blank for just the target_schema
+    +schema: my_new_staging_models_schema # leave blank for just the target_schema
 
 ```
 
