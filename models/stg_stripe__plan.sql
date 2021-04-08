@@ -34,7 +34,7 @@ final as (
         amount,
         currency,
         {% if target.type == 'bigquery' %}
-            'interval' as plan_interval,
+            `interval` as plan_interval,
         {% else %}
             interval as plan_interval,
         {% endif %}
