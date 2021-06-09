@@ -1,4 +1,4 @@
 select * 
 from {{ var('customer') }}
-where livemode
-  and not is_deleted
+where coalesce(livemode, true)
+    and not coalesce(is_deleted, false)
