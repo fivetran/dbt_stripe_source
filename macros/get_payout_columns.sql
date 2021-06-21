@@ -17,6 +17,7 @@
     {"name": "failure_message", "datatype": dbt_utils.type_string()},
     {"name": "id", "datatype": dbt_utils.type_string()},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt_utils.type_string()},
     {"name": "method", "datatype": dbt_utils.type_string()},
     {"name": "source_type", "datatype": dbt_utils.type_string()},
     {"name": "statement_descriptor", "datatype": dbt_utils.type_string()},

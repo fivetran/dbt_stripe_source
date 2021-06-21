@@ -39,6 +39,7 @@ final as (
             interval as plan_interval,
         {% endif %}
         interval_count,
+        metadata,
         nickname,
         product_id
     from fields
