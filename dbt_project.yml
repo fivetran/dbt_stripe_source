@@ -32,4 +32,7 @@ vars:
     using_invoices:         True
     using_payment_method:   True
     using_subscriptions:    True
+    
+    # variable to exclude or include test customer data (based on `livemode`)
+    exclude_test_customers: True
 
