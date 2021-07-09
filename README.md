@@ -8,7 +8,7 @@ This package enriches your Fivetran data by doing the following:
 * Add column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 * Model staging tables, which will be used in our transform package
 
-### Models
+## Models
 
 This package contains staging models, designed to work simultaneously with our [Stripe modeling package](https://github.com/fivetran/dbt_stripe).  The staging models are designed to:
 * Remove any rows that are soft-deleted
@@ -34,8 +34,10 @@ vars:
     stripe_schema: your_schema_name
     stripe_database: your_database_name 
 ```
+
 ### Disabling Models
 This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, or `subscription` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true`. Add variables for only the tables you want to disable:
+
 ```yml
 # dbt_project.yml
 
@@ -62,7 +64,17 @@ models:
 
 *Read more about using custom schemas in dbt [here](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/using-custom-schemas).*
 
-### Contributions ###
+### Including or Excluding Test Customer Data
+By default this package will exclude test data (`where livemode = false`) from the source `CUSTOMER` table. However, you may want to include this data when testing or developing your analyses. To include test customer data, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+vars:
+    exclude_test_customers: False  # Default = true
+```
+
+## Contributions
 
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 
