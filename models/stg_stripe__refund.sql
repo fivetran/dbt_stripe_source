@@ -35,6 +35,7 @@ final as (
         created as created_at,
         currency,
         description,
+        metadata,
         reason,
         receipt_number,
         status

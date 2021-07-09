@@ -42,6 +42,7 @@ final as (
         customer_id,
         description,
         due_date,
+        metadata,
         number,
         paid as is_paid,
         receipt_number,

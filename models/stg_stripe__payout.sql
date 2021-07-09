@@ -36,6 +36,7 @@ final as (
         created as created_at,
         currency,
         description,
+        metadata,
         method,
         source_type,
         status,

@@ -32,6 +32,7 @@ final as (
         id as payment_method_id,
         created as created_at,
         customer_id,
+        metadata,
         type
     from fields
 )

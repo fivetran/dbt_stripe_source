@@ -19,6 +19,7 @@
     {"name": "ended_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "id", "datatype": dbt_utils.type_string()},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt_utils.type_string()},
     {"name": "quantity", "datatype": dbt_utils.type_int()},
     {"name": "start_date", "datatype": dbt_utils.type_timestamp()},
     {"name": "status", "datatype": dbt_utils.type_string()},

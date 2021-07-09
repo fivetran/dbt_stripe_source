@@ -1,15 +1,14 @@
 version: 2
 
 models:
-
   - name: stg_stripe__balance_transaction
     description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
     columns:
       - name: balance_transaction_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
+          - unique
+          - not_null
       - name: amount
         description: Gross amount of the transaction, in cents.
       - name: available_on
@@ -33,15 +32,14 @@ models:
       - name: type
         description: the type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
-          
   - name: stg_stripe__card
     description: Details of a credit card that has been saved to the system.
     columns:
       - name: card_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
+          - unique
+          - not_null
       - name: brand
         description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
       - name: country
@@ -60,107 +58,106 @@ models:
   - name: stg_stripe__charge
     description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
     columns:
-      - name: charge_id 
+      - name: charge_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
-      - name: amount 
+          - unique
+          - not_null
+      - name: amount
         description: Amount intended to be collected by this payment. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
-      - name: amount_refunded 
+      - name: amount_refunded
         description: The amount of the charge, if any, that has been refunded.
-      - name: application_fee_amount 
+      - name: application_fee_amount
         description: The amount of the application fee (if any) for the charge.
-      - name: balance_transaction_id 
+      - name: balance_transaction_id
         description: ID of the balance transaction that describes the impact of this charge on your account balance (not including refunds or disputes).
-      - name: is_captured 
+      - name: is_captured
         description: If the charge was created without capturing, this Boolean represents whether it is still uncaptured or has since been captured.
-      - name: card_id 
+      - name: card_id
         description: ID of the card that was charged.
       - name: created_at
         description: Timestamp of the when the charge took place.
-      - name: customer_id 
+      - name: customer_id
         description: ID of the customer this charge is for if one exists.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
-      - name: failure_code 
+      - name: failure_code
         description: Error code explaining reason for charge failure if available.
-      - name: failure_message 
+      - name: failure_message
         description: Message to user further explaining reason for charge failure if available.
-      - name: is_paid 
+      - name: is_paid
         description: true if the charge succeeded, or was successfully authorized for later capture.
-      - name: payment_intent_id 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: payment_intent_id
         description: ID of the PaymentIntent associated with this charge, if one exists.
-      - name: receipt_email 
+      - name: receipt_email
         description: This is the email address that the receipt for this charge was sent to.
-      - name: receipt_number 
-        description: This is the transaction number that appears on email receipts sent for this charge. 
-      - name: is_refunded 
+      - name: receipt_number
+        description: This is the transaction number that appears on email receipts sent for this charge.
+      - name: is_refunded
         description: Whether the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.
-      - name: status 
+      - name: status
         description: The status of the payment is either succeeded, pending, or failed.
-      - name: invoice_id 
+      - name: invoice_id
         description: The id of the invoice associated with this charge.
       - name: currency
         description: The currency of the charge.
 
-
   - name: stg_stripe__customer
     description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
     columns:
-      - name: customer_id 
+      - name: customer_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
-      - name: account_balance 
+          - unique
+          - not_null
+      - name: account_balance
         description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice.
-      - name: created_at 
+      - name: created_at
         description: Timestamp of when the customer entry was created.
-      - name: currency 
+      - name: currency
         description: Three-letter ISO code for the currency the customer can be charged in for recurring billing purposes.
-      - name: default_card_id 
+      - name: default_card_id
         description: ID for the default card used by the customer.
-      - name: is_delinquent 
+      - name: is_delinquent
         description: When the customer’s latest invoice is billed by charging automatically, delinquent is true if the invoice’s latest charge is failed. When the customer’s latest invoice is billed by sending an invoice, delinquent is true if the invoice is not paid by its due date.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
-      - name: email 
+      - name: email
         description: The customer’s email address.
-      - name: shipping_address_city 
+      - name: shipping_address_city
         description: Attribute of the customer's shipping address.
-      - name: shipping_address_country 
-        description: Attribute of the customer's shipping address. 
-      - name: shipping_address_line_1 
+      - name: shipping_address_country
         description: Attribute of the customer's shipping address.
-      - name: shipping_address_line_2 
+      - name: shipping_address_line_1
         description: Attribute of the customer's shipping address.
-      - name: shipping_address_postal_code 
+      - name: shipping_address_line_2
         description: Attribute of the customer's shipping address.
-      - name: shipping_address_state 
+      - name: shipping_address_postal_code
         description: Attribute of the customer's shipping address.
-      - name: shipping_name 
+      - name: shipping_address_state
         description: Attribute of the customer's shipping address.
-      - name: shipping_phone 
+      - name: shipping_name
         description: Attribute of the customer's shipping address.
-
+      - name: shipping_phone
+        description: Attribute of the customer's shipping address.
 
   - name: stg_stripe__fee
     description: The details of a fee associated with a balance_transation
     columns:
-      - name: balance_transaction_id 
+      - name: balance_transaction_id
         description: ID of the balance transaction entry the fee applies to
-      - name: amount 
+      - name: amount
         description: Amount of the fee, in cents.
       - name: application
         description: ID of the Connect application that earned the fee.
-      - name: currency 
+      - name: currency
         description: Three-letter ISO currency code, in lowercase.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
-      - name: type 
+      - name: type
         description: Type of the fee, can be application_fee, stripe_fee or tax.
-
 
   - name: stg_stripe__payment_intent
     description: A Payment Intent guides you through the process of collecting a payment from your customer.
@@ -168,239 +165,249 @@ models:
       - name: payment_intent_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
-      - name: amount 
+          - unique
+          - not_null
+      - name: amount
         description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
-      - name: amount_capturable 
+      - name: amount_capturable
         description: Amount that can be captured from this PaymentIntent.
-      - name: amount_received 
+      - name: amount_received
         description: Amount that was collected by this PaymentIntent.
-      - name: application 
+      - name: application
         description: ID of the Connect application that created the PaymentIntent.
-      - name: application_fee_amount 
+      - name: application_fee_amount
         description: The amount of the application fee (if any) for the resulting payment.
-      - name: canceled_at 
+      - name: canceled_at
         description: Populated when status is canceled, this is the time at which the PaymentIntent was canceled.
-      - name: cancellation_reason 
+      - name: cancellation_reason
         description: Reason for cancellation of this PaymentIntent, either user-provided (duplicate, fraudulent, requested_by_customer, or abandoned) or generated by Stripe internally (failed_invoice, void_invoice, or automatic).
-      - name: capture_method 
+      - name: capture_method
         description: Controls when the funds will be captured from the customer’s account.
-      - name: confirmation_method 
+      - name: confirmation_method
         description: Whether confirmed automatically or manually
       - name: created_at
         description: Time at which the object was created.
-      - name: currency 
+      - name: currency
         description: Three-letter ISO currency code, in lowercase.
-      - name: customer_id 
+      - name: customer_id
         description: ID of the Customer this PaymentIntent belongs to, if one exists.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
-      - name: payment_method_id 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: payment_method_id
         description: ID of the payment method used in this PaymentIntent.
-      - name: receipt_email 
+      - name: receipt_email
         description: Email address that the receipt for the resulting payment will be sent to.
-      - name: statement_descriptor 
+      - name: statement_descriptor
         description: For non-card charges, you can use this value as the complete description that appears on your customers’ statements.
-      - name: status 
+      - name: status
         description: Status of this PaymentIntent, one of requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, canceled, or succeeded.
 
   - name: stg_stripe__payment_method_card
     description: Table with the relationships between a payment methods and a card
     columns:
-      - name: payment_method_id 
+      - name: payment_method_id
         description: ID of the payment method
-      - name: brand 
+      - name: brand
         description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
-      - name: funding 
+      - name: funding
         description: Card funding type. Can be credit, debit, prepaid, or unknown.
 
   - name: stg_stripe__payment_method
     description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
     columns:
-      - name: payment_method_id 
+      - name: payment_method_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
+          - unique
+          - not_null
       - name: created_at
         description: Time at which the object was created.
-      - name: customer_id 
+      - name: customer_id
         description: The ID of the Customer to which this PaymentMethod is saved. This will not be set when the PaymentMethod has not been saved to a Customer.
-      - name: type 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: type
         description: The type of the PaymentMethod. An additional hash is included on the PaymentMethod with a name matching this value. It contains additional information specific to the PaymentMethod type.
-
 
   - name: stg_stripe__payout
     description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
     columns:
-      - name: payout_id 
+      - name: payout_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
-      - name: amount 
+          - unique
+          - not_null
+      - name: amount
         description: Amount (in cents) to be transferred to your bank account or debit card.
-      - name: arrival_date 
+      - name: arrival_date
         description: Date the payout is expected to arrive in the bank. This factors in delays like weekends or bank holidays.
-      - name: is_automatic 
+      - name: is_automatic
         description: true if the payout was created by an automated payout schedule, and false if it was requested manually.
-      - name: balance_transaction_id 
+      - name: balance_transaction_id
         description: ID of the balance transaction that describes the impact of this payout on your account balance.
       - name: created_at
         description: Time at which the object was created.
-      - name: currency 
+      - name: currency
         description: Three-letter ISO currency code, in lowercase.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
-      - name: method 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: method
         description: The method used to send this payout, which can be standard or instant.
-      - name: source_type 
+      - name: source_type
         description: The source balance this payout came from. One of card, fpx, or bank_account.
-      - name: status 
+      - name: status
         description: Current status of the payout.  Can be paid, pending, in_transit, canceled or failed.
-      - name: type 
+      - name: type
         description: Can be bank_account or card.
-
 
   - name: stg_stripe__refund
     description: Details of transactions that have been refunded
     columns:
-      - name: refund_id 
+      - name: refund_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
-      - name: amount 
+          - unique
+          - not_null
+      - name: amount
         description: Amount, in cents.
-      - name: balance_transaction_id 
+      - name: balance_transaction_id
         description: ID for the balance transaction that describes the impact on your account balance.
-      - name: charge_id 
+      - name: charge_id
         description: ID of the charge that was refunded.
       - name: created_at
         description: Time at which the object was created.
-      - name: currency 
-        description: Three-letter ISO currency code, in lowercase. 
-      - name: description 
+      - name: currency
+        description: Three-letter ISO currency code, in lowercase.
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users. (Available on non-card refunds only)
-      - name: reason 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: reason
         description: Reason for the refund, either user-provided (duplicate, fraudulent, or requested_by_customer) or generated by Stripe internally (expired_uncaptured_charge).
-      - name: receipt_number 
+      - name: receipt_number
         description: This is the transaction number that appears on email receipts sent for this refund.
-      - name: status 
+      - name: status
         description: Status of the refund. For credit card refunds, this can be pending, succeeded, or failed. For other types of refunds, it can be pending, succeeded, failed, or canceled.
 
   - name: stg_stripe__invoice_line_item
     description: The different items that an invoice contains
     columns:
-      - name: invoice_line_item_id 
+      - name: invoice_line_item_id
         description: Unique identifier for the object.
-      - name: invoice_id 
+      - name: invoice_id
         description: The ID of the invoice this item is a part of
-      - name: amount 
+      - name: amount
         description: The amount, in cents.
-      - name: currency 
+      - name: currency
         description: Three-letter ISO currency code, in lowercase.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
-      - name: is_discountable 
+      - name: is_discountable
         description: If true, discounts will apply to this line item. Always false for prorations.
-      - name: plan_id 
+      - name: plan_id
         description: The ID of the plan of the subscription, if the line item is a subscription or a proration.
-      - name: proration 
+      - name: proration
         description: Whether this is a proration.
-      - name: quantity 
+      - name: quantity
         description: The quantity of the subscription, if the line item is a subscription or a proration.
-      - name: subscription_id 
+      - name: subscription_id
         description: The ID of the subscription that the invoice item pertains to, if any.
-      - name: subscription_item_id 
+      - name: subscription_item_id
         description: The subscription item that generated this invoice item. Left empty if the line item is not an explicit result of a subscription.
-      - name: type 
+      - name: type
         description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
-      - name: unique_id 
+      - name: unique_id
         description: A unique id generated for old invoice ID's from a past version of the API
         tests:
-            - unique
+          - unique
 
   - name: stg_stripe__invoice
     description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
     columns:
-      - name: invoice_id 
+      - name: invoice_id
         description: Unique identifier for the object.
         tests:
-            - unique
-            - not_null
-      - name: amount_due 
+          - unique
+          - not_null
+      - name: amount_due
         description: Final amount due at this time for this invoice. If the invoice’s total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the amount_due may be 0. If there is a positive starting_balance for the invoice (the customer owes money), the amount_due will also take that into account. The charge that gets generated for the invoice will be for the amount specified in amount_due.
-      - name: amount_paid 
+      - name: amount_paid
         description: The amount, in cents, that was paid.
-      - name: amount_remaining 
+      - name: amount_remaining
         description: The amount remaining, in cents, that is due.
-      - name: attempt_count 
+      - name: attempt_count
         description: Number of payment attempts made for this invoice, from the perspective of the payment retry schedule.
-      - name: auto_advance 
+      - name: auto_advance
         description: Controls whether Stripe will perform automatic collection of the invoice. When false, the invoice’s state will not automatically advance without an explicit action.
-      - name: billing_reason 
+      - name: billing_reason
         description: Indicates the reason why the invoice was created.
-      - name: charge_id 
+      - name: charge_id
         description: ID of the latest charge generated for this invoice, if any.
       - name: created_at
         description: Time at which the object was created.
-      - name: currency 
+      - name: currency
         description: Three-letter ISO currency code, in lowercase.
-      - name: customer_id 
+      - name: customer_id
         description: The ID of the customer who will be billed.
-      - name: description 
+      - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users. Referenced as ‘memo’ in the Dashboard.
-      - name: due_date 
+      - name: due_date
         description: The date on which payment for this invoice is due. This value will be null for invoices where collection_method=charge_automatically.
-      - name: number 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: number
         description: A unique, identifying string that appears on emails sent to the customer for this invoice. This starts with the customer’s unique invoice_prefix if it is specified.
-      - name: is_paid 
+      - name: is_paid
         description: Whether payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer’s account balance.
-      - name: receipt_number 
+      - name: receipt_number
         description: This is the transaction number that appears on email receipts sent for this invoice.
-      - name: status 
+      - name: status
         description: Status of the invoice.
-      - name: subtotal 
+      - name: subtotal
         description: Total of all subscriptions, invoice items, and prorations on the invoice before any discount or tax is applied.
-      - name: tax 
+      - name: tax
         description: The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice.
-      - name: tax_percent 
+      - name: tax_percent
         description: The percent used to calculate the tax amount.
-      - name: total 
-        description: Total after discounts and taxes.  
+      - name: total
+        description: Total after discounts and taxes.
 
   - name: stg_stripe__subscription
     description: Subscriptions allow you to charge a customer on a recurring basis.
     columns:
       - name: subscription_id
         description: Unique identifier for the object.
-      - name: status 
+      - name: status
         description: Possible values are incomplete, incomplete_expired, trialing, active, past_due, canceled, or unpaid.
-      - name: billing 
+      - name: billing
         description: How the invoice is billed
-      - name: billing_cycle_anchor 
+      - name: billing_cycle_anchor
         description: Determines the date of the first full invoice, and, for plans with month or year intervals, the day of the month for subsequent invoices.
-      - name: cancel_at 
+      - name: cancel_at
         description: A date in the future at which the subscription will automatically get canceled
-      - name: is_cancel_at_period_end 
+      - name: is_cancel_at_period_end
         description: Boolean indicating whether this subscription should cancel at the end of the current period.
-      - name: canceled_at 
+      - name: canceled_at
         description: If the subscription has been canceled, the date of that cancellation.
       - name: created_at
         description: Time at which the object was created.
-      - name: current_period_start 
+      - name: current_period_start
         description: Start of the current period that the subscription has been invoiced for.
-      - name: current_period_end 
+      - name: current_period_end
         description: End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.
-      - name: customer_id 
+      - name: customer_id
         description: ID of the customer who owns the subscription.
-      - name: days_until_due 
+      - name: days_until_due
         description: Number of days a customer has to pay invoices generated by this subscription. This value will be null for subscriptions where collection_method=charge_automatically.
-      - name: start_date 
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: start_date
         description: Date when the subscription was first created. The date might differ from the created date due to backdating.
-      - name: ended_at 
+      - name: ended_at
         description: If the subscription has ended, the date the subscription ended.
 
   - name: stg_stripe__plan
@@ -421,6 +428,8 @@ models:
         description: The frequency at which a subscription is billed. One of day, week, month or year.
       - name: interval_count
         description: The number of intervals between subscription billings. For example, interval_count=3 bills every 3 months.
+      - name: metadata
+        description: Custom metadata added to the record, in JSON string format
       - name: nickname
         description: A brief description of the plan, hidden from customers.
       - name: product_id

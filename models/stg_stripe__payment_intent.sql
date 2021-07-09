@@ -42,6 +42,7 @@ final as (
         currency,
         customer_id,
         description,
+        metadata,
         payment_method_id,
         receipt_email,
         statement_descriptor,
