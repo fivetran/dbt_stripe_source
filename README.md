@@ -73,14 +73,15 @@ models:
 
 *Read more about using custom schemas in dbt [here](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/using-custom-schemas).*
 
-### Including or Excluding Test Customer Data
-By default this package will exclude test data (`where livemode = false`) from the source `CUSTOMER` table. However, you may want to include this data when testing or developing your analyses. To include test customer data, add the following configuration to your `dbt_project.yml` file:
+### Running on Live vs Test Customers
+By default, this package will run on non-test data (`where livemode = false`) from the source `CUSTOMER` table. However, you may want to include and focus on test customers when testing out the package or developing your analyses. To run on _only_ test customers, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
 
 vars:
-    exclude_test_customers: False  # Default = true
+    stripe_source:
+        run_on_test_customers_only: true  # Default = false
 ```
 
 ## Contributions
