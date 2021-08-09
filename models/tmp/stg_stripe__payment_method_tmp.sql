@@ -3,4 +3,4 @@
 select * 
 from {{ var('payment_method') }}
 
-{{ predicate_by_config_livemode() }}
+{{ livemode_predicate() }}

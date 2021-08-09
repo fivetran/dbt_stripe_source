@@ -1,6 +1,6 @@
 select * 
 from {{ var('customer') }}
 
-    {{ predicate_by_config_livemode() }}
+    {{ livemode_predicate() }}
     and 
     not coalesce(is_deleted, false)
