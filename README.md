@@ -74,14 +74,14 @@ models:
 *Read more about using custom schemas in dbt [here](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/using-custom-schemas).*
 
 ### Running on Live vs Test Customers
-By default, this package will run on non-test data (`where livemode = false`) from the source Stripe tables. However, you may want to include and focus on test data when testing out the package or developing your analyses. To run on _only_ test data, add the following configuration to your `dbt_project.yml` file:
+By default, this package will run on non-test data (`where livemode = true`) from the source Stripe tables. However, you may want to include and focus on test data when testing out the package or developing your analyses. To run on _only_ test data, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
 
 vars:
     stripe_source:
-        test_data_only: true  # Default = false
+        using_livemode: false  # Default = true
 ```
 
 ## Contributions

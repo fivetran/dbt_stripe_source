@@ -34,5 +34,5 @@ vars:
     using_subscriptions:    True
     
     # variable to exclude or include test data (based on `livemode`)
-    test_data_only: False
+    using_livemode: True
 
