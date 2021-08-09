@@ -2,3 +2,5 @@
 
 select * 
 from {{ var('subscription') }}
+
+{{ predicate_by_config_livemode() }}
