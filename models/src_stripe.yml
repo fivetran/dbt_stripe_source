@@ -108,6 +108,8 @@ sources:
             description: The currency of the charge.
           - name: created
             description: Timestamp of the date the charge was created.
+          - name: livemode
+            description: Indicates if this is a test charge.
 
 
       - name: customer
@@ -146,6 +148,8 @@ sources:
             description: Attribute of the customer's shipping address.
           - name: shipping_phone 
             description: Attribute of the customer's shipping address.
+          - name: livemode
+            description: Indicates if this is a test customer.
 
 
       - name: fee
@@ -203,6 +207,8 @@ sources:
             description: For non-card charges, you can use this value as the complete description that appears on your customers’ statements.
           - name: status 
             description: Status of this PaymentIntent, one of requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, canceled, or succeeded.
+          - name: livemode
+            description: Indicates if this is a test payment intent.
 
       - name: payment_method_card
         description: Table with the relationships between a payment methods and a card
@@ -226,6 +232,8 @@ sources:
             description: The ID of the Customer to which this PaymentMethod is saved. This will not be set when the PaymentMethod has not been saved to a Customer.
           - name: type 
             description: The type of the PaymentMethod. An additional hash is included on the PaymentMethod with a name matching this value. It contains additional information specific to the PaymentMethod type.
+          - name: livemode
+            description: Indicates if this is a test payment method.
 
 
       - name: payout
@@ -255,6 +263,8 @@ sources:
             description: Current status of the payout.  Can be paid, pending, in_transit, canceled or failed.
           - name: type 
             description: Can be bank_account or card.
+          - name: livemode
+            description: Indicates if this is a test payout.
  
 
       - name: refund
@@ -312,6 +322,8 @@ sources:
             description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
           - name: unique_id 
             description: A unique id generated for old invoice ID's from a past version of the API
+          - name: livemode
+            description: Indicates if this is a test invoice line item.
 
       - name: invoice
         description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
@@ -359,6 +371,8 @@ sources:
             description: The percent used to calculate the tax amount.
           - name: total 
             description: Total after discounts and taxes.  
+          - name: livemode
+            description: Indicates if this is a test invoice.
 
       - name: subscription
         description: Subscriptions allow you to charge a customer on a recurring basis.
@@ -392,6 +406,8 @@ sources:
             description: Date when the subscription was first created. The date might differ from the created date due to backdating.
           - name: ended_at 
             description: If the subscription has ended, the date the subscription ended.
+          - name: livemode
+            description: Indicates if this is a test subscription.
       
       - name: plan
         description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
@@ -413,3 +429,5 @@ sources:
             description: A brief description of the plan, hidden from customers.
           - name: product
             description: The product whose pricing this plan determines.
+          - name: livemode
+            description: Indicates if this is a test plan.

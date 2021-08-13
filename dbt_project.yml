@@ -1,8 +1,8 @@
 config-version: 2
 
 name: 'stripe_source'
-version: '0.3.4'
-require-dbt-version: [">=0.18.0", "<0.20.0"]
+version: '0.4.1'
+require-dbt-version: ">=0.20.0"
 
 models:
     stripe_source:
@@ -33,5 +33,6 @@ vars:
     using_payment_method:   True
     using_subscriptions:    True
     
-
+    # variable to exclude or include test data (based on `livemode`)
+    using_livemode: True
 
