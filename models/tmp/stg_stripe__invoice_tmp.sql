@@ -2,3 +2,5 @@
 
 select * 
 from {{ var('invoice') }}
+
+{{ livemode_predicate() }}
