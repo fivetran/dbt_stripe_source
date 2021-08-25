@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source'
-version: '0.4.1'
+version: '0.4.2'
 require-dbt-version: ">=0.20.0"
 
 models:
@@ -32,7 +32,10 @@ vars:
     using_invoices:         True
     using_payment_method:   True
     using_subscriptions:    True
+
     
     # variable to exclude or include test data (based on `livemode`)
     using_livemode: True
 
+    # variable to disable the filter within invoice line item
+    using_invoice_line_sub_filter: True
