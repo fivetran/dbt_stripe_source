@@ -46,9 +46,9 @@ final as (
         period_end
     from fields
 
-    {{ if var('using_invoice_line_sub_filter', true) }}
+    {% if var('using_invoice_line_sub_filter', true) %}
     where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
-    {{ endif }}
+    {% endif %}
 )
 
 select * 
