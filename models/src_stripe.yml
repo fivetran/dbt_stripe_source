@@ -468,7 +468,6 @@ sources:
           - name: refund_id
             description: The id of the refund associated with this credit note.
 
-
       - name: credit_note_line_item
         description: The different items that a credit note contains.
         freshness: null
