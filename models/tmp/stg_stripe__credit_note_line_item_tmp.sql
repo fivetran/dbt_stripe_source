@@ -2,3 +2,4 @@
 
 select * 
 from {{ var('credit_note_line_item') }}
+{{ livemode_predicate() }}
