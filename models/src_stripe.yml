@@ -41,7 +41,6 @@ sources:
           - name: type
             description: the type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
-              
       - name: card
         description: details of a credit card that has been saved to the system.
         columns:
@@ -61,7 +60,6 @@ sources:
             description: The recipient that this card belongs to. NULL if the card belongs to a customer or account instead.
           - name: funding
             description: Card funding type. Can be credit, debit, prepaid, or unknown.
-
 
       - name: charge
         description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
@@ -111,7 +109,6 @@ sources:
           - name: livemode
             description: Indicates if this is a test charge.
 
-
       - name: customer
         description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
         freshness: null
@@ -151,7 +148,6 @@ sources:
           - name: livemode
             description: Indicates if this is a test customer.
 
-
       - name: fee
         description: The details of a fee associated with a balance_transation
         columns:
@@ -167,7 +163,6 @@ sources:
             description: An arbitrary string attached to the object. Often useful for displaying to users.
           - name: type 
             description: Type of the fee, can be application_fee, stripe_fee or tax.
-
 
       - name: payment_intent
         description: A Payment Intent guides you through the process of collecting a payment from your customer.
@@ -235,7 +230,6 @@ sources:
           - name: livemode
             description: Indicates if this is a test payment method.
 
-
       - name: payout
         description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
         columns:
@@ -266,7 +260,6 @@ sources:
           - name: livemode
             description: Indicates if this is a test payout.
  
-
       - name: refund
         description: Details of transactions that have been refunded
         freshness: null
@@ -408,7 +401,7 @@ sources:
             description: If the subscription has ended, the date the subscription ended.
           - name: livemode
             description: Indicates if this is a test subscription.
-      
+
       - name: plan
         description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
         freshness: null
@@ -431,3 +424,72 @@ sources:
             description: The product whose pricing this plan determines.
           - name: livemode
             description: Indicates if this is a test plan.
+
+      - name: credit_note
+        description: Credit notes are documents that decrease the amount owed on an invoice. They’re the only way to adjust the amount of a finalized invoice other than voiding and recreating the invoice.
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: amount 
+            description: The integer amount in cents representing the total amount of the credit note, including tax.
+          - name: created
+            description: Timestamp of the when the credit_note was created.
+          - name: currency
+            description: The currency of the charge. Three-letter ISO currency code, in lowercase. 
+          - name: discount_amount 
+            description: The integer amount in cents representing the total amount of discount that was credited.
+          - name: subtotal 
+            description: The integer amount in cents representing the amount of the credit note, excluding tax and invoice level discounts.
+          - name: total 
+            description: The integer amount in cents representing the total amount of the credit note, including tax and all discount.
+          - name: livemode 
+            description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
+          - name: memo 
+            description: Customer-facing text that appears on the credit note PDF.
+          - name: metadata 
+            description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+          - name: number 
+            description: A unique number that identifies this particular credit note and appears on the PDF of the credit note and its associated invoice.
+          - name: pdf 
+            description: The link to download the PDF of the credit note.
+          - name: reason 
+            description: Reason for issuing this credit note, one of duplicate, fraudulent, order_change, or product_unsatisfactory
+          - name: status 
+            description: Status of this credit note, one of issued or void. Learn more about voiding credit notes.
+          - name: type 
+            description: Type of this credit note, one of pre_payment or post_payment. A pre_payment credit note means it was issued when the invoice was open. A post_payment credit note means it was issued when the invoice was paid.
+          - name: voided_at 
+            description: The time that the credit note was voided.
+          - name: customer_balance_transaction
+            description: Customer balance transaction related to this credit note.
+          - name: invoice_id
+            description: The id of the invoice associated with this credit note.
+          - name: refund_id
+            description: The id of the refund associated with this credit note.
+
+
+      - name: credit_note_line_item
+        description: The different items that a credit note contains.
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: credit_note_id 
+            description: The ID of the credit note this item is a part of.
+          - name: amount 
+            description: The integer amount in cents representing the gross amount being credited for this line item, excluding (exclusive) tax and discounts.
+          - name: discount_amount 
+            description: The integer amount in cents representing the discount being credited for this line item.
+          - name: description
+            description: Description of the item being credited.
+          - name: livemode 
+            description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
+          - name: quantity
+            description: The number of units of product being credited.
+          - name: type 
+            description: The type of the credit note line item, one of invoice_line_item or custom_line_item. When the type is invoice_line_item there is an additional invoice_line_item property on the resource the value of which is the id of the credited line item on the invoice.
+          - name: unit_amount
+            description: The cost of each unit of product being credited.
+          - name: unit_amount_decimal
+            description: Same as unit_amount, but contains a decimal value with at most 12 decimal places.
