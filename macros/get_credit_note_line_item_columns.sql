@@ -7,7 +7,7 @@
     {"name": "amount", "datatype": dbt_utils.type_int()},
     {"name": "discount_amount", "datatype": dbt_utils.type_int()},
     {"name": "description", "datatype": dbt_utils.type_string()},
-    {"name": "livemode", "datatype": dbt_utils.type_string()},
+    {"name": "livemode", "datatype": "boolean"},
     {"name": "quantity", "datatype": dbt_utils.type_int()},
     {"name": "type", "datatype": dbt_utils.type_string()},
     {"name": "unit_amount", "datatype": dbt_utils.type_int()},
