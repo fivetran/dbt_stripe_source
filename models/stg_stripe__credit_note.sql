@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_credit_notes', True)) }}
+{{ config(enabled=var('using_credit_notes', False)) }}
 
 with base as (
 

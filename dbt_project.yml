@@ -32,7 +32,7 @@ vars:
     
     #Variables to enable or disable models if you do not have the respective table.
     using_invoices:         True
-    using_credit_notes:     True
+    using_credit_notes:     False
     using_payment_method:   True
     using_subscriptions:    True
     
