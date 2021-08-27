@@ -27,6 +27,7 @@
     {"name": "invoice_pdf", "datatype": dbt_utils.type_string()},
     {"name": "is_deleted", "datatype": "boolean"},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt_utils.type_string()},
     {"name": "next_payment_attempt", "datatype": dbt_utils.type_timestamp()},
     {"name": "number", "datatype": dbt_utils.type_string()},
     {"name": "paid", "datatype": "boolean"},

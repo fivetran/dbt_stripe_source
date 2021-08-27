@@ -41,6 +41,7 @@ final as (
         current_period_end,
         customer_id,
         days_until_due,
+        metadata,
         start_date,
         ended_at
     from fields
