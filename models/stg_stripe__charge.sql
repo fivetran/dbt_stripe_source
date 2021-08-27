@@ -41,6 +41,7 @@ final as (
         description,
         failure_code,
         failure_message,
+        metadata,
         paid as is_paid,
         payment_intent_id,
         receipt_email,

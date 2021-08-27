@@ -24,6 +24,7 @@
     {"name": "id", "datatype": dbt_utils.type_string()},
     {"name": "invoice_id", "datatype": dbt_utils.type_string()},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt_utils.type_string()},
     {"name": "on_behalf_of", "datatype": dbt_utils.type_string()},
     {"name": "outcome_network_status", "datatype": dbt_utils.type_string()},
     {"name": "outcome_reason", "datatype": dbt_utils.type_string()},
