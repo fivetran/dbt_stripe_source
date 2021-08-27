@@ -55,6 +55,7 @@ vars:
     using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
     using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
     using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
+    using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
 
