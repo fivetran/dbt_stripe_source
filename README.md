@@ -83,7 +83,15 @@ vars:
     stripe_source:
         using_livemode: false  # Default = true
 ```
+### Including sub Invoice Line Items
+By default, this package will filter out any records from the `invoice_line_item` source table which include the string `sub_`. This is due to a legacy Stripe issue where `sub_` records were found to be duplicated. However, if you highly utilize these records you may wish they be included in the final output of the `stg_stripe__invoice_line_item` model. To do, so you may include the below variable configuration:
+```yml
+# dbt_project.yml
 
+vars:
+    stripe_source:
+        using_invoice_line_sub_filter: false # Default = true
+```
 ## Contributions
 
 Additional contributions to this package are very welcome! Please create issues
