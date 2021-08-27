@@ -2,3 +2,5 @@
 
 select * 
 from {{ var('plan') }}
+
+{{ livemode_predicate() }}

@@ -9,7 +9,7 @@ This package enriches your Fivetran data by doing the following:
 * Add column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 * Model staging tables, which will be used in our transform package
 
-### Models
+## Models
 
 This package contains staging models, designed to work simultaneously with our [Stripe modeling package](https://github.com/fivetran/dbt_stripe).  The staging models are designed to:
 * Remove any rows that are soft-deleted
@@ -43,8 +43,10 @@ vars:
     stripe_schema: your_schema_name
     stripe_database: your_database_name 
 ```
+
 ### Disabling Models
-This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, or `subscription` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true`. Add variables for only the tables you want to disable:
+This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, `subscription`, or `credit_note` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true` with the exception of `credit_note`. Add variables for only the tables you want to disable or enable respectively:
+
 ```yml
 # dbt_project.yml
 
@@ -53,6 +55,7 @@ vars:
     using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
     using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
     using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
+    using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
 
@@ -71,7 +74,26 @@ models:
 
 *Read more about using custom schemas in dbt [here](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/using-custom-schemas).*
 
-### Contributions ###
+### Running on Live vs Test Customers
+By default, this package will run on non-test data (`where livemode = true`) from the source Stripe tables. However, you may want to include and focus on test data when testing out the package or developing your analyses. To run on only test data, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+vars:
+    stripe_source:
+        using_livemode: false  # Default = true
+```
+### Including sub Invoice Line Items
+By default, this package will filter out any records from the `invoice_line_item` source table which include the string `sub_`. This is due to a legacy Stripe issue where `sub_` records were found to be duplicated. However, if you highly utilize these records you may wish they be included in the final output of the `stg_stripe__invoice_line_item` model. To do, so you may include the below variable configuration:
+```yml
+# dbt_project.yml
+
+vars:
+    stripe_source:
+        using_invoice_line_sub_filter: false # Default = true
+```
+## Contributions
 
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 

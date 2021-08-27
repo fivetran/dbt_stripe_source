@@ -107,6 +107,8 @@ sources:
             description: The currency of the charge.
           - name: created
             description: Timestamp of the date the charge was created.
+          - name: livemode
+            description: Indicates if this is a test charge.
 
       - name: customer
         description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
@@ -144,9 +146,11 @@ sources:
             description: Attribute of the customer's shipping address.
           - name: shipping_phone
             description: Attribute of the customer's shipping address.
+          - name: livemode
+            description: Indicates if this is a test customer.
 
       - name: fee
-        description: The details of a fee associated with a balance_transation
+        description: The details of a fee associated with a balance_transaction
         columns:
           - name: balance_transaction_id
             description: ID of the balance transaction entry the fee applies to
@@ -201,6 +205,8 @@ sources:
             description: For non-card charges, you can use this value as the complete description that appears on your customers’ statements.
           - name: status
             description: Status of this PaymentIntent, one of requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, canceled, or succeeded.
+          - name: livemode
+            description: Indicates if this is a test payment intent.
 
       - name: payment_method_card
         description: Table with the relationships between a payment methods and a card
@@ -226,6 +232,8 @@ sources:
             description: Custom metadata added to the record, in JSON string format
           - name: type
             description: The type of the PaymentMethod. An additional hash is included on the PaymentMethod with a name matching this value. It contains additional information specific to the PaymentMethod type.
+          - name: livemode
+            description: Indicates if this is a test payment method.
 
       - name: payout
         description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
@@ -256,7 +264,9 @@ sources:
             description: Current status of the payout.  Can be paid, pending, in_transit, canceled or failed.
           - name: type
             description: Can be bank_account or card.
-
+          - name: livemode
+            description: Indicates if this is a test payout.
+ 
       - name: refund
         description: Details of transactions that have been refunded
         freshness: null
@@ -314,6 +324,8 @@ sources:
             description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
           - name: unique_id
             description: A unique id generated for old invoice ID's from a past version of the API
+          - name: livemode
+            description: Indicates if this is a test invoice line item.
 
       - name: invoice
         description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
@@ -361,8 +373,10 @@ sources:
             description: The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice.
           - name: tax_percent
             description: The percent used to calculate the tax amount.
-          - name: total
-            description: Total after discounts and taxes.
+          - name: total 
+            description: Total after discounts and taxes.  
+          - name: livemode
+            description: Indicates if this is a test invoice.
 
       - name: subscription
         description: Subscriptions allow you to charge a customer on a recurring basis.
@@ -398,6 +412,8 @@ sources:
             description: Date when the subscription was first created. The date might differ from the created date due to backdating.
           - name: ended_at
             description: If the subscription has ended, the date the subscription ended.
+          - name: livemode
+            description: Indicates if this is a test subscription.
 
       - name: plan
         description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
@@ -421,3 +437,73 @@ sources:
             description: A brief description of the plan, hidden from customers.
           - name: product
             description: The product whose pricing this plan determines.
+          - name: livemode
+            description: Indicates if this is a test plan.
+
+      - name: credit_note
+        description: Credit notes are documents that decrease the amount owed on an invoice. They’re the only way to adjust the amount of a finalized invoice other than voiding and recreating the invoice.
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: amount 
+            description: The integer amount in cents representing the total amount of the credit note, including tax.
+          - name: created
+            description: Timestamp of the when the credit_note was created.
+          - name: currency
+            description: The currency of the charge. Three-letter ISO currency code, in lowercase. 
+          - name: discount_amount 
+            description: The integer amount in cents representing the total amount of discount that was credited.
+          - name: subtotal 
+            description: The integer amount in cents representing the amount of the credit note, excluding tax and invoice level discounts.
+          - name: total 
+            description: The integer amount in cents representing the total amount of the credit note, including tax and all discount.
+          - name: livemode 
+            description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
+          - name: memo 
+            description: Customer-facing text that appears on the credit note PDF.
+          - name: metadata 
+            description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+          - name: number 
+            description: A unique number that identifies this particular credit note and appears on the PDF of the credit note and its associated invoice.
+          - name: pdf 
+            description: The link to download the PDF of the credit note.
+          - name: reason 
+            description: Reason for issuing this credit note, one of duplicate, fraudulent, order_change, or product_unsatisfactory
+          - name: status 
+            description: Status of this credit note, one of issued or void. Learn more about voiding credit notes.
+          - name: type 
+            description: Type of this credit note, one of pre_payment or post_payment. A pre_payment credit note means it was issued when the invoice was open. A post_payment credit note means it was issued when the invoice was paid.
+          - name: voided_at 
+            description: The time that the credit note was voided.
+          - name: customer_balance_transaction
+            description: Customer balance transaction related to this credit note.
+          - name: invoice_id
+            description: The id of the invoice associated with this credit note.
+          - name: refund_id
+            description: The id of the refund associated with this credit note.
+
+      - name: credit_note_line_item
+        description: The different items that a credit note contains.
+        freshness: null
+        columns:
+          - name: id 
+            description: Unique identifier for the object.
+          - name: credit_note_id 
+            description: The ID of the credit note this item is a part of.
+          - name: amount 
+            description: The integer amount in cents representing the gross amount being credited for this line item, excluding (exclusive) tax and discounts.
+          - name: discount_amount 
+            description: The integer amount in cents representing the discount being credited for this line item.
+          - name: description
+            description: Description of the item being credited.
+          - name: livemode 
+            description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
+          - name: quantity
+            description: The number of units of product being credited.
+          - name: type 
+            description: The type of the credit note line item, one of invoice_line_item or custom_line_item. When the type is invoice_line_item there is an additional invoice_line_item property on the resource the value of which is the id of the credited line item on the invoice.
+          - name: unit_amount
+            description: The cost of each unit of product being credited.
+          - name: unit_amount_decimal
+            description: Same as unit_amount, but contains a decimal value with at most 12 decimal places.
