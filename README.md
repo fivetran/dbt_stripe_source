@@ -45,7 +45,7 @@ vars:
 ```
 
 ### Disabling Models
-This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, or `subscription` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true`. Add variables for only the tables you want to disable:
+This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, `subscription`, or `credit_note` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true` with the exception of `credit_note`. Add variables for only the tables you want to disable or enable respectively:
 
 ```yml
 # dbt_project.yml
@@ -55,6 +55,7 @@ vars:
     using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
     using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
     using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
+    using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
 
