@@ -42,6 +42,11 @@ final as (
         metadata,
         nickname,
         product_id
+
+        {% if var('stripe__plan_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__plan_metadata')) }}
+        {% endif %}
+
     from fields
 )
 

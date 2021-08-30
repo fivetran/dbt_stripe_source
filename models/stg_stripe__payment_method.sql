@@ -34,6 +34,11 @@ final as (
         customer_id,
         metadata,
         type
+
+        {% if var('stripe__payment_method_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payment_method_metadata')) }}
+        {% endif %}
+
     from fields
 )
 

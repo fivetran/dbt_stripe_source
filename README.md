@@ -93,6 +93,24 @@ vars:
     stripe_source:
         using_invoice_line_sub_filter: false # Default = true
 ```
+
+### Pivoting out Metadata Properties
+By default, this package selects the `metadata` JSON field within the `charge`, `invoice`, `payment_intent`, `payment_method`, `payout`, `plan`, `refund`, and `subscription` source tables. However, you likely have properties within the `metadata` JSON field you would like to pivot out and include in the respective downstream staging model.
+
+If there are properties in the `metadata` JSON field that you'd like to pivot out into columns, add the respective variable(s) to your dbt_project.yml file:
+```yml
+# dbt_project.yml
+
+vars:
+    stripe__charge_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__invoice_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__payment_intent_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__payment_method_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__payout_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__plan_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__refund_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__subscription_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+```
 ## Contributions
 
 Additional contributions to this package are very welcome! Please create issues

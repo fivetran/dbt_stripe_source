@@ -47,6 +47,11 @@ final as (
         receipt_email,
         statement_descriptor,
         status
+
+        {% if var('stripe__payment_intent_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payment_intent_metadata')) }}
+        {% endif %}
+
     from fields
 )
 
