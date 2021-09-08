@@ -42,6 +42,7 @@ final as (
         customer_id,
         description,
         due_date,
+        metadata,
         number,
         paid as is_paid,
         receipt_number,
@@ -50,6 +51,11 @@ final as (
         tax,
         tax_percent,
         total
+
+        {% if var('stripe__invoice_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__invoice_metadata')) }}
+        {% endif %}
+
     from fields
     where not coalesce(is_deleted, false)
 )

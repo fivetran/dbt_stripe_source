@@ -25,6 +25,7 @@
     {"name": "last_payment_error_source_id", "datatype": dbt_utils.type_string()},
     {"name": "last_payment_error_type", "datatype": dbt_utils.type_string()},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt_utils.type_string()},
     {"name": "on_behalf_of", "datatype": dbt_utils.type_string()},
     {"name": "payment_method_id", "datatype": dbt_utils.type_string()},
     {"name": "receipt_email", "datatype": dbt_utils.type_string()},

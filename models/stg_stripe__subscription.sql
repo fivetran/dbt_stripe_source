@@ -41,8 +41,14 @@ final as (
         current_period_end,
         customer_id,
         days_until_due,
+        metadata,
         start_date,
         ended_at
+
+        {% if var('stripe__subscription_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__subscription_metadata')) }}
+        {% endif %}
+
     from fields
 )
 
