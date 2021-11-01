@@ -95,7 +95,7 @@ vars:
 ```
 
 ### Pivoting out Metadata Properties
-By default, this package selects the `metadata` JSON field within the `charge`, `invoice`, `payment_intent`, `payment_method`, `payout`, `plan`, `refund`, and `subscription` source tables. However, you likely have properties within the `metadata` JSON field you would like to pivot out and include in the respective downstream staging model.
+By default, this package selects the `metadata` JSON field within the `customer`, `charge`, `invoice`, `payment_intent`, `payment_method`, `payout`, `plan`, `refund`, and `subscription` source tables. However, you likely have properties within the `metadata` JSON field you would like to pivot out and include in the respective downstream staging model.
 
 If there are properties in the `metadata` JSON field that you'd like to pivot out into columns, add the respective variable(s) to your dbt_project.yml file:
 ```yml
@@ -110,6 +110,7 @@ vars:
     stripe__plan_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
     stripe__refund_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
     stripe__subscription_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__customer_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
 ```
 ## Contributions
 
