@@ -23,6 +23,7 @@
     {"name": "invoice_settings_footer", "datatype": dbt_utils.type_string()},
     {"name": "is_deleted", "datatype": "boolean"},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt_utils.type_string()},
     {"name": "name", "datatype": dbt_utils.type_string()},
     {"name": "phone", "datatype": dbt_utils.type_string()},
     {"name": "shipping_address_city", "datatype": dbt_utils.type_string()},
