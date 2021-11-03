@@ -36,6 +36,7 @@ final as (
         delinquent as is_delinquent,
         description,
         email,
+        metadata,
         shipping_address_city,
         shipping_address_country,
         shipping_address_line_1,
@@ -44,6 +45,11 @@ final as (
         shipping_address_state,
         shipping_name,
         shipping_phone
+        
+        {% if var('stripe__customer_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__customer_metadata')) }}
+        {% endif %}
+
     from fields
 )
 

@@ -130,6 +130,8 @@ sources:
             description: An arbitrary string attached to the object. Often useful for displaying to users.
           - name: email
             description: The customer’s email address.
+          - name: metadata
+            description: Custom metadata added to the record, in JSON string format
           - name: shipping_address_city
             description: Attribute of the customer's shipping address.
           - name: shipping_address_country
