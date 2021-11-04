@@ -1,7 +1,7 @@
 # dbt_stripe_source v0.4.4
 
 ## Features
-- Add customer metadata to the customer object. 
+- Add customer metadata to the `stg_stripe__customer` model. 
 
 ## Under the Hood
 - Allow metadata passthrough functionality for the customer staging model. Please see the [README](https://github.com/fivetran/dbt_stripe_source#pivoting-out-metadata-properties) for more details on how to pivot out metadata properties. ([#30](https://github.com/fivetran/dbt_stripe_source/pull/30))
