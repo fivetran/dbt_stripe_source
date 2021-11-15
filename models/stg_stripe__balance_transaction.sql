@@ -31,7 +31,7 @@ final as (
         id as balance_transaction_id,
         amount,
         cast(available_on as {{ dbt_utils.type_timestamp() }} ) as available_on,
-        created as created_at,
+        cast(created as {{ dbt_utils.type_timestamp() }} )as created_at,
         currency,
         description,
         exchange_rate,
