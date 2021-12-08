@@ -30,8 +30,13 @@ final as (
     select 
         id as balance_transaction_id,
         amount,
-        cast(available_on as {{ dbt_utils.type_timestamp() }} ) as available_on,
-        cast(created as {{ dbt_utils.type_timestamp() }} )as created_at,
+        {% if target.type == 'redshift' -%}
+            cast(available_on as timestamp without time zone) as available_on,
+            cast(created as timestamp without time zone) as created_at,
+        {%- else -%}
+            available_on as available_on,
+            created as created_at,
+        {%- endif %}
         currency,
         description,
         exchange_rate,
