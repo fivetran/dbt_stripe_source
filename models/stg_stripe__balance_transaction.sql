@@ -30,8 +30,11 @@ final as (
     select 
         id as balance_transaction_id,
         amount,
-        available_on,
-        created as created_at,
+
+        -- ensure that these are timestamps without timezones on postgres + redshift
+        cast(available_on as {{ dbt_utils.type_timestamp() }}) as available_on,
+        cast(created as {{ dbt_utils.type_timestamp() }}) as created_at,
+
         currency,
         description,
         exchange_rate,
