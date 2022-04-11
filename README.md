@@ -27,7 +27,7 @@ Include in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/stripe_source
-    version: [">=0.5.0", "<0.6.0"]
+    version: [">=0.6.0", "<0.7.0"]
 ```
 
 ## Configuration
@@ -57,6 +57,15 @@ vars:
     using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
     using_credit_notes:    True   #Enable if you are using the credit note tables.
 
+```
+### Disabling Subscription History
+By default this package filters out the inactive subscription data within your `subscription_history` source table and only retains the most recent record. If you would like to retain these historical records in the `stg_stripe__subscription` model then you may leverage the `stripe__keep_subscription_history` variable in your dbt_project.yml.
+```yml
+# dbt_project.yml
+
+...
+vars:
+    stripe__keep_subscription_history: True  # False by default. Set to True if you would like to retain historical subscription data in your package model. 
 ```
 
 ### Changing the Build Schema

@@ -378,7 +378,7 @@ models:
       - name: total
         description: Total after discounts and taxes.
 
-  - name: stg_stripe__subscription_history
+  - name: stg_stripe__subscription
     description: Subscriptions allow you to charge a customer on a recurring basis.
     columns:
       - name: subscription_id
@@ -411,7 +411,9 @@ models:
         description: Date when the subscription was first created. The date might differ from the created date due to backdating.
       - name: ended_at
         description: If the subscription has ended, the date the subscription ended.
-
+      - name: _fivetran_active
+        description: Boolean indicating if the record is the latest.
+        
   - name: stg_stripe__plan
     description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
     columns:

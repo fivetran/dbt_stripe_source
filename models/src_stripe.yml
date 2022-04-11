@@ -416,6 +416,8 @@ sources:
             description: If the subscription has ended, the date the subscription ended.
           - name: livemode
             description: Indicates if this is a test subscription.
+          - name: _fivetran_active
+            description: Boolean indicating if the record is the latest.
 
       - name: plan
         description: Plans define the base price, currency, and billing cycle for recurring purchases of products.

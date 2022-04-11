@@ -2,6 +2,7 @@
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "_fivetran_active", "datatype": "boolean"},
     {"name": "application_fee_percent", "datatype": dbt_utils.type_float()},
     {"name": "billing", "datatype": dbt_utils.type_string()},
     {"name": "billing_cycle_anchor", "datatype": dbt_utils.type_timestamp()},

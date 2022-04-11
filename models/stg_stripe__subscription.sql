@@ -3,7 +3,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_stripe__subscription_history_tmp') }}
+    from {{ ref('stg_stripe__subscription_tmp') }}
 
 ),
 
@@ -18,7 +18,7 @@ fields as (
         */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_stripe__subscription_history_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_stripe__subscription_tmp')),
                 staging_columns=get_subscription_columns()
             )
         }}
@@ -43,7 +43,8 @@ final as (
         days_until_due,
         metadata,
         start_date,
-        ended_at
+        ended_at,
+        _fivetran_active
 
         {% if var('stripe__subscription_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__subscription_metadata')) }}
