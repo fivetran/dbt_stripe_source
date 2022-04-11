@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.5.2'
+version: '0.6.0'
 
 profile: 'integration_tests'
 
@@ -22,7 +22,7 @@ vars:
     payout:                 "{{ ref('payout_data') }}"
     plan:                   "{{ ref('plan_data') }}"
     refund:                 "{{ ref('refund_data') }}"
-    subscription:           "{{ ref('subscription_history_data') }}"
+    subscription_history:   "{{ ref('subscription_history_data') }}"
     credit_note:            "{{ ref('credit_note_data') }}"
     credit_note_line_item:  "{{ ref('credit_note_line_item_data') }}"
     
