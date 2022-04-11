@@ -1,3 +1,8 @@
+# dbt_stripe_source v0.5.2
+
+## bugfix
+- Addresses a bug in which the `subscription` table didn't match the new ERD. The table and relevant tests/project information have now been updated to match the new name: `subscription_history`
+
 # dbt_stripe_source v0.5.1
 
 ## Under the Hood

@@ -378,7 +378,7 @@ models:
       - name: total
         description: Total after discounts and taxes.
 
-  - name: stg_stripe__subscription
+  - name: stg_stripe__subscription_history
     description: Subscriptions allow you to charge a customer on a recurring basis.
     columns:
       - name: subscription_id
