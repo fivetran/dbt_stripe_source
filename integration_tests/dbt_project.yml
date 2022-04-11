@@ -22,7 +22,7 @@ vars:
     payout:                 "{{ ref('payout_data') }}"
     plan:                   "{{ ref('plan_data') }}"
     refund:                 "{{ ref('refund_data') }}"
-    subscription:           "{{ ref('subscription_data') }}"
+    subscription:           "{{ ref('subscription_history_data') }}"
     credit_note:            "{{ ref('credit_note_data') }}"
     credit_note_line_item:  "{{ ref('credit_note_line_item_data') }}"
     

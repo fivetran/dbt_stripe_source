@@ -380,7 +380,7 @@ sources:
           - name: livemode
             description: Indicates if this is a test invoice.
 
-      - name: subscription
+      - name: subscription_history
         description: Subscriptions allow you to charge a customer on a recurring basis.
         freshness: null
         columns:

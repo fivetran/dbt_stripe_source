@@ -26,7 +26,7 @@ vars:
     payout: "{{ source('stripe', 'payout') }}"
     plan: "{{ source('stripe', 'plan') }}"
     refund: "{{ source('stripe', 'refund') }}"
-    subscription: "{{ source('stripe', 'subscription') }}"
+    subscription_history: "{{ source('stripe', 'subscription_history') }}"
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
 
