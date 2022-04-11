@@ -32,7 +32,7 @@ jobs:
             dbt seed --target redshift --full-refresh
             dbt run --target redshift --full-refresh
             dbt test --target redshift
-            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true}' --full-refresh --target redshift
+            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true, stripe__keep_subscription_history: true}' --full-refresh --target redshift
             dbt test --target redshift
       - run:
           name: "Run Tests - Snowflake"
@@ -44,7 +44,7 @@ jobs:
             dbt seed --target snowflake --full-refresh
             dbt run --target snowflake --full-refresh
             dbt test --target snowflake
-            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true}' --full-refresh --target snowflake
+            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true, stripe__keep_subscription_history: true}' --full-refresh --target snowflake
             dbt test --target snowflake
       - run:
           name: "Run Tests - BigQuery"
@@ -59,7 +59,7 @@ jobs:
             dbt seed --target bigquery
             dbt run --target bigquery --full-refresh
             dbt test --target bigquery
-            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true}' --full-refresh --target bigquery
+            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true, stripe__keep_subscription_history: true}' --full-refresh --target bigquery
             dbt test --target bigquery
       - save_cache:
           key: deps2-{{ .Branch }}
