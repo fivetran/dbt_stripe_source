@@ -27,6 +27,7 @@ vars:
     plan: "{{ source('stripe', 'plan') }}"
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
+    subscription: "{{ source('stripe', 'subscription') }}"
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
 
@@ -37,7 +38,7 @@ vars:
     using_subscriptions: true
 
     # variable to exclude or include historical subscription data
-    stripe__keep_subscription_history: false
+    stripe__subscription_history: false
 
     # variable to exclude or include test data (based on `livemode`)
     using_livemode: true

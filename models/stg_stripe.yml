@@ -411,8 +411,6 @@ models:
         description: Date when the subscription was first created. The date might differ from the created date due to backdating.
       - name: ended_at
         description: If the subscription has ended, the date the subscription ended.
-      - name: _fivetran_active
-        description: Boolean indicating if the record is the latest.
         
   - name: stg_stripe__plan
     description: Plans define the base price, currency, and billing cycle for recurring purchases of products.

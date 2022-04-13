@@ -59,13 +59,14 @@ vars:
 
 ```
 ### Disabling Subscription History
-By default this package filters out the inactive subscription data within your `subscription_history` source table and only retains the most recent record. If you would like to retain these historical records in the `stg_stripe__subscription` model then you may leverage the `stripe__keep_subscription_history` variable in your dbt_project.yml.
+For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription` source table. However, if you have a newer connector then you must leverage the `stripe__subscription_history` to have the package use the `subscription_history` source rather than the `subscription` table.
+> **Please note that if you have `stripe__subscription_history` enabled then the package will filter for only active records.**
 ```yml
 # dbt_project.yml
 
 ...
 vars:
-    stripe__keep_subscription_history: True  # False by default. Set to True if you would like to retain historical subscription data in your package model. 
+    stripe__subscription_history: True  # False by default. Set to True if your connector syncs the `subscription_history` table. 
 ```
 
 ### Changing the Build Schema

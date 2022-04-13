@@ -1,9 +1,13 @@
 {{ config(enabled=var('using_subscriptions', True)) }}
 
 select * 
-from {{ var('subscription_history') }}
+from {% if var('stripe__subscription_history', false) %}
+{{ var('subscription_history') }}
+{% else %}
+{{ var('subscription') }}
+{% endif %}
 
 {{ livemode_predicate() }}
-{% if not var('stripe__keep_subscription_history', false) %}
+{% if var('stripe__subscription_history', false) %}
     and coalesce(_fivetran_active, true)
 {% endif %}
