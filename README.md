@@ -58,7 +58,7 @@ vars:
     using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
-### Disabling Subscription History
+### Leveraging Subscription Vs Subscription History Sources
 For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription` source table. However, if you have a newer connector then you must leverage the `stripe__subscription_history` to have the package use the `subscription_history` source rather than the `subscription` table.
 > **Please note that if you have `stripe__subscription_history` enabled then the package will filter for only active records.**
 ```yml
