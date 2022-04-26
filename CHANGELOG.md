@@ -1,3 +1,6 @@
+# dbt_stripe_source v0.5.2
+## Features
+- Added Postgres support for the Stripe package
 # dbt_stripe_source v0.5.1
 
 ## Under the Hood
