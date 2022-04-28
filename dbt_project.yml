@@ -1,7 +1,8 @@
 config-version: 2
 
 name: 'stripe_source'
-version: '0.5.2'
+version: '0.6.0'
+
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 models:
@@ -26,6 +27,7 @@ vars:
     payout: "{{ source('stripe', 'payout') }}"
     plan: "{{ source('stripe', 'plan') }}"
     refund: "{{ source('stripe', 'refund') }}"
+    subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
@@ -36,6 +38,8 @@ vars:
     using_payment_method: true
     using_subscriptions: true
 
+    # variable to exclude or include historical subscription data
+    stripe__subscription_history: false
 
     # variable to exclude or include test data (based on `livemode`)
     using_livemode: true
