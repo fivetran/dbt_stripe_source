@@ -11,7 +11,7 @@ This package enriches your Fivetran data by doing the following:
 
 ## Models
 
-This package contains staging models, designed to work simultaneously with our [Stripe modeling package](https://github.com/fivetran/dbt_stripe).  The staging models are designed to:
+This package contains staging models, designed to work simultaneously with our [Stripe transform package](https://github.com/fivetran/dbt_stripe).  The staging models are designed to:
 * Remove any rows that are soft-deleted
 * Name columns consistently across all packages:
     * Boolean fields are prefixed with `is_` or `has_`
