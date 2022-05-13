@@ -23,6 +23,17 @@ jobs:
             mkdir -p ~/.dbt
             cp integration_tests/ci/sample.profiles.yml ~/.dbt/profiles.yml
       - run:
+          name: "Run Tests - Postgres"
+          command: |
+            . venv/bin/activate
+            echo `pwd`
+            cd integration_tests
+            dbt deps
+            dbt seed --target postgres --full-refresh
+            dbt run --target postgres --full-refresh
+            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true}' --full-refresh --target postgres
+            dbt test --target postgres
+      - run:
           name: "Run Tests - Redshift"
           command: |
             . venv/bin/activate
@@ -34,17 +45,6 @@ jobs:
             dbt test --target redshift
             dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true, stripe__subscription_history: true}' --full-refresh --target redshift
             dbt test --target redshift
-      - run:
-          name: "Run Tests - Postgres"
-          command: |
-            . venv/bin/activate
-            echo `pwd`
-            cd integration_tests
-            dbt deps
-            dbt seed --target postgres --full-refresh
-            dbt run --target postgres --full-refresh
-            dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true}' --full-refresh --target postgres
-            dbt test --target postgres
       - run:
           name: "Run Tests - Snowflake"
           command: |

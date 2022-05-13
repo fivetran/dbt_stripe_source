@@ -13,6 +13,7 @@ sources:
 
     tables:
       - name: balance_transaction
+        identifier: "{{ var('stripe_balance_transaction_identifier', 'balance_transaction')}}"
         description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
         columns:
           - name: id
@@ -41,6 +42,7 @@ sources:
             description: the type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
       - name: card
+        identifier: "{{ var('stripe_card_identifier', 'card')}}"
         description: details of a credit card that has been saved to the system.
         columns:
           - name: id
@@ -61,6 +63,7 @@ sources:
             description: Card funding type. Can be credit, debit, prepaid, or unknown.
 
       - name: charge
+        identifier: "{{ var('stripe_charge_identifier', 'charge')}}"
         description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
         columns:
           - name: id
@@ -111,6 +114,7 @@ sources:
             description: Indicates if this is a test charge.
 
       - name: customer
+        identifier: "{{ var('stripe_customer_identifier', 'customer')}}"
         description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
         freshness: null
         columns:
@@ -152,6 +156,7 @@ sources:
             description: Indicates if this is a test customer.
 
       - name: fee
+        identifier: "{{ var('stripe_fee_identifier', 'fee')}}"
         description: The details of a fee associated with a balance_transaction
         columns:
           - name: balance_transaction_id
@@ -168,6 +173,7 @@ sources:
             description: Type of the fee, can be application_fee, stripe_fee or tax.
 
       - name: payment_intent
+        identifier: "{{ var('stripe_payment_intent_identifier', 'payment_intent')}}"
         description: A Payment Intent guides you through the process of collecting a payment from your customer.
         freshness: null
         columns:
@@ -211,6 +217,7 @@ sources:
             description: Indicates if this is a test payment intent.
 
       - name: payment_method_card
+        identifier: "{{ var('stripe_payment_method_card_identifier', 'payment_method_card')}}"
         description: Table with the relationships between a payment methods and a card
         columns:
           - name: payment_method_id
@@ -221,6 +228,7 @@ sources:
             description: Card funding type. Can be credit, debit, prepaid, or unknown.
 
       - name: payment_method
+        identifier: "{{ var('stripe_payment_method_identifier', 'payment_method')}}"
         description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
         freshness: null
         columns:
@@ -238,6 +246,7 @@ sources:
             description: Indicates if this is a test payment method.
 
       - name: payout
+        identifier: "{{ var('stripe_payout_identifier', 'payout')}}"
         description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
         columns:
           - name: id
@@ -270,6 +279,7 @@ sources:
             description: Indicates if this is a test payout.
  
       - name: refund
+        identifier: "{{ var('stripe_refund_identifier', 'refund')}}"
         description: Details of transactions that have been refunded
         freshness: null
         columns:
@@ -297,6 +307,7 @@ sources:
             description: Status of the refund. For credit card refunds, this can be pending, succeeded, or failed. For other types of refunds, it can be pending, succeeded, failed, or canceled.
 
       - name: invoice_line_item
+        identifier: "{{ var('stripe_invoice_line_item_identifier', 'invoice_line_item')}}"
         description: The different items that an invoice contains
         freshness: null
         columns:
@@ -330,6 +341,7 @@ sources:
             description: Indicates if this is a test invoice line item.
 
       - name: invoice
+        identifier: "{{ var('stripe_invoice_identifier', 'invoice')}}"
         description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
         freshness: null
         columns:
@@ -381,6 +393,7 @@ sources:
             description: Indicates if this is a test invoice.
 
       - name: subscription_history
+        identifier: "{{ var('stripe_subscription_history_identifier', 'subscription_history')}}"
         description: Subscriptions allow you to charge a customer on a recurring basis. Please note this source table is used only on connectors setup **after** February 09, 2022.
         freshness: null
         columns:
@@ -420,6 +433,7 @@ sources:
             description: Boolean indicating if the record is the latest.
 
       - name: subscription
+        identifier: "{{ var('stripe_subscription_identifier', 'subscription')}}"
         description: Subscriptions allow you to charge a customer on a recurring basis. Please note this source table is only present in connectors setup **before** February 09, 2022.
         freshness: null
         columns:
@@ -457,6 +471,7 @@ sources:
             description: Indicates if this is a test subscription.
 
       - name: plan
+        identifier: "{{ var('stripe_plan_identifier', 'plan')}}"
         description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
         freshness: null
         columns:
@@ -482,6 +497,7 @@ sources:
             description: Indicates if this is a test plan.
 
       - name: credit_note
+        identifier: "{{ var('stripe_credit_note_identifier', 'credit_note')}}"
         description: Credit notes are documents that decrease the amount owed on an invoice. They’re the only way to adjust the amount of a finalized invoice other than voiding and recreating the invoice.
         freshness: null
         columns:
@@ -525,6 +541,7 @@ sources:
             description: The id of the refund associated with this credit note.
 
       - name: credit_note_line_item
+        identifier: "{{ var('stripe_credit_note_line_item_identifier', 'credit_note_line_item')}}"
         description: The different items that a credit note contains.
         freshness: null
         columns:
