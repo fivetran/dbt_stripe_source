@@ -65,7 +65,7 @@ For Stripe connectors set up after February 09, 2022 the `subscription` table ha
 vars:
     stripe__subscription_history: True  # False by default. Set to True if your connector syncs the `subscription_history` table. 
 ```
-## (Optional) Step 5: Additional configurations
+## (Optional) Step 6: Additional configurations
 <details><summary>Expand to view configurations</summary>
 
 ### Running on Live vs Test Customers
@@ -121,7 +121,7 @@ vars:
     
 </details>
 
-## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
