@@ -1,3 +1,7 @@
+# dbt_stripe_source v0.7.1
+## 🎉 Documentation and Feature Updates
+- Addition of subscription Id in the invoice tables
+- updating the get_invoice_columns.sql with subscription_id field and adding subscription_id in stg_stripe__invoice.sql for above change
 # dbt_stripe_source v0.7.0
 ## 🎉 Documentation and Feature Updates
 - Updated README documentation updates for easier navigation and setup of the dbt package
