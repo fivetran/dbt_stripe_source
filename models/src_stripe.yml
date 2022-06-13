@@ -23,7 +23,7 @@ sources:
           - name: available_on
             description: The date the transaction’s net funds will become available in the Stripe balance.
           - name: created
-            description: Timestamp of when the transaction was created.
+            description: Timestamp of when the transaction was created, in UTC.
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
