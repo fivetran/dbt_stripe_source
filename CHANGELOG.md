@@ -1,3 +1,7 @@
+# dbt_stripe_source v0.7.1
+- Add timezone notation to timestamp column definition ([#42](https://github.com/fivetran/dbt_stripe_source/pull/42))
+
+- [mvtemple](https://github.com/mvtemple) ([#43](https://github.com/fivetran/dbt_stripe_source/issues/43))
 # dbt_stripe_source v0.7.0
 ## 🎉 Documentation and Feature Updates
 - Updated README documentation updates for easier navigation and setup of the dbt package
@@ -9,7 +13,7 @@
 
 ## Features
 - Added Postgres support for the Stripe package ([#39](https://github.com/fivetran/dbt_stripe_source/pull/39))
-- 
+
 ## Contributors
 - [nachimehta](https://github.com/nachimehta) ([#37](https://github.com/fivetran/dbt_stripe_source/pull/37))
 
