@@ -50,8 +50,9 @@ final as (
         subtotal,
         tax,
         tax_percent,
-        total
-
+        total,
+        subscription_id
+        
         {% if var('stripe__invoice_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__invoice_metadata')) }}
         {% endif %}

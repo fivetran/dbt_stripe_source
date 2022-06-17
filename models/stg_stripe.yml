@@ -369,6 +369,8 @@ models:
         description: This is the transaction number that appears on email receipts sent for this invoice.
       - name: status
         description: Status of the invoice.
+      - name: subscription_id
+        description: The ID of the subscription that the invoice item pertains to, if any.
       - name: subtotal
         description: Total of all subscriptions, invoice items, and prorations on the invoice before any discount or tax is applied.
       - name: tax
