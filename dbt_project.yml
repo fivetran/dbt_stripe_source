@@ -40,7 +40,7 @@ vars:
     using_subscriptions: true
 
     # variable to exclude or include historical subscription data
-    stripe__subscription_history: true
+    stripe__subscription_history: false
 
     # variable to exclude or include test data (based on `livemode`)
     using_livemode: true
