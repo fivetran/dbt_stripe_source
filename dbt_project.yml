@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source'
-version: '0.7.0'
+version: '0.7.1'
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
@@ -31,6 +31,7 @@ vars:
     subscription: "{{ source('stripe', 'subscription') }}"
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
+    
 
     #Variables to enable or disable models if you do not have the respective table.
     using_invoices: true
