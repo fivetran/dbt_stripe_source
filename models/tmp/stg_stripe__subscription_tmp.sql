@@ -1,7 +1,7 @@
 {{ config(enabled=var('using_subscriptions', True)) }}
 
 select * 
-from {% if var('stripe__subscription_history', false) %}
+from {% if var('stripe__subscription_history') is not none %}
 {{ var('subscription_history') }}
 {% else %}
 {{ var('subscription') }}
