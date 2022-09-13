@@ -33,3 +33,7 @@ seeds:
   stripe_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
