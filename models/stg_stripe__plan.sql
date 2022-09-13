@@ -33,7 +33,7 @@ final as (
         active as is_active,
         amount,
         currency,
-        {% if target.type == 'bigquery' %}
+        {% if target.type in ('bigquery','spark') %}
             `interval` as plan_interval,
         {% else %}
             interval as plan_interval,
