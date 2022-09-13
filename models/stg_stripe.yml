@@ -326,6 +326,10 @@ models:
         description: A unique id generated for old invoice ID's from a past version of the API
         tests:
           - unique
+      - name: period_start
+        description: Start of the usage period during which invoice items were added to this invoice.
+      - name: period_end
+        description: End of the usage period during which invoice items were added to this invoice.
 
   - name: stg_stripe__invoice
     description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
