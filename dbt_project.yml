@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source'
-version: '0.7.1'
+version: '0.7.2'
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 

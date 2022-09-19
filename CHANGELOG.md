@@ -1,3 +1,7 @@
+# dbt_stripe_source v0.7.2
+
+## 🎉 Feature Updates
+- Databricks compatibility 🧱 ([#47](https://github.com/fivetran/dbt_stripe_source/pull/47))
 # dbt_stripe_source v0.7.1
 ## 🎉 Documentation and Feature Updates
 - Add timezone notation to timestamp column definition ([#42](https://github.com/fivetran/dbt_stripe_source/pull/42))

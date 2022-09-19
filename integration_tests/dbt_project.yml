@@ -1,13 +1,13 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.7.1'
+version: '0.7.2'
 
 
 profile: 'integration_tests'
 
 vars:
-  stripe_schema: stripe_source_integration_tests_update
+  stripe_schema: stripe_source_integrations_tests
   stripe_source:
     stripe_group_identifier:                  "group_data"
     stripe_balance_transaction_identifier:    "balance_transaction_data"
@@ -33,3 +33,7 @@ seeds:
   stripe_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']

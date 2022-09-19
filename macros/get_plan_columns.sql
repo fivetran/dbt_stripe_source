@@ -22,7 +22,7 @@
     {"name": "usage_type", "datatype": dbt_utils.type_string()}
 ] %}
 
-{% if target.type == 'bigquery' %}
+{% if target.type in ('bigquery', 'spark') %}
     {{ columns.append( {"name": 'interval', "datatype": dbt_utils.type_string(), "quote": True } ) }}
 
 {% else %}

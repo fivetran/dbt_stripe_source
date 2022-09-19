@@ -2,9 +2,6 @@
     <a alt="License"
         href="https://github.com/fivetran/dbt_stripe_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
-    <a alt="Fivetran-Release"
-        href="https://fivetran.com/docs/getting-started/core-concepts#releasephases">
-        <img src="https://img.shields.io/badge/Fivetran Release Phase-_Beta-orange.svg" /></a>
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.0.0_<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
@@ -26,7 +23,15 @@
 ## Step 1: Prerequisites
 To use this dbt package, you must have the following:
 - At least one Fivetran stripe connector syncing data into your destination. 
-- A **BigQuery**, **Snowflake**, **Redshift**, or **PostgreSQL** destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, or **PostgreSQL** destination.
+
+### Databricks Dispatch Configuration
+If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+```yml
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
+```
 
 ## Step 2: Install the package
 Include the following stripe_source package version in your `packages.yml` file.
