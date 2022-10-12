@@ -1,7 +1,9 @@
 # dbt_stripe_source v0.7.3
 
-## 🎉 Feature Updates
-- Two columns added to stg_stripe__invoice (period_start, period_end)🧱 ([#50](https://github.com/fivetran/dbt_stripe_source/pull/51))
+
+## Contributors
+- [lijol](https://github.com/lijol) ([#50](https://github.com/fivetran/dbt_stripe_source/pull/51))
+
 
 # dbt_stripe_source v0.7.2
 
