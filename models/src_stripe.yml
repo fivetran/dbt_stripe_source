@@ -393,6 +393,10 @@ sources:
             description: Total after discounts and taxes.  
           - name: livemode
             description: Indicates if this is a test invoice.
+          - name: period_start
+            description: Start of the usage period during for which the invoice was created.
+          - name: period_end
+            description: End of the usage period during for which the invoice was created.
 
       - name: subscription_history
         identifier: "{{ var('stripe_subscription_history_identifier', 'subscription_history')}}"
