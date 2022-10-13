@@ -1,5 +1,6 @@
 # dbt_stripe_source v0.7.3
-
+## Feature Updates
+- The `period_start` and `period_end` fields have been added to the `stg_stripe__invoice` model. ([#51](https://github.com/fivetran/dbt_stripe_source/pull/51))
 
 ## Contributors
 - [lijol](https://github.com/lijol) ([#50](https://github.com/fivetran/dbt_stripe_source/pull/51))
