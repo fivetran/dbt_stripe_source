@@ -383,6 +383,10 @@ models:
         description: The percent used to calculate the tax amount.
       - name: total
         description: Total after discounts and taxes.
+      - name: period_start
+        description: Start of the usage period during for which the invoice was created.
+      - name: period_end
+        description: End of the usage period during for which the invoice was created.
 
   - name: stg_stripe__subscription
     description: Subscriptions allow you to charge a customer on a recurring basis.
