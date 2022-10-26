@@ -22,7 +22,7 @@
     {"name": "usage_type", "datatype": dbt.type_string()}
 ] %}
 
-{% if target.type in ('bigquery', '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!') %}
+{% if target.type in ('bigquery', 'spark', 'databricks') %}
     {{ columns.append( {"name": 'interval', "datatype": dbt.type_string(), "quote": True } ) }}
 
 {% else %}
