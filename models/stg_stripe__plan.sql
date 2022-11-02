@@ -27,7 +27,7 @@ final as (
         currency,
         {% if target.type == 'bigquery' %}
             `interval` as plan_interval,
-        {% elif target.type == 'spark' %}
+        {% elif target.type in ('spark','databricks') %}
             "interval" as plan_interval,
         {% else %}
             interval as plan_interval,
