@@ -25,13 +25,7 @@ final as (
         active as is_active,
         amount,
         currency,
-        {% if target.type == 'bigquery' %}
-            `interval` as plan_interval,
-        {% elif target.type in ('spark','databricks') %}
-            "interval" as plan_interval,
-        {% else %}
-            interval as plan_interval,
-        {% endif %}
+        plan_interval,
         interval_count,
         metadata,
         nickname,
