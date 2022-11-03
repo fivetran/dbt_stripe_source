@@ -25,7 +25,7 @@ final as (
         active as is_active,
         amount,
         currency,
-        plan_interval,
+        plan_interval, -- Field is aliased within get_plan_columns macro
         interval_count,
         metadata,
         nickname,
