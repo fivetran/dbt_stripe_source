@@ -1,6 +1,5 @@
-# dbt_stripe_source v0.7.3
-## Feature Updates
-- Added 
+# dbt_stripe_source v0.7.4
+- Updated README to include instructions on how to use metadata variable in cases of dictionary arguments. ([#57](https://github.com/fivetran/dbt_stripe_source/pull/57))
 
 # dbt_stripe_source v0.7.3
 ## Feature Updates
