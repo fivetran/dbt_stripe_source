@@ -22,11 +22,11 @@
     {"name": "usage_type", "datatype": dbt_utils.type_string()}
 ] %}
 
-{% if target.type in ('bigquery', 'spark') %}
-    {{ columns.append( {"name": 'interval', "datatype": dbt_utils.type_string(), "quote": True } ) }}
+{% if target.type in ('bigquery', 'spark', 'databricks') %}
+    {{ columns.append( {"name": 'interval', "datatype": dbt_utils.type_string(), "quote": True, "alias": "plan_interval" } ) }}
 
 {% else %}
-    {{ columns.append( {"name": "interval", "datatype": dbt_utils.type_string()} ) }}
+    {{ columns.append( {"name": "interval", "datatype": dbt_utils.type_string(), "alias": "plan_interval"} ) }}
 
 {% endif %}
 

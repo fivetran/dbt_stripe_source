@@ -1,3 +1,7 @@
+# dbt_stripe_source v0.7.4
+## Under the Hood
+- The `plan_interval` field within the `stg_stripe__plan` model has been aliased within the `get_plan_columns()` macro to allow for more flexibility across warehouses.
+- BuildKite testing has been added.
 # dbt_stripe_source v0.7.3
 ## Feature Updates
 - The `period_start` and `period_end` fields have been added to the `stg_stripe__invoice` model. ([#51](https://github.com/fivetran/dbt_stripe_source/pull/51))
