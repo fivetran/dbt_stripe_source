@@ -22,8 +22,8 @@ final as (
     select 
         id as balance_transaction_id,
         amount,
-        cast(available_on as {{ dbt_utils.type_timestamp() }}) as available_on,
-        cast(created as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(available_on as {{ dbt.type_timestamp() }}) as available_on,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,
         exchange_rate,
