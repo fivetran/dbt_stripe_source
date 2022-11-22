@@ -23,11 +23,13 @@ final as (
     select 
         id as invoice_line_item_id,
         invoice_id,
+        invoice_item_id,
         amount,
         currency,
         description,
         discountable as is_discountable,
         plan_id,
+        price_id,
         proration,
         quantity,
         subscription_id,

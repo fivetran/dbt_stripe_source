@@ -19,7 +19,7 @@ fields as (
 ),
 
 final as (
-    
+
     select 
         id as charge_id, 
         amount,
@@ -37,11 +37,22 @@ final as (
         metadata,
         paid as is_paid,
         payment_intent_id,
+        payment_method_id,
         receipt_email,
         receipt_number,
         refunded as is_refunded,
         status,
-        invoice_id
+        invoice_id,
+        calculated_statement_descriptor,
+        billing_detail_address_city,
+        billing_detail_address_country,
+        billing_detail_address_line1,
+        billing_detail_address_line2,
+        billing_detail_address_postal_code,
+        billing_detail_address_state,
+        billing_detail_email,
+        billing_detail_name,
+        billing_detail_phone
 
         {% if var('stripe__charge_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__charge_metadata')) }}

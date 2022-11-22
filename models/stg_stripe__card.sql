@@ -21,6 +21,7 @@ final as (
     
     select 
         id as card_id,
+        wallet_type,
         brand,
         country,
         created as created_at,
