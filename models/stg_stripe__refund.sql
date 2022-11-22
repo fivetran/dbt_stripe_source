@@ -21,9 +21,10 @@ final as (
     
     select 
         id as refund_id,
-        amount,
+        payment_intent_id,
         balance_transaction_id,
         charge_id,
+        amount,
         created as created_at,
         currency,
         description,

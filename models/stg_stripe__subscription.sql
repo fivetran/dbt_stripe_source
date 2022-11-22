@@ -23,6 +23,10 @@ final as (
     
     select 
         id as subscription_id,
+        latest_invoice_id,
+        customer_id,
+        default_payment_method_id,
+        pending_setup_intent_id,
         status,
         billing,
         billing_cycle_anchor,
@@ -32,11 +36,11 @@ final as (
         created as created_at,
         current_period_start,
         current_period_end,
-        customer_id,
         days_until_due,
         metadata,
         start_date,
-        ended_at
+        ended_at,
+        pause_collection_*
 
         {% if var('stripe__subscription_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__subscription_metadata')) }}

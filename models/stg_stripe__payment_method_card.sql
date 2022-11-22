@@ -24,7 +24,8 @@ final as (
     select 
         payment_method_id,
         brand,
-        funding
+        funding,
+        three_d_secure_*
     from fields
 )
 
