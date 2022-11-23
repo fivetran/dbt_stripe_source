@@ -27,6 +27,11 @@ vars:
     subscription: "{{ source('stripe', 'subscription') }}"
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
+    invoice_items: "{{ source('stripe', 'invoice_items) }}"
+    account: "{{ source('stripe', 'account) }}"
+    subscription_discount: "{{ source('stripe', 'subscription_discount) }}"
+    subscription_item: "{{ source('stripe', 'subscription_item) }}"
+    price: "{{ source('stripe', 'price) }}"
     using_invoices: true
     using_credit_notes: false
     using_payment_method: true
