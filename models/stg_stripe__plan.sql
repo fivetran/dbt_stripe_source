@@ -25,13 +25,7 @@ final as (
         active as is_active,
         amount,
         currency,
-        {% if target.type == 'bigquery' %}
-            `interval` as plan_interval,
-        {% elif target.type == 'spark' %}
-            "interval" as plan_interval,
-        {% else %}
-            interval as plan_interval,
-        {% endif %}
+        plan_interval, -- Field is aliased within get_plan_columns macro
         interval_count,
         metadata,
         nickname,
