@@ -1,5 +1,5 @@
 {% macro livemode_predicate() %}
 
-    where livemode = {{ var('using_livemode', true) }}
+    where livemode = {{ var('stripe__using_livemode', true) }}
 
 {% endmacro %}

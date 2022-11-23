@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_subscriptions', True)) }}
+{{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
 select * 
 from {% if var('stripe__subscription_history', false) %}
