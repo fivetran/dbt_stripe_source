@@ -29,7 +29,8 @@
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "network", "datatype": dbt.type_string()},
     {"name": "recipient", "datatype": dbt.type_string()},
-    {"name": "tokenization_method", "datatype": dbt.type_string()}
+    {"name": "tokenization_method", "datatype": dbt.type_string()},
+    {"name": "wallet_type", "datatype": dbt.type_string()},
 ] %}
 
 {{ return(columns) }}
