@@ -4,8 +4,6 @@
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "brand", "datatype": dbt.type_string()},
     {"name": "charge_id", "datatype": dbt.type_string()},
-    {"name": "description", "datatype": dbt.type_string()},
-    {"name": "fingerprint", "datatype": dbt.type_string()},
     {"name": "funding", "datatype": dbt.type_string()},
     {"name": "payment_method_id", "datatype": dbt.type_string()},
     {"name": "type", "datatype": dbt.type_string()},

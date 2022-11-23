@@ -5,6 +5,7 @@
     {"name": "amount", "datatype": dbt.type_int()},
     {"name": "balance_transaction_id", "datatype": dbt.type_string()},
     {"name": "charge_id", "datatype": dbt.type_string()},
+    {"name": "payment_intent_id", "datatype": dbt.type_string()},
     {"name": "created", "datatype": dbt.type_timestamp()},
     {"name": "currency", "datatype": dbt.type_string()},
     {"name": "description", "datatype": dbt.type_string()},

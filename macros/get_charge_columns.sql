@@ -34,6 +34,7 @@
     {"name": "outcome_type", "datatype": dbt.type_string()},
     {"name": "paid", "datatype": "boolean"},
     {"name": "payment_intent_id", "datatype": dbt.type_string()},
+    {"name": "payment_method_id", "datatype": dbt.type_string()},
     {"name": "receipt_email", "datatype": dbt.type_string()},
     {"name": "receipt_number", "datatype": dbt.type_string()},
     {"name": "receipt_url", "datatype": dbt.type_string()},
@@ -54,7 +55,25 @@
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "transfer_data_destination", "datatype": dbt.type_string()},
     {"name": "transfer_group", "datatype": dbt.type_string()},
-    {"name": "transfer_id", "datatype": dbt.type_string()}
+    {"name": "transfer_id", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "shipping_address_city", "datatype": dbt.type_string()},
+    {"name": "billing_detail_address_city", "datatype": dbt.type_string()},
+    {"name": "billing_detail_address_country", "datatype": dbt.type_string()},
+    {"name": "billing_detail_address_line1", "datatype": dbt.type_string()},
+    {"name": "billing_detail_address_line2", "datatype": dbt.type_string()},
+    {"name": "billing_detail_address_postal_code", "datatype": dbt.type_string()},
+    {"name": "billing_detail_address_state", "datatype": dbt.type_string()},
+    {"name": "billing_detail_email", "datatype": dbt.type_string()},
+    {"name": "billing_detail_name", "datatype": dbt.type_string()},
+    {"name": "billing_detail_phon", "datatype": dbt.type_string()}
 ] %}
 
 {{ return(columns) }}
