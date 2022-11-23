@@ -1,4 +1,6 @@
-{{ config(enabled=var('using_subscriptions', True)) }}
+{{ config(enabled=var('stripe__using_subscriptions', True)) }}
+
+{% if var('stripe__pricing', does_table_exist('plan')) %}
 
 with base as (
 
