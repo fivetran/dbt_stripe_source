@@ -25,6 +25,9 @@ final as (
         payment_method_id,
         brand,
         funding,
+        charge_id,
+        type,
+        wallet_type,
         three_d_secure_*
     from fields
 )
