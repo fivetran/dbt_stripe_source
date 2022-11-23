@@ -19,5 +19,5 @@ dbt deps
 dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
-dbt run --vars '{using_invoice_line_sub_filter: false, using_credit_notes: true}' --full-refresh --target "$db"
+dbt run --vars '{stripe__using_invoice_line_sub_filter: false, stripe__using_credit_notes: true}' --full-refresh --target "$db"
 dbt test --target "$db"

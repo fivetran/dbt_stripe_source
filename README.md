@@ -57,10 +57,10 @@ This package takes into consideration that not every Stripe account utilizes the
 
 ...
 vars:
-    using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
-    using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
-    using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
-    using_credit_notes:    True   #Enable if you are using the credit note tables.
+    stripe__using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
+    stripe__using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
+    stripe__using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
+    stripe__using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
 ## Step 5: Leveraging Subscription Vs Subscription History Sources
@@ -79,14 +79,14 @@ By default, this package will run on non-test data (`where livemode = true`) fro
 ```yml
 vars:
     stripe_source:
-        using_livemode: false  # Default = true
+        stripe__using_livemode: false  # Default = true
 ```
 ### Including sub Invoice Line Items
 By default, this package will filter out any records from the `invoice_line_item` source table which include the string `sub_`. This is due to a legacy Stripe issue where `sub_` records were found to be duplicated. However, if you highly utilize these records you may wish they be included in the final output of the `stg_stripe__invoice_line_item` model. To do, so you may include the below variable configuration in your root `dbt_project.yml`:
 ```yml
 vars:
     stripe_source:
-        using_invoice_line_sub_filter: false # Default = true
+        stripe__using_invoice_line_sub_filter: false # Default = true
 ```
 
 ### Pivoting out Metadata Properties
