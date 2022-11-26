@@ -1,11 +1,35 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
-{% if var('stripe__pricing', does_table_exist('plan')) %}
-
-with base as (
+{% if var('stripe__price', does_table_exist('price')) %}
+with pricing as (
 
     select * 
-    from {{ ref('stg_stripe__plan_tmp') }}
+    from {{ var('price') }}
+
+),
+
+fields as (
+
+
+
+
+)
+
+final as (
+
+
+)
+
+select * 
+from fields
+
+
+{% else %}
+
+with plan as (
+
+    select * 
+    from {{ var('plan') }}
 ),
 
 fields as (
@@ -17,11 +41,11 @@ fields as (
                 staging_columns=get_plan_columns()
             )
         }}
-    from base
+    from plan
 ),
 
 final as (
-    
+
     select 
         id as plan_id,
         active as is_active,
@@ -42,3 +66,5 @@ final as (
 
 select * 
 from final
+
+{% endif %}
