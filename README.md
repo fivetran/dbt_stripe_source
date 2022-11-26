@@ -70,6 +70,22 @@ For Stripe connectors set up after February 09, 2022 the `subscription` table ha
 vars:
     stripe__subscription_history: True  # False by default. Set to True if your connector syncs the `subscription_history` table. 
 ```
+
+## Step 6: Toggling between Plan vs Price Sources
+
+Customers using Fivetran with the newest Stripe pricing model will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. While the default is to use the `price` table if it exists, you may add the following to your `dbt_project.yml` to override using the macro. 
+
+```yml
+# dbt_project.yml
+
+...
+config-version: 2
+
+vars:
+  stripe:
+    stripe__price: false #  If true, will look `price ` table. If false, will look for the `plan` table. 
+```
+
 ## (Optional) Step 6: Additional configurations
 <details><summary>Expand to view configurations</summary>
 
