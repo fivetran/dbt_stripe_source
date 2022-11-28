@@ -59,16 +59,16 @@ This package takes into consideration that not every Stripe account utilizes the
 vars:
     stripe__using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
     stripe__using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
-    stripe__using_subscriptions:   False  #Disable if you are not using the subscription and plan tables.
+    stripe__using_subscriptions:   False  #Disable if you are not using the subscription and plan/pricing tables.
     stripe__using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
 ## Step 5: Leveraging Subscription Vs Subscription History Sources
-For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription` source table. However, if you have a newer connector then you must leverage the `stripe__subscription_history` to have the package use the `subscription_history` source rather than the `subscription` table.
+For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription_history` source table. However, if you have a older connector then you must leverage the `stripe__subscription` to have the package use the `subscription` source rather than the `subscription_history` table.
 > **Please note that if you have `stripe__subscription_history` enabled then the package will filter for only active records.**
 ```yml
 vars:
-    stripe__subscription_history: True  # False by default. Set to True if your connector syncs the `subscription_history` table. 
+    stripe__subscription_history: False  # True by default. Set to False if your connector syncs the `subscription_history` table instead. 
 ```
 
 ## Step 6: Toggling between Plan vs Price Sources
