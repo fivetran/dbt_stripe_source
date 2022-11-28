@@ -28,7 +28,11 @@ final as (
         charge_id,
         type,
         wallet_type,
-        three_d_secure_*
+        three_d_secure_authentication_flow,
+        three_d_secure_result,
+        three_d_secure_result_reason,
+        three_d_secure_version
+
     from fields
 )
 
