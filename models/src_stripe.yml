@@ -63,6 +63,14 @@ sources:
             description: Card funding type. Can be credit, debit, prepaid, or unknown.
           - name: wallet_type
             description: The type of the card wallet, one of amex_express_checkout, apple_pay, google_pay, masterpass, samsung_pay, or visa_checkout. An additional hash is included on the Wallet subhash with a name matching this value. It contains additional information specific to the card wallet type.
+          - name: three_d_secure_authentication_flow
+            description: For authenticated transactions, how the customer was authenticated by the issuing bank.
+          - name: three_d_secure_result
+            description: Indicates the outcome of 3D Secure authentication.
+          - name: three_d_secure_result_reason
+            description: Additional information about why 3D Secure succeeded or failed based on the result.
+          - name: three_d_secure_version
+            description: The version of 3D Secure that was used.
 
       - name: charge
         identifier: "{{ var('stripe_charge_identifier', 'charge')}}"
@@ -307,7 +315,7 @@ sources:
             description: Can be bank_account or card.
           - name: livemode
             description: Indicates if this is a test payout.
- 
+
       - name: refund
         identifier: "{{ var('stripe_refund_identifier', 'refund')}}"
         description: Details of transactions that have been refunded
@@ -443,7 +451,14 @@ sources:
             description: Total amount of all post-payment credit notes issued for this invoice.
           - name: pre_payment_credit_notes_amount
             description: Total amount of all pre-payment credit notes issued for this invoice.
-
+          - name: status_transitions_finalized_at
+            description: The time that the invoice draft was finalized.
+          - name: status_transitions_marked_uncollectible_at
+            description: The time that the invoice was marked uncollectible.
+          - name: status_transitions_paid_at
+            description: The time that the invoice was paid.
+          - name: status_transitions_voided_at
+            description: The time that the invoice was voided.
 
       - name: subscription_history
         identifier: "{{ var('stripe_subscription_history_identifier', 'subscription_history')}}"
@@ -492,6 +507,10 @@ sources:
             description: ID of the default payment method for this subscription.
           - name: pending_setup_intent_id
             description: ID of the payment setup intent for this subscription. 
+          - name: pause_collection_behavior
+            description: The payment collection behavior for this subscription while paused. One of keep_as_draft, mark_uncollectible, or void.
+          - name: pause_collection_resumes_at
+            description: The time after which the subscription will resume collecting payments.
 
       - name: subscription
         identifier: "{{ var('stripe_subscription_identifier', 'subscription')}}"
@@ -530,6 +549,10 @@ sources:
             description: If the subscription has ended, the date the subscription ended.
           - name: livemode
             description: Indicates if this is a test subscription.
+          - name: pause_collection_behavior
+            description: The payment collection behavior for this subscription while paused. One of keep_as_draft, mark_uncollectible, or void.
+          - name: pause_collection_resumes_at
+            description: The time after which the subscription will resume collecting payments.
 
       - name: plan
         identifier: "{{ var('stripe_plan_identifier', 'plan')}}"
