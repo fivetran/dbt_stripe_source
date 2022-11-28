@@ -40,7 +40,8 @@ final as (
         metadata,
         start_date,
         ended_at,
-        pause_collection_*
+        pause_collection_behavior,
+        pause_collection_resumes_at
 
         {% if var('stripe__subscription_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__subscription_metadata')) }}

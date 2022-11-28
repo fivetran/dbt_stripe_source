@@ -30,7 +30,9 @@
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "tax_percent", "datatype": dbt.type_float()},
     {"name": "trial_end", "datatype": dbt.type_timestamp()},
-    {"name": "trial_start", "datatype": dbt.type_timestamp()}
+    {"name": "trial_start", "datatype": dbt.type_timestamp()},
+    {"name": "pause_collection_behavior", "datatype": dbt.type_string()},
+    {"name": "pause_collection_resumes_at", "datatype": dbt.type_timestamp()},
 ] %}
 
 {{ return(columns) }}
