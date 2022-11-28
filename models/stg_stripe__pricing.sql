@@ -4,32 +4,59 @@
 with pricing as (
 
     select * 
-    from {{ var('price') }}
-
+    from {{ ref('stg_stripe__price_tmp') }}
 ),
 
 fields as (
 
-
-
-
-)
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_stripe__price_tmp')),
+                staging_columns=get_price_columns()
+            )
+        }}
+    from base
+),
 
 final as (
 
-
+    select 
+        _fivetran_synced,
+        active,
+        billing_scheme,
+        created,
+        currency,
+        id,
+        invoice_item_id,
+        is_deleted,
+        livemode,
+        lookup_key,
+        metadata,
+        nickname,
+        product_id,
+        recurring_aggregate_usage,
+        recurring_interval,
+        recurring_interval_count,
+        recurring_usage_type,
+        tiers_mode,
+        transform_quantity_divide_by,
+        transform_quantity_round,
+        type,
+        unit_amount,
+        unit_amount_decimal
+    from fields
 )
 
 select * 
-from fields
-
+from final
 
 {% else %}
 
 with plan as (
 
     select * 
-    from {{ var('plan') }}
+    from {{ ref('stg_stripe__plan_tmp') }}
 ),
 
 fields as (
