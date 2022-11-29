@@ -7,7 +7,7 @@
     {"name": "funding", "datatype": dbt.type_string()},
     {"name": "payment_method_id", "datatype": dbt.type_string()},
     {"name": "type", "datatype": dbt.type_string()},
-    {"name": "wallet_type", "datatype": dbt.type_string()}
+    {"name": "wallet_type", "datatype": dbt.type_string()},
     {"name": "three_d_secure_authentication_flow", "datatype": dbt.type_string()},
     {"name": "three_d_secure_result", "datatype": dbt.type_string()},
     {"name": "three_d_secure_result_reason", "datatype": dbt.type_string()},
