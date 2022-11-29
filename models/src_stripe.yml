@@ -650,32 +650,32 @@ sources:
           - name: unit_amount_decimal
             description: Same as unit_amount, but contains a decimal value with at most 12 decimal places.
 
-      - name: invoice_items
-        identifier: "{{ var('stripe_invoice_items_identifier', 'invoice_items')}}"
-        description: 
-        freshness: null
-        columns:
+      # - name: invoice_items
+      #   identifier: "{{ var('stripe_invoice_items_identifier', 'invoice_items')}}"
+      #   description: 
+      #   freshness: null
+      #   columns:
 
-      - name: account
-        identifier: "{{ var('stripe_account_identifier', 'account')}}"
-        description: 
-        freshness: null
-        columns:
+      # - name: account
+      #   identifier: "{{ var('stripe_account_identifier', 'account')}}"
+      #   description: 
+      #   freshness: null
+      #   columns:
 
-      - name: subscription_discount
-        identifier: "{{ var('stripe_subscription_discount_identifier', 'subscription_discount')}}"
-        description: 
-        freshness: null
-        columns:
+      # - name: subscription_discount
+      #   identifier: "{{ var('stripe_subscription_discount_identifier', 'subscription_discount')}}"
+      #   description: 
+      #   freshness: null
+      #   columns:
 
-      - name: subscription_item
-        identifier: "{{ var('stripe_subscription_item_identifier', 'subscription_item')}}"
-        description: 
-        freshness: null
-        columns:
+      # - name: subscription_item
+      #   identifier: "{{ var('stripe_subscription_item_identifier', 'subscription_item')}}"
+      #   description: 
+      #   freshness: null
+      #   columns:
 
-      - name: price
-        identifier: "{{ var('stripe_price_identifier', 'price')}}"
-        description: 
-        freshness: null
-        columns:
+      # - name: price
+      #   identifier: "{{ var('stripe_price_identifier', 'price')}}"
+      #   description: 
+      #   freshness: null
+      #   columns:
