@@ -1,7 +1,7 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
 select * 
-from {% if var('stripe__price', true) %}
+from {% if var('stripe__price', True) %}
 {{ var('price') }}
 {% else %}
 {{ var('plan') }}
