@@ -48,7 +48,6 @@ final as (
         tax,
         tax_percent,
         total,
-        subscription_id,
         period_start,
         period_end,
         status_transitions_finalized_at,

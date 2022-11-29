@@ -26,12 +26,12 @@ vars:
     payment_method: "{{ source('stripe', 'payment_method') }}"
     payout: "{{ source('stripe', 'payout') }}"
     plan: "{{ source('stripe', 'plan') }}"
-    price: "{{ source('stripe', 'price) }}"
+    price: "{{ source('stripe', 'price') }}"
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
-    subscription_discount: "{{ source('stripe', 'subscription_discount) }}"
-    subscription_item: "{{ source('stripe', 'subscription_item) }}"
+    subscription_discount: "{{ source('stripe', 'subscription_discount') }}"
+    subscription_item: "{{ source('stripe', 'subscription_item') }}"
     stripe__using_invoices: true
     stripe__using_credit_notes: false
     stripe__using_payment_method: true

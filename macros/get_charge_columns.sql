@@ -57,14 +57,6 @@
     {"name": "transfer_group", "datatype": dbt.type_string()},
     {"name": "transfer_id", "datatype": dbt.type_string()},
     {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
     {"name": "billing_detail_address_city", "datatype": dbt.type_string()},
     {"name": "billing_detail_address_country", "datatype": dbt.type_string()},
     {"name": "billing_detail_address_line1", "datatype": dbt.type_string()},
@@ -73,7 +65,7 @@
     {"name": "billing_detail_address_state", "datatype": dbt.type_string()},
     {"name": "billing_detail_email", "datatype": dbt.type_string()},
     {"name": "billing_detail_name", "datatype": dbt.type_string()},
-    {"name": "billing_detail_phon", "datatype": dbt.type_string()}
+    {"name": "billing_detail_phone", "datatype": dbt.type_string()}
 ] %}
 
 {{ return(columns) }}
