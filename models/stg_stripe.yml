@@ -578,48 +578,48 @@ models:
       - name: credit_note_line_item_unit_amount_decimal
         description: Same as unit_amount, but contains a decimal value with at most 12 decimal places.
 
-  - name: stg_stripe__invoice_items
-    description:
-    columns:
-      - name: 
-        description: 
-        tests:
-            - unique
-            - not_null
+  # - name: stg_stripe__invoice_items
+  #   description:
+  #   columns:
+  #     - name: 
+  #       description: 
+  #       tests:
+  #           - unique
+  #           - not_null
 
-  - name: stg_stripe__account
-    description:
-    columns:
-      - name: 
-        description: 
-        tests:
-            - unique
-            - not_null
+  # - name: stg_stripe__account
+  #   description:
+  #   columns:
+  #     - name: 
+  #       description: 
+  #       tests:
+  #           - unique
+  #           - not_null
 
-  - name: stg_stripe__subscription_discount
-    description:
-    columns:
-      - name: 
-        description: 
-        tests:
-            - unique
-            - not_null
+  # - name: stg_stripe__subscription_discount
+  #   description:
+  #   columns:
+  #     - name: 
+  #       description: 
+  #       tests:
+  #           - unique
+  #           - not_null
 
-  - name: stg_stripe__subscription_item
-    description:
-    columns:
-      - name: 
-        description: 
-        tests:
-            - unique
-            - not_null
+  # - name: stg_stripe__subscription_item
+  #   description:
+  #   columns:
+  #     - name: 
+  #       description: 
+  #       tests:
+  #           - unique
+  #           - not_null
 
-  - name: stg_stripe__price
-    description:
-    columns:
-      - name: 
-        description: 
-        tests:
-            - unique
-            - not_null
+  # - name: stg_stripe__price
+  #   description:
+  #   columns:
+  #     - name: 
+  #       description: 
+  #       tests:
+  #           - unique
+  #           - not_null
 
