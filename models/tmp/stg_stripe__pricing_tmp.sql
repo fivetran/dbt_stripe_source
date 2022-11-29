@@ -1,5 +1,7 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
+select * from (
+
 {% if var('stripe__price', True) %}
 
 {{
@@ -34,4 +36,6 @@
 
 {% endif %}
 
+
+) 
 {{ livemode_predicate() }}
