@@ -1,6 +1,7 @@
-{{ config(enabled=var('using_subscriptions', True)) }}
+{{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
-with base as (
+{% if var('stripe__price', does_table_exist('price')) %}
+with pricing as (
 
     select * 
     from {{ ref('stg_stripe__pricing_tmp') }}
@@ -19,13 +20,65 @@ fields as (
 ),
 
 final as (
-    
+
+    select 
+        _fivetran_synced,
+        active,
+        billing_scheme,
+        created,
+        currency,
+        id,
+        invoice_item_id,
+        is_deleted,
+        livemode,
+        lookup_key,
+        metadata,
+        nickname,
+        product_id,
+        recurring_aggregate_usage,
+        recurring_interval,
+        recurring_interval_count,
+        recurring_usage_type,
+        tiers_mode,
+        transform_quantity_divide_by,
+        transform_quantity_round,
+        type,
+        unit_amount,
+        unit_amount_decimal
+    from fields
+)
+
+select * 
+from final
+
+{% else %}
+
+with plan as (
+
+    select * 
+    from {{ ref('stg_stripe__pricing_tmp') }}
+),
+
+fields as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_stripe__pricing_tmp')),
+                staging_columns=get_pricing_columns()
+            )
+        }}
+    from plan
+),
+
+final as (
+
     select 
         id as plan_id,
         active as is_active,
         amount,
         currency,
-        plan_interval, -- Field is aliased within get_pricing_columns macro
+        plan_interval, -- Field is aliased within get_plan_columns macro
         interval_count,
         metadata,
         nickname,
@@ -40,3 +93,8 @@ final as (
 
 select * 
 from final
+
+{% endif %}
+
+
+
