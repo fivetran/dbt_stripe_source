@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_balance_transaction_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
@@ -32,6 +38,9 @@ final as (
         source,
         status,
         type
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 

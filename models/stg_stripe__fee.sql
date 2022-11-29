@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_fee_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
+
     from base
 ),
 
@@ -26,6 +32,9 @@ final as (
         currency,
         description,
         type
+
+        {{ fivetran_utils.source_relation() }}
+
     from fields
 )
 

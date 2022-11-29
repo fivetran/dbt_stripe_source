@@ -1,5 +1,16 @@
 {{ config(enabled=var('stripe__using_credit_notes', False)) }}
 
-select * 
-from {{ var('credit_note_line_item') }}
+{{
+    fivetran_utils.union_data(
+        table_identifier='credit_note_line_item', 
+        database_variable='stripe_database', 
+        schema_variable='stripe_schema', 
+        default_database=target.database,
+        default_schema='stripe',
+        default_variable='credit_note_line_item_source',
+        union_schema_variable='stripe_union_schemas',
+        union_database_variable='stripe_union_databases'
+    )
+}}
+
 {{ livemode_predicate() }}

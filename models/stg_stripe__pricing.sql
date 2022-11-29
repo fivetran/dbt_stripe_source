@@ -16,7 +16,13 @@ fields as (
                 staging_columns=get_pricing_columns()
             )
         }}
-    from base
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
+    from pricing
 ),
 
 final as (
@@ -45,6 +51,9 @@ final as (
         type,
         unit_amount,
         unit_amount_decimal
+
+        {{ fivetran_utils.source_relation() }}
+        
     from fields
 )
 
@@ -68,6 +77,12 @@ fields as (
                 staging_columns=get_pricing_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from plan
 ),
 
@@ -83,6 +98,8 @@ final as (
         metadata,
         nickname,
         product_id
+
+        {{ fivetran_utils.source_relation() }}
 
         {% if var('stripe__plan_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__plan_metadata')) }}
