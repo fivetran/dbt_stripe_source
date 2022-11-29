@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_invoice_line_item_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
+        
     from base
 ),
 
@@ -38,6 +44,9 @@ final as (
         unique_id,
         period_start,
         period_end
+
+        {{ fivetran_utils.source_relation() }}
+
     from fields
 
     {% if var('stripe__using_invoice_line_sub_filter', true) %}

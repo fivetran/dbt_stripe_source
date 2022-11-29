@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_credit_note_line_item_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
@@ -30,6 +36,9 @@ final as (
         type,
         unit_amount,
         unit_amount_decimal
+
+        {{ fivetran_utils.source_relation() }}
+
     from fields
 )
 

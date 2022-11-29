@@ -15,6 +15,11 @@ fields as (
                 staging_columns=get_payment_method_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
         
     from base
 ),
@@ -27,6 +32,8 @@ final as (
         customer_id,
         metadata,
         type
+
+        {{ fivetran_utils.source_relation() }}
 
         {% if var('stripe__payment_method_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payment_method_metadata')) }}

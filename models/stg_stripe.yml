@@ -3,11 +3,15 @@ version: 2
 models:
   - name: stg_stripe__balance_transaction
     description: Balance transactions represent funds moving through your Stripe account. They're created for every type of transaction that comes into or flows out of your Stripe account balance.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - balance_transaction_id
+            - source_relation
     columns:
       - name: balance_transaction_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: amount
         description: Gross amount of the transaction, in cents.
@@ -34,11 +38,15 @@ models:
 
   - name: stg_stripe__card
     description: Details of a credit card that has been saved to the system.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - card_id
+            - source_relation
     columns:
       - name: card_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: brand
         description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
@@ -60,11 +68,15 @@ models:
 
   - name: stg_stripe__charge
     description: To charge a credit or a debit card, you create a Charge object. You can retrieve and refund individual charges as well as list all charges. Charges are identified by a unique, random ID.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - charge_id
+            - source_relation
     columns:
       - name: charge_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: amount
         description: Amount intended to be collected by this payment. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
@@ -134,11 +146,15 @@ models:
 
   - name: stg_stripe__customer
     description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - customer_id
+            - source_relation
     columns:
       - name: customer_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: account_balance
         description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice.
@@ -174,7 +190,7 @@ models:
         description: Attribute of the customer's shipping address.
 
   - name: stg_stripe__fee
-    description: The details of a fee associated with a balance_transation
+    description: The details of a fee associated with a balance transaction
     columns:
       - name: balance_transaction_id
         description: ID of the balance transaction entry the fee applies to
@@ -191,11 +207,15 @@ models:
 
   - name: stg_stripe__payment_intent
     description: A Payment Intent guides you through the process of collecting a payment from your customer.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - payment_intent_id
+            - source_relation
     columns:
       - name: payment_intent_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: amount
         description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
@@ -252,11 +272,15 @@ models:
 
   - name: stg_stripe__payment_method
     description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - payment_method_id
+            - source_relation
     columns:
       - name: payment_method_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: created_at
         description: Time at which the object was created.
@@ -269,11 +293,15 @@ models:
 
   - name: stg_stripe__payout
     description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - payout_id
+            - source_relation
     columns:
       - name: payout_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: amount
         description: Amount (in cents) to be transferred to your bank account or debit card.
@@ -302,11 +330,15 @@ models:
 
   - name: stg_stripe__refund
     description: Details of transactions that have been refunded
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - refund_id
+            - source_relation
     columns:
       - name: refund_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: amount
         description: Amount, in cents.
@@ -333,9 +365,16 @@ models:
 
   - name: stg_stripe__invoice_line_item
     description: The different items that an invoice contains
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - invoice_line_item_id
+            - source_relation
     columns:
       - name: invoice_line_item_id
         description: Unique identifier for the object.
+        tests:
+          - not_null
       - name: invoice_id
         description: The ID of the invoice this item is a part of
       - name: invoice_item_id
@@ -373,11 +412,15 @@ models:
 
   - name: stg_stripe__invoice
     description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - invoice_id
+            - source_relation
     columns:
       - name: invoice_id
         description: Unique identifier for the object.
         tests:
-          - unique
           - not_null
       - name: amount_due
         description: Final amount due at this time for this invoice. If the invoice’s total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the amount_due may be 0. If there is a positive starting_balance for the invoice (the customer owes money), the amount_due will also take that into account. The charge that gets generated for the invoice will be for the amount specified in amount_due.
@@ -441,9 +484,16 @@ models:
 
   - name: stg_stripe__subscription
     description: Subscriptions allow you to charge a customer on a recurring basis.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - subscription_id
+            - source_relation
     columns:
       - name: subscription_id
         description: Unique identifier for the object.
+        tests:
+          - not_null
       - name: latest_invoice_id
         description: ID of the latest invoice for this subscription. 
       - name: customer_id
@@ -483,12 +533,16 @@ models:
         
   - name: stg_stripe__plan
     description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - plan_id
+            - source_relation
     columns:
       - name: plan_id
         description: Unique identifier for the object.
         tests:
           - not_null
-          - unique
       - name: is_active
         description: Whether the plan can be used for new purchases.
       - name: amount
@@ -508,11 +562,15 @@ models:
 
   - name: stg_stripe__credit_note
     description: Credit notes are documents that decrease the amount owed on an invoice. They’re the only way to adjust the amount of a finalized invoice other than voiding and recreating the invoice.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - credit_note_id 
+            - source_relation
     columns:
       - name: credit_note_id 
         description: Unique identifier for the object.
         tests:
-            - unique
             - not_null
       - name: credit_note_amount 
         description: The integer amount in cents representing the total amount of the credit note, including tax.
@@ -553,11 +611,15 @@ models:
 
   - name: stg_stripe__credit_note_line_item
     description: The different items that a credit note contains.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - credit_note_line_item_id 
+            - source_relation
     columns:
       - name: credit_note_line_item_id 
         description: Unique identifier for the object.
         tests:
-            - unique
             - not_null
       - name: credit_note_id 
         description: The ID of the credit note this item is a part of.

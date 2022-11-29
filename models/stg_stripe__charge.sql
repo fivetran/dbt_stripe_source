@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_charge_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
@@ -53,6 +59,8 @@ final as (
         billing_detail_email,
         billing_detail_name,
         billing_detail_phone
+
+        {{ fivetran_utils.source_relation() }}
 
         {% if var('stripe__charge_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__charge_metadata')) }}
