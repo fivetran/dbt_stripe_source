@@ -1,6 +1,7 @@
-{% if var('stripe__price', true) %}
+{% macro get_pricing_columns() %}
 
-{% macro get_price_columns() %}
+
+{% if var('stripe__price', True) %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
@@ -28,15 +29,7 @@
     {"name": "unit_amount_decimal", "datatype": dbt.type_string()}
 ] %}
 
-{{ return(columns) }}
-
-{% endmacro %}
-
-
-
 {% else %}
-
-{% macro get_plan_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
@@ -68,8 +61,8 @@
 
 {% endif %}
 
+{% endif %}
+
 {{ return(columns) }}
 
 {% endmacro %}
-
-{% endif %}

@@ -614,7 +614,8 @@ models:
   #           - unique
   #           - not_null
 
-  # - name: stg_stripe__price
+  # - name: stg_stripe__pricing
+  # you'll have to note which comes from which source since not all columns will be consistent across both sources 
   #   description:
   #   columns:
   #     - name: 

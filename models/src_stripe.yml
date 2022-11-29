@@ -674,8 +674,8 @@ sources:
       #   freshness: null
       #   columns:
 
-      # - name: price
-      #   identifier: "{{ var('stripe_price_identifier', 'price')}}"
-      #   description: 
-      #   freshness: null
-      #   columns:
+      - name: price
+        identifier: "{{ var('stripe_price_identifier', 'price')}}"
+        # description: 
+        # freshness: null
+        # columns:
