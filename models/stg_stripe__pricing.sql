@@ -50,12 +50,8 @@ final as (
         transform_quantity_round,
         type,
         unit_amount,
-        unit_amount_decimal
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        unit_amount_decimal,
+        source_relation
         
     from fields
 )
@@ -100,12 +96,8 @@ final as (
         interval_count,
         metadata,
         nickname,
-        product_id
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        product_id,
+        source_relation
 
         {% if var('stripe__plan_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__plan_metadata')) }}

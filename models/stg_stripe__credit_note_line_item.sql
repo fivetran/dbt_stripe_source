@@ -35,12 +35,8 @@ final as (
         quantity,
         type,
         unit_amount,
-        unit_amount_decimal
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        unit_amount_decimal,
+        source_relation
 
     from fields
 )

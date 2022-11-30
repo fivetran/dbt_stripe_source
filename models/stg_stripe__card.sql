@@ -34,12 +34,8 @@ final as (
         customer_id,
         name,
         recipient,
-        funding
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        funding,
+        source_relation
 
     from fields
 )

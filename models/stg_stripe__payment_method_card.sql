@@ -36,12 +36,8 @@ final as (
         three_d_secure_authentication_flow,
         three_d_secure_result,
         three_d_secure_result_reason,
-        three_d_secure_version
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        three_d_secure_version,
+        source_relation
 
     from fields
 )

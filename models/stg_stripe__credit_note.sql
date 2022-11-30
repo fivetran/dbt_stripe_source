@@ -45,12 +45,8 @@ final as (
         voided_at,
         customer_balance_transaction,
         invoice_id,
-        refund_id
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        refund_id,
+        source_relation
 
     from fields
 )
