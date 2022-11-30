@@ -20,7 +20,6 @@
     {"name": "ended_at", "datatype": dbt.type_timestamp()},
     {"name": "id", "datatype": dbt.type_string()},
     {"name": "latest_invoice_id", "datatype": dbt.type_string()},
-    {"name": "customer_id", "datatype": dbt.type_string()},
     {"name": "default_payment_method_id", "datatype": dbt.type_string()},
     {"name": "pending_setup_intent_id", "datatype": dbt.type_string()},
     {"name": "livemode", "datatype": "boolean"},

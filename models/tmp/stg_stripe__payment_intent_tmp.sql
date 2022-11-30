@@ -1,3 +1,5 @@
+select * from (
+    
 {{
     fivetran_utils.union_data(
         table_identifier='payment_intent', 
@@ -5,10 +7,12 @@
         schema_variable='stripe_schema', 
         default_database=target.database,
         default_schema='stripe',
-        default_variable='payment_intent_source',
+        default_variable='payment_intent',
         union_schema_variable='stripe_union_schemas',
         union_database_variable='stripe_union_databases'
     )
 }}
+
+)
 
 {{ livemode_predicate() }}

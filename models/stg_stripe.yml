@@ -531,7 +531,8 @@ models:
       - name: ended_at
         description: If the subscription has ended, the date the subscription ended.
         
-  - name: stg_stripe__plan
+  - name: stg_stripe__pricing
+  ## update below 
     description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
     tests:
       - dbt_utils.unique_combination_of_columns:

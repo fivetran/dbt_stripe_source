@@ -46,7 +46,6 @@
     {"name": "status_transitions_marked_uncollectible_at", "datatype": dbt.type_timestamp()},
     {"name": "status_transitions_paid_at", "datatype": dbt.type_timestamp()},
     {"name": "status_transitions_voided_at", "datatype": dbt.type_timestamp()},
-    {"name": "subscription_id", "datatype": dbt.type_string()},
     {"name": "subscription_proration_date", "datatype": dbt.type_int()},
     {"name": "subtotal", "datatype": dbt.type_int()},
     {"name": "tax", "datatype": dbt.type_int()},

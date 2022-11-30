@@ -1,5 +1,7 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
+select * from (
+
 {% if var('stripe__subscription_history', true) %}
 
 {{
@@ -9,7 +11,7 @@
         schema_variable='stripe_schema', 
         default_database=target.database,
         default_schema='stripe',
-        default_variable='subscription_history_source',
+        default_variable='subscription_history',
         union_schema_variable='stripe_union_schemas',
         union_database_variable='stripe_union_databases'
     )
@@ -24,13 +26,15 @@
         schema_variable='stripe_schema', 
         default_database=target.database,
         default_schema='stripe',
-        default_variable='subscription_source',
+        default_variable='subscription',
         union_schema_variable='stripe_union_schemas',
         union_database_variable='stripe_union_databases'
     )
 }}
 
 {% endif %}
+
+)
 
 {{ livemode_predicate() }}
 {% if var('stripe__subscription_history', true) %}
