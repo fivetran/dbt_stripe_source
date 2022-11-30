@@ -36,5 +36,5 @@ select * from (
 
 {% endif %}
 
-) 
+) as fields
 {{ livemode_predicate() }}

@@ -13,7 +13,7 @@ select * from (
     )
 }}
 
-)
+) as fields
 
 {{ livemode_predicate() }}
 and 
