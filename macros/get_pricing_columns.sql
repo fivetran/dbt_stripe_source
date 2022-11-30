@@ -54,10 +54,10 @@
 ] %}
 
 {% if target.type in ('bigquery', 'spark', 'databricks') %}
-    {{ columns.append( {"name": 'interval', "datatype": dbt.type_string(), "quote": True, "alias": "plan_interval" } ) }}
+    {{ columns.append( {"name": 'interval', "datatype": dbt.type_string(), "quote": True, "alias": "recurring_interval" } ) }}
 
 {% else %}
-    {{ columns.append( {"name": "interval", "datatype": dbt.type_string(), "alias": "plan_interval"} ) }}
+    {{ columns.append( {"name": "interval", "datatype": dbt.type_string(), "alias": "recurring_interval"} ) }}
 
 {% endif %}
 

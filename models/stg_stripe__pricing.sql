@@ -28,29 +28,26 @@ fields as (
 final as (
 
     select 
-        _fivetran_synced,
-        active,
-        billing_scheme,
-        created,
+        id as pricing_id,
+        active as is_active,
+        unit_amount,
         currency,
-        id,
-        invoice_item_id,
-        is_deleted,
-        livemode,
-        lookup_key,
-        metadata,
-        nickname,
-        product_id,
-        recurring_aggregate_usage,
         recurring_interval,
         recurring_interval_count,
         recurring_usage_type,
+        recurring_aggregate_usage,
+        metadata,
+        nickname,
+        product_id,
+        billing_scheme,
+        created,
+        invoice_item_id,
+        is_deleted,
+        lookup_key,
         tiers_mode,
         transform_quantity_divide_by,
         transform_quantity_round,
-        type,
-        unit_amount,
-        unit_amount_decimal,
+        type as pricing_type,
         source_relation
         
     from fields
@@ -88,12 +85,14 @@ fields as (
 final as (
 
     select 
-        id as plan_id,
+        id as pricing_id,
         active as is_active,
-        amount,
+        amount as unit_amount,
         currency,
-        plan_interval, -- Field is aliased within get_plan_columns macro
-        interval_count,
+        recurring_interval, -- Field is aliased within get_plan_columns macro
+        interval_count as recurring_interval_count,
+        usage_type as recurring_usage_type,
+        aggregate_usage as recurring_aggregate_usage,
         metadata,
         nickname,
         product_id,
