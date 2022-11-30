@@ -11,7 +11,7 @@ select * from (
         schema_variable='stripe_schema', 
         default_database=target.database,
         default_schema='stripe',
-        default_variable='price_source',
+        default_variable='price',
         union_schema_variable='stripe_union_schemas',
         union_database_variable='stripe_union_databases'
     )
@@ -27,7 +27,7 @@ select * from (
         schema_variable='stripe_schema', 
         default_database=target.database,
         default_schema='stripe',
-        default_variable='plan_source',
+        default_variable='plan',
         union_schema_variable='stripe_union_schemas',
         union_database_variable='stripe_union_databases'
     )
@@ -35,7 +35,6 @@ select * from (
 }}
 
 {% endif %}
-
 
 ) 
 {{ livemode_predicate() }}

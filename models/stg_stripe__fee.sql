@@ -33,7 +33,10 @@ final as (
         description,
         type
 
-        {{ fivetran_utils.source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
 
     from fields
 )

@@ -1,2 +1,0 @@
-
-{{ livemode_predicate() }}

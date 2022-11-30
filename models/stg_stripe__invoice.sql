@@ -61,7 +61,10 @@ final as (
         status_transitions_paid_at,
         status_transitions_voided_at
 
-        {{ fivetran_utils.source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
 
         {% if var('stripe__invoice_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__invoice_metadata')) }}

@@ -11,7 +11,7 @@ models:
       materialized: view
 vars:
   stripe_source:
-    account: "{{ source('stripe', 'account) }}"
+    # account: "{{ source('stripe', 'account) }}"
     balance_transaction: "{{ source('stripe', 'balance_transaction') }}"
     card: "{{ source('stripe', 'card') }}"
     charge: "{{ source('stripe', 'charge') }}"
@@ -20,7 +20,7 @@ vars:
     customer: "{{ source('stripe', 'customer') }}"
     fee: "{{ source('stripe', 'fee') }}"
     invoice: "{{ source('stripe', 'invoice') }}"
-    invoice_items: "{{ source('stripe', 'invoice_items) }}"
+    # invoice_items: "{{ source('stripe', 'invoice_items) }}"
     invoice_line_item: "{{ source('stripe', 'invoice_line_item') }}"
     payment_intent: "{{ source('stripe', 'payment_intent') }}"
     payment_method_card: "{{ source('stripe', 'payment_method_card') }}"
@@ -31,8 +31,8 @@ vars:
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
-    subscription_discount: "{{ source('stripe', 'subscription_discount') }}"
-    subscription_item: "{{ source('stripe', 'subscription_item') }}"
+    # subscription_discount: "{{ source('stripe', 'subscription_discount') }}"
+    # subscription_item: "{{ source('stripe', 'subscription_item') }}"
     stripe__using_invoices: true
     stripe__using_credit_notes: false
     stripe__using_payment_method: true

@@ -40,7 +40,10 @@ final as (
         status,
         type
 
-        {{ fivetran_utils.source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
 
         {% if var('stripe__payout_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payout_metadata')) }}
