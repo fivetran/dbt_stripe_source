@@ -31,12 +31,8 @@ final as (
         created as created_at,
         customer_id,
         metadata,
-        type
-
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='stripe_union_schemas', 
-            union_database_variable='stripe_union_databases') 
-        }}
+        type,
+        source_relation
 
         {% if var('stripe__payment_method_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payment_method_metadata')) }}
