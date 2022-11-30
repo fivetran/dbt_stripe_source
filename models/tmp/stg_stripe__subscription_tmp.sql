@@ -34,7 +34,7 @@ select * from (
 
 {% endif %}
 
-)
+) as fields
 
 {{ livemode_predicate() }}
 {% if var('stripe__subscription_history', true) %}
