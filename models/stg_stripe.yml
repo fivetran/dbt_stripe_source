@@ -35,6 +35,8 @@ models:
         description: If the transaction’s net funds are available in the Stripe balance yet. Either 'available' or 'pending'.
       - name: type
         description: the type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__card
     description: Details of a credit card that has been saved to the system.
@@ -64,6 +66,8 @@ models:
         description: Card funding type. Can be credit, debit, prepaid, or unknown.
       - name: wallet_type
         description: The type of the card wallet, one of amex_express_checkout, apple_pay, google_pay, masterpass, samsung_pay, or visa_checkout. An additional hash is included on the Wallet subhash with a name matching this value. It contains additional information specific to the card wallet type.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
 
   - name: stg_stripe__charge
@@ -142,6 +146,8 @@ models:
         description: Full name.
       - name: billing_detail_phone
         description: Billing phone number (including extension).
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
 
   - name: stg_stripe__customer
@@ -188,6 +194,8 @@ models:
         description: Attribute of the customer's shipping address.
       - name: shipping_phone
         description: Attribute of the customer's shipping address.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__fee
     description: The details of a fee associated with a balance transaction
@@ -204,6 +212,8 @@ models:
         description: An arbitrary string attached to the object. Often useful for displaying to users.
       - name: type
         description: Type of the fee, can be application_fee, stripe_fee or tax.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__payment_intent
     description: A Payment Intent guides you through the process of collecting a payment from your customer.
@@ -253,6 +263,8 @@ models:
         description: For non-card charges, you can use this value as the complete description that appears on your customers’ statements.
       - name: status
         description: Status of this PaymentIntent, one of requires_payment_method, requires_confirmation, requires_action, processing, requires_capture, canceled, or succeeded.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__payment_method_card
     description: Table with the relationships between a payment method and a card
@@ -269,6 +281,8 @@ models:
         description: The type of the payment method.
       - name: wallet_type
         description: The type of the card wallet, one of amex_express_checkout, apple_pay, google_pay, masterpass, samsung_pay, or visa_checkout. An additional hash is included on the Wallet subhash with a name matching this value. It contains additional information specific to the card wallet type.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__payment_method
     description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
@@ -290,6 +304,8 @@ models:
         description: Custom metadata added to the record, in JSON string format
       - name: type
         description: The type of the PaymentMethod. An additional hash is included on the PaymentMethod with a name matching this value. It contains additional information specific to the PaymentMethod type.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__payout
     description: A Payout object is created when you receive funds from Stripe, or when you initiate a payout to either a bank account or debit card of a connected Stripe account.
@@ -327,6 +343,8 @@ models:
         description: Current status of the payout.  Can be paid, pending, in_transit, canceled or failed.
       - name: type
         description: Can be bank_account or card.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__refund
     description: Details of transactions that have been refunded
@@ -362,6 +380,8 @@ models:
         description: Status of the refund. For credit card refunds, this can be pending, succeeded, or failed. For other types of refunds, it can be pending, succeeded, failed, or canceled.
       - name: payment_intent_id
         description: ID of the payment intent associated with this refund.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__invoice_line_item
     description: The different items that an invoice contains
@@ -409,6 +429,8 @@ models:
         description: Start of the usage period during which invoice items were added to this invoice.
       - name: period_end
         description: End of the usage period during which invoice items were added to this invoice.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__invoice
     description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
@@ -480,10 +502,12 @@ models:
         description: Total amount of all post-payment credit notes issued for this invoice.
       - name: pre_payment_credit_notes_amount
         description: Total amount of all pre-payment credit notes issued for this invoice.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
 
   - name: stg_stripe__subscription
-    description: Subscriptions allow you to charge a customer on a recurring basis.
+    description: Subscriptions allow you to charge a customer on a recurring basis. Please note that the more recent `subscription_history` table replaced the `subscription` table, so the source used in this model depends on which one you have.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -530,9 +554,11 @@ models:
         description: Date when the subscription was first created. The date might differ from the created date due to backdating.
       - name: ended_at
         description: If the subscription has ended, the date the subscription ended.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
         
   - name: stg_stripe__pricing
-    description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
+    description: This model defines the base price, currency, and billing cycle for recurring purchases of products. Please note that the Prices API replaced the Plans API, so if you have migrated then these columns come from the Price object. Otherwise, if you are still using the Plan object, not all columns will apply.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -540,7 +566,7 @@ models:
             - source_relation
     columns:
       - name: pricing_id
-        description: Unique identifier for the object.
+        description: Either the Price ID or Plan ID of the record, depending on whether you have migrated to the Prices API.
         tests:
           - not_null
       - name: is_active
@@ -549,9 +575,9 @@ models:
         description: The unit amount in cents to be charged, represented as a whole integer if possible.
       - name: currency
         description: Three-letter ISO currency code, in lowercase.
-      - name: plan_interval
+      - name: recurring_interval
         description: The frequency at which a subscription is billed. One of day, week, month or year.
-      - name: interval_count
+      - name: recurring_interval_count
         description: The number of intervals between subscription billings. For example, interval_count=3 bills every 3 months.
       - name: metadata
         description: Custom metadata added to the record, in JSON string format
@@ -559,6 +585,36 @@ models:
         description: A brief description of the plan, hidden from customers.
       - name: product_id
         description: The id of the product whose pricing this plan determines.
+      - name: recurring_usage_type
+        description: Configures how the quantity per period should be determined. Can be either metered or licensed. licensed automatically bills the quantity set when adding it to a subscription. metered aggregates the total usage based on usage records. Defaults to licensed.
+      - name: recurring_aggregate_usage
+        description: Specifies a usage aggregation strategy for prices of usage_type=metered. Allowed values are sum for summing up all usage during a period, last_during_period for using the last usage record reported within a period, last_ever for using the last usage record ever (across period bounds) or max which uses the usage record with the maximum reported usage during a period. Defaults to sum.
+      - name: metadata
+        description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+      - name: nickname
+        description: A brief description of the price, hidden from customers.
+      - name: product_id
+        description: The ID of the product this price is associated with.
+      - name: billing_scheme
+        description:Describes how to compute the price per period. Either per_unit or tiered. per_unit indicates that the fixed amount (specified in unit_amount or unit_amount_decimal) will be charged per unit in quantity (for prices with usage_type=licensed), or per unit of total usage (for prices with usage_type=metered). tiered indicates that the unit pricing will be computed using a tiering strategy as defined using the tiers and tiers_mode attributes.
+      - name: created
+        description: Time at which the object was created. Measured in seconds since the Unix epoch.
+      - name: invoice_item_id
+        description: The ID of the invoice item this record is a part of.
+      - name: is_deleted
+        description: Whether record has been deleted.
+      - name: lookup_key
+        description: A lookup key used to retrieve prices dynamically from a static string. This may be up to 200 characters.
+      - name: tiers_mode
+        description: Defines if the tiering price should be graduated or volume based. In volume-based tiering, the maximum quantity within a period determines the per unit price. In graduated tiering, pricing can change as the quantity grows.
+      - name: transform_quantity_divide_by
+        description: Divide usage by this number. Transform Quantity applies a transformation to the reported usage or set quantity before computing the amount billed. Cannot be combined with tiers.
+      - name: transform_quantity_round
+        description: After division, either round the result up or down. Transform Quantity applies a transformation to the reported usage or set quantity before computing the amount billed. Cannot be combined with tiers.
+      - name: pricing_type
+        description: One of one_time or recurring depending on whether the price is for a one-time purchase or a recurring (subscription) purchase.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__credit_note
     description: Credit notes are documents that decrease the amount owed on an invoice. They’re the only way to adjust the amount of a finalized invoice other than voiding and recreating the invoice.
@@ -608,6 +664,8 @@ models:
         description: The id of the invoice associated with this credit note.
       - name: refund_id
         description: The id of the refund associated with this credit note.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__credit_note_line_item
     description: The different items that a credit note contains.
@@ -639,6 +697,8 @@ models:
         description: The cost of each unit of product being credited.
       - name: credit_note_line_item_unit_amount_decimal
         description: Same as unit_amount, but contains a decimal value with at most 12 decimal places.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   # - name: stg_stripe__invoice_items
   #   description:
