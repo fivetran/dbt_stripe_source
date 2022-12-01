@@ -30,7 +30,7 @@ final as (
         wallet_type,
         brand,
         country,
-        created as created_at,
+        cast (created as {{ dbt.type_timestamp() }})  as created_at,
         customer_id,
         name,
         recipient,

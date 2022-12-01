@@ -28,7 +28,7 @@ final as (
     
     select 
         id as payment_method_id,
-        created as created_at,
+        cast (created as {{ dbt.type_timestamp() }})  as created_at,
         customer_id,
         metadata,
         type,

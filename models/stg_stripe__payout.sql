@@ -31,7 +31,7 @@ final as (
         arrival_date,
         automatic as is_automatic,
         balance_transaction_id,
-        created as created_at,
+        cast (created as {{ dbt.type_timestamp() }})  as created_at,
         currency,
         description,
         metadata,

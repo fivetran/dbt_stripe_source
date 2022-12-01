@@ -34,7 +34,7 @@ final as (
         balance_transaction_id,
         captured as is_captured,
         card_id,
-        created as created_at,
+        cast (created as {{ dbt_utils.type_timestamp() }})  as created_at,
         customer_id,
         currency,
         description,

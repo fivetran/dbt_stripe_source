@@ -40,7 +40,7 @@ final as (
         auto_advance,
         billing_reason,
         charge_id,
-        created as created_at,
+        cast (created as {{ dbt.type_timestamp() }})  as created_at,
         currency,
         customer_id,
         description,
@@ -56,10 +56,10 @@ final as (
         total,
         period_start,
         period_end,
-        status_transitions_finalized_at,
-        status_transitions_marked_uncollectible_at,
-        status_transitions_paid_at,
-        status_transitions_voided_at,
+        casg (status_transitions_finalized_at as {{ dbt.type_timestampe() }}) as status_transitions_finalized_at,
+        casg (status_transitions_marked_uncollectible_at as {{ dbt.type_timestampe() }}) as status_transitions_marked_uncollectible_at,
+        casg (status_transitions_paid_at as {{ dbt.type_timestampe() }}) as status_transitions_paid_at,
+        casg (status_transitions_voided_at as {{ dbt.type_timestampe() }}) as status_transitions_voided_at
         source_relation
 
         {% if var('stripe__invoice_metadata',[]) %}

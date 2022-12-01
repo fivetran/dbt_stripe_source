@@ -43,7 +43,7 @@ sources:
 
       - name: card
         identifier: "{{ var('stripe_card_identifier', 'card')}}"
-        description: details of a credit card that has been saved to the system.
+        description: Details of a credit card that has been saved to the system.
         columns:
           - name: id
             description: Unique identifier for the object.
