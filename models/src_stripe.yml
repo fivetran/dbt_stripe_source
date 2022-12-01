@@ -655,8 +655,6 @@ sources:
         description: Prices define the unit cost, currency, and (optional) billing cycle for both recurring and one-time purchases of products. 
         freshness: null
         columns:
-          - name: _fivetran_synced
-            description: 
           - name: active
             description: Whether the price can be used for new purchases.
           - name: billing_scheme
