@@ -56,10 +56,10 @@ final as (
         total,
         period_start,
         period_end,
-        casg (status_transitions_finalized_at as {{ dbt.type_timestampe() }}) as status_transitions_finalized_at,
-        casg (status_transitions_marked_uncollectible_at as {{ dbt.type_timestampe() }}) as status_transitions_marked_uncollectible_at,
-        casg (status_transitions_paid_at as {{ dbt.type_timestampe() }}) as status_transitions_paid_at,
-        casg (status_transitions_voided_at as {{ dbt.type_timestampe() }}) as status_transitions_voided_at
+        cast (status_transitions_finalized_at as {{ dbt.type_timestampe() }}) as status_transitions_finalized_at,
+        cast (status_transitions_marked_uncollectible_at as {{ dbt.type_timestampe() }}) as status_transitions_marked_uncollectible_at,
+        cast (status_transitions_paid_at as {{ dbt.type_timestampe() }}) as status_transitions_paid_at,
+        cast (status_transitions_voided_at as {{ dbt.type_timestampe() }}) as status_transitions_voided_at
         source_relation
 
         {% if var('stripe__invoice_metadata',[]) %}

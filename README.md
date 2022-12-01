@@ -86,7 +86,21 @@ vars:
     stripe__price: false #  If true, will look `price ` table. If false, will look for the `plan` table. 
 ```
 
-## (Optional) Step 7: Additional configurations
+## Step 7: Unioning Multiple Stripe Connectors
+If you have multiple Stripe connectors you would like to use this package on simultaneously, we have added the ability to do so. Data from disparate connectors will be unioned together and be passed downstream to the end models. The `source_relation` column will specify where each record comes from. To use this functionality, you will need to either set the `stripe_union_schemas` or `stripe_union_databases` variables. Please also make sure the single-source `stripe_database` and `stripe_schema` variables are removed.
+
+```yml
+# dbt_project.yml
+
+...
+config-version: 2
+
+vars:
+    stripe_union_schemas: ['stripe_us','stripe_mx'] # use this if the data is in different schemas/datasets of the same database/project
+    stripe_union_databases: ['stripe_db_1','stripe_db_2'] # use this if the data is in different databases/projects but uses the same schema name
+```
+
+## (Optional) Step 8: Additional configurations
 <details><summary>Expand to view configurations</summary>
 
 ### Running on Live vs Test Customers
@@ -167,7 +181,7 @@ vars:
     
 </details>
 
-## (Optional) Step 8: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 9: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
