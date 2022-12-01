@@ -39,7 +39,7 @@ Include the following stripe_source package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/stripe_source
-    version: [">=0.8.0", "<0.9.0"]
+    version: [">=0.9.0", "<0.10.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -71,7 +71,7 @@ vars:
     stripe__subscription_history: False  # True by default. Set to False if your connector syncs the `subscription_history` table instead. 
 ```
 
-## Step 6: Toggling between Plan vs Price Sources
+## Step 6: Leveraging Plan vs Price Sources
 
 Customers using Fivetran with the newest Stripe pricing model will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. While the default is to use the `price` table if it exists, you may add the following to your `dbt_project.yml` to override using the macro. 
 
@@ -86,7 +86,7 @@ vars:
     stripe__price: false #  If true, will look `price ` table. If false, will look for the `plan` table. 
 ```
 
-## (Optional) Step 6: Additional configurations
+## (Optional) Step 7: Additional configurations
 <details><summary>Expand to view configurations</summary>
 
 ### Running on Live vs Test Customers
@@ -167,7 +167,7 @@ vars:
     
 </details>
 
-## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 8: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     

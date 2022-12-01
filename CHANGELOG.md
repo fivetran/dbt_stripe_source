@@ -1,3 +1,9 @@
+# dbt_stripe_source v0.9.0
+
+## 🚨 Breaking Changes 🚨:
+- Variable names have been updated 
+- `Plan` table being migrated to `Price` ([Stripe doc](https://stripe.com/docs/billing/migration/migrating-prices))
+
 # dbt_stripe_source v0.8.0
 
 ## 🚨 Breaking Changes 🚨:
