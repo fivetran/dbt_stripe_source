@@ -34,6 +34,8 @@ seeds:
   stripe_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
+      created_at: timestamp
+      voided_at: timestamp
 
 dispatch:
   - macro_namespace: dbt_utils
