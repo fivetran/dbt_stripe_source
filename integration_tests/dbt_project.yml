@@ -34,7 +34,7 @@ seeds:
   stripe_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
-      created_at: timestamp
+      created: timestamp
       voided_at: timestamp
 
 dispatch:
