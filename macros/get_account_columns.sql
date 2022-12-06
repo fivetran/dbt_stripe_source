@@ -1,4 +1,4 @@
-[0m04:15:24  {% macro get_account_columns() %}
+{% macro get_account_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},

@@ -702,9 +702,11 @@ sources:
 
       - name: account
         identifier: "{{ var('stripe_account_identifier', 'account')}}"
-        description: tbd
+        description: Prices define the unit cost, currency, and (optional) billing cycle for both recurring and one-time purchases of products. 
         freshness: null
-        columns: tbd
+        columns:
+          - name: id
+            description: Unique identifier for the object.
 
       # - name: invoice_items
       #   identifier: "{{ var('stripe_invoice_items_identifier', 'invoice_items')}}"

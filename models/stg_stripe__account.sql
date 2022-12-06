@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_account_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
@@ -43,7 +49,8 @@ final as (
         is_deleted,
         metadata,
         payouts_enabled,
-        type as account_type
+        type as account_type,
+        source_relation
     from fields
 )
 
