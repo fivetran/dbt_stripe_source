@@ -700,14 +700,14 @@ sources:
           - name: unit_amount_decimal
             description: The unit amount in cents to be charged, represented as a decimal string with at most 12 decimal places. Only set if billing_scheme=per_unit.
 
+      - name: account
+        identifier: "{{ var('stripe_account_identifier', 'account')}}"
+        description: tbd
+        freshness: null
+        columns: tbd
+
       # - name: invoice_items
       #   identifier: "{{ var('stripe_invoice_items_identifier', 'invoice_items')}}"
-      #   description: 
-      #   freshness: null
-      #   columns:
-
-      # - name: account
-      #   identifier: "{{ var('stripe_account_identifier', 'account')}}"
       #   description: 
       #   freshness: null
       #   columns:

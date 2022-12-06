@@ -700,16 +700,16 @@ models:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
 
-  # - name: stg_stripe__invoice_items
-  #   description:
-  #   columns:
-  #     - name: 
-  #       description: 
-  #       tests:
-  #           - unique
-  #           - not_null
+  - name: stg_stripe__account
+    description:
+    columns:
+      - name: 
+        description: 
+        tests:
+            - unique
+            - not_null
 
-  # - name: stg_stripe__account
+  # - name: stg_stripe__invoice_items
   #   description:
   #   columns:
   #     - name: 

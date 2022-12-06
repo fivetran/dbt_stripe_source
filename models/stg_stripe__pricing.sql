@@ -28,7 +28,7 @@ fields as (
 final as (
 
     select 
-        id as pricing_id,
+        id as price_id,
         active as is_active,
         unit_amount,
         currency,
@@ -85,7 +85,7 @@ fields as (
 final as (
 
     select 
-        id as pricing_id,
+        id as plan_id,
         active as is_active,
         amount as unit_amount,
         currency,
