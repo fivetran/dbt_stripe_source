@@ -28,7 +28,6 @@ final as (
     select 
         id as account_id,
         business_profile_name,
-        business_profile_url,
         business_type,
         charges_enabled,
         company_address_city,
@@ -38,9 +37,7 @@ final as (
         company_address_postal_code,
         company_address_state,
         company_name,
-        company_owners_provided,
         company_phone,
-        company_structure,
         country,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         default_currency,

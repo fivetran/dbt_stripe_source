@@ -22,6 +22,8 @@ sources:
             description: Gross amount of the transaction, in cents.
           - name: available_on
             description: The date the transaction’s net funds will become available in the Stripe balance.
+          - name: connected_account_id
+            description: The ID of the account connected to the transaction.
           - name: created
             description: Timestamp of when the transaction was created, in UTC.
           - name: currency

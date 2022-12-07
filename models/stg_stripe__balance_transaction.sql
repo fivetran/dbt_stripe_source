@@ -30,6 +30,7 @@ final as (
         amount,
         cast(available_on as {{ dbt.type_timestamp() }}) as available_on,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
+        connected_account_id,
         currency,
         description,
         exchange_rate,
