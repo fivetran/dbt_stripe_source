@@ -3,6 +3,7 @@
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "business_profile_name", "datatype": dbt.type_string()},
+    {"name": "business_profile_mcc", "datatype": dbt.type_string()},
     {"name": "business_type", "datatype": dbt.type_string()},
     {"name": "charges_enabled", "datatype": "boolean"},
     {"name": "company_address_city", "datatype": dbt.type_string()},
@@ -19,7 +20,6 @@
     {"name": "details_submitted", "datatype": "boolean"},
     {"name": "email", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_string()},
-    {"name": "individual_id", "datatype": dbt.type_string()},
     {"name": "is_deleted", "datatype": "boolean"},
     {"name": "metadata", "datatype": dbt.type_string()},
     {"name": "payouts_enabled", "datatype": "boolean"},

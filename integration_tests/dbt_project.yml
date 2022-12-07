@@ -41,7 +41,6 @@ seeds:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         company_address_postal_code: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-        company_phone: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
         individual_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
 
 dispatch:

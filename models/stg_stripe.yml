@@ -711,6 +711,48 @@ models:
         tests:
             - unique
             - not_null
+      - name: business_profile_name
+        description: The customer-facing business name.
+      - name: business_type
+        description: The business type.
+      - name: business_profile_mcc
+        description: The merchant category code for the account. MCCs are used to classify businesses based on the goods or services they provide.
+      - name: charges_enabled
+        description: Whether the account can create live charges.
+      - name: company_address_city
+        description: City, district, suburb, town, or village.
+      - name: company_address_country
+        description: Two-letter country code (ISO 3166-1 alpha-2).
+      - name: company_address_line_1
+        description: Address line 1 (e.g., street, PO Box, or company name).
+      - name: company_address_line_2
+        description: Address line 2 (e.g., apartment, suite, unit, or building).
+      - name: company_address_postal_code
+        description: ZIP or postal code.
+      - name: company_address_state
+        description: State, county, province, or region.
+      - name: company_name
+        description: The company’s legal name.
+      - name: company_phone
+        description: The company’s phone number (used for verification).
+      - name: country
+        description: The account's country.
+      - name: created_at
+        description: Time at which the account was connected. Measured in seconds since the Unix epoch.
+      - name: default_currency
+        description: Three-letter ISO currency code representing the default currency for the account. This must be a currency that Stripe supports in the account’s country.
+      - name: email
+        description: An email address associated with the account. You can treat this as metadata; it is not used for authentication or messaging account holders.
+      - name: is_deleted
+        description: Boolean of whether account has been deleted. Accounts created using test-mode keys can be deleted at any time. Standard accounts created using live-mode keys cannot be deleted. Custom or Express accounts created using live-mode keys can only be deleted once all balances are zero.
+      - name: metadata
+        description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to metadata.
+      - name: payouts_enabled
+        description: Boolean of whether payouts are enabled.
+      - name: account_type
+        description: Account type
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   # - name: stg_stripe__invoice_items
   #   description:

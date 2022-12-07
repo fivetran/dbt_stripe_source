@@ -27,6 +27,7 @@ final as (
     
     select 
         id as account_id,
+        business_profile_mcc,
         business_profile_name,
         business_type,
         charges_enabled,
@@ -42,7 +43,6 @@ final as (
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         default_currency,
         email,
-        individual_id,
         is_deleted,
         metadata,
         payouts_enabled,
