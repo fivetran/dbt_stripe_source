@@ -1,3 +1,4 @@
+
 {{
     fivetran_utils.union_data(
         table_identifier='account', 

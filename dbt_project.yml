@@ -11,7 +11,7 @@ models:
       materialized: view
 vars:
   stripe_source:
-    account: "{{ source('stripe', 'account) }}"
+    account: "{{ source('stripe', 'account') }}"
     balance_transaction: "{{ source('stripe', 'balance_transaction') }}"
     card: "{{ source('stripe', 'card') }}"
     charge: "{{ source('stripe', 'charge') }}"
