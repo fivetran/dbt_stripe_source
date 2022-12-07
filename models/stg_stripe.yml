@@ -98,6 +98,8 @@ models:
         description: ID of the card that was charged.
       - name: created_at
         description: Timestamp of the when the charge took place.
+      - name: connected_account_id
+        description: ID of account connected for this charge.
       - name: customer_id
         description: ID of the customer this charge is for if one exists.
       - name: description
@@ -569,9 +571,9 @@ models:
             - source_relation
     columns:
       - name: price_id
-        description: The ID of the record, if you have migrated to the Prices API.
+        description: The ID of the record, if you have migrated to the Prices API. If you are still using the Plan API, this will be null.
       - name: plan_id
-        description: The ID of the record, if you have NOT migrated to the Prices API.
+        description: The ID of the record, if you have NOT migrated to the Prices API. If you are using the newer Price API, this will be null.
       - name: is_active
         description: Whether the plan can be used for new purchases.
       - name: amount

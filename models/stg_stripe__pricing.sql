@@ -29,6 +29,7 @@ final as (
 
     select 
         id as price_id,
+        null as plan_id,
         active as is_active,
         unit_amount,
         currency,
@@ -86,6 +87,7 @@ final as (
 
     select 
         id as plan_id,
+        null as price_id,
         active as is_active,
         amount as unit_amount,
         currency,

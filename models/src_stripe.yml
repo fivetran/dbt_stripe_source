@@ -94,6 +94,8 @@ sources:
             description: ID of the card that was charged.
           - name: created
             description: Timestamp of the when the charge took place.
+          - name: connected_account_id
+            description: ID of account connected for this charge.
           - name: customer_id
             description: ID of the customer this charge is for if one exists.
           - name: description
