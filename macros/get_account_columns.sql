@@ -6,7 +6,7 @@
     {"name": "business_type", "datatype": dbt.type_string()},
     {"name": "charges_enabled", "datatype": "boolean"},
     {"name": "company_address_city", "datatype": dbt.type_string()},
-    {"name": "company_address_country", "datatype": dbt.type_se_string()},
+    {"name": "company_address_country", "datatype": dbt.type_string()},
     {"name": "company_address_line_1", "datatype": dbt.type_string()},
     {"name": "company_address_line_2", "datatype": dbt.type_string()},
     {"name": "company_address_postal_code", "datatype": dbt.type_string()},
