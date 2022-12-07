@@ -37,6 +37,12 @@ seeds:
       _fivetran_synced: timestamp
       created: timestamp
       voided_at: timestamp
+    account_data:
+      +column_types:
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        company_address_postal_code: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        company_phone: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        individual_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
 
 dispatch:
   - macro_namespace: dbt_utils
