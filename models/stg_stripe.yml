@@ -564,13 +564,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - pricing_id
+            - price_id
+            - plan_id
             - source_relation
     columns:
-      - name: pricing_id
-        description: Either the Price ID or Plan ID of the record, depending on whether you have migrated to the Prices API.
-        tests:
-          - not_null
+      - name: price_id
+        description: The ID of the record, if you have migrated to the Prices API.
+      - name: plan_id
+        description: The ID of the record, if you have NOT migrated to the Prices API.
       - name: is_active
         description: Whether the plan can be used for new purchases.
       - name: amount
