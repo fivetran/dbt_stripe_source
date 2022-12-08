@@ -576,14 +576,14 @@ models:
         description: The ID of the record, if you have NOT migrated to the Prices API. If you are using the newer Price API, this will be null.
       - name: is_active
         description: Whether the plan can be used for new purchases.
-      - name: amount
-        description: The unit amount in cents to be charged, represented as a whole integer if possible.
+      - name: unit_amount
+        description: The unit amount in cents to be charged, represented as a whole integer if possible. In the plan source table as amount.
       - name: currency
         description: Three-letter ISO currency code, in lowercase.
       - name: recurring_interval
-        description: The frequency at which a subscription is billed. One of day, week, month or year.
+        description: The frequency at which a subscription is billed. One of day, week, month or year. In the plan source table as interval.
       - name: recurring_interval_count
-        description: The number of intervals between subscription billings. For example, interval_count=3 bills every 3 months.
+        description: The number of intervals between subscription billings. For example, interval_count=3 bills every 3 months. In the plan source table as interval_count.
       - name: metadata
         description: Custom metadata added to the record, in JSON string format
       - name: nickname
@@ -591,9 +591,9 @@ models:
       - name: product_id
         description: The id of the product whose pricing this plan determines.
       - name: recurring_usage_type
-        description: Configures how the quantity per period should be determined. Can be either metered or licensed. licensed automatically bills the quantity set when adding it to a subscription. metered aggregates the total usage based on usage records. Defaults to licensed.
+        description: Configures how the quantity per period should be determined. Can be either metered or licensed. licensed automatically bills the quantity set when adding it to a subscription. metered aggregates the total usage based on usage records. Defaults to licensed. In the plan source table as usage_type.
       - name: recurring_aggregate_usage
-        description: Specifies a usage aggregation strategy for prices of usage_type=metered. Allowed values are sum for summing up all usage during a period, last_during_period for using the last usage record reported within a period, last_ever for using the last usage record ever (across period bounds) or max which uses the usage record with the maximum reported usage during a period. Defaults to sum.
+        description: Specifies a usage aggregation strategy for prices of usage_type=metered. Allowed values are sum for summing up all usage during a period, last_during_period for using the last usage record reported within a period, last_ever for using the last usage record ever (across period bounds) or max which uses the usage record with the maximum reported usage during a period. Defaults to sum. In the plan source table as aggregate_usage.
       - name: metadata
         description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
       - name: nickname

@@ -37,7 +37,7 @@ final as (
         billing,
         billing_cycle_anchor,
         cast (cancel_at as {{ dbt.type_timestamp() }}) as cancel_at,
-        cancel_at_period_end,
+        cancel_at_period_end as is_cancel_at_period_end,
         cast (canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cast (created as {{ dbt.type_timestamp() }})  as created_at,
         current_period_start,
