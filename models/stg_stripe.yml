@@ -563,17 +563,15 @@ models:
         
   - name: stg_stripe__pricing
     description: This model defines the base price, currency, and billing cycle for recurring purchases of products. Please note that the Prices API replaced the Plans API, so if you have migrated then these columns come from the Price object. Otherwise, if you are still using the Plan object, not all columns will apply.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - price_id
-            - plan_id
-            - source_relation
     columns:
       - name: price_id
         description: The ID of the record, if you have migrated to the Prices API. If you are still using the Plan API, this will be null.
       - name: plan_id
         description: The ID of the record, if you have NOT migrated to the Prices API. If you are using the newer Price API, this will be null.
+      - name: surrogate_key
+        description: A unique key combining price_id/ plan_id and source relation.
+        tests:
+          - unique
       - name: is_active
         description: Whether the plan can be used for new purchases.
       - name: unit_amount

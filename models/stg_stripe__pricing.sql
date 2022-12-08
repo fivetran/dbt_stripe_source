@@ -29,7 +29,7 @@ final as (
 
     select 
         id as price_id,
-        null as plan_id,
+        {{ dbt_utils.surrogate_key(['price_id','source_relation']) }} as surrogate_key,
         active as is_active,
         unit_amount,
         currency,
@@ -85,9 +85,9 @@ fields as (
 
 final as (
 
-    select 
+    select
         id as plan_id,
-        null as price_id,
+        {{ dbt_utils.surrogate_key(['plan_id','source_relation']) }} as surrogate_key,
         active as is_active,
         amount as unit_amount,
         currency,
