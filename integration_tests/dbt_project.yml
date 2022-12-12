@@ -42,6 +42,9 @@ seeds:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         company_address_postal_code: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         individual_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    invoice_data:
+      +column_types:
+        id: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
 
 dispatch:
   - macro_namespace: dbt_utils
