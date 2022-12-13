@@ -2,7 +2,7 @@
 
 select * from (
 
-{% if var('stripe__price', True) %}
+{% if var('stripe__using_price', True) %}
 
 {{
     fivetran_utils.union_data(

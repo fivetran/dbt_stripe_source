@@ -83,7 +83,7 @@ config-version: 2
 
 vars:
   stripe:
-    stripe__price: false #  If true, will look `price ` table. If false, will look for the `plan` table. 
+    stripe__using_price: false #  If true, will look `price` table. If false, will look for the `plan` table. 
 ```
 
 ## Step 7: Unioning Multiple Stripe Connectors

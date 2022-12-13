@@ -1,6 +1,6 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
-{% if var('stripe__price', does_table_exist('price')) %}
+{% if var('stripe__using_price', does_table_exist('price')) %}
 with pricing as (
 
     select * 

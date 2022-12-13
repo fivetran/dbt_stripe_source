@@ -40,3 +40,4 @@ vars:
     stripe__subscription_history: true
     stripe__using_livemode: true
     stripe__using_invoice_line_sub_filter: true
+    stripe__using_price: true
