@@ -1,7 +1,7 @@
 
 {{
     fivetran_utils.union_data(
-        table_identifier='account', 
+        table_identifier='stripe_account_identifier', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,

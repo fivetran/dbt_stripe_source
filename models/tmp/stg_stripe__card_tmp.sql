@@ -1,6 +1,6 @@
 {{
     fivetran_utils.union_data(
-        table_identifier='card', 
+        table_identifier='stripe_card_identifier', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,

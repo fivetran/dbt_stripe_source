@@ -6,7 +6,7 @@ select * from (
 
 {{
     fivetran_utils.union_data(
-        table_identifier='subscription_history', 
+        table_identifier='stripe_subscription_history_identifier', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,
@@ -21,7 +21,7 @@ select * from (
 
 {{
     fivetran_utils.union_data(
-        table_identifier='subscription', 
+        table_identifier='stripe_subscription_identifier', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,

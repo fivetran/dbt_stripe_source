@@ -6,7 +6,7 @@ select * from (
 
 {{
     fivetran_utils.union_data(
-        table_identifier='price', 
+        table_identifier='stripe_price_identifier', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,
@@ -22,7 +22,7 @@ select * from (
 
 {{
     fivetran_utils.union_data(
-        table_identifier='plan', 
+        table_identifier='stripe_plan_identifier', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,
