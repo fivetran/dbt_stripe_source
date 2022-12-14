@@ -2,7 +2,7 @@
 
 select * from (
 
-{% if var('stripe__subscription_history', true) %}
+{% if var('stripe__using_subscription_history', does_table_exist('subscription_history')) %}
 
 {{
     fivetran_utils.union_data(
@@ -37,7 +37,7 @@ select * from (
 ) as fields
 
 {{ livemode_predicate() }}
-{% if var('stripe__subscription_history', true) %}
+{% if var('stripe__using_subscription_history', does_table_exist('subscription_history')) %}
     and coalesce(_fivetran_active, true)
 {% endif %}
 
