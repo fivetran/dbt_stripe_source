@@ -4,7 +4,7 @@ select * from (
 
 {{
     fivetran_utils.union_data(
-        table_identifier='stripe_credit_note_line_item_identifier', 
+        table_identifier='credit_note_line_item', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,

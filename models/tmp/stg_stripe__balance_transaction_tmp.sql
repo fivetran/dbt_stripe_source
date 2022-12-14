@@ -1,6 +1,6 @@
 {{
     fivetran_utils.union_data(
-        table_identifier='stripe_balance_transaction_identifier', 
+        table_identifier='balance_transaction', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,

@@ -1,6 +1,6 @@
 {{
     fivetran_utils.union_data(
-        table_identifier='stripe_fee_identifier', 
+        table_identifier='fee', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,

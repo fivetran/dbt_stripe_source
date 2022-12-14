@@ -2,7 +2,7 @@ select * from (
     
 {{
     fivetran_utils.union_data(
-        table_identifier='stripe_payout_identifier', 
+        table_identifier='payout', 
         database_variable='stripe_database', 
         schema_variable='stripe_schema', 
         default_database=target.database,
