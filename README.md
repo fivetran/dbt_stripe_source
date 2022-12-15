@@ -124,7 +124,8 @@ vars:
 
 ```
 
-Alternatively, if you only have strings in your JSON object, the metadata variable accepts the following configuration as well. 
+Alternatively, if you only have strings in your JSON object, the metadata variable accepts the following configuration as well.
+>**Note**: `stripe__plan_metadata` is only shown below, but the format will work for all metadata variables. 
 
 ```yml
 vars:
@@ -168,6 +169,9 @@ packages:
 
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
+
+    - package: dbt-labs/spark_utils
+      version: [">=0.3.0", "<0.4.0"]
 ```
           
 # 🙌 How is this package maintained and can I contribute?
