@@ -1,19 +1,26 @@
 # dbt_stripe_source v0.9.0
 
+[PR #59](https://github.com/fivetran/dbt_stripe_source/pull/59) contains the following changes:
 ## 🎉 Feature Updates 🎉: 
 - Added the Union ability to allow for multiple Stripe connectors. The new `source_relation` column in each staging model will specify where each record comes from. For more information please see the [README](https://github.com/fivetran/dbt_stripe_source#unioning-multiple-stripe-connectors) [#33](https://github.com/fivetran/dbt_stripe_source/issues/33)
 - Added new `price` source table
-- Added additional fields to the following models: `stg_stripe__charge`, `stg_stripe__invoice` [#53](https://github.com/fivetran/dbt_stripe_source/issues/53), `stg_stripe__invoice_line_item`,`stg_stripe__payment_method_card`, `stg_stripe__refund`, `stg_stripe__subscription`
-<!-- - Allow for individual tables to be disabled [#54](https://github.com/fivetran/dbt_stripe_source/issues/54) -->
+- Added additional fields to the following models: `stg_stripe__charge`, `stg_stripe__invoice` [#53](https://github.com/fivetran/dbt_stripe_source/issues/53), `stg_stripe__invoice_line_item`,`stg_stripe__payment_method_card`, `stg_stripe__refund`, `stg_stripe__subscription`.
 
 ## 🚨 Breaking Changes 🚨:
 - Variable names have been updated to contain the `stripe` prefix, allowing you to configure global variables while only affecting the Stripe package. 
-- `stg_stripe__plan` has been changed to `stg_stripe__pricing`. Following Stripe's migration from the `Plan` object to the `Price` object ([Stripe doc here.](https://stripe.com/docs/billing/migration/migrating-prices)), we have added a new variable `stripe__price` and macro `does_table_exist` that checks if the `price` table exists. If you are using the `price` table, there is no change needed on your end. If you are still using `plan`, you can set `stripe__price` to False. For more please see the [README](https://github.com/fivetran/dbt_stripe_source#leveraging-plan-vs-price-sources)
-- The `stripe__using_subscription_history` variable is now set to True as default as Stripe connectors set up after February 09, 2022 no longer sync the `subscription` table. If you have both tables, specify which source table you'd like to feed into the package. If you still have the `subscription_history` table, there is no need change needed. If you still have the `subscription` table, then set the `stripe__using_subscription_history` to False. For more please see the [README](https://github.com/fivetran/dbt_stripe_source/#leveraging-subscription-vs-subscription-history-sources)
+| **Previous Name**                          | **New Name**                                                                                                                                                                                                                              |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| using_invoices    | stripe__using_invoices
+| using_credit_notes | stripe__using_credit_notes
+| using_payment_method | stripe__using_payment_method
+| using_livemode | stripe__using_livemode
+| using_invoice_line_sub_filter | stripe__using_invoice_line_sub_filter
+| using_subscriptions | stripe__using_subscriptions
+| using_subscription_history | stripe__using_subscription_history
+| using_price | stripe__using_price
 
-[PR #59](https://github.com/fivetran/dbt_stripe_source/pull/59)
-Assignee: [@fivetran-reneeli](https://github.com/fivetran-reneeli)
-Reviewer: [@fivetran-joemarkiewicz](https://github.com/fivetran-joemarkiewicz)
+- `stg_stripe__plan` has been changed to `stg_stripe__pricing`. Following Stripe's migration from the `Plan` object to the `Price` object ([Stripe doc here.](https://stripe.com/docs/billing/migration/migrating-prices)), we have added a new variable `stripe__price` and macro `does_table_exist` that checks if the `price` table exists. Therefore, if you would like to use the `price` source table, there is no change needed on your end. However, if you wish to keep using `plan` which we recommend, you can set `stripe__price` to False. For more please see the [README](https://github.com/fivetran/dbt_stripe_source#leveraging-plan-vs-price-sources)
+- The `stripe__using_subscription_history` variable is now set to True as default as Stripe connectors set up after February 09, 2022 will use the `subscription_history` table, no longer syncing the `subscription` table. This package uses `subscription_history` by default. However, if you still have the `subscription` table and wish to use it instead, then set the `stripe__using_subscription_history` to False. For more please see the [README](https://github.com/fivetran/dbt_stripe_source/#leveraging-subscription-vs-subscription-history-sources)
 
 # dbt_stripe_source v0.8.0
 
