@@ -2,7 +2,7 @@
 
 select * from (
 
-{% if var('stripe__using_price', True) %}
+{% if var('stripe__using_price', does_table_exist('price')) %}
 
 {{
     fivetran_utils.union_data(
