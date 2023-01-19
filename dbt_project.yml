@@ -20,7 +20,6 @@ vars:
     customer: "{{ source('stripe', 'customer') }}"
     fee: "{{ source('stripe', 'fee') }}"
     invoice: "{{ source('stripe', 'invoice') }}"
-    # invoice_items: "{{ source('stripe', 'invoice_items) }}"
     invoice_line_item: "{{ source('stripe', 'invoice_line_item') }}"
     payment_intent: "{{ source('stripe', 'payment_intent') }}"
     payment_method_card: "{{ source('stripe', 'payment_method_card') }}"
@@ -31,13 +30,3 @@ vars:
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
-    # subscription_discount: "{{ source('stripe', 'subscription_discount') }}"
-    # subscription_item: "{{ source('stripe', 'subscription_item') }}"
-    stripe__using_invoices: true
-    stripe__using_credit_notes: false
-    stripe__using_payment_method: true
-    stripe__using_livemode: true
-    stripe__using_invoice_line_sub_filter: true
-    stripe__using_subscriptions: true
-    stripe__using_subscription_history: true
-    stripe__using_price: true

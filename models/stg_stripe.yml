@@ -97,7 +97,7 @@ models:
       - name: card_id
         description: ID of the card that was charged.
       - name: created_at
-        description: Timestamp of the when the charge took place.
+        description: Timestamp of when the charge took place.
       - name: connected_account_id
         description: ID of account connected for this charge.
       - name: customer_id
@@ -126,8 +126,6 @@ models:
         description: The id of the invoice associated with this charge.
       - name: currency
         description: The currency of the charge.
-      - name: created
-        description: Timestamp of the date the charge was created.
       - name: payment_method_id
         description: Unique identifier for the payment method object used in this charge.
       - name: calculated_statement_descriptor
@@ -203,9 +201,16 @@ models:
 
   - name: stg_stripe__fee
     description: The details of a fee associated with a balance transaction
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - balance_transaction_id
+            - source_relation
     columns:
       - name: balance_transaction_id
         description: ID of the balance transaction entry the fee applies to
+        tests:
+          - not_null
       - name: amount
         description: Amount of the fee, in cents.
       - name: application
@@ -272,9 +277,16 @@ models:
 
   - name: stg_stripe__payment_method_card
     description: Table with the relationships between a payment method and a card
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - payment_method_id
+            - source_relation
     columns:
       - name: payment_method_id
         description: ID of the payment method
+        tests:
+          - not_null
       - name: brand
         description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
       - name: funding
@@ -393,6 +405,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - invoice_line_item_id
+            - invoice_id
             - source_relation
     columns:
       - name: invoice_line_item_id
@@ -506,6 +519,14 @@ models:
         description: Total amount of all post-payment credit notes issued for this invoice.
       - name: pre_payment_credit_notes_amount
         description: Total amount of all pre-payment credit notes issued for this invoice.
+      - name: status_transitions_finalized_at
+        description: The time that the invoice draft was finalized.
+      - name: status_transitions_marked_uncollectible_at
+        description: The time that the invoice was marked uncollectible.
+      - name: status_transitions_paid_at
+        description: The time that the invoice was paid.
+      - name: status_transitions_voided_at
+        description: The time that the invoice was voided.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
 
@@ -558,9 +579,13 @@ models:
         description: Date when the subscription was first created. The date might differ from the created date due to backdating.
       - name: ended_at
         description: If the subscription has ended, the date the subscription ended.
+      - name: pause_collection_behavior
+        description: The payment collection behavior for this subscription while paused. One of "keep_as_draft", "mark_uncollectible", or "void".
+      - name: pause_collection_resumes_at
+        description: The time after which the subscription will resume collecting payments.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
-        
+
   - name: stg_stripe__pricing
     description: This model defines the base price, currency, and billing cycle for recurring purchases of products. Please note that the Prices API replaced the Plans API, so if you have migrated then these columns come from the Price object. Otherwise, if you are still using the Plan object, not all columns will apply.
     columns:
@@ -704,12 +729,16 @@ models:
         description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__account
-    description: Prices define the unit cost, currency, and (optional) billing cycle for both recurring and one-time purchases of products. 
+    description: Properties belonging to a Stripe account.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - account_id 
+            - source_relation
     columns:
       - name: account_id
         description: Unique identifier for the object.
         tests:
-            - unique
             - not_null
       - name: business_profile_name
         description: The customer-facing business name.
@@ -753,41 +782,3 @@ models:
         description: Account type
       - name: source_relation
         description: "{{ doc('source_relation') }}"
-
-  # - name: stg_stripe__invoice_items
-  #   description:
-  #   columns:
-  #     - name: 
-  #       description: 
-  #       tests:
-  #           - unique
-  #           - not_null
-
-  # - name: stg_stripe__subscription_discount
-  #   description:
-  #   columns:
-  #     - name: 
-  #       description: 
-  #       tests:
-  #           - unique
-  #           - not_null
-
-  # - name: stg_stripe__subscription_item
-  #   description:
-  #   columns:
-  #     - name: 
-  #       description: 
-  #       tests:
-  #           - unique
-  #           - not_null
-
-  # - name: stg_stripe__pricing
-  # you'll have to note which comes from which source since not all columns will be consistent across both sources 
-  #   description:
-  #   columns:
-  #     - name: 
-  #       description: 
-  #       tests:
-  #           - unique
-  #           - not_null
-
