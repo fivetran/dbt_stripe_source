@@ -50,6 +50,10 @@ final as (
         transform_quantity_round,
         type as pricing_type,
         source_relation
+
+        {% if var('stripe__price_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__price_metadata')) }}
+        {% endif %}
         
     from fields
 )

@@ -45,7 +45,7 @@ final as (
         email,
         is_deleted,
         metadata,
-        payouts_enabled,
+        payouts_enabled as is_payouts_enabled,
         type as account_type,
         source_relation
     from fields

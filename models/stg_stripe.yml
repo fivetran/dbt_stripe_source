@@ -297,6 +297,14 @@ models:
         description: The type of the payment method.
       - name: wallet_type
         description: The type of the card wallet, one of amex_express_checkout, apple_pay, google_pay, masterpass, samsung_pay, or visa_checkout. An additional hash is included on the Wallet subhash with a name matching this value. It contains additional information specific to the card wallet type.
+      - name: three_d_secure_authentication_flow
+        description: For authenticated transactions, how the customer was authenticated by the issuing bank.
+      - name: three_d_secure_result
+        description: Indicates the outcome of 3D Secure authentication.
+      - name: three_d_secure_result_reason
+        description: Additional information about why 3D Secure succeeded or failed based on the result.
+      - name: three_d_secure_version
+        description: The version of 3D Secure that was used.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
 
@@ -776,7 +784,7 @@ models:
         description: Boolean of whether account has been deleted. Accounts created using test-mode keys can be deleted at any time. Standard accounts created using live-mode keys cannot be deleted. Custom or Express accounts created using live-mode keys can only be deleted once all balances are zero.
       - name: metadata
         description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to metadata.
-      - name: payouts_enabled
+      - name: is_payouts_enabled
         description: Boolean of whether payouts are enabled.
       - name: account_type
         description: Account type
