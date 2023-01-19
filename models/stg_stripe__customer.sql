@@ -28,7 +28,7 @@ final as (
     select 
         id as customer_id,
         account_balance,
-        cast (created as {{ dbt.type_timestamp() }})  as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         default_card_id,
         delinquent as is_delinquent,

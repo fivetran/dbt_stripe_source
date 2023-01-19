@@ -40,7 +40,6 @@ final as (
         status,
         type,
         source_relation
-        
     from fields
 )
 

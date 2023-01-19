@@ -30,7 +30,7 @@ final as (
     select 
         id as credit_note_id,
         amount,
-        cast (created as {{ dbt.type_timestamp() }})  as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         discount_amount,
         subtotal,
@@ -42,12 +42,11 @@ final as (
         reason,
         status,
         type,
-        cast (voided_at as {{ dbt.type_timestamp() }}) as voided_at,
+        cast(voided_at as {{ dbt.type_timestamp() }}) as voided_at,
         customer_balance_transaction,
         invoice_id,
         refund_id,
         source_relation
-
     from fields
 )
 
