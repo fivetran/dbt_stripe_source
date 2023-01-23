@@ -73,7 +73,9 @@ vars:
 
 ## Step 6: Leveraging Plan vs Price Sources
 
-Customers using Fivetran with the newest Stripe pricing model will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. While the default is to use the `price` table if it exists, you may add the following to your `dbt_project.yml` to override using the macro. 
+Customers using Fivetran with the newer Stripe Price API will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. The default is to use the `price` table if it exists. However if you wish to use the `plan` table instead, you may add the following to your `dbt_project.yml` to override the macro. 
+
+We recommend using the `price` table as Stripe replaced the Plans API with the Price API and is backwards compatible.
 
 ```yml
 # dbt_project.yml
@@ -128,6 +130,8 @@ The `metadata` JSON field is present within the `customer`, `charge`, `invoice`,
 
 ```yml
 vars: 
+  stripe__account_metadata:
+    - name: metadata_field
   stripe__charge_metadata:
     - name: metadata_field_1
   stripe__invoice_metadata: 
