@@ -70,10 +70,13 @@ For Stripe connectors set up after February 09, 2022 the `subscription` table ha
 vars:
     stripe__using_subscription_history: False  # True by default. Set to False if your connector syncs the `subscription` table instead. 
 ```
+## (Optional) Step 6: Additional configurations
+<details><summary>Expand to view configurations</summary>
 
-## Step 6: Leveraging Plan vs Price Sources
 
-Customers using Fivetran with the newer Stripe Price API will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. The default is to use the `price` table if it exists. However if you wish to use the `plan` table instead, you may add the following to your `dbt_project.yml` to override the macro. 
+### Leveraging Plan vs Price Sources
+
+Customers using Fivetran with the newer Stripe Price API will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. The default is to use the `price` table if it exists. However if you wish to use the `plan` table instead, you may set `stripe__using_price` to `false` in your `dbt_project.yml` to override the macro. 
 
 We recommend using the `price` table as Stripe replaced the Plans API with the Price API and is backwards compatible.
 
@@ -85,10 +88,10 @@ config-version: 2
 
 vars:
   stripe:
-    stripe__using_price: false #  If true, will look `price` table. If false, will look for the `plan` table. 
+    stripe__using_price: false #  True by default. If true, will look `price ` table. If false, will look for the `plan` table. 
 ```
 
-## Step 7: Unioning Multiple Stripe Connectors
+### Unioning Multiple Stripe Connectors
 If you have multiple Stripe connectors you would like to use this package on simultaneously, we have added the ability to do so. Data from disparate connectors will be unioned together and be passed downstream to the end models. The `source_relation` column will specify where each record comes from. To use this functionality, you will need to either set the `stripe_union_schemas` or `stripe_union_databases` variables. Please also make sure the single-source `stripe_database` and `stripe_schema` variables are removed.
 
 ```yml
@@ -101,9 +104,6 @@ vars:
     stripe_union_schemas: ['stripe_us','stripe_mx'] # use this if the data is in different schemas/datasets of the same database/project
     stripe_union_databases: ['stripe_db_1','stripe_db_2'] # use this if the data is in different databases/projects but uses the same schema name
 ```
-
-## (Optional) Step 8: Additional configurations
-<details><summary>Expand to view configurations</summary>
 
 ### Running on Live vs Test Customers
 By default, this package will run on non-test data (`where livemode = true`) from the source Stripe tables. However, you may want to include and focus on test data when testing out the package or developing your analyses. To run on only test data, add the following configuration to your root `dbt_project.yml` file:
@@ -124,7 +124,7 @@ vars:
 ### Pivoting out Metadata Properties
 Oftentimes you may have custom fields within your source tables that is stored as a JSON object that you wish to pass through. By leveraging the `metadata` variable, this package pivot out fields into their own columns. The metadata variables accept dictionaries in addition to strings.
 
-Additionally, if you happen to be using a reserved word as a metadata field, any otherwise incompatible name, or just wish to rename your field, Below are examples of how you would add the respective fields.
+Additionally, you may `alias` your field if you happen to be using a reserved word as a metadata field, any otherwise incompatible name, or just wish to rename your field. Below are examples of how you would add the respective fields.
 
 The `metadata` JSON field is present within the `customer`, `charge`, `invoice`, `payment_intent`, `payment_method`, `payout`, `plan`, `price`, `refund`, and `subscription` source tables. To pivot these fields out and include in the respective downstream staging model, add the respective variable(s) to your root `dbt_project.yml` file like below.
 
@@ -132,8 +132,13 @@ The `metadata` JSON field is present within the `customer`, `charge`, `invoice`,
 vars: 
   stripe__account_metadata:
     - name: metadata_field
+    - name: another_metadata_field
+    - name: and_another_metadata_field
   stripe__charge_metadata:
     - name: metadata_field_1
+  stripe__customer_metadata:
+    - name: metadata_field_6
+      alias: metadata_field_six
   stripe__invoice_metadata: 
     - name: metadata_field_2
   stripe__payment_intent_metadata:
@@ -147,17 +152,15 @@ vars:
       alias: one_two_three
   stripe__plan_metadata:
     - name: rename
-    - alias: renamed_field
+      alias: renamed_field
   stripe__price_metadata:
     - name: rename_price
-    - alias: renamed_field_price
+      alias: renamed_field_price
   stripe__refund_metadata:
     - name: metadata_field_3
-    - name: metadata_field_4
   stripe__subscription_metadata:
-    - name: metadata_field_5
-  stripe__customer_metadata:
-    - name: metadata_field_6
+    - name: 567
+      alias: five_six_seven
 
 ```
 
@@ -188,7 +191,7 @@ vars:
     
 </details>
 
-## (Optional) Step 9: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
