@@ -63,16 +63,8 @@ vars:
     stripe__using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
-## Step 5: Leveraging Subscription Vs Subscription History Sources
-For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription_history` source table. However, if you have a older connector then you must leverage the `stripe__subscription` to have the package use the `subscription` source rather than the `subscription_history` table.
-> **Please note that if you have `stripe__using_subscription_history` enabled then the package will filter for only active records.**
-```yml
-vars:
-    stripe__using_subscription_history: False  # True by default. Set to False if your connector syncs the `subscription` table instead. 
-```
-## (Optional) Step 6: Additional configurations
+## (Optional) Step 5: Additional configurations
 <details><summary>Expand to view configurations</summary>
-
 
 ### Leveraging Plan vs Price Sources
 
@@ -89,6 +81,14 @@ config-version: 2
 vars:
   stripe:
     stripe__using_price: false #  True by default. If true, will look `price ` table. If false, will look for the `plan` table. 
+```
+
+### Leveraging Subscription Vs Subscription History Sources
+For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription_history` source table. However, if you have a older connector then you must leverage the `stripe__subscription` to have the package use the `subscription` source rather than the `subscription_history` table.
+> **Please note that if you have `stripe__using_subscription_history` enabled then the package will filter for only active records.**
+```yml
+vars:
+    stripe__using_subscription_history: False  # True by default. Set to False if your connector syncs the `subscription` table instead. 
 ```
 
 ### Unioning Multiple Stripe Connectors
@@ -191,7 +191,7 @@ vars:
     
 </details>
 
-## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
