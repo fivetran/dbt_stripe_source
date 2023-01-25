@@ -417,7 +417,7 @@ models:
             - source_relation
     columns:
       - name: invoice_line_item_id
-        description: Unique identifier for the object.
+        description: Unique identifier for the object. Note that the same line item can be shown across different invoices, so this value can appear multiple times.
         tests:
           - not_null
       - name: invoice_id
@@ -446,8 +446,8 @@ models:
         description: The subscription item that generated this invoice item. Left empty if the line item is not an explicit result of a subscription.
       - name: type
         description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
-      - name: unique_id
-        description: A unique id generated for old invoice ID's from a past version of the API
+      - name: unique_invoice_line_item_id
+        description: A unique id generated for old invoice line item ID's from a past version of the API
         tests:
           - unique
       - name: period_start

@@ -41,7 +41,7 @@ final as (
         subscription_id,
         subscription_item_id,
         type,
-        unique_id,
+        unique_id as unique_invoice_line_item_id,
         period_start,
         period_end,
         source_relation
