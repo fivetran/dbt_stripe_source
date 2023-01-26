@@ -29,13 +29,13 @@ final as (
     select 
         id as credit_note_line_item_id,
         credit_note_id,
-        amount,
-        discount_amount,
-        description,
+        amount as credit_note_line_item_amount,
+        discount_amount as credit_note_line_item_discount_amount,
+        description as credit_note_line_item_description,
         quantity,
-        type,
-        unit_amount,
-        unit_amount_decimal,
+        type as credit_note_line_item_type,
+        unit_amount as credit_note_line_item_unit_amount,
+        livemode,
         source_relation
 
     from fields
