@@ -664,8 +664,6 @@ models:
         description: Unique identifier for the object.
         tests:
             - not_null
-      - name: amount
-        description: 
       - name: credit_note_amount 
         description: The integer amount in cents representing the total amount of the credit note, including tax.
       - name: created_at
