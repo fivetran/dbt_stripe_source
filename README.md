@@ -59,7 +59,7 @@ This package takes into consideration that not every Stripe account utilizes the
 vars:
     stripe__using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
     stripe__using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
-    stripe__using_subscriptions:   False  #Disable if you are not using the subscription and plan/pricing tables.
+    stripe__using_subscriptions:   False  #Disable if you are not using the subscription and plan/price tables.
     stripe__using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
@@ -68,7 +68,7 @@ vars:
 
 ### Leveraging Plan vs Price Sources
 
-Customers using Fivetran with the newer Stripe Price API will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__pricing` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. The default is to use the `price` table if it exists. However if you wish to use the `plan` table instead, you may set `stripe__using_price` to `false` in your `dbt_project.yml` to override the macro. 
+Customers using Fivetran with the newer Stripe Price API will have a `price` table in place of the older `plan` table. Therefore to accommodate two different source tables we added additional logic in the `stg_stripe__price_plan` model, which replaces the `stg_stripe__plan` model. This model checks if there exists a `price` table using a new `does_table_exist()` macro. If not, it will look for a `plan` table. The default is to use the `price` table if it exists. However if you wish to use the `plan` table instead, you may set `stripe__using_price` to `false` in your `dbt_project.yml` to override the macro. 
 
 We recommend using the `price` table as Stripe replaced the Plans API with the Price API and is backwards compatible.
 

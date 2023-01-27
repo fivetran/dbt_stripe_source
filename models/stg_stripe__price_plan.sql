@@ -39,7 +39,7 @@ final as (
         nickname,
         product_id,
         billing_scheme,
-        created,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         is_deleted,
         source_relation
 

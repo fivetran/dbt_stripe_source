@@ -31,7 +31,7 @@ final as (
         balance_transaction_id,
         charge_id,
         amount,
-        created as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,
         metadata,

@@ -624,12 +624,6 @@ models:
         description: Configures how the quantity per period should be determined. Can be either metered or licensed. licensed automatically bills the quantity set when adding it to a subscription. metered aggregates the total usage based on usage records. Defaults to licensed. In the Plan object as usage_type.
       - name: recurring_aggregate_usage
         description: Specifies a usage aggregation strategy for prices of usage_type=metered. Allowed values are sum for summing up all usage during a period, last_during_period for using the last usage record reported within a period, last_ever for using the last usage record ever (across period bounds) or max which uses the usage record with the maximum reported usage during a period. Defaults to sum. In the plan source table as aggregate_usage.
-      - name: metadata
-        description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
-      - name: nickname
-        description: A brief description of the price, hidden from customers.
-      - name: product_id
-        description: The ID of the product this price is associated with.
       - name: billing_scheme
         description: Describes how to compute the price per period. Either per_unit or tiered. per_unit indicates that the fixed amount (specified in unit_amount or unit_amount_decimal) will be charged per unit in quantity (for prices with usage_type=licensed), or per unit of total usage (for prices with usage_type=metered). tiered indicates that the unit pricing will be computed using a tiering strategy as defined using the tiers and tiers_mode attributes.
       - name: created
@@ -638,16 +632,6 @@ models:
         description: The ID of the invoice item this record is a part of.
       - name: is_deleted
         description: Whether record has been deleted.
-      - name: lookup_key
-        description: A lookup key used to retrieve prices dynamically from a static string. This may be up to 200 characters.
-      - name: tiers_mode
-        description: Defines if the tiering price should be graduated or volume based. In volume-based tiering, the maximum quantity within a period determines the per unit price. In graduated tiering, pricing can change as the quantity grows.
-      - name: transform_quantity_divide_by
-        description: Divide usage by this number. Transform Quantity applies a transformation to the reported usage or set quantity before computing the amount billed. Cannot be combined with tiers.
-      - name: transform_quantity_round
-        description: After division, either round the result up or down. Transform Quantity applies a transformation to the reported usage or set quantity before computing the amount billed. Cannot be combined with tiers.
-      - name: pricing_type
-        description: One of one_time or recurring depending on whether the price is for a one-time purchase or a recurring (subscription) purchase.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
 
