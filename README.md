@@ -84,7 +84,7 @@ vars:
 ```
 
 ### Leveraging Subscription Vs Subscription History Sources
-For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription_history` source table. However, if you have a older connector then you must leverage the `stripe__subscription` to have the package use the `subscription` source rather than the `subscription_history` table.
+For Stripe connectors set up after February 09, 2022 the `subscription` table has been replaced with the new `subscription_history` table. By default this package will look for your subscription data within the `subscription_history` source table. However, if you have an older connector then you must configure the `stripe__using_subscription_history` to `false` in order to have the package use the `subscription` source rather than the `subscription_history` table.
 > **Please note that if you have `stripe__using_subscription_history` enabled then the package will filter for only active records.**
 ```yml
 vars:
