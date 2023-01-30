@@ -79,8 +79,7 @@ We recommend using the `price` table as Stripe replaced the Plans API with the P
 config-version: 2
 
 vars:
-  stripe:
-    stripe__using_price: false #  True by default. If true, will look `price ` table. If false, will look for the `plan` table. 
+  stripe__using_price: false #  True by default. If true, will look `price ` table. If false, will look for the `plan` table. 
 ```
 
 ### Leveraging Subscription Vs Subscription History Sources
