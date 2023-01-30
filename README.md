@@ -66,11 +66,22 @@ vars:
 ## (Optional) Step 5: Additional configurations
 <details><summary>Expand to view configurations</summary>
 
+### Unioning Multiple Stripe Connectors
+If you have multiple Stripe connectors you would like to use this package on simultaneously, we have added the ability to do so. Data from disparate connectors will be unioned together and be passed downstream to the end models. The `source_relation` column will specify where each record comes from. To use this functionality, you will need to either set the `stripe_union_schemas` or `stripe_union_databases` variables. Please also make sure the single-source `stripe_database` and `stripe_schema` variables are removed.
+
+```yml
+# dbt_project.yml
+
+...
+config-version: 2
+
+vars:
+    stripe_union_schemas: ['stripe_us','stripe_mx'] # use this if the data is in different schemas/datasets of the same database/project
+    stripe_union_databases: ['stripe_db_1','stripe_db_2'] # use this if the data is in different databases/projects but uses the same schema name
+```
 ### Leveraging Plan vs Price Sources
 
 Customers using Fivetran with the newer [Stripe Price API](https://stripe.com/docs/billing/migration/migrating-prices) will have a `price` table, and possibly a `plan` table if that was used previously. Therefore to accommodate two different source tables we added logic to check if there exists a `price` table by default. If not, it will leverage the `plan` table. However if you wish to use the `plan` table instead, you may set `stripe__using_price` to `false` in your `dbt_project.yml` to override the macro. 
-
-We recommend using the `price` table as Stripe replaced the Plans API with the Price API and is backwards compatible.
 
 ```yml
 # dbt_project.yml
@@ -88,20 +99,6 @@ For Stripe connectors set up after February 09, 2022 the `subscription` table ha
 ```yml
 vars:
     stripe__using_subscription_history: False  # True by default. Set to False if your connector syncs the `subscription` table instead. 
-```
-
-### Unioning Multiple Stripe Connectors
-If you have multiple Stripe connectors you would like to use this package on simultaneously, we have added the ability to do so. Data from disparate connectors will be unioned together and be passed downstream to the end models. The `source_relation` column will specify where each record comes from. To use this functionality, you will need to either set the `stripe_union_schemas` or `stripe_union_databases` variables. Please also make sure the single-source `stripe_database` and `stripe_schema` variables are removed.
-
-```yml
-# dbt_project.yml
-
-...
-config-version: 2
-
-vars:
-    stripe_union_schemas: ['stripe_us','stripe_mx'] # use this if the data is in different schemas/datasets of the same database/project
-    stripe_union_databases: ['stripe_db_1','stripe_db_2'] # use this if the data is in different databases/projects but uses the same schema name
 ```
 
 ### Running on Live vs Test Customers
@@ -149,10 +146,7 @@ vars:
   stripe__payout_metadata:
     - name: 123
       alias: one_two_three
-  stripe__plan_metadata:
-    - name: rename
-      alias: renamed_field
-  stripe__price_metadata:
+  stripe__price_plan_metadata: ## Used for both Price and Plan sources
     - name: rename_price
       alias: renamed_field_price
   stripe__refund_metadata:
@@ -167,7 +161,7 @@ Alternatively, if you only have strings in your JSON object, the metadata variab
 
 ```yml
 vars:
-    stripe__plan_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
+    stripe__subscription_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
 ```
 
 ### Change the build schema
