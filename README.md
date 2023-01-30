@@ -159,7 +159,6 @@ vars:
 ```
 
 Alternatively, if you only have strings in your JSON object, the metadata variable accepts the following configuration as well.
->**Note**: `stripe__plan_metadata` is only shown below, but the format will work for all metadata variables. 
 
 ```yml
 vars:
