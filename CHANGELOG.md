@@ -4,7 +4,7 @@
 ## 🎉 Feature Updates 🎉: 
 - Added the Union ability to allow for multiple Stripe connectors. The new `source_relation` column in each staging model will specify where each record comes from. For more information please see the [README](https://github.com/fivetran/dbt_stripe_source#unioning-multiple-stripe-connectors) [#33](https://github.com/fivetran/dbt_stripe_source/issues/33)
 - Added new `price` source table in addition to new `stripe__using_price` variable. Stripe migrated the Plan API to Price API (for more information, refer to their [docs](https://stripe.com/docs/billing/migration/migrating-prices)) so we recommend using the price table. The `stripe__using_price` variable and `does_table_exist` macro checks to see if you are indeed using the `price` table. If you plan on using the `plan` table instead you may toggle this to False. For more information on how to configure, refer to the [README](https://github.com/fivetran/dbt_stripe_source#leveraging-plan-vs-price-sources). 
-- Added additional fields to the following models: `stg_stripe__charge`, `stg_stripe__invoice` [#53](https://github.com/fivetran/dbt_stripe_source/issues/53), `stg_stripe__invoice_line_item`,`stg_stripe__payment_method_card`, `stg_stripe__refund`, `stg_stripe__subscription`.
+- Added additional fields to the following models: `stg_stripe__charge`, `stg_stripe__invoice`, `stg_stripe__invoice_line_item`,`stg_stripe__payment_method_card`, `stg_stripe__refund`, `stg_stripe__subscription`.
 
 ## 🚨 Breaking Changes 🚨:
 - Variable names have been updated to contain the `stripe` prefix, allowing you to configure global variables while only affecting the Stripe package. 
