@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_payment_method', True)) }}
+{{ config(enabled=var('stripe__using_payment_method', True)) }}
 
 with base as (
 
@@ -15,6 +15,11 @@ fields as (
                 staging_columns=get_payment_method_card_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
         
     from base
 ),
@@ -24,7 +29,16 @@ final as (
     select 
         payment_method_id,
         brand,
-        funding
+        funding,
+        charge_id,
+        type,
+        wallet_type,
+        three_d_secure_authentication_flow,
+        three_d_secure_result,
+        three_d_secure_result_reason,
+        three_d_secure_version,
+        source_relation
+
     from fields
 )
 

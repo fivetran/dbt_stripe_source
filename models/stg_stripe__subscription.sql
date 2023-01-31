@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_subscriptions', True)) }}
+{{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
 with base as (
 
@@ -16,6 +16,12 @@ fields as (
                 staging_columns=get_subscription_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
+        
     from base
 ),
 
@@ -23,21 +29,27 @@ final as (
     
     select 
         id as subscription_id,
+        latest_invoice_id,
+        customer_id,
+        default_payment_method_id,
+        pending_setup_intent_id,
         status,
         billing,
         billing_cycle_anchor,
-        cancel_at,
+        cast(cancel_at as {{ dbt.type_timestamp() }}) as cancel_at,
         cancel_at_period_end as is_cancel_at_period_end,
-        canceled_at,
-        created as created_at,
+        cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         current_period_start,
         current_period_end,
-        customer_id,
         days_until_due,
         metadata,
-        start_date,
-        ended_at
-
+        cast(start_date as {{ dbt.type_timestamp() }}) as start_date_at,
+        cast(ended_at as {{ dbt.type_timestamp() }}) as ended_at,
+        pause_collection_behavior,
+        cast(pause_collection_resumes_at as {{ dbt.type_timestamp() }}) as pause_collection_resumes_at,
+        source_relation
+        
         {% if var('stripe__subscription_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__subscription_metadata')) }}
         {% endif %}

@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_payment_method', True)) }}
+{{ config(enabled=var('stripe__using_payment_method', True)) }}
 
 with base as (
 
@@ -15,6 +15,11 @@ fields as (
                 staging_columns=get_payment_method_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
         
     from base
 ),
@@ -23,10 +28,11 @@ final as (
     
     select 
         id as payment_method_id,
-        created as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         customer_id,
         metadata,
-        type
+        type,
+        source_relation
 
         {% if var('stripe__payment_method_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payment_method_metadata')) }}

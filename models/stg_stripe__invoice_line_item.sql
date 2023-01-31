@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_invoices', True)) }}
+{{ config(enabled=var('stripe__using_invoices', True)) }}
 
 with base as (
 
@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_invoice_line_item_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
+        
     from base
 ),
 
@@ -23,22 +29,26 @@ final as (
     select 
         id as invoice_line_item_id,
         invoice_id,
+        invoice_item_id,
         amount,
         currency,
         description,
         discountable as is_discountable,
         plan_id,
+        price_id,
         proration,
         quantity,
         subscription_id,
         subscription_item_id,
         type,
-        unique_id,
+        unique_id as unique_invoice_line_item_id,
         period_start,
-        period_end
+        period_end,
+        source_relation
+
     from fields
 
-    {% if var('using_invoice_line_sub_filter', true) %}
+    {% if var('stripe__using_invoice_line_sub_filter', true) %}
     where id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 
     {% endif %}
 )

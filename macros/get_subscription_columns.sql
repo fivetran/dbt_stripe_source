@@ -19,6 +19,9 @@
     {"name": "default_source_id", "datatype": dbt.type_string()},
     {"name": "ended_at", "datatype": dbt.type_timestamp()},
     {"name": "id", "datatype": dbt.type_string()},
+    {"name": "latest_invoice_id", "datatype": dbt.type_string()},
+    {"name": "default_payment_method_id", "datatype": dbt.type_string()},
+    {"name": "pending_setup_intent_id", "datatype": dbt.type_string()},
     {"name": "livemode", "datatype": "boolean"},
     {"name": "metadata", "datatype": dbt.type_string()},
     {"name": "quantity", "datatype": dbt.type_int()},
@@ -26,7 +29,9 @@
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "tax_percent", "datatype": dbt.type_float()},
     {"name": "trial_end", "datatype": dbt.type_timestamp()},
-    {"name": "trial_start", "datatype": dbt.type_timestamp()}
+    {"name": "trial_start", "datatype": dbt.type_timestamp()},
+    {"name": "pause_collection_behavior", "datatype": dbt.type_string()},
+    {"name": "pause_collection_resumes_at", "datatype": dbt.type_timestamp()},
 ] %}
 
 {{ return(columns) }}

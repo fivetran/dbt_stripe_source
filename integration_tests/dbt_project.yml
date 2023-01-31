@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.8.0'
+version: '0.9.0'
 
 
 profile: 'integration_tests'
@@ -9,6 +9,7 @@ profile: 'integration_tests'
 vars:
   stripe_schema: stripe_source_integrations_tests
   stripe_source:
+    stripe_account_identifier:                "account_data"
     stripe_group_identifier:                  "group_data"
     stripe_balance_transaction_identifier:    "balance_transaction_data"
     stripe_card_identifier:                   "card_data"
@@ -22,6 +23,7 @@ vars:
     stripe_payment_method_identifier:         "payment_method_data"
     stripe_payout_identifier:                 "payout_data"
     stripe_plan_identifier:                   "plan_data"
+    stripe_price_identifier:                  "price_data"
     stripe_refund_identifier:                 "refund_data"
     stripe_subscription_history_identifier:   "subscription_history_data"
     stripe_subscription_identifier:           "subscription_data"
@@ -33,6 +35,16 @@ seeds:
   stripe_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
+      created: timestamp
+      voided_at: timestamp
+    account_data:
+      +column_types:
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        company_address_postal_code: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        individual_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    invoice_data:
+      +column_types:
+        id: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
 
 dispatch:
   - macro_namespace: dbt_utils

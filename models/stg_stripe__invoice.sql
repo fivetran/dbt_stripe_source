@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_invoices', True)) }}
+{{ config(enabled=var('stripe__using_invoices', True)) }}
 
 with base as (
 
@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_invoice_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
+        
     from base
 ),
 
@@ -22,14 +28,19 @@ final as (
     
     select 
         id as invoice_id,
+        default_payment_method_id,
+        payment_intent_id,
+        subscription_id,
         amount_due,
         amount_paid,
         amount_remaining,
+        post_payment_credit_notes_amount,
+        pre_payment_credit_notes_amount,
         attempt_count,
         auto_advance,
         billing_reason,
         charge_id,
-        created as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         customer_id,
         description,
@@ -43,9 +54,14 @@ final as (
         tax,
         tax_percent,
         total,
-        subscription_id,
         period_start,
-        period_end
+        period_end,
+        cast(status_transitions_finalized_at as {{ dbt.type_timestamp() }}) as status_transitions_finalized_at,
+        cast(status_transitions_marked_uncollectible_at as {{ dbt.type_timestamp() }}) as status_transitions_marked_uncollectible_at,
+        cast(status_transitions_paid_at as {{ dbt.type_timestamp() }}) as status_transitions_paid_at,
+        cast(status_transitions_voided_at as {{ dbt.type_timestamp() }}) as status_transitions_voided_at,
+        source_relation
+
         {% if var('stripe__invoice_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__invoice_metadata')) }}
         {% endif %}

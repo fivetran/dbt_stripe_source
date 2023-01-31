@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_card_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
@@ -21,13 +27,16 @@ final as (
     
     select 
         id as card_id,
+        wallet_type,
         brand,
         country,
-        created as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         customer_id,
         name,
         recipient,
-        funding
+        funding,
+        source_relation
+
     from fields
 )
 

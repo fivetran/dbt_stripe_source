@@ -1,4 +1,4 @@
-{{ config(enabled=var('using_credit_notes', False)) }}
+{{ config(enabled=var('stripe__using_credit_notes', False)) }}
 
 with base as (
 
@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_credit_note_line_item_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
@@ -23,13 +29,15 @@ final as (
     select 
         id as credit_note_line_item_id,
         credit_note_id,
-        amount,
-        discount_amount,
-        description,
+        amount as credit_note_line_item_amount,
+        discount_amount as credit_note_line_item_discount_amount,
+        description as credit_note_line_item_description,
         quantity,
-        type,
-        unit_amount,
-        unit_amount_decimal
+        type as credit_note_line_item_type,
+        unit_amount as credit_note_line_item_unit_amount,
+        livemode,
+        source_relation
+
     from fields
 )
 

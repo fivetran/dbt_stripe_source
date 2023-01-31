@@ -1,6 +1,14 @@
-{{ config(enabled=var('using_payment_method', True)) }}
+{{ config(enabled=var('stripe__using_payment_method', True)) }}
 
-select * 
-from {{ var('payment_method_card') }}
-
-
+{{
+    fivetran_utils.union_data(
+        table_identifier='payment_method_card', 
+        database_variable='stripe_database', 
+        schema_variable='stripe_schema', 
+        default_database=target.database,
+        default_schema='stripe',
+        default_variable='payment_method_card',
+        union_schema_variable='stripe_union_schemas',
+        union_database_variable='stripe_union_databases'
+    )
+}}

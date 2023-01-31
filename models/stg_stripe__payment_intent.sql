@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_payment_intent_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas',
+            union_database_variable='stripe_union_databases')
+        }}
+        
     from base
 ),
 
@@ -26,11 +32,11 @@ final as (
         amount_received,
         application,
         application_fee_amount,
-        canceled_at,
+        cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cancellation_reason,
         capture_method,
         confirmation_method,
-        created as created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         customer_id,
         description,
@@ -38,7 +44,8 @@ final as (
         payment_method_id,
         receipt_email,
         statement_descriptor,
-        status
+        status,
+        source_relation
 
         {% if var('stripe__payment_intent_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payment_intent_metadata')) }}

@@ -1,6 +1,6 @@
 config-version: 2
 name: 'stripe_source'
-version: '0.8.0'
+version: '0.9.0'
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 
 models:
@@ -11,9 +11,12 @@ models:
       materialized: view
 vars:
   stripe_source:
+    account: "{{ source('stripe', 'account') }}"
     balance_transaction: "{{ source('stripe', 'balance_transaction') }}"
     card: "{{ source('stripe', 'card') }}"
     charge: "{{ source('stripe', 'charge') }}"
+    credit_note: "{{ source('stripe', 'credit_note') }}"
+    credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
     customer: "{{ source('stripe', 'customer') }}"
     fee: "{{ source('stripe', 'fee') }}"
     invoice: "{{ source('stripe', 'invoice') }}"
@@ -23,15 +26,7 @@ vars:
     payment_method: "{{ source('stripe', 'payment_method') }}"
     payout: "{{ source('stripe', 'payout') }}"
     plan: "{{ source('stripe', 'plan') }}"
+    price: "{{ source('stripe', 'price') }}"
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
-    credit_note: "{{ source('stripe', 'credit_note') }}"
-    credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
-    using_invoices: true
-    using_credit_notes: false
-    using_payment_method: true
-    using_subscriptions: true
-    stripe__subscription_history: false
-    using_livemode: true
-    using_invoice_line_sub_filter: true
