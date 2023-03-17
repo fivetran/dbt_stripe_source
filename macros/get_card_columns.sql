@@ -26,6 +26,7 @@
     {"name": "id", "datatype": dbt.type_string()},
     {"name": "is_deleted", "datatype": "boolean"},
     {"name": "last_4", "datatype": dbt.type_string()},
+    {"name": "metadata", "datatype": dbt.type_string()},
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "network", "datatype": dbt.type_string()},
     {"name": "recipient", "datatype": dbt.type_string()},
