@@ -1,3 +1,10 @@
+# dbt_stripe_source v0.9.1
+## Feature Updates
+- Included the metadata pivot functionality for the `card` and `invoice_line_item` staging models using the respective `stripe__card_metadata` and `stripe__invoice_line_item_metadata` variables. ([#61](https://github.com/fivetran/dbt_stripe_source/pull/61))
+
+## Contributors
+- [@LewisDavies](https://github.com/LewisDavies) ([#61](https://github.com/fivetran/dbt_stripe_source/pull/61))
+
 # dbt_stripe_source v0.9.0
 
 [PR #59](https://github.com/fivetran/dbt_stripe_source/pull/59) contains the following changes:

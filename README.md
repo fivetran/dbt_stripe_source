@@ -128,7 +128,7 @@ Oftentimes you may have custom fields within your source tables that is stored a
 
 Additionally, you may `alias` your field if you happen to be using a reserved word as a metadata field, any otherwise incompatible name, or just wish to rename your field. Below are examples of how you would add the respective fields.
 
-The `metadata` JSON field is present within the `customer`, `charge`, `invoice`, `payment_intent`, `payment_method`, `payout`, `plan`, `price`, `refund`, and `subscription` source tables. To pivot these fields out and include in the respective downstream staging model, add the respective variable(s) to your root `dbt_project.yml` file like below.
+The `metadata` JSON field is present within the `customer`, `charge`, `card`, `invoice`, `invoice_line_item`, `payment_intent`, `payment_method`, `payout`, `plan`, `price`, `refund`, and `subscription` source tables. To pivot these fields out and include in the respective downstream staging model, add the respective variable(s) to your root `dbt_project.yml` file like below.
 
 ```yml
 vars: 
@@ -138,11 +138,15 @@ vars:
     - name: and_another_metadata_field
   stripe__charge_metadata:
     - name: metadata_field_1
+  stripe__card_metadata:
+    - name: metadata_field_10
   stripe__customer_metadata:
     - name: metadata_field_6
       alias: metadata_field_six
   stripe__invoice_metadata: 
     - name: metadata_field_2
+  stripe__invoice_line_item_metadata: 
+    - name: metadata_field_20
   stripe__payment_intent_metadata:
     - name: incompatible.field
       alias: rename_incompatible_field
