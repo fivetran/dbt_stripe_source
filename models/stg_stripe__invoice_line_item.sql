@@ -45,6 +45,10 @@ final as (
         period_start,
         period_end,
         source_relation
+        
+        {% if var('stripe__invoice_line_item_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__invoice_line_item_metadata')) }}
+        {% endif %}
 
     from fields
 

@@ -20,4 +20,5 @@ dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{stripe__using_invoice_line_sub_filter: false, stripe__using_credit_notes: true, stripe__using_price: false, stripe__using_subscription_history: false}' --full-refresh --target "$db"
+dbt run --vars '{stripe__card_metadata: {"external_id"}, stripe__invoice_line_item_metadata: {"external_id"}}' --full-refresh --target "$db"
 dbt test --target "$db"

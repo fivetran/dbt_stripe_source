@@ -10,6 +10,7 @@
     {"name": "invoice_id", "datatype": dbt.type_string()},
     {"name": "invoice_item_id", "datatype": dbt.type_string()},
     {"name": "livemode", "datatype": "boolean"},
+    {"name": "metadata", "datatype": dbt.type_string()},
     {"name": "period_end", "datatype": dbt.type_timestamp()},
     {"name": "period_start", "datatype": dbt.type_timestamp()},
     {"name": "plan_id", "datatype": dbt.type_string()},
