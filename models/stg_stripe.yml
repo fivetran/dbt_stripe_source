@@ -205,12 +205,15 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - balance_transaction_id
+            - index
             - source_relation
     columns:
       - name: balance_transaction_id
         description: ID of the balance transaction entry the fee applies to
         tests:
           - not_null
+      - name: index
+        description: The index of the fee within the balance transaction
       - name: amount
         description: Amount of the fee, in cents.
       - name: application
