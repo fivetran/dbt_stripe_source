@@ -197,6 +197,8 @@ sources:
         columns:
           - name: balance_transaction_id
             description: ID of the balance transaction entry the fee applies to
+          - name: index
+            description: The index of the fee within the balance transaction
           - name: amount
             description: Amount of the fee, in cents.
           - name: application
