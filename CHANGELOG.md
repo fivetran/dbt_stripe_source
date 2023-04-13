@@ -1,3 +1,11 @@
+# dbt_stripe_source v0.9.2
+PR [#64](https://github.com/fivetran/dbt_stripe_source/pull/64) includes the following updates:
+## Bug Fixes
+- The `stg_stripe__fee` uniqueness test has been updated to also consider the `index` when determining the unique combination of columns. As there may be many indexes to a single fee, the uniqueness test has been updated to account for this scenario.
+
+## Contributors
+- [@jmussitsch](https://github.com/jmussitsch) ([#64](https://github.com/fivetran/dbt_stripe_source/pull/64))
+
 # dbt_stripe_source v0.9.1
 PR [#61](https://github.com/fivetran/dbt_stripe_source/pull/61) includes the following updates:
 ## Feature Updates
