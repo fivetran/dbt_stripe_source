@@ -1,3 +1,9 @@
+# dbt_stripe_source v0.UPDATE.UPDATE
+
+ ## Under the Hood:
+
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
 # dbt_stripe_source v0.9.2
 PR [#64](https://github.com/fivetran/dbt_stripe_source/pull/64) includes the following updates:
 ## Bug Fixes
