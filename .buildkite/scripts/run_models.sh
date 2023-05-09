@@ -21,3 +21,5 @@ dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{stripe__using_invoice_line_sub_filter: false, stripe__using_credit_notes: true, stripe__using_price: false, stripe__using_subscription_history: false}' --full-refresh --target "$db"
 dbt test --target "$db"
+
+dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"
