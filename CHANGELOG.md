@@ -1,3 +1,8 @@
+# dbt_stripe_source v0.10.0
+PR [#](https://github.com/fivetran/dbt_stripe_source/pull/) includes the following updates:
+## Under the Hood:
+- Move the live_mode predicate to the non *_tmp staging models. This is because the [0.4.3 release of fivetran_utils](https://github.com/fivetran/dbt_fivetran_utils/releases/tag/v0.4.3) infers if the source table a package is present, and if not the package will create an empty table to ensure the downstream transformations succeed. Previously the Stripe package wasn't compatible because of where the live_mode predicate existed. In the case there will be an empty data model created, we needed to move the predicate so that the queries and downstream models will still run correctly.
+
 # dbt_stripe_source v0.9.2
 PR [#64](https://github.com/fivetran/dbt_stripe_source/pull/64) includes the following updates:
 ## Bug Fixes

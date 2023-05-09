@@ -14,7 +14,3 @@ select * from (
 }}
 
 ) as fields
-
-{{ livemode_predicate() }}
-and 
-not coalesce(is_deleted, false)

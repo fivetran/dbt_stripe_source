@@ -67,7 +67,8 @@ final as (
         {% endif %}
 
     from fields
-    where not coalesce(is_deleted, false)
+    {{ livemode_predicate() }}
+    and not coalesce(is_deleted, false)
 )
 
 select * 

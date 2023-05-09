@@ -39,6 +39,7 @@ final as (
         {% endif %}
 
     from fields
+    {{ livemode_predicate() }}
 )
 
 select * 
