@@ -1,5 +1,3 @@
-select * from (
-
 {{
     fivetran_utils.union_data(
         table_identifier='charge', 
@@ -12,5 +10,3 @@ select * from (
         union_database_variable='stripe_union_databases'
     )
 }}
-
-) as fields

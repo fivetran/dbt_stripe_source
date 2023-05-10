@@ -1,7 +1,5 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
-select * from (
-
 {{
     fivetran_utils.union_data(
         table_identifier='subscription_history' if var('stripe__using_subscription_history', does_table_exist('subscription_history')) else 'subscription', 
@@ -14,5 +12,3 @@ select * from (
         union_database_variable='stripe_union_databases'
     )
 }}
-
-) as fields
