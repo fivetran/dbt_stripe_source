@@ -1,7 +1,5 @@
 {{ config(enabled=var('stripe__using_payment_method', True)) }}
 
-select * from (
-
 {{
     fivetran_utils.union_data(
         table_identifier='payment_method', 
@@ -14,7 +12,3 @@ select * from (
         union_database_variable='stripe_union_databases'
     )
 }}
-
-) as fields
-
-{{ livemode_predicate() }}

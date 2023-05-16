@@ -1,7 +1,5 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
-select * from (
-
 {{
     fivetran_utils.union_data(
         table_identifier='price' if var('stripe__using_price', does_table_exist('price')) else 'plan', 
@@ -15,6 +13,3 @@ select * from (
     )
 
 }}
-
-) as fields
-{{ livemode_predicate() }}

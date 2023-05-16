@@ -1,4 +1,3 @@
-select * from (
 
 {{
     fivetran_utils.union_data(
@@ -12,9 +11,3 @@ select * from (
         union_database_variable='stripe_union_databases'
     )
 }}
-
-) as fields
-
-{{ livemode_predicate() }}
-and 
-not coalesce(is_deleted, false)

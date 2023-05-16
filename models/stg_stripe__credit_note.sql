@@ -47,7 +47,9 @@ final as (
         invoice_id,
         refund_id,
         source_relation
+
     from fields
+    {{ livemode_predicate() }}
 )
 
 select * 
