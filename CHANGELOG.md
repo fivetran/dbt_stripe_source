@@ -1,3 +1,5 @@
+# dbt_stripe_source v0.10.0
+
 # dbt_stripe_source v0.9.3
 v0.9.3 includes the following updates:
 ## Under the Hood:
