@@ -28,6 +28,13 @@ final as (
     select 
         id as customer_id,
         account_balance,
+        address_city as customer_address_city,
+        address_country as customer_address_country,
+        address_line_1 as customer_address_line_1,
+        address_line_2 as customer_address_line_2,
+        address_postal_code as customer_address_postal_code,
+        address_state as customer_address_state,
+        balance as customer_balance,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         default_card_id,
