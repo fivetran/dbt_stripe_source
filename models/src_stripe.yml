@@ -753,3 +753,7 @@ sources:
             description: Boolean of whether payouts are enabled.
           - name: type
             description: Account type
+
+      - name: dispute
+      
+      - name: transfer

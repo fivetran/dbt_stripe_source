@@ -14,31 +14,39 @@ fields as (
                 staging_columns=get_transfer_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
     
-    select 
-[0m16:26:05          _fivetran_synced,
-        amount,
-        amount_reversed,
+    select
+        id as transfer_id,
+        amount as transfer_amount,
+        amount_reversed as transfer_amount_reversed,
         balance_transaction_id,
-        created,
-        currency,
-        description,
-        destination,
+        created as created_at,
+        currency as transfer_currency,
+        description as transfer_description,
+        destination as transfer_destination,
         destination_payment,
         destination_payment_id,
-        id,
         livemode,
-        metadata,
-        reversed,
+        metadata as transfer_metadata,
+        reversed as transfer_reversed,
         source_transaction,
         source_transaction_id,
         source_type,
-        transfer_group
+        transfer_group,
+        source_relation
+
     from fields
+    -- remember to add livemode predicate
 )
 
 select *

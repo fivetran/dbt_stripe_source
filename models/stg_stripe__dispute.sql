@@ -14,18 +14,25 @@ fields as (
                 staging_columns=get_dispute_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='stripe_union_schemas', 
+            union_database_variable='stripe_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
     
-    select 
-        amount,
+    select
+        id as dispute_id,
+        amount as dispute_amount,
         balance_transaction,
         charge_id,
         connected_account_id,
-        created,
-        currency,
+        created as dispute_created,
+        currency as dispute_currency,
         evidence_access_activity_log,
         evidence_billing_address,
         evidence_cancellation_policy,
@@ -57,13 +64,15 @@ final as (
         evidence_shipping_tracking_number,
         evidence_uncategorized_file,
         evidence_uncategorized_text,
-        id,
         is_charge_refundable,
         livemode,
-        metadata,
-        reason,
-        status
+        metadata as dispute_metadata,
+        reason as dispute_reason,
+        status as dispute_status,
+        source_relation
+
     from fields
+    {{ livemode_predicate() }}
 )
 
 select *

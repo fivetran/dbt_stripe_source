@@ -56,7 +56,6 @@
     {"name": "transfer_data_destination", "datatype": dbt.type_string()},
     {"name": "transfer_group", "datatype": dbt.type_string()},
     {"name": "transfer_id", "datatype": dbt.type_string()},
-    {"name": "shipping_address_city", "datatype": dbt.type_string()},
     {"name": "billing_detail_address_city", "datatype": dbt.type_string()},
     {"name": "billing_detail_address_country", "datatype": dbt.type_string()},
     {"name": "billing_detail_address_line1", "datatype": dbt.type_string()},
