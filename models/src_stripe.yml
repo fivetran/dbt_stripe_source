@@ -36,6 +36,8 @@ sources:
             description: fees (in cents) paid for this transaction.
           - name: net
             description: Net amount of the transaction, in cents.
+          - name: reporting_category
+            description: Improves on the type field by providing a more-useful grouping for most finance and reporting purposes. 
           - name: source
             description: The Stripe object to which this transaction is related.
           - name: status
