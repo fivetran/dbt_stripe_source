@@ -25,7 +25,7 @@ sources:
           - name: connected_account_id
             description: The ID of the account connected to the transaction.
           - name: created
-            description: Timestamp of when the transaction was created, in UTC.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
@@ -56,7 +56,7 @@ sources:
           - name: country
             description: Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you’ve collected.
           - name: created
-            description: Timestamp of when the entry for the card was created
+            description: '{{ doc("created") }}'
           - name: customer_id
             description: The customer that this card belongs to.  NULL if belongs to an account or recipient.
           - name: name
@@ -95,7 +95,7 @@ sources:
           - name: card_id
             description: ID of the card that was charged.
           - name: created
-            description: Timestamp of the when the charge took place.
+            description: '{{ doc("created") }}'
           - name: connected_account_id
             description: ID of account connected for this charge.
           - name: customer_id
@@ -125,7 +125,7 @@ sources:
           - name: currency
             description: The currency of the charge.
           - name: created
-            description: Timestamp of the date the charge was created.
+            description: '{{ doc("created") }}'
           - name: livemode
             description: Indicates if this is a test charge.
           - name: payment_method_id
@@ -161,7 +161,7 @@ sources:
           - name: account_balance
             description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice.
           - name: created
-            description: Timestamp of when the customer entry was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO code for the currency the customer can be charged in for recurring billing purposes.
           - name: default_card_id
@@ -281,7 +281,7 @@ sources:
           - name: id
             description: Unique identifier for the object.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: customer_id
             description: The ID of the Customer to which this PaymentMethod is saved. This will not be set when the PaymentMethod has not been saved to a Customer.
           - name: metadata
@@ -306,7 +306,7 @@ sources:
           - name: balance_transaction_id
             description: ID of the balance transaction that describes the impact of this payout on your account balance.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
@@ -338,7 +338,7 @@ sources:
           - name: charge_id
             description: ID of the charge that was refunded.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
@@ -414,7 +414,7 @@ sources:
           - name: charge_id
             description: ID of the latest charge generated for this invoice, if any.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: customer_id
@@ -488,7 +488,7 @@ sources:
           - name: canceled_at
             description: If the subscription has been canceled, the date of that cancellation.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: current_period_start
             description: Start of the current period that the subscription has been invoiced for.
           - name: current_period_end
@@ -540,7 +540,7 @@ sources:
           - name: canceled_at
             description: If the subscription has been canceled, the date of that cancellation.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: current_period_start
             description: Start of the current period that the subscription has been invoiced for.
           - name: current_period_end
@@ -598,7 +598,7 @@ sources:
           - name: amount 
             description: The integer amount in cents representing the total amount of the credit note, including tax.
           - name: created
-            description: Timestamp of the when the credit_note was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: The currency of the charge. Three-letter ISO currency code, in lowercase. 
           - name: discount_amount 
@@ -668,7 +668,7 @@ sources:
           - name: billing_scheme
             description: Describes how to compute the price per period. Either per_unit or tiered. per_unit indicates that the fixed amount (specified in unit_amount or unit_amount_decimal) will be charged per unit in quantity (for prices with usage_type=licensed), or per unit of total usage (for prices with usage_type=metered). tiered indicates that the unit pricing will be computed using a tiering strategy as defined using the tiers and tiers_mode attributes.
           - name: created
-            description: Time at which the object was created. Measured in seconds since the Unix epoch.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase. Must be a supported currency.
           - name: id
@@ -742,7 +742,7 @@ sources:
           - name: country
             description: The account's country.
           - name: created
-            description: Time at which the account was connected. Measured in seconds since the Unix epoch.
+            description: '{{ doc("created") }}'
           - name: default_currency
             description: Three-letter ISO currency code representing the default currency for the account. This must be a currency that Stripe supports in the account’s country.
           - name: email
