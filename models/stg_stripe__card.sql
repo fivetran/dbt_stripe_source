@@ -31,7 +31,6 @@ final as (
         address_city as card_address_city,
         address_country as card_address_country,
         address_line_1 as card_address_line_1,
-        address_line_1_check as card_address_line_1_check,
         address_line_2 as card_address_line_2,
         address_state as card_address_state,
         address_zip as card_address_postal_code,

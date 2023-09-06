@@ -43,7 +43,7 @@ final as (
         description,
         email,
         metadata,
-        name,
+        name as customer_name,
         shipping_address_city,
         shipping_address_country,
         shipping_address_line_1,
