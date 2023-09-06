@@ -834,3 +834,145 @@ models:
         description: Account type
       - name: source_relation
         description: "{{ doc('source_relation') }}"
+
+  - name: stg_stripe__dispute
+    description: Properties belonging to a Stripe dispute.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dispute_id 
+            - source_relation
+    columns:
+      - name: dispute_id
+        description: Unique identifier for the object.
+      - name: dispute_amount
+        description: Disputed amount. Usually the amount of the charge, but can differ (usually because of currency fluctuation or because only part of the order is disputed).
+      - name: balance_transaction
+        description: List of zero, one, or two balance transactions that show funds withdrawn and reinstated to your Stripe account as a result of this dispute.
+      - name: charge_id
+        description: ID of the charge that was disputed.
+      - name: connected_account_id
+        description: Account id associated with this dispute.
+      - name: dispute_created_at
+        description: Time at which the object was created. Measured in seconds since the Unix epoch.
+      - name: dispute_currency
+        description: Three-letter ISO currency code, in lowercase. Must be a supported currency.
+      - name: evidence_access_activity_log
+        description: Any server or activity logs showing proof that the customer accessed or downloaded the purchased digital product. This information should include IP addresses, corresponding timestamps, and any detailed recorded activity. Has a maximum character count of 20,000.
+      - name: evidence_billing_address
+        description: The billing address provided by the customer.
+      - name: evidence_cancellation_policy
+        description: (ID of a file upload) Your subscription cancellation policy, as shown to the customer.
+      - name: evidence_cancellation_policy_disclosure
+        description: An explanation of how and when the customer was shown your refund policy prior to purchase. Has a maximum character count of 20,000.
+      - name: evidence_cancellation_rebuttal
+        description: A justification for why the customer’s subscription was not canceled. Has a maximum character count of 20,000.
+      - name: evidence_customer_communication
+        description: (ID of a file upload) Any communication with the customer that you feel is relevant to your case. Examples include emails proving that the customer received the product or service, or demonstrating their use of or satisfaction with the product or service.
+      - name: evidence_customer_email_address
+        description: The email address of the customer.
+      - name: evidence_customer_name
+        description: The name of the customer.
+      - name: evidence_customer_purchase_ip
+        description: The IP address that the customer used when making the purchase.
+      - name: evidence_customer_signature
+        description: (ID of a file upload) A relevant document or contract showing the customer’s signature.
+      - name: evidence_details_due_by
+        description: Date by which evidence must be submitted in order to successfully challenge dispute. Will be 0 if the customer’s bank or credit card company doesn’t allow a response for this particular dispute.
+      - name: evidence_details_has_evidence
+        description: Whether evidence has been staged for this dispute.
+      - name: evidence_details_past_due
+        description: Whether the last evidence submission was submitted past the due date. Defaults to false if no evidence submissions have occurred. If true, then delivery of the latest evidence is not guaranteed.
+      - name: evidence_details_submission_count
+        description: The number of times evidence has been submitted. Typically, you may only submit evidence once.
+      - name: evidence_duplicate_charge_documentation
+        description: (ID of a file upload) Documentation for the prior charge that can uniquely identify the charge, such as a receipt, shipping label, work order, etc. This document should be paired with a similar document from the disputed payment that proves the two payments are separate.
+      - name: evidence_duplicate_charge_explanation
+        description: An explanation of the difference between the disputed charge versus the prior charge that appears to be a duplicate. Has a maximum character count of 20,000.
+      - name: evidence_duplicate_charge_id
+        description: The Stripe ID for the prior charge which appears to be a duplicate of the disputed charge.
+      - name: evidence_product_description
+        description: A description of the product or service that was sold. Has a maximum character count of 20,000.
+      - name: evidence_receipt
+        description: (ID of a file upload) Any receipt or message sent to the customer notifying them of the charge.
+      - name: evidence_refund_policy
+        description: (ID of a file upload) Your refund policy, as shown to the customer.
+      - name: evidence_refund_policy_disclosure
+        description: Documentation demonstrating that the customer was shown your refund policy prior to purchase. Has a maximum character count of 20,000.
+      - name: evidence_refund_refusal_explanation
+        description: A justification for why the customer is not entitled to a refund. Has a maximum character count of 20,000.
+      - name: evidence_service_date
+        description: The date on which the customer received or began receiving the purchased service, in a clear human-readable format.
+      - name: evidence_service_documentation
+        description: (ID of a file upload) Documentation showing proof that a service was provided to the customer. This could include a copy of a signed contract, work order, or other form of written agreement.
+      - name: evidence_shipping_address
+        description: The address to which a physical product was shipped. You should try to include as complete address information as possible.
+      - name: evidence_shipping_carrier
+        description: The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc. If multiple carriers were used for this purchase, please separate them with commas.
+      - name: evidence_shipping_date
+        description: The date on which a physical product began its route to the shipping address, in a clear human-readable format.
+      - name: evidence_shipping_documentation
+        description: (ID of a file upload) Documentation showing proof that a product was shipped to the customer at the same address the customer provided to you. This could include a copy of the shipment receipt, shipping label, etc. It should show the customer’s full shipping address, if possible.
+      - name: evidence_shipping_tracking_number
+        description: The tracking number for a physical product, obtained from the delivery service. If multiple tracking numbers were generated for this purchase, please separate them with commas.
+      - name: evidence_uncategorized_file
+        description: (ID of a file upload) Any additional evidence or statements.
+      - name: evidence_uncategorized_text
+        description: Any additional evidence or statements. Has a maximum character count of 20,000.
+      - name: is_charge_refundable
+        description: Boolean ff true, it is still possible to refund the disputed payment. Once the payment has been fully refunded, no further funds will be withdrawn from your Stripe account as a result of this dispute.
+      - name: livemode
+        description: Indicates if this is a test dispute.
+      - name: dispute_metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: dispute_reason
+        description: Reason given by cardholder for dispute. Possible values are bank_cannot_process, check_returned, credit_not_processed, customer_initiated, debit_not_authorized, duplicate, fraudulent, general, incorrect_account_details, insufficient_funds, product_not_received, product_unacceptable, subscription_canceled, or unrecognized. 
+      - name: dispute_status
+        description: Current status of dispute. Possible values are warning_needs_response, warning_under_review, warning_closed, needs_response, under_review, won, or lost.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
+  - name: stg_stripe__transfer
+    description: Properties belonging to a Stripe transfer.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - transfer_id 
+            - source_relation
+    columns:
+      - name: transfer_id
+        description: Unique identifier for the object.
+      - name: transfer_amount
+        description: Amount in cents to be transferred.
+      - name: transfer_amount_reversed
+        description: Amount in cents reversed (can be less than the amount attribute on the transfer if a partial reversal was issued).
+      - name: balance_transaction_id
+        description: Balance transaction that describes the impact of this transfer on your account balance.
+      - name: transfer_created_at
+        description: Time that this record of the transfer was first created.
+      - name: transfer_currency
+        description: Three-letter ISO currency code, in lowercase. Must be a supported currency.
+      - name: transfer_description
+        description: An arbitrary string attached to the object. Often useful for displaying to users.
+      - name: transfer_destination
+        description: ID of the Stripe account the transfer was sent to.
+      - name: destination_payment
+        description: If the destination is a Stripe account, the payment that the destination account received for the transfer.
+      - name: destination_payment_id
+        description: If the destination is a Stripe account, this will be the ID of the payment that the destination account received for the transfer.
+      - name: livemode
+        description: Indicates if this is a test transfer.
+      - name: transfer_metadata
+        description: Custom metadata added to the record, in JSON string format
+      - name: transfer_is_reversed
+        description: Boolean of whether the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.
+      - name: source_transaction
+        description: The source transaction related to this transfer.
+      - name: source_transaction_id
+        description: ID of the charge or payment that was used to fund the transfer. If null, the transfer was funded from the available balance.
+      - name: source_type
+        description: The source balance this transfer came from. One of card, fpx, or bank_account.
+      - name: transfer_group
+        description: A string that identifies this transaction as part of a group. See the Connect documentation for details.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
