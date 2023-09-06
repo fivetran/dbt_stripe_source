@@ -51,6 +51,20 @@ sources:
         columns:
           - name: id
             description: Unique identifier for the object.
+          - name: account_id
+            description: x
+          - name: address_city
+            description: City, district, suburb, town, or village.
+          - name: address_country
+            description: Two-letter country code (ISO 3166-1 alpha-2).
+          - name: address_line_1
+            description: Address line 1 (e.g., street, PO Box, or company name).
+          - name: address_line_2
+            description: Address line 2 (e.g., apartment, suite, unit, or building).
+          - name: address_state
+            description: x
+          - name: address_zip
+            description: ZIP or postal code.
           - name: brand
             description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
           - name: country
@@ -120,6 +134,32 @@ sources:
             description: Whether the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.
           - name: status
             description: The status of the payment is either succeeded, pending, or failed.
+          - name: shipping_address_city
+            description: Attribute of the customer's shipping address.
+          - name: shipping_address_country
+            description: Attribute of the customer's shipping address.
+          - name: shipping_address_line_1
+            description: Attribute of the customer's shipping address.
+          - name: shipping_address_line_2
+            description: Attribute of the customer's shipping address.
+          - name: shipping_address_postal_code
+            description: Attribute of the customer's shipping address.
+          - name: shipping_address_state
+            description: Attribute of the customer's shipping address.
+          - name: shipping_carrier
+            description: x
+          - name: shipping_name
+            description: Attribute of the customer's shipping address.
+          - name: shipping_phone
+            description: Attribute of the customer's shipping address.
+          - name: shipping_tracking_number
+            description: Attribute of the customer's shipping address.
+          - name: source_id
+            description: x
+          - name: source_transfer
+            description: x
+          - name: statement_descriptor
+            description: x
           - name: invoice_id
             description: The id of the invoice associated with this charge.
           - name: currency
@@ -160,6 +200,22 @@ sources:
             description: Unique identifier for the object.
           - name: account_balance
             description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice.
+          - name: address_city
+            description: x
+          - name: address_country
+            description: x
+          - name: address_line_1
+            description: x
+          - name: address_line_2
+            description: x
+          - name: address_postal_code
+            description: x
+          - name: address_state
+            description: x
+          - name: balance
+            description: x
+          - name: bank_account_id
+            description: x
           - name: created
             description: '{{ doc("created") }}'
           - name: currency
@@ -174,6 +230,8 @@ sources:
             description: The customer’s email address.
           - name: metadata
             description: Custom metadata added to the record, in JSON string format
+          - name: name
+            description: x
           - name: shipping_address_city
             description: Attribute of the customer's shipping address.
           - name: shipping_address_country
@@ -192,6 +250,136 @@ sources:
             description: Attribute of the customer's shipping address.
           - name: livemode
             description: Indicates if this is a test customer.
+
+      - name: dispute
+        identifier: "{{ var('stripe_dispute_identifier', 'dispute')}}"
+        description: The details of a dispute related to a charge. A dispute occurs when a customer questions your charge with their card issuer. When this happens, you're given the opportunity to respond to the dispute with evidence that shows that the charge is legitimate. 
+        columns:
+          - name: id
+            description: x
+          - name: amount
+            description: x
+          - name: balance_transaction
+            description: x
+          - name: charge_id
+            description: x
+          - name: connected_account_id
+            description: x
+          - name: created
+            description: x
+          - name: currency
+            description: x
+          - name: evidence_access_activity_log
+            description: x
+          - name: evidence_billing_address
+            description: x
+          - name: evidence_cancellation_policy
+            description: x
+          - name: evidence_cancellation_policy_disclosure
+            description: x
+          - name: evidence_cancellation_rebuttal
+            description: x
+          - name: evidence_customer_communication
+            description: x
+          - name: evidence_customer_email_address
+            description: x
+          - name: evidence_customer_name
+            description: x
+          - name: evidence_customer_purchase_ip
+            description: x
+          - name: evidence_customer_signature
+            description: x
+          - name: evidence_details_due_by
+            description: x
+          - name: evidence_details_has_evidence
+            description: x
+          - name: evidence_details_past_due
+            description: x
+          - name: evidence_details_submission_count
+            description: x
+          - name: evidence_duplicate_charge_documentation
+            description: x
+          - name: evidence_duplicate_charge_explanation
+            description: x
+          - name: evidence_duplicate_charge_id
+            description: x
+          - name: evidence_product_description
+            description: x
+          - name: evidence_receipt
+            description: x
+          - name: evidence_refund_policy
+            description: x
+          - name: evidence_refund_policy_disclosure
+            description: x
+          - name: evidence_refund_refusal_explanation
+            description: x
+          - name: evidence_service_date
+            description: x
+          - name: evidence_service_documentation
+            description: x
+          - name: evidence_shipping_address
+            description: x
+          - name: evidence_shipping_carrier
+            description: x
+          - name: evidence_shipping_date
+            description: x
+          - name: evidence_shipping_documentation
+            description: x
+          - name: evidence_shipping_tracking_number
+            description: x
+          - name: evidence_uncategorized_file
+            description: x
+          - name: evidence_uncategorized_text
+            description: x
+          - name: is_charge_refundable
+            description: x
+          - name: livemode
+            description: x
+          - name: metadata
+            description: x
+          - name: reason
+            description: x
+          - name: status
+            description: x
+
+      - name: transfer
+        identifier: "{{ var('stripe_transfer_identifier', 'transfer')}}"
+        description: A Transfer object is created when you move funds between Stripe accounts as part of Connect. Before April 6, 2017, transfers also represented movement of funds from a Stripe account to a card or bank account. That has since been moved to the Payout object. The Payout object represents money moving from a Stripe account to an external account (bank or debit card). The Transfer object now only represents money moving between Stripe accounts on a Connect platform. 
+        columns:
+          - name: id
+            description: x
+          - name: amount
+            description: x
+          - name: amount_reversed
+            description: x
+          - name: balance_transaction_id
+            description: x
+          - name: created
+            description: x
+          - name: currency
+            description: x
+          - name: description
+            description: x
+          - name: destination
+            description: x
+          - name: destination_payment
+            description: x
+          - name: destination_payment_id
+            description: x
+          - name: livemode
+            description: x
+          - name: metadata
+            description: x
+          - name: reversed
+            description: x
+          - name: source_transaction
+            description: x
+          - name: source_transaction_id
+            description: x
+          - name: source_type
+            description: x
+          - name: transfer_group
+            description: x
 
       - name: fee
         identifier: "{{ var('stripe_fee_identifier', 'fee')}}"
