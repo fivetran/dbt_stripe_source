@@ -13,3 +13,27 @@
 {% docs created_utc -%}
 Time at which the record was created. Dates in UTC.
 {%- enddocs %}
+
+{% docs city -%}
+City, district, suburb, town, or village.
+{%- enddocs %}
+
+{% docs country -%}
+Two-letter country code (ISO 3166-1 alpha-2).
+{%- enddocs %}
+
+{% docs line_1 -%}
+Address line 1 (e.g., street, PO Box, or company name).
+{%- enddocs %}
+
+{% docs line_2 -%}
+Address line 2 (e.g., apartment, suite, unit, or building).
+{%- enddocs %}
+
+{% docs postal_code -%}
+ZIP or postal code.
+{%- enddocs %}
+
+{% docs state -%}
+State, county, province, or region.
+{%- enddocs %}
