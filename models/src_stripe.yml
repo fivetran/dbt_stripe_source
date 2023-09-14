@@ -460,6 +460,10 @@ sources:
             description: Three-letter ISO currency code, in lowercase.
           - name: description
             description: An arbitrary string attached to the object. Often useful for displaying to users.
+          - name: destination_bank_account_id
+            description: ID of the bank account the payout was sent to.
+          - name: destination_card_id
+            description: ID of the card the payout was sent to.
           - name: metadata
             description: Custom metadata added to the record, in JSON string format
           - name: method

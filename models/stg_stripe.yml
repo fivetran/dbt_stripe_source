@@ -55,7 +55,7 @@ models:
         tests:
           - not_null
       - name: account_id
-        description:
+        description: ID of account that this card is associated with.
       - name: brand
         description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
       - name: card_address_city
@@ -420,6 +420,10 @@ models:
         description: Three-letter ISO currency code, in lowercase.
       - name: description
         description: An arbitrary string attached to the object. Often useful for displaying to users.
+      - name: destination_bank_account_id
+        description: ID of the bank account the payout was sent to.
+      - name: destination_card_id
+        description: ID of the card the payout was sent to.
       - name: metadata
         description: Custom metadata added to the record, in JSON string format
       - name: method

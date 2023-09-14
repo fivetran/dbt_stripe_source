@@ -34,6 +34,8 @@ final as (
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,
+        destination_bank_account_id,
+        destination_card_id,
         metadata,
         method,
         source_type,
