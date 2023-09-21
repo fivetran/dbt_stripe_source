@@ -408,7 +408,7 @@ models:
           - not_null
       - name: amount
         description: Amount (in cents) to be transferred to your bank account or debit card.
-      - name: arrival_date
+      - name: arrival_date_at
         description: Date the payout is expected to arrive in the bank. This factors in delays like weekends or bank holidays.
       - name: is_automatic
         description: true if the payout was created by an automated payout schedule, and false if it was requested manually.

@@ -31,7 +31,7 @@ final as (
         balance_transaction,
         charge_id,
         connected_account_id,
-        created as dispute_created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as dispute_created_at,
         currency as dispute_currency,
         evidence_access_activity_log,
         evidence_billing_address,

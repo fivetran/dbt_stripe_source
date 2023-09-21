@@ -30,7 +30,7 @@ final as (
         amount as transfer_amount,
         amount_reversed as transfer_amount_reversed,
         balance_transaction_id,
-        created as transfer_created_at,
+        cast(created as {{ dbt.type_timestamp() }}) as transfer_created_at,
         currency as transfer_currency,
         description as transfer_description,
         destination as transfer_destination,
