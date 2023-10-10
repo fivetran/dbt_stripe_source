@@ -46,7 +46,7 @@ final as (
         source_relation
 
     from fields
-    -- remember to add livemode predicate
+    {{ livemode_predicate() }}
 )
 
 select *

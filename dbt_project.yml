@@ -18,6 +18,7 @@ vars:
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
     customer: "{{ source('stripe', 'customer') }}"
+    dispute: "{{ source('stripe', 'dispute') }}"
     fee: "{{ source('stripe', 'fee') }}"
     invoice: "{{ source('stripe', 'invoice') }}"
     invoice_line_item: "{{ source('stripe', 'invoice_line_item') }}"
@@ -30,3 +31,4 @@ vars:
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
+    transfer: "{{ source('stripe', 'transfer') }}"
