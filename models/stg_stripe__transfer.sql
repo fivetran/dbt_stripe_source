@@ -36,7 +36,7 @@ final as (
         destination as transfer_destination,
         destination_payment,
         destination_payment_id,
-        livemode,
+        cast(livemode as boolean) as livemode,
         metadata as transfer_metadata,
         reversed as transfer_is_reversed,
         source_transaction,
