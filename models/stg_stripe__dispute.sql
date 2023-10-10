@@ -70,6 +70,10 @@ final as (
         reason as dispute_reason,
         status as dispute_status,
         source_relation
+        
+        {% if var('stripe__dispute_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__dispute_metadata')) }}
+        {% endif %}
 
     from fields
     {{ livemode_predicate() }}

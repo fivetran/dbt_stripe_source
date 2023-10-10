@@ -44,6 +44,10 @@ final as (
         source_type,
         transfer_group,
         source_relation
+        
+        {% if var('stripe__transfer_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__transfer_metadata')) }}
+        {% endif %}
 
     from fields
     {{ livemode_predicate() }}
