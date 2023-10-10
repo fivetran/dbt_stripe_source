@@ -12,7 +12,7 @@
     {"name": "destination_payment", "datatype": dbt.type_string()},
     {"name": "destination_payment_id", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_string()},
-    {"name": "livemode", "datatype": dbt.type_string()},
+    {"name": "livemode", "datatype": "boolean"},
     {"name": "metadata", "datatype": dbt.type_string()},
     {"name": "reversed", "datatype": "boolean"},
     {"name": "source_transaction", "datatype": dbt.type_string()},
