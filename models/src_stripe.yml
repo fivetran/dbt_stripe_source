@@ -25,7 +25,7 @@ sources:
           - name: connected_account_id
             description: The ID of the account connected to the transaction.
           - name: created
-            description: Timestamp of when the transaction was created, in UTC.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
@@ -36,12 +36,14 @@ sources:
             description: fees (in cents) paid for this transaction.
           - name: net
             description: Net amount of the transaction, in cents.
+          - name: reporting_category
+            description: Improves on the type field by providing a more-useful grouping for most finance and reporting purposes. 
           - name: source
             description: The Stripe object to which this transaction is related.
           - name: status
             description: If the transaction’s net funds are available in the Stripe balance yet. Either 'available' or 'pending'.
           - name: type
-            description: the type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
+            description: The type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
       - name: card
         identifier: "{{ var('stripe_card_identifier', 'card')}}"
@@ -49,12 +51,26 @@ sources:
         columns:
           - name: id
             description: Unique identifier for the object.
+          - name: account_id
+            description: ID of account associated with this card.
+          - name: address_city
+            description: City, district, suburb, town, or village.
+          - name: address_country
+            description: Two-letter country code (ISO 3166-1 alpha-2).
+          - name: address_line_1
+            description: Address line 1 (e.g., street, PO Box, or company name).
+          - name: address_line_2
+            description: Address line 2 (e.g., apartment, suite, unit, or building).
+          - name: address_state
+            description: State/County/Province/Region.
+          - name: address_zip
+            description: ZIP or postal code.
           - name: brand
             description: Card brand. Can be American Express, Diners Club, Discover, JCB, MasterCard, UnionPay, Visa, or Unknown.
           - name: country
             description: Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you’ve collected.
           - name: created
-            description: Timestamp of when the entry for the card was created
+            description: '{{ doc("created") }}'
           - name: customer_id
             description: The customer that this card belongs to.  NULL if belongs to an account or recipient.
           - name: name
@@ -93,7 +109,7 @@ sources:
           - name: card_id
             description: ID of the card that was charged.
           - name: created
-            description: Timestamp of the when the charge took place.
+            description: '{{ doc("created") }}'
           - name: connected_account_id
             description: ID of account connected for this charge.
           - name: customer_id
@@ -118,12 +134,38 @@ sources:
             description: Whether the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.
           - name: status
             description: The status of the payment is either succeeded, pending, or failed.
+          - name: shipping_address_city
+            description: City, district, suburb, town, or village.
+          - name: shipping_address_country
+            description: Two-letter country code (ISO 3166-1 alpha-2).
+          - name: shipping_address_line_1
+            description: Address line 1 (e.g., street, PO Box, or company name).
+          - name: shipping_address_line_2
+            description: Address line 2 (e.g., apartment, suite, unit, or building).
+          - name: shipping_address_postal_code
+            description: ZIP or postal code.
+          - name: shipping_address_state
+            description: State, county, province, or region.
+          - name: shipping_carrier
+            description: The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc.
+          - name: shipping_name
+            description: Recipient name.
+          - name: shipping_phone
+            description: Recipient phone (including extension).
+          - name: shipping_tracking_number
+            description: The tracking number for a physical product, obtained from the delivery service. If multiple tracking numbers were generated for this purchase, please separate them with commas.
+          - name: source_id
+            description: ID of the source associated. Source objects allow you to accept a variety of payment methods. They represent a customer's payment instrument, and can be used with the Stripe API just like a Card object, once chargeable, they can be charged, or can be attached to customers.
+          - name: source_transfer
+            description: The transfer ID which created this charge. Only present if the charge came from another Stripe account. 
+          - name: statement_descriptor
+            description: Extra information about a source. This will appear on your customer’s statement every time you charge the source.
           - name: invoice_id
             description: The id of the invoice associated with this charge.
           - name: currency
             description: The currency of the charge.
           - name: created
-            description: Timestamp of the date the charge was created.
+            description: '{{ doc("created") }}'
           - name: livemode
             description: Indicates if this is a test charge.
           - name: payment_method_id
@@ -158,8 +200,24 @@ sources:
             description: Unique identifier for the object.
           - name: account_balance
             description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice.
+          - name: address_city
+            description: '{{ doc("city") }}'
+          - name: address_country
+            description: '{{ doc("country") }}'
+          - name: address_line_1
+            description: '{{ doc("line_1") }}'
+          - name: address_line_2
+            description: '{{ doc("line_2") }}'
+          - name: address_postal_code
+            description: '{{ doc("postal_code") }}'
+          - name: address_state
+            description: '{{ doc("state") }}'
+          - name: balance
+            description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice. The balance does not refer to any unpaid invoices; it solely takes into account amounts that have yet to be successfully applied to any invoice. This balance is only taken into account as invoices are finalized.
+          - name: bank_account_id
+            description: ID of the bank account associated with this customer.
           - name: created
-            description: Timestamp of when the customer entry was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO code for the currency the customer can be charged in for recurring billing purposes.
           - name: default_card_id
@@ -172,6 +230,8 @@ sources:
             description: The customer’s email address.
           - name: metadata
             description: Custom metadata added to the record, in JSON string format
+          - name: name
+            description: Customer name.
           - name: shipping_address_city
             description: Attribute of the customer's shipping address.
           - name: shipping_address_country
@@ -190,6 +250,97 @@ sources:
             description: Attribute of the customer's shipping address.
           - name: livemode
             description: Indicates if this is a test customer.
+
+      - name: dispute
+        identifier: "{{ var('stripe_dispute_identifier', 'dispute')}}"
+        description: The details of a dispute related to a charge. A dispute occurs when a customer questions your charge with their card issuer. When this happens, you're given the opportunity to respond to the dispute with evidence that shows that the charge is legitimate. 
+        columns:
+          - name: id
+            description: Unique identifier for the object.
+          - name: amount
+            description: Disputed amount. Usually the amount of the charge, but can differ (usually because of currency fluctuation or because only part of the order is disputed).
+          - name: balance_transaction
+            description: List of zero, one, or two balance transactions that show funds withdrawn and reinstated to your Stripe account as a result of this dispute.
+          - name: charge_id
+            description: ID of the charge that was disputed.
+          - name: connected_account_id
+            description: Account id associated with this dispute.
+          - name: created
+            description: Time at which the object was created. Measured in seconds since the Unix epoch.
+          - name: currency
+            description: Three-letter ISO currency code, in lowercase. Must be a supported currency.
+          - name: evidence_access_activity_log
+            description: Any server or activity logs showing proof that the customer accessed or downloaded the purchased digital product. This information should include IP addresses, corresponding timestamps, and any detailed recorded activity. Has a maximum character count of 20,000.
+          - name: evidence_billing_address
+            description: The billing address provided by the customer.
+          - name: evidence_cancellation_policy
+            description: (ID of a file upload) Your subscription cancellation policy, as shown to the customer.
+          - name: evidence_cancellation_policy_disclosure
+            description: An explanation of how and when the customer was shown your refund policy prior to purchase. Has a maximum character count of 20,000.
+          - name: evidence_cancellation_rebuttal
+            description: A justification for why the customer’s subscription was not canceled. Has a maximum character count of 20,000.
+          - name: evidence_customer_communication
+            description: (ID of a file upload) Any communication with the customer that you feel is relevant to your case. Examples include emails proving that the customer received the product or service, or demonstrating their use of or satisfaction with the product or service.
+          - name: evidence_customer_email_address
+            description: The email address of the customer.
+          - name: evidence_customer_name
+            description: The name of the customer.
+          - name: evidence_customer_purchase_ip
+            description: The IP address that the customer used when making the purchase.
+          - name: evidence_customer_signature
+            description: (ID of a file upload) A relevant document or contract showing the customer’s signature.
+          - name: evidence_details_due_by
+            description: Date by which evidence must be submitted in order to successfully challenge dispute. Will be 0 if the customer’s bank or credit card company doesn’t allow a response for this particular dispute.
+          - name: evidence_details_has_evidence
+            description: Whether evidence has been staged for this dispute.
+          - name: evidence_details_past_due
+            description: Whether the last evidence submission was submitted past the due date. Defaults to false if no evidence submissions have occurred. If true, then delivery of the latest evidence is not guaranteed.
+          - name: evidence_details_submission_count
+            description: The number of times evidence has been submitted. Typically, you may only submit evidence once.
+          - name: evidence_duplicate_charge_documentation
+            description: (ID of a file upload) Documentation for the prior charge that can uniquely identify the charge, such as a receipt, shipping label, work order, etc. This document should be paired with a similar document from the disputed payment that proves the two payments are separate.
+          - name: evidence_duplicate_charge_explanation
+            description: An explanation of the difference between the disputed charge versus the prior charge that appears to be a duplicate. Has a maximum character count of 20,000.
+          - name: evidence_duplicate_charge_id
+            description: The Stripe ID for the prior charge which appears to be a duplicate of the disputed charge.
+          - name: evidence_product_description
+            description: A description of the product or service that was sold. Has a maximum character count of 20,000.
+          - name: evidence_receipt
+            description: (ID of a file upload) Any receipt or message sent to the customer notifying them of the charge.
+          - name: evidence_refund_policy
+            description: (ID of a file upload) Your refund policy, as shown to the customer.
+          - name: evidence_refund_policy_disclosure
+            description: Documentation demonstrating that the customer was shown your refund policy prior to purchase. Has a maximum character count of 20,000.
+          - name: evidence_refund_refusal_explanation
+            description: A justification for why the customer is not entitled to a refund. Has a maximum character count of 20,000.
+          - name: evidence_service_date
+            description: The date on which the customer received or began receiving the purchased service, in a clear human-readable format.
+          - name: evidence_service_documentation
+            description: (ID of a file upload) Documentation showing proof that a service was provided to the customer. This could include a copy of a signed contract, work order, or other form of written agreement.
+          - name: evidence_shipping_address
+            description: The address to which a physical product was shipped. You should try to include as complete address information as possible.
+          - name: evidence_shipping_carrier
+            description: The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc. If multiple carriers were used for this purchase, please separate them with commas.
+          - name: evidence_shipping_date
+            description: The date on which a physical product began its route to the shipping address, in a clear human-readable format.
+          - name: evidence_shipping_documentation
+            description: (ID of a file upload) Documentation showing proof that a product was shipped to the customer at the same address the customer provided to you. This could include a copy of the shipment receipt, shipping label, etc. It should show the customer’s full shipping address, if possible.
+          - name: evidence_shipping_tracking_number
+            description: The tracking number for a physical product, obtained from the delivery service. If multiple tracking numbers were generated for this purchase, please separate them with commas.
+          - name: evidence_uncategorized_file
+            description: (ID of a file upload) Any additional evidence or statements.
+          - name: evidence_uncategorized_text
+            description: Any additional evidence or statements. Has a maximum character count of 20,000.
+          - name: is_charge_refundable
+            description: Boolean ff true, it is still possible to refund the disputed payment. Once the payment has been fully refunded, no further funds will be withdrawn from your Stripe account as a result of this dispute.
+          - name: livemode
+            description: Indicates if this is a test dispute.
+          - name: metadata
+            description: Custom metadata added to the record, in JSON string format
+          - name: reason
+            description: Reason given by cardholder for dispute. Possible values are bank_cannot_process, check_returned, credit_not_processed, customer_initiated, debit_not_authorized, duplicate, fraudulent, general, incorrect_account_details, insufficient_funds, product_not_received, product_unacceptable, subscription_canceled, or unrecognized. 
+          - name: status
+            description: Current status of dispute. Possible values are warning_needs_response, warning_under_review, warning_closed, needs_response, under_review, won, or lost.
 
       - name: fee
         identifier: "{{ var('stripe_fee_identifier', 'fee')}}"
@@ -279,7 +430,7 @@ sources:
           - name: id
             description: Unique identifier for the object.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: customer_id
             description: The ID of the Customer to which this PaymentMethod is saved. This will not be set when the PaymentMethod has not been saved to a Customer.
           - name: metadata
@@ -304,11 +455,15 @@ sources:
           - name: balance_transaction_id
             description: ID of the balance transaction that describes the impact of this payout on your account balance.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
             description: An arbitrary string attached to the object. Often useful for displaying to users.
+          - name: destination_bank_account_id
+            description: ID of the bank account the payout was sent to.
+          - name: destination_card_id
+            description: ID of the card the payout was sent to.
           - name: metadata
             description: Custom metadata added to the record, in JSON string format
           - name: method
@@ -336,7 +491,7 @@ sources:
           - name: charge_id
             description: ID of the charge that was refunded.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: description
@@ -412,7 +567,7 @@ sources:
           - name: charge_id
             description: ID of the latest charge generated for this invoice, if any.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase.
           - name: customer_id
@@ -486,7 +641,7 @@ sources:
           - name: canceled_at
             description: If the subscription has been canceled, the date of that cancellation.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: current_period_start
             description: Start of the current period that the subscription has been invoiced for.
           - name: current_period_end
@@ -538,7 +693,7 @@ sources:
           - name: canceled_at
             description: If the subscription has been canceled, the date of that cancellation.
           - name: created
-            description: Time at which the object was created.
+            description: '{{ doc("created") }}'
           - name: current_period_start
             description: Start of the current period that the subscription has been invoiced for.
           - name: current_period_end
@@ -596,7 +751,7 @@ sources:
           - name: amount 
             description: The integer amount in cents representing the total amount of the credit note, including tax.
           - name: created
-            description: Timestamp of the when the credit_note was created.
+            description: '{{ doc("created") }}'
           - name: currency
             description: The currency of the charge. Three-letter ISO currency code, in lowercase. 
           - name: discount_amount 
@@ -666,7 +821,7 @@ sources:
           - name: billing_scheme
             description: Describes how to compute the price per period. Either per_unit or tiered. per_unit indicates that the fixed amount (specified in unit_amount or unit_amount_decimal) will be charged per unit in quantity (for prices with usage_type=licensed), or per unit of total usage (for prices with usage_type=metered). tiered indicates that the unit pricing will be computed using a tiering strategy as defined using the tiers and tiers_mode attributes.
           - name: created
-            description: Time at which the object was created. Measured in seconds since the Unix epoch.
+            description: '{{ doc("created") }}'
           - name: currency
             description: Three-letter ISO currency code, in lowercase. Must be a supported currency.
           - name: id
@@ -740,7 +895,7 @@ sources:
           - name: country
             description: The account's country.
           - name: created
-            description: Time at which the account was connected. Measured in seconds since the Unix epoch.
+            description: '{{ doc("created") }}'
           - name: default_currency
             description: Three-letter ISO currency code representing the default currency for the account. This must be a currency that Stripe supports in the account’s country.
           - name: email
@@ -753,3 +908,44 @@ sources:
             description: Boolean of whether payouts are enabled.
           - name: type
             description: Account type
+
+
+      - name: transfer
+        identifier: "{{ var('stripe_transfer_identifier', 'transfer')}}"
+        description: A Transfer object is created when you move funds between Stripe accounts as part of Connect. Before April 6, 2017, transfers also represented movement of funds from a Stripe account to a card or bank account. That has since been moved to the Payout object. The Payout object represents money moving from a Stripe account to an external account (bank or debit card). The Transfer object now only represents money moving between Stripe accounts on a Connect platform. 
+        columns:
+          - name: id
+            description: Unique identifier for the object.
+          - name: amount
+            description: Amount in cents to be transferred.
+          - name: amount_reversed
+            description: Amount in cents reversed (can be less than the amount attribute on the transfer if a partial reversal was issued).
+          - name: balance_transaction_id
+            description: Balance transaction that describes the impact of this transfer on your account balance.
+          - name: created
+            description: Time that this record of the transfer was first created.
+          - name: currency
+            description: Three-letter ISO currency code, in lowercase. Must be a supported currency.
+          - name: description
+            description: An arbitrary string attached to the object. Often useful for displaying to users.
+          - name: destination
+            description: ID of the Stripe account the transfer was sent to.
+          - name: destination_payment
+            description: If the destination is a Stripe account, the payment that the destination account received for the transfer.
+          - name: destination_payment_id
+            description: If the destination is a Stripe account, this will be the ID of the payment that the destination account received for the transfer.
+          - name: livemode
+            description: Indicates if this is a test transfer.
+          - name: metadata
+            description: Custom metadata added to the record, in JSON string format
+          - name: reversed
+            description: Boolean of whether the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.
+          - name: source_transaction
+            description: The source transaction related to this transfer.
+          - name: source_transaction_id
+            description: ID of the charge or payment that was used to fund the transfer. If null, the transfer was funded from the available balance.
+          - name: source_type
+            description: The source balance this transfer came from. One of card, fpx, or bank_account.
+          - name: transfer_group
+            description: A string that identifies this transaction as part of a group. See the Connect documentation for details.
+

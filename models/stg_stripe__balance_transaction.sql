@@ -36,6 +36,7 @@ final as (
         exchange_rate,
         fee,
         net,
+        reporting_category,
         source,
         status,
         type,

@@ -45,7 +45,7 @@ If you  are **not** using the [Stripe transformation package](https://github.com
 ```yaml
 packages:
   - package: fivetran/stripe_source
-    version: [">=0.9.0", "<0.10.0"]
+    version: [">=0.10.0", "<0.11.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -128,7 +128,7 @@ Oftentimes you may have custom fields within your source tables that is stored a
 
 Additionally, you may `alias` your field if you happen to be using a reserved word as a metadata field, any otherwise incompatible name, or just wish to rename your field. Below are examples of how you would add the respective fields.
 
-The `metadata` JSON field is present within the `customer`, `charge`, `card`, `invoice`, `invoice_line_item`, `payment_intent`, `payment_method`, `payout`, `plan`, `price`, `refund`, and `subscription` source tables. To pivot these fields out and include in the respective downstream staging model, add the respective variable(s) to your root `dbt_project.yml` file like below.
+The `metadata` JSON field is present within the `customer`, `charge`, `card`, `dispute`, `invoice`, `invoice_line_item`, `payment_intent`, `payment_method`, `payout`, `plan`, `price`, `refund`, `subscription`, and `transfer` source tables. To pivot these fields out and include in the respective downstream staging model, add the respective variable(s) to your root `dbt_project.yml` file like below.
 
 ```yml
 vars: 
@@ -143,6 +143,8 @@ vars:
   stripe__customer_metadata:
     - name: metadata_field_6
       alias: metadata_field_six
+  stripe__dispute_metadata:
+    - name: dispute_metadata_field
   stripe__invoice_metadata: 
     - name: metadata_field_2
   stripe__invoice_line_item_metadata: 
@@ -164,6 +166,8 @@ vars:
   stripe__subscription_metadata:
     - name: 567
       alias: five_six_seven
+  stripe__transfer_metadata:
+    - name: transfer_metadata_field
 
 ```
 
