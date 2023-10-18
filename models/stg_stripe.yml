@@ -925,8 +925,6 @@ models:
         description: Any additional evidence or statements. Has a maximum character count of 20,000.
       - name: is_charge_refundable
         description: Boolean ff true, it is still possible to refund the disputed payment. Once the payment has been fully refunded, no further funds will be withdrawn from your Stripe account as a result of this dispute.
-      - name: livemode
-        description: Indicates if this is a test dispute.
       - name: dispute_metadata
         description: Custom metadata added to the record, in JSON string format
       - name: dispute_reason
@@ -964,8 +962,6 @@ models:
         description: If the destination is a Stripe account, the payment that the destination account received for the transfer.
       - name: destination_payment_id
         description: If the destination is a Stripe account, this will be the ID of the payment that the destination account received for the transfer.
-      - name: livemode
-        description: Indicates if this is a test transfer.
       - name: transfer_metadata
         description: Custom metadata added to the record, in JSON string format
       - name: transfer_is_reversed

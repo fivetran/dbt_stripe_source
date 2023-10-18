@@ -65,7 +65,6 @@ final as (
         evidence_uncategorized_file,
         evidence_uncategorized_text,
         is_charge_refundable,
-        livemode,
         metadata as dispute_metadata,
         reason as dispute_reason,
         status as dispute_status,
