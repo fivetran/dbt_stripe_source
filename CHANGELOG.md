@@ -1,5 +1,5 @@
 # dbt_stripe_source v0.10.0
-[PR #68](https://github.com/fivetran/dbt_stripe_source/pull/68) includes the followings updates:
+[PR #68](https://github.com/fivetran/dbt_stripe_source/pull/68) includes the following updates:
 ## Updates
 - Adds the `dispute` and `transfer` objects and respective staging models.
 
