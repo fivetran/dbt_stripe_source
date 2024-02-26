@@ -1,3 +1,11 @@
+# dbt_stripe_source v0.11.0
+[PR #69](https://github.com/fivetran/dbt_stripe_source/pull/69) includes the following updates:
+
+## Feature Updates
+- Adds the `phone` column to `stg_stripe__customer`. 
+- No longer filters out deleted customers in `stg_stripe__customer`.
+  - Persists `is_deleted` field to differentiate between deleted and active customers.
+
 # dbt_stripe_source v0.10.0
 [PR #68](https://github.com/fivetran/dbt_stripe_source/pull/68) includes the following updates:
 ## Updates

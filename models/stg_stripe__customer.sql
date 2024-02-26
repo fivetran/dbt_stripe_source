@@ -44,6 +44,7 @@ final as (
         email,
         metadata,
         name as customer_name,
+        phone,
         shipping_address_city,
         shipping_address_country,
         shipping_address_line_1,
@@ -52,7 +53,8 @@ final as (
         shipping_address_state,
         shipping_name,
         shipping_phone,
-        source_relation
+        source_relation,
+        coalesce(is_deleted, false) as is_deleted
         
         {% if var('stripe__customer_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__customer_metadata')) }}
@@ -60,8 +62,6 @@ final as (
 
     from fields
     {{ livemode_predicate() }}
-    and 
-    not coalesce(is_deleted, false)
 )
 
 select * 

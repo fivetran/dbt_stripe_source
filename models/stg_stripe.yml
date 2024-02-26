@@ -240,6 +240,8 @@ models:
         description: Custom metadata added to the record, in JSON string format
       - name: customer_name
         description: Customer name.
+      - name: phone
+        description: Csutomer's phone number.
       - name: shipping_address_city
         description: Attribute of the customer's shipping address.
       - name: shipping_address_country
@@ -258,6 +260,8 @@ models:
         description: Attribute of the customer's shipping address.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
+      - name: is_deleted
+        description: Boolean reflecting whether the customer has been deleted in Stripe.
 
   - name: stg_stripe__fee
     description: The details of a fee associated with a balance transaction
