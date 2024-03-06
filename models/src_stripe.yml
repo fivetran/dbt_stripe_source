@@ -232,6 +232,8 @@ sources:
             description: Custom metadata added to the record, in JSON string format
           - name: name
             description: Customer name.
+          - name: phone
+            description: Customer's phone number.
           - name: shipping_address_city
             description: Attribute of the customer's shipping address.
           - name: shipping_address_country
@@ -250,6 +252,8 @@ sources:
             description: Attribute of the customer's shipping address.
           - name: livemode
             description: Indicates if this is a test customer.
+          - name: is_deleted
+            description: Boolean reflecting whether the customer has been deleted in Stripe.
 
       - name: dispute
         identifier: "{{ var('stripe_dispute_identifier', 'dispute')}}"

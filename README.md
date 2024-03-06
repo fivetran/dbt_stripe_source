@@ -45,7 +45,7 @@ If you  are **not** using the [Stripe transformation package](https://github.com
 ```yaml
 packages:
   - package: fivetran/stripe_source
-    version: [">=0.10.0", "<0.11.0"]
+    version: [">=0.11.0", "<0.12.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:

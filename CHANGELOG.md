@@ -1,3 +1,18 @@
+# dbt_stripe_source v0.11.0
+[PR #72](https://github.com/fivetran/dbt_stripe_source/pull/72) includes the following updates:
+
+## 🚨 Breaking Changes 🚨
+- No longer filters out deleted customers in `stg_stripe__customer`.
+  - Persists `is_deleted` field to differentiate between deleted and active customers.
+  - Note that this is a 🚨 breaking change 🚨, as previously filtered-out records will appear in `stg_stripe__customer` (and the downstream transform `stripe__customer_overview` model).
+
+## Feature Updates
+- Adds the `phone` column to `stg_stripe__customer`. 
+
+## Under the Hood
+- Included auto-releaser GitHub Actions workflow to automate future releases.
+- Updated the maintainer PR template to resemble the most up to date format.
+
 # dbt_stripe_source v0.10.0
 [PR #68](https://github.com/fivetran/dbt_stripe_source/pull/68) includes the following updates:
 ## Updates
