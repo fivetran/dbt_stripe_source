@@ -55,10 +55,36 @@ final as (
         shipping_phone,
         source_relation,
         coalesce(is_deleted, false) as is_deleted
+
+        {%- set metadata_list = var('stripe__customer_metadata', []) -%}
+        {%- set unique_metadata_list = [] -%}
+        {%- for field in metadata_list %}
+            {%- do unique_metadata_list.append(field.alias if field.alias else field.name) %}
+        {% endfor -%}
+
+        {%- if var('customer360_internal_match_ids') %}
+            {%- for match_set in var('customer360_internal_match_ids') %}
+                {%- if match_set.stripe %}
+                    {%- if match_set.stripe.map_table %}
+                        {%- if match_set.stripe.join_with_map_on not in unique_metadata_list -%}
+                            {% do metadata_list.append({"name": match_set.stripe.join_with_map_on}) -%}
+                        {% endif -%}
+                    {%- else %}
+                        {%- if match_set.stripe.match_key not in unique_metadata_list -%}
+                            {% do metadata_list.append({"name": match_set.stripe.match_key}) -%}
+                        {% endif -%}
+                    {%- endif %}
+                {%- endif %}
+            {%- endfor %}
+        {%- endif %}
         
-        {% if var('stripe__customer_metadata',[]) %}
-        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__customer_metadata')) }}
+        {% if metadata_list %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = metadata_list) }}
         {% endif %}
+
+        {# {% if var('stripe__customer_metadata',[]) %}
+        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__customer_metadata')) }}
+        {% endif %} #}
 
     from fields
     {{ livemode_predicate() }}
