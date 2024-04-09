@@ -82,10 +82,6 @@ final as (
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = metadata_list) }}
         {% endif %}
 
-        {# {% if var('stripe__customer_metadata',[]) %}
-        , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__customer_metadata')) }}
-        {% endif %} #}
-
     from fields
     {{ livemode_predicate() }}
 )
