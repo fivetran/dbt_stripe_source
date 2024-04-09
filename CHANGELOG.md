@@ -1,4 +1,5 @@
 # dbt_stripe_source v0.11.0
+[PR [#74](https://github.com/fivetran/dbt_stripe_source/pull/74)] includes the following updates:
 
 ## 🚨 Breaking Changes 🚨
 - Updates the `unique_invoice_line_item_id` uniqueness test in `stg_stripe__invoice_line_item` to include `invoice_id`. This is because `unique_invoice_line_item_id` (`unique_id` in the raw source `invoice_line_item` table) was part of an older version of Stripe that was included in the new version to help migrate internal references. See the Stripe [API update](https://stripe.com/docs/upgrades#2019-12-03) for more information. The Fivetran connector persists this in order to resolve the pagination break issue for invoice line items that was introduced by the [API update](https://stripe.com/docs/upgrades#2019-12-03).
