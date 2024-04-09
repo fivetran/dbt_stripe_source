@@ -486,6 +486,11 @@ models:
             - invoice_line_item_id
             - invoice_id
             - source_relation
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - unique_invoice_line_item_id
+            - invoice_id
+            - source_relation
     columns:
       - name: invoice_line_item_id
         description: Unique identifier for the object. Note that the same line item can be shown across different invoices, so this value can appear multiple times.
@@ -519,8 +524,6 @@ models:
         description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
       - name: unique_invoice_line_item_id
         description: A unique id generated for old invoice line item ID's from a past version of the API
-        tests:
-          - unique
       - name: period_start
         description: Start of the usage period during which invoice items were added to this invoice.
       - name: period_end
