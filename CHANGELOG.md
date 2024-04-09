@@ -1,4 +1,4 @@
-# dbt_stripe_source v0.11.0
+# dbt_stripe_source v0.11.1
 [PR [#74](https://github.com/fivetran/dbt_stripe_source/pull/74)] includes the following updates:
 
 ## 🚨 Breaking Changes 🚨
