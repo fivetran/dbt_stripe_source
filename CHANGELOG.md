@@ -3,7 +3,7 @@
 
 ## Bug Fix
 - Removes the `unique_invoice_line_item_id` uniqueness test in `stg_stripe__invoice_line_item`. This is because `unique_invoice_line_item_id` (`unique_id` in the raw source `invoice_line_item` table) was part of an older version of Stripe that was brought forth to help migrate internal references. See the Stripe [API update](https://stripe.com/docs/upgrades#2019-12-03) for more information. The Fivetran connector persists this in order to resolve the pagination break issue for invoice line items that was introduced by the [API update](https://stripe.com/docs/upgrades#2019-12-03). 
-  - Furthermore the column definition for `unique_invoice_line_item_id` has been made more specific: 
+  - Furthermore the column definition for `unique_invoice_line_item_id` (`unique_id` in the raw source `invoice_line_item` table) has been made more specific: 
     > "A unique id generated and only for old invoice line item ID's from a past version of the API. The introduction of this field resolves the pagination break issue for invoice line items, which was introduced by the [Stripe API update](https://stripe.com/docs/upgrades#2019-12-03)."
 
 # dbt_stripe_source v0.11.0
