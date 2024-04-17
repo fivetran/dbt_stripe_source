@@ -1,13 +1,13 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.11.0'
+version: '0.11.1'
 
 
 profile: 'integration_tests'
 
 vars:
-  stripe_schema: stripe_source_integrations_tests_3
+  stripe_schema: stripe_source_integrations_tests_4
   stripe_source:
     stripe_account_identifier:                "account_data"
     stripe_group_identifier:                  "group_data"

@@ -544,8 +544,8 @@ sources:
             description: The subscription item that generated this invoice item. Left empty if the line item is not an explicit result of a subscription.
           - name: type
             description: A string identifying the type of the source of this line item, either an invoice item or a subscription.
-          - name: unique_invoice_line_item_id
-            description: A unique id generated for old invoice ID's from a past version of the API
+          - name: unique_id
+            description: A unique id generated and only for old invoice line item ID's from a past version of the API. The introduction of this field resolves the pagination break issue for invoice line items, which was introduced by the [Stripe API update](https://stripe.com/docs/upgrades#2019-12-03).
           - name: livemode
             description: Indicates if this is a test invoice line item.
 
