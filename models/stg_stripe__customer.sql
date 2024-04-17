@@ -57,20 +57,22 @@ final as (
         coalesce(is_deleted, false) as is_deleted
 
         {%- set metadata_list = var('stripe__customer_metadata', []) -%}
-        {%- set unique_metadata_list = [] -%}
+        {%- set unique_metadata_list = ['customer_id', 'account_balance', 'customer_address_city', 'customer_address_country', 'customer_address_line_1', 'customer_address_line_2', 'customer_address_postal_code', 'customer_address_state', 'customer_balance', 
+                                        'bank_account_id', 'created_at', 'currency', 'default_card_id', 'is_delinquent', 'description', 'email', 'metadata', 'customer_name', 'phone', 'shipping_address_city', 'shipping_address_country', 'shipping_address_line_1', 
+                                        'shipping_address_line_2', 'shipping_address_postal_code', 'shipping_address_state', 'shipping_name', 'shipping_phone', 'source_relation', 'is_deleted' ] -%}
         {%- for field in metadata_list %}
-            {%- do unique_metadata_list.append(field.alias if field.alias else field.name) %}
+            {%- do unique_metadata_list.append(field.alias|lower if field.alias else field.name|lower) %}
         {% endfor -%}
 
         {%- if var('customer360_internal_match_ids') %}
             {%- for match_set in var('customer360_internal_match_ids') %}
                 {%- if match_set.stripe %}
                     {%- if match_set.stripe.map_table %}
-                        {%- if match_set.stripe.join_with_map_on not in unique_metadata_list -%}
+                        {%- if match_set.stripe.join_with_map_on|lower not in unique_metadata_list -%}
                             {% do metadata_list.append({"name": match_set.stripe.join_with_map_on}) -%}
                         {% endif -%}
                     {%- else %}
-                        {%- if match_set.stripe.match_key not in unique_metadata_list -%}
+                        {%- if match_set.stripe.match_key|lower not in unique_metadata_list -%}
                             {% do metadata_list.append({"name": match_set.stripe.match_key}) -%}
                         {% endif -%}
                     {%- endif %}
