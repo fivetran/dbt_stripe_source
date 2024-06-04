@@ -51,7 +51,7 @@ final as (
         {% endif %}
 
     from fields
-    {{ livemode_predicate() }}
+    {{ stripe_source.livemode_predicate() }}
 
     {% if var('stripe__using_invoice_line_sub_filter', true) %}
     and id not like 'sub%' -- ids starting with 'sub' are temporary and are replaced by permanent ids starting with 'sli' 

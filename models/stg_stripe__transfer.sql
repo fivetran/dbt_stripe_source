@@ -49,7 +49,7 @@ final as (
         {% endif %}
 
     from fields
-    {{ livemode_predicate() }}
+    {{ stripe_source.livemode_predicate() }}
 )
 
 select *
