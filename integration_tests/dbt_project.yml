@@ -39,6 +39,7 @@ seeds:
       _fivetran_synced: timestamp
       created: timestamp
       voided_at: timestamp
+      livemode: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
     account_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
