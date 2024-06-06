@@ -28,6 +28,7 @@ vars:
     payout: "{{ source('stripe', 'payout') }}"
     plan: "{{ source('stripe', 'plan') }}"
     price: "{{ source('stripe', 'price') }}"
+    product: "{{ source('stripe', 'product') }}"
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"

@@ -953,3 +953,8 @@ sources:
           - name: transfer_group
             description: A string that identifies this transaction as part of a group. See the Connect documentation for details.
 
+
+      - name: product
+        identifier: "{{ var('stripe_product_identifier', 'product')}}"
+        description: to complete
+        freshness: null
