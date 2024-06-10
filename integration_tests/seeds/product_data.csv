@@ -1,0 +1,11 @@
+id,_fivetran_synced,active,caption,created,description,is_deleted,livemode,metadata,name,package_dimensions_height,package_dimensions_length,package_dimensions_weight,package_dimensions_width,shippable,statement_descriptor,type,unit_label,updated,url
+prod_MSXxXVG5G0v6gH,2024-05-19 12:34:06.327000 UTC,true,,2022-09-19 05:49:41.000000 UTC,,false,true,{},Premium Membership,,,,,,,service,,2022-09-19 05:49:41.000000 UTC,
+prod_PT6r0SAJoY9uCp,2024-01-30 12:31:51.809000 UTC,true,Mac book,2024-01-30 06:18:03.000000 UTC,M1 chip,false,true,{},Laptop,,,,,true,,good,,2024-01-30 06:22:27.000000 UTC,example.com
+prod_FS1XReP8QHQIoO,2024-02-27 12:32:13.504000 UTC,true,,2019-07-17 07:24:19.000000 UTC,,false,true,{},Test_product 1,,,,,,,service,,2022-05-05 19:13:59.000000 UTC,
+prod_O2mRKRlBamTgbK,2023-11-08 14:18:15.371000 UTC,true,,2023-06-08 11:20:00.000000 UTC,,false,true,{},zzzz,,,,,,,service,,2023-06-08 11:20:00.000000 UTC,
+prod_NerEckYh6qjN5j,2024-06-05 12:31:29.500000 UTC,true,,2023-04-05 14:40:46.000000 UTC,,false,true,{},Test product for quanity,,,,,,,service,,2023-04-05 14:40:46.000000 UTC,
+prod_FS5To91GXlYRTf,2022-11-16 20:28:40.972000 UTC,true,,2019-07-17 11:27:24.000000 UTC,,false,true,{},test_prod3,,,,,,,service,,2022-05-05 19:13:59.000000 UTC,
+prod_PT7q4GGj2pp4G4,2024-01-30 12:31:51.817000 UTC,true,,2024-01-30 07:18:38.000000 UTC,Black,false,true,{},Mobile phone,,,,,,,service,,2024-01-30 07:51:03.000000 UTC,
+prod_M2koytwH0sHCcy,2022-11-16 20:23:09.806000 UTC,true,,2022-07-12 09:22:46.000000 UTC,,false,true,{},test_product,,,,,,,service,,2022-07-12 09:22:46.000000 UTC,
+prod_P2hUxfvJwQcDMe,2023-12-05 08:18:45.455000 UTC,true,,2023-11-20 18:20:24.000000 UTC,,false,true,{},take 1,,,,,,,service,,2023-11-20 18:20:24.000000 UTC,
+prod_NhMlgl7UvBDDt5,2023-10-19 08:18:18.743000 UTC,true,,2023-04-12 07:23:48.000000 UTC,This is test product created for the tax rate testing,false,true,{},AWS EKS Training,,,,,,,service,,2023-04-12 07:23:49.000000 UTC,
