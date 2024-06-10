@@ -28,7 +28,7 @@ final as (
 
     select 
         id as product_id,
-        is_active,
+        is_active, -- renamed in macro
         attributes,
         caption,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
@@ -42,7 +42,8 @@ final as (
         type,
         unit_label,
         updated,
-        url
+        url,
+        source_relation
 
     from fields
     {{ livemode_predicate() }}

@@ -18,6 +18,7 @@ vars:
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
     customer: "{{ source('stripe', 'customer') }}"
+    discount: "{{ source('stripe', 'discount') }}"
     dispute: "{{ source('stripe', 'dispute') }}"
     fee: "{{ source('stripe', 'fee') }}"
     invoice: "{{ source('stripe', 'invoice') }}"

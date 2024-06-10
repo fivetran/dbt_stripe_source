@@ -958,3 +958,13 @@ sources:
         identifier: "{{ var('stripe_product_identifier', 'product')}}"
         description: to complete
         freshness: null
+
+      - name: discount
+        identifier: "{{ var('stripe_discount_identifier', 'discount')}}"
+        description: to complete
+        freshness: null
+        columns:
+          - name: end
+            description: to complete
+          - name: start
+            description: to complete
