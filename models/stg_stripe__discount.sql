@@ -36,11 +36,11 @@ final as (
         coupon_id,
         credit_note_line_item_id,
         customer_id,
-        cast(end_at as {{ dbt.type_timestamp() }}) as end_at, -- renamed in macro
+        cast(end_at as {{ dbt.type_timestamp() }}) as end_at, -- renamed in macro get_discount_columns, source column name: end
         invoice_id,
         invoice_item_id,
         promotion_code,
-        cast(start_at as {{ dbt.type_timestamp() }}) as start_at, -- renamed in macro
+        cast(start_at as {{ dbt.type_timestamp() }}) as start_at, -- renamed in macro get_discount_columns, source column name: start
         subscription_id,
         source_relation
 
