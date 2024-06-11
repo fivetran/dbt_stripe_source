@@ -47,6 +47,13 @@ seeds:
     invoice_data:
       +column_types:
         id: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
+    discount_data_snowflake:
+      +alias: discount_data
+      +enabled: "{{ true if target.type == 'snowflake' else false }}"
+    discount_data_postgres:
+      +alias: discount_data
+      +enabled: "{{ true if target.type == 'postgres' else false }}"
+
 
 dispatch:
   - macro_namespace: dbt_utils
