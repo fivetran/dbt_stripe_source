@@ -41,11 +41,10 @@ final as (
         invoice_item_id,
         promotion_code,
         cast(start_at as {{ dbt.type_timestamp() }}) as start_at, -- renamed in macro
-        subscription,
+        subscription_id,
         source_relation
 
     from fields
-    {{ livemode_predicate() }}
 )
 
 select *
