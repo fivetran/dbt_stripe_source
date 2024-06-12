@@ -41,6 +41,7 @@ seeds:
       _fivetran_synced: timestamp
       created: timestamp
       voided_at: timestamp
+      end: timestamp
     account_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
