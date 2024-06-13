@@ -28,7 +28,7 @@ final as (
 
     select 
         id as product_id,
-        is_active, -- renamed in macro
+        is_active, -- renamed in macro get_product_columns, source column name: active
         attributes,
         caption,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
