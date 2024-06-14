@@ -1029,7 +1029,9 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - discount_id 
+            - discount_id
+            - type
+            - type_id
             - source_relation
     columns:
       - name: discount_id
