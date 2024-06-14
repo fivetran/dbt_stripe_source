@@ -29,7 +29,6 @@ final as (
         id as discount_id,
         type,
         type_id,
-        _fivetran_synced,
         amount,
         checkout_session_id,
         checkout_session_line_item_id,

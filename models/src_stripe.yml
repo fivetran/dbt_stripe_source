@@ -953,78 +953,79 @@ sources:
           - name: transfer_group
             description: A string that identifies this transaction as part of a group. See the Connect documentation for details.
 
+      - name: product
+        identifier: "{{ var('stripe_product_identifier', 'product') }}"
+        description: A product object represents an individual product to be sold, with various attributes detailing its properties and behaviors.
+        freshness: null
+        columns:
+          - name: id
+            description: Unique identifier for the object.
+          - name: active
+            description: Whether the product is currently available for purchase.
+          - name: attributes
+            description: Key-value pairs that can be attached to a product object, useful for storing additional structured information.
+          - name: caption
+            description: A brief explanation or description of the product for display purposes.
+          - name: create
+            description: Timestamp indicating when the product was created.
+          - name: deactivate_on
+            description: List of dates when the product will be deactivated.
+          - name: description
+            description: The product’s description, meant to be displayable to the customer.
+          - name: images
+            description: A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
+          - name: is_deleted
+            description: Indicates whether the product has been deleted.
+          - name: livemode
+            description: Indicates if this is a test product.
+          - name: name
+            description: The product’s name, meant to be displayable to the customer.
+          - name: shippable
+            description: Whether this product is shipped (i.e., physical goods).
+          - name: statement_descriptor
+            description: Extra information about a product which will appear on your customer’s credit card statement.
+          - name: type
+            description: The type of the product (e.g., good, service).
+          - name: unit_label
+            description: A label that represents units of this product, included in receipts and invoices.
+          - name: updated
+            description: Time at which the object was last updated, measured in seconds since the Unix epoch.
+          - name: url
+            description: A URL of a publicly-accessible webpage for this product.
 
-    - name: product
-      identifier: "{{ var('stripe_product_identifier', 'product') }}"
-      description: A product object represents an individual product to be sold, with various attributes detailing its properties and behaviors.
-      freshness: null
-      columns:
-        - name: id
-          description: Unique identifier for the object.
-        - name: active
-          description: Whether the product is currently available for purchase.
-        - name: attributes
-          description: Key-value pairs that can be attached to a product object, useful for storing additional structured information.
-        - name: caption
-          description: A brief explanation or description of the product for display purposes.
-        - name: create
-          description: Timestamp indicating when the product was created.
-        - name: deactivate_on
-          description: List of dates when the product will be deactivated.
-        - name: description
-          description: The product’s description, meant to be displayable to the customer.
-        - name: images
-          description: A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
-        - name: is_deleted
-          description: Indicates whether the product has been deleted.
-        - name: name
-          description: The product’s name, meant to be displayable to the customer.
-        - name: shippable
-          description: Whether this product is shipped (i.e., physical goods).
-        - name: statement_descriptor
-          description: Extra information about a product which will appear on your customer’s credit card statement.
-        - name: type
-          description: The type of the product (e.g., good, service).
-        - name: unit_label
-          description: A label that represents units of this product, included in receipts and invoices.
-        - name: updated
-          description: Time at which the object was last updated, measured in seconds since the Unix epoch.
-        - name: url
-          description: A URL of a publicly-accessible webpage for this product.
 
-
-    - name: discount
-      identifier: "{{ var('stripe_discount_identifier', 'discount') }}"
-      description: A discount represents the actual application of a coupon or promotion code. It contains information about when the discount began, when it will end, and what it is applied to.
-      freshness: null
-      columns:
-        - name: id
-          description: The ID of the discount object.
-        - name: type
-          description: String representing the object’s type.
-        - name: type_id
-          description: Identifier of the related object type (e.g., coupon ID, promotion code).
-        - name: amount
-          description: The amount of discount applied.
-        - name: checkout_session_id
-          description: The Checkout session that this discount is applied to, if it is applied to a particular session in payment mode.
-        - name: checkout_session_line_item_id
-          description: The ID of the specific line item within the checkout session that the discount is applied to.
-        - name: coupon_id
-          description: The ID of the coupon applied to create this discount.
-        - name: credit_note_line_item_id
-          description: The ID of the credit note line item associated with this discount.
-        - name: customer_id
-          description: The ID of the customer associated with this discount.
-        - name: end
-          description: If the coupon has a duration of repeating, the date that this discount will end. If the coupon has a duration of once or forever, this attribute will be null.
-        - name: invoice_id
-          description: The invoice that the discount’s coupon was applied to, if it was applied directly to a particular invoice.
-        - name: invoice_item_id
-          description: The invoice item id (or invoice line item id for invoice line items of type=‘subscription’) that the discount’s coupon was applied to, if it was applied directly to a particular invoice item or invoice line item.
-        - name: promotion_code
-          description: The promotion code applied to create this discount.
-        - name: start
-          description: The date that the coupon was applied.
-        - name: subscription_id
-          description: The subscription that this coupon is applied to, if it is applied to a particular subscription.
+      - name: discount
+        identifier: "{{ var('stripe_discount_identifier', 'discount') }}"
+        description: A discount represents the actual application of a coupon or promotion code. It contains information about when the discount began, when it will end, and what it is applied to.
+        freshness: null
+        columns:
+          - name: id
+            description: The ID of the discount object.
+          - name: type
+            description: String representing the object’s type.
+          - name: type_id
+            description: Identifier of the related object type (e.g., coupon ID, promotion code).
+          - name: amount
+            description: The amount of discount applied.
+          - name: checkout_session_id
+            description: The Checkout session that this discount is applied to, if it is applied to a particular session in payment mode.
+          - name: checkout_session_line_item_id
+            description: The ID of the specific line item within the checkout session that the discount is applied to.
+          - name: coupon_id
+            description: The ID of the coupon applied to create this discount.
+          - name: credit_note_line_item_id
+            description: The ID of the credit note line item associated with this discount.
+          - name: customer_id
+            description: The ID of the customer associated with this discount.
+          - name: end
+            description: If the coupon has a duration of repeating, the date that this discount will end. If the coupon has a duration of once or forever, this attribute will be null.
+          - name: invoice_id
+            description: The invoice that the discount’s coupon was applied to, if it was applied directly to a particular invoice.
+          - name: invoice_item_id
+            description: The invoice item id (or invoice line item id for invoice line items of type=‘subscription’) that the discount’s coupon was applied to, if it was applied directly to a particular invoice item or invoice line item.
+          - name: promotion_code
+            description: The promotion code applied to create this discount.
+          - name: start
+            description: The date that the coupon was applied.
+          - name: subscription_id
+            description: The subscription that this coupon is applied to, if it is applied to a particular subscription.
