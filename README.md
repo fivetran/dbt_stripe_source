@@ -44,8 +44,12 @@ If you  are **not** using the [Stripe transformation package](https://github.com
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
-  - package: fivetran/stripe_source
-    version: [">=0.11.0", "<0.12.0"]
+  - git: https://github.com/fivetran/dbt_stripe_source.git
+    revision: feature/standardized-billing-line-item-model
+    warn-unpinned: false
+  ## Will be used once live on the dbt hub
+  # - package: fivetran/stripe_source
+  #   version: [">=0.12.0", "<0.13.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:

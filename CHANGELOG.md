@@ -1,3 +1,10 @@
+# dbt_stripe_source v0.12.0
+
+## Feature Updates
+- Addition of the following new staging models and accompanying upstream references:
+  - `stg_stripe__discount`
+  - `stg_stripe__product` (enabled by default, but can be disabled by setting the `stripe__using_subscriptions` variable to `false`)
+
 # dbt_stripe_source v0.11.1
 [PR [#74](https://github.com/fivetran/dbt_stripe_source/pull/74)] includes the following updates:
 
