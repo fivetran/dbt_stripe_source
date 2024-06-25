@@ -64,8 +64,8 @@ final as (
             {%- do unique_metadata_list.append(field.alias|lower if field.alias else field.name|lower) %}
         {% endfor -%}
 
-        {%- if var('customer360_internal_match_ids') %}
-            {%- for match_set in var('customer360_internal_match_ids') %}
+        {%- if var('customer360_internal_match_ids', []) != [] %}
+            {%- for match_set in var('customer360_internal_match_ids', []) %}
                 {%- if match_set.stripe %}
                     {%- if match_set.stripe.map_table %}
                         {%- if match_set.stripe.join_with_map_on|lower not in unique_metadata_list -%}

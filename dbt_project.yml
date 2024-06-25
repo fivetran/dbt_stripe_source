@@ -32,3 +32,4 @@ vars:
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
     transfer: "{{ source('stripe', 'transfer') }}"
+    customer360_internal_match_ids: []
