@@ -44,12 +44,8 @@ If you  are **not** using the [Stripe transformation package](https://github.com
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
-  - git: https://github.com/fivetran/dbt_stripe_source.git
-    revision: feature/standardized-billing-line-item-model
-    warn-unpinned: false
-  ## Will be used once live on the dbt hub
-  # - package: fivetran/stripe_source
-  #   version: [">=0.12.0", "<0.13.0"]
+  - package: fivetran/stripe_source
+    version: [">=0.12.0", "<0.13.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -60,7 +56,7 @@ vars:
     stripe_schema: your_schema_name 
 ```
 ## Step 4: Disable models for non-existent sources
-This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, `price`, `subscription`, or `credit_note` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true` with the exception of `credit_note`. Add variables for only the tables you want to disable or enable respectively:
+This package takes into consideration that not every Stripe account utilizes the `invoice`, `invoice_line_item`, `payment_method`, `payment_method_card`, `plan`, `price`, `subscription`, `product`, or `credit_note` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true` with the exception of `credit_note`. Add variables for only the tables you want to disable or enable respectively:
 
 ```yml
 # dbt_project.yml
@@ -69,7 +65,7 @@ This package takes into consideration that not every Stripe account utilizes the
 vars:
     stripe__using_invoices:        False  #Disable if you are not using the invoice and invoice_line_item tables
     stripe__using_payment_method:  False  #Disable if you are not using the payment_method and payment_method_card tables
-    stripe__using_subscriptions:   False  #Disable if you are not using the subscription and plan/price tables.
+    stripe__using_subscriptions:   False  #Disable if you are not using the subscription, product, and plan/price tables.
     stripe__using_credit_notes:    True   #Enable if you are using the credit note tables.
 
 ```
