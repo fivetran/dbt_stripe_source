@@ -1,5 +1,7 @@
 # dbt_stripe_source v0.12.0
 
+[PR [#77](https://github.com/fivetran/dbt_stripe_source/pull/77)] includes the following updates:
+
 ## Feature Updates
 - Addition of the following new staging models and accompanying upstream references:
   - `stg_stripe__discount` (required for downstream `dbt_stripe` model transformations)
