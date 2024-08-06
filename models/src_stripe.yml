@@ -6,6 +6,8 @@ sources:
 
     loader: fivetran
     loaded_at_field: _fivetran_synced
+    config:
+      enabled: "{{ var('customer360__using_stripe', true) }}"
 
     freshness:
       warn_after: { count: 72, period: hour }
@@ -43,7 +45,7 @@ sources:
           - name: status
             description: If the transaction’s net funds are available in the Stripe balance yet. Either 'available' or 'pending'.
           - name: type
-            description: The type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
+            description: The type of transaction. Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
 
       - name: card
         identifier: "{{ var('stripe_card_identifier', 'card')}}"
@@ -72,7 +74,7 @@ sources:
           - name: created
             description: '{{ doc("created") }}'
           - name: customer_id
-            description: The customer that this card belongs to.  NULL if belongs to an account or recipient.
+            description: The customer that this card belongs to. NULL if belongs to an account or recipient.
           - name: name
             description: Cardholder name
           - name: recipient
@@ -475,7 +477,7 @@ sources:
           - name: source_type
             description: The source balance this payout came from. One of card, fpx, or bank_account.
           - name: status
-            description: Current status of the payout.  Can be paid, pending, in_transit, canceled or failed.
+            description: Current status of the payout. Can be paid, pending, in_transit, canceled or failed.
           - name: type
             description: Can be bank_account or card.
           - name: livemode
@@ -599,7 +601,7 @@ sources:
           - name: tax_percent
             description: The percent used to calculate the tax amount.
           - name: total 
-            description: Total after discounts and taxes.  
+            description: Total after discounts and taxes.
           - name: livemode
             description: Indicates if this is a test invoice.
           - name: period_start

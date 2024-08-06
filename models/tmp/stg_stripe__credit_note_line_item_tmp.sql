@@ -1,4 +1,4 @@
-{{ config(enabled=var('stripe__using_credit_notes', False)) }}
+{{ config(enabled=var('stripe__using_credit_notes', False) and var('customer360__using_stripe', true)) }}
 
 {{
     fivetran_utils.union_data(

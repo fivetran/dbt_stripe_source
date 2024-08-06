@@ -38,7 +38,7 @@ models:
       - name: status
         description: If the transaction’s net funds are available in the Stripe balance yet. Either 'available' or 'pending'.
       - name: type
-        description: The type of transaction.  Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
+        description: The type of transaction. Possible values are adjustment, advance, advance_funding, application_fee, application_fee_refund, charge, connect_collection_transfer, issuing_authorization_hold, issuing_authorization_release, issuing_dispute, issuing_transaction, payment, payment_failure_refund, payment_refund, payout, payout_cancel, payout_failure, refund, refund_failure, reserve_transaction, reserved_funds, stripe_fee, stripe_fx_fee, tax_fee, topup, topup_reversal, transfer, transfer_cancel, transfer_failure, or transfer_refund.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
 
@@ -75,7 +75,7 @@ models:
       - name: created_at
         description: Timestamp of when the entry for the card was created
       - name: customer_id
-        description: The customer that this card belongs to.  NULL if belongs to an account or recipient.
+        description: The customer that this card belongs to. NULL if belongs to an account or recipient.
       - name: card_name
         description: Cardholder name
       - name: recipient
@@ -435,7 +435,7 @@ models:
       - name: source_type
         description: The source balance this payout came from. One of card, fpx, or bank_account.
       - name: status
-        description: Current status of the payout.  Can be paid, pending, in_transit, canceled or failed.
+        description: Current status of the payout. Can be paid, pending, in_transit, canceled or failed.
       - name: type
         description: Can be bank_account or card.
       - name: source_relation

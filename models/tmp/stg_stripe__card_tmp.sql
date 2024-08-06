@@ -1,3 +1,5 @@
+{{ config(enabled=var('customer360__using_stripe', true)) }}
+
 {{
     fivetran_utils.union_data(
         table_identifier='card', 

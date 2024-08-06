@@ -1,4 +1,4 @@
-{{ config(enabled=var('stripe__using_subscriptions', True)) }}
+{{ config(enabled=var('stripe__using_subscriptions', True) and var('customer360__using_stripe', true)) }}
 
 with price_plan as (
 

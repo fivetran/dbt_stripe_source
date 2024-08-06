@@ -1,4 +1,4 @@
-{{ config(enabled=var('stripe__using_payment_method', True)) }}
+{{ config(enabled=var('stripe__using_payment_method', True) and var('customer360__using_stripe', true)) }}
 
 with base as (
 

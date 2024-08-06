@@ -1,4 +1,4 @@
-{{ config(enabled=var('stripe__using_invoices', True)) }}
+{{ config(enabled=var('stripe__using_invoices', True) and var('customer360__using_stripe', true)) }}
 
 {{
     fivetran_utils.union_data(
