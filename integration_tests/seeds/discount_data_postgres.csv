@@ -1,4 +1,4 @@
-id,type,type_id,_fivetran_synced,amount,checkout_session_id,checkout_session_line_item_id,coupon_id,credit_note_line_item_id,customer_id,"end",invoice_id,invoice_item_id,promotion_code,"start",subscription_id
+id,type,type_id,_fivetran_synced,amount,checkout_session_id,checkout_session_line_item_id,coupon_id,credit_note_line_item_id,customer_id,"""end""",invoice_id,invoice_item_id,promotion_code,"""start""",subscription_id
 one1,,cus_twelve,,1,,,2022-09-19 05:50:07.000000,sub_nine,cus_MSXtGSAxxtYWe1,"2022-09-27 05:50:07.000000",in_1OvvZQDZlKRVG8GnByl08x0P,,,"2022-09-19 05:50:07.000000",sub_1LjcrrDZlKRVG8Gnv1Bjosun
 2wo,,cus_twelve,,2,,,2022-09-19 05:50:07.000000,sub_nine,cus_MSXtGSAxxtYWe1,"2022-09-22 05:50:07.000000",in_1OlPk3DZlKRVG8GnkWTFA0go,,,"2022-09-19 05:50:07.000000",sub_1LjcrrDZlKRVG8Gnv1Bjosun
 3hree,,cus_twelve,,3,,,2022-09-19 05:50:07.000000,sub_nine,cus_MSXtGSAxxtYWe1,"2022-09-27 05:50:07.000000",in_1OaAyXDZlKRVG8GnQo19CbEo,,,"2022-09-19 05:50:07.000000",sub_1LjcrrDZlKRVG8Gnv1Bjosun
