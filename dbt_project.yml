@@ -1,6 +1,6 @@
 config-version: 2
 name: 'stripe_source'
-version: '0.11.1'
+version: '0.12.0'
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 
 models:
@@ -18,6 +18,7 @@ vars:
     credit_note: "{{ source('stripe', 'credit_note') }}"
     credit_note_line_item: "{{ source('stripe', 'credit_note_line_item') }}"
     customer: "{{ source('stripe', 'customer') }}"
+    discount: "{{ source('stripe', 'discount') }}"
     dispute: "{{ source('stripe', 'dispute') }}"
     fee: "{{ source('stripe', 'fee') }}"
     invoice: "{{ source('stripe', 'invoice') }}"
@@ -28,6 +29,7 @@ vars:
     payout: "{{ source('stripe', 'payout') }}"
     plan: "{{ source('stripe', 'plan') }}"
     price: "{{ source('stripe', 'price') }}"
+    product: "{{ source('stripe', 'product') }}"
     refund: "{{ source('stripe', 'refund') }}"
     subscription_history: "{{ source('stripe', 'subscription_history') }}"
     subscription: "{{ source('stripe', 'subscription') }}"
