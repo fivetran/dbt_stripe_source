@@ -40,6 +40,15 @@ final as (
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         customer_id,
         name as card_name,
+        {%- if var('stripe__card_using_description', false) %}
+        description,
+        {%- endif %}
+        {%- if var('stripe__card_using_iin', false) %}
+        iin,
+        {%- endif %}
+        {%- if var('stripe__card_using_issuer', false) %}
+        issuer,
+        {%- endif %}
         recipient,
         funding,
         source_relation

@@ -195,7 +195,18 @@ If an individual source table has a different name than the package expects, add
 vars:
     stripe_<default_source_table_name>_identifier: your_table_name 
 ```
-    
+
+#### Enable columns that are not available in standard Stripe API requests
+The columns `description`, `iin` and `issuer` are not available by default in the card table ([see Fivetran docs](https://fivetran.com/docs/connectors/applications/stripe#schemanotes)). 
+To add these columns to the `stg_stripe__card` table, set the corresponding below variables to `true`.
+
+```yml
+vars:
+    stripe__card_using_description: true
+    stripe__card_using_iin: true
+    stripe__card_using_issuer: true
+```
+
 </details>
 
 ### (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™

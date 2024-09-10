@@ -34,6 +34,18 @@
     {"name": "wallet_type", "datatype": dbt.type_string()},
 ] %}
 
+{%- if var('stripe__card_using_description', false) %}
+{{ columns.append({"name": "description", "datatype": dbt.type_string()}) }}
+{%- endif %}
+
+{%- if var('stripe__card_using_iin', false) %}
+{{ columns.append({"name": "iin", "datatype": dbt.type_string()}) }}
+{%- endif %}
+
+{%- if var('stripe__card_using_issuer', false) %}
+{{ columns.append({"name": "issuer", "datatype": dbt.type_string()}) }}
+{%- endif %}
+
 {{ return(columns) }}
 
 {% endmacro %}
