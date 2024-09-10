@@ -40,7 +40,8 @@ final as (
         source,
         status,
         type,
-        source_relation
+        source_relation,
+        payout_id
     from fields
 )
 
