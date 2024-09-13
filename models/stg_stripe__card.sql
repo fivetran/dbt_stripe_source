@@ -40,15 +40,6 @@ final as (
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         customer_id,
         name as card_name,
-        {%- if var('stripe__card_using_description', false) %}
-        description,
-        {%- endif %}
-        {%- if var('stripe__card_using_iin', false) %}
-        iin,
-        {%- endif %}
-        {%- if var('stripe__card_using_issuer', false) %}
-        issuer,
-        {%- endif %}
         recipient,
         funding,
         source_relation
@@ -56,6 +47,8 @@ final as (
         {% if var('stripe__card_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__card_metadata')) }}
         {% endif %}
+
+        {{ fivetran_utils.fill_pass_through_columns('card_pass_through_columns') }}
 
     from fields
 )
