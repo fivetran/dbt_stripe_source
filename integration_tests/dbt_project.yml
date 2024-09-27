@@ -1,14 +1,25 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.12.0'
+version: '0.12.1'
 
 
 profile: 'integration_tests'
 
 vars:
   stripe_schema: stripe_source_integrations_tests_6
+  
   stripe_source:
+    card_pass_through_columns:
+      - name: "description"
+      - name: iin
+        transform_sql: cast(iin as string)
+      - name: exp_year
+        alias: exp_year_alias
+        transform_sql: exp_year_alias * 2.0
+      - name: fingerprint
+      - name: metadata
+
     stripe_account_identifier:                "account_data"
     stripe_group_identifier:                  "group_data"
     stripe_balance_transaction_identifier:    "balance_transaction_data"
