@@ -12,7 +12,7 @@ vars:
 ```
 
 ## Under the Hood
-- Removed un-used columns from the `get_card_columns()` [macro](https://github.com/fivetran/dbt_stripe_source/blob/main/macros/get_card_columns.sql) and aliased the `metadata` field, which is parsed but not wholly included in `stg_stripe__card` by default.
+- Removed un-used columns from the `get_card_columns()` [macro](https://github.com/fivetran/dbt_stripe_source/blob/main/macros/get_card_columns.sql) and aliased the `metadata` field, which is parsed but not wholly included in `stg_stripe__card` by default ([PR #83](https://github.com/fivetran/dbt_stripe_source/pull/83)).
   - This ensures users can utilize the new `card_pass_through_columns` variable to include these fields in `stg_stripe__card`.
 
 ## Contributors

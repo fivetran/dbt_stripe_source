@@ -13,7 +13,6 @@ vars:
     card_pass_through_columns:
       - name: "description"
       - name: iin
-        transform_sql: cast(iin as string)
       - name: exp_year
         alias: exp_year_alias
         transform_sql: exp_year_alias * 2.0
