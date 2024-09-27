@@ -191,6 +191,7 @@ vars:
       - name: "iin"
       - name: "issuer"
         alias: "card_issuer"  # optional: define an alias for the column 
+        transform_sql: "cast(card_issuer as string)" # optional: apply transformation to column. must reference the alias if provided
 ```
 
 #### Change the build schema
