@@ -48,6 +48,8 @@ final as (
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__card_metadata')) }}
         {% endif %}
 
+        {{ fivetran_utils.fill_pass_through_columns('card_pass_through_columns') }}
+
     from fields
 )
 

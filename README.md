@@ -178,6 +178,22 @@ vars:
     stripe__subscription_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
 ```
 
+#### Passing Through Additional Fields
+This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
+
+```yml
+# dbt_project.yml
+
+vars:
+  stripe_source:
+    card_pass_through_columns:
+      - name: "description"
+      - name: "iin"
+      - name: "issuer"
+        alias: "card_issuer"  # optional: define an alias for the column 
+        transform_sql: "cast(card_issuer as string)" # optional: apply transformation to column. must reference the alias if provided
+```
+
 #### Change the build schema
 By default, this package builds the stripe staging models within a schema titled (`<target_schema>` + `_stg_stripe`) in your destination. If this is not where you would like your stripe staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
@@ -195,7 +211,7 @@ If an individual source table has a different name than the package expects, add
 vars:
     stripe_<default_source_table_name>_identifier: your_table_name 
 ```
-    
+
 </details>
 
 ### (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
