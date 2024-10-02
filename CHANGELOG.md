@@ -1,7 +1,7 @@
 # dbt_stripe_source v0.12.1
 
 ## Feature Updates
-- Declaration of passthrough variables for the `stg_stripe__card` model. This can, for example, be used to pull in non-standard columns from Stripe such as `description`, `iin` and `issuer`. See the [README](https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#passing-through-additional-fields) for more details ([PR #81](https://github.com/fivetran/dbt_stripe_source/pull/81)).
+- Declaration of passthrough variables for the `stg_stripe__card` model. This can, for example, be used to pull in non-standard columns from Stripe such as `description`, `iin` and `issuer`. See the [README](https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#passing-through-additional-fields) for more details.
 ```yml
 # dbt_project.yml
 
