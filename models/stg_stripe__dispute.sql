@@ -68,6 +68,7 @@ final as (
         metadata as dispute_metadata,
         reason as dispute_reason,
         status as dispute_status,
+        livemode,
         source_relation
         
         {% if var('stripe__dispute_metadata',[]) %}

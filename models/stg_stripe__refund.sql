@@ -38,6 +38,9 @@ final as (
         reason,
         receipt_number,
         status,
+        connected_account_id,
+        failure_balance_transaction_id,
+        failure_reason,
         source_relation
 
         {% if var('stripe__refund_metadata',[]) %}
