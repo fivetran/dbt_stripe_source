@@ -1,3 +1,5 @@
+# dbt_stripe_source v0.12.2
+
 # dbt_stripe_source v0.12.1
 
 ## Feature Updates

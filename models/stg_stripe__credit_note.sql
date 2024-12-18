@@ -29,12 +29,12 @@ final as (
     
     select 
         id as credit_note_id,
-        amount as credit_note_amount,
+        amount/100.0 as credit_note_amount,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency as credit_note_currency,
-        discount_amount as credit_note_discount_amount,
-        subtotal as credit_note_subtotal,
-        total as credit_note_total,
+        discount_amount/100.0 as credit_note_discount_amount,
+        subtotal/100.0 as credit_note_subtotal,
+        total/100.0 as credit_note_total,
         memo,
         metadata,
         number as credit_note_number,

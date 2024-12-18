@@ -27,15 +27,15 @@ final as (
     
     select 
         id as balance_transaction_id,
-        amount,
+        amount/100.0 as amount,
         cast(available_on as {{ dbt.type_timestamp() }}) as available_on,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         connected_account_id,
         currency,
         description,
         exchange_rate,
-        fee,
-        net,
+        fee/100.0 as fee,
+        net/100.0 as net,
         reporting_category,
         source,
         status,

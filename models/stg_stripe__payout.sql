@@ -27,7 +27,7 @@ final as (
     
     select 
         id as payout_id,
-        amount,
+        amount/100.0 as amount,
         cast(arrival_date as {{ dbt.type_timestamp() }}) as arrival_date_at,
         automatic as is_automatic,
         balance_transaction_id,

@@ -29,7 +29,7 @@ final as (
     select 
         id as price_plan_id,
         is_active,
-        unit_amount,
+        unit_amount/100.0 as unit_amount,
         currency,
         recurring_interval,
         recurring_interval_count,

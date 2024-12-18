@@ -30,7 +30,7 @@ final as (
         payment_intent_id,
         balance_transaction_id,
         charge_id,
-        amount,
+        amount/100.0 as amount,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,

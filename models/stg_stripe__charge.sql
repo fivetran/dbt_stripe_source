@@ -28,9 +28,9 @@ final as (
 
     select 
         id as charge_id, 
-        amount,
-        amount_refunded,
-        application_fee_amount,
+        amount/100.0 as amount,
+        amount_refunded/100.0 as amount_refunded,
+        application_fee_amount/100.0 as application_fee_amount,
         balance_transaction_id,
         captured as is_captured,
         card_id,

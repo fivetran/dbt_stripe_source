@@ -27,11 +27,11 @@ final as (
     
     select 
         id as payment_intent_id,
-        amount,
-        amount_capturable,
-        amount_received,
+        amount/100.0 as amount,
+        amount_capturable/100.0 as amount_capturable,
+        amount_received/100.0 as amount_received,
         application,
-        application_fee_amount,
+        application_fee_amount/100.0 as application_fee_amount,
         cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cancellation_reason,
         capture_method,

@@ -28,7 +28,7 @@ final as (
     select 
         balance_transaction_id,
         index,
-        amount,
+        amount/100.0 as amount,
         application,
         currency,
         description,

@@ -30,7 +30,7 @@ final as (
         id as invoice_line_item_id,
         invoice_id,
         invoice_item_id,
-        amount,
+        amount/100.0 as amount,
         currency,
         description,
         discountable as is_discountable,
