@@ -101,7 +101,7 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Amount intended to be collected by this payment. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 currency units to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
+        description: Amount intended to be collected by this payment. A positive integer representing how much to charge in the major currency unit (e.g., 1 equals a charge of $1.00 or a charge ¥100, a zero-decimal currency)
       - name: amount_refunded
         description: The amount of the charge, if any, that has been refunded.
       - name: application_fee_amount
@@ -304,7 +304,7 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 currency units to charge $1.00 or 100 to charge ¥100, a zero-decimal currency)
+        description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the major currency unit (e.g., 1 equals a charge of $1.00 or a charge of ¥100, a zero-decimal currency)
       - name: amount_capturable
         description: Amount that can be captured from this PaymentIntent.
       - name: amount_received
