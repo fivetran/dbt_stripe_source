@@ -28,7 +28,13 @@ final as (
     select 
         balance_transaction_id,
         index,
-        amount/100.0 as amount,
+
+        {% if var('stripe__amount_divide', True) %}
+        amount / 100.0 as amount,
+        {% else %}
+        amount,
+        {% endif %}
+
         application,
         currency,
         description,

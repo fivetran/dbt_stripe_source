@@ -2,7 +2,9 @@
 [PR [#87](https://github.com/fivetran/dbt_stripe_source/pull/87)] includes the following updates:
 
 ## Breaking Change
-- Shifts the conversions from cent to major currency units further upstream. Previously, currency-related fields were converted in downstream models, but now have been converted directly in staging models. Since currency-related fields now have different values, this is a breaking change.
+- This package assumes that amount-based fields, which as raw values are represented in the smallest denomination in Stripe, are cent-based. This PR shifts the existing conversion from cents to dollars to further upstream. Previously, currency-related fields were converted in downstream models, but now have been converted directly in staging models. Since currency-related fields now have different values, this is a breaking change. 
+
+To disable this default conversion, refer to the [README]((https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#disabling-cent-to-dollar-conversion)) on disabling the `stripe__amount_divide` variable.
 
 # dbt_stripe_source v0.12.1
 

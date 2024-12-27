@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -28,9 +27,17 @@ final as (
 
     select 
         id as charge_id, 
-        amount/100.0 as amount,
-        amount_refunded/100.0 as amount_refunded,
-        application_fee_amount/100.0 as application_fee_amount,
+
+        {% if var('stripe__amount_divide', True) %}
+        amount / 100.0 as amount,
+        amount_refunded / 100.0 as amount_refunded,
+        application_fee_amount / 100.0 as application_fee_amount,
+        {% else %}
+        amount,
+        amount_refunded,
+        application_fee_amount,
+        {% endif %}
+
         balance_transaction_id,
         captured as is_captured,
         card_id,

@@ -29,7 +29,13 @@ final as (
     select 
         id as price_plan_id,
         is_active,
-        unit_amount/100.0 as unit_amount,
+
+        {% if var('stripe__amount_divide', True) %}
+        unit_amount / 100.0 as unit_amount,
+        {% else %}
+        unit_amount,
+        {% endif %}
+
         currency,
         recurring_interval,
         recurring_interval_count,

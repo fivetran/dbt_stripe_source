@@ -178,6 +178,15 @@ vars:
     stripe__subscription_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
 ```
 
+#### Disabling Cent to Dollar Conversion
+
+Amount-based fields, such as `amount` and `net`, are typically displayed in the smallest denomination (e.g., cents for USD). By default, these values are automatically converted to dollars by dividing by `100.0`. To disable this conversion and retain the values in their smallest denomination, set the `stripe__amount_divide` variable to `False` as shown below:
+
+```yml
+vars:
+    stripe__amount_divide: False
+```
+
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
 

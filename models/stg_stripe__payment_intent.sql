@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -27,11 +26,20 @@ final as (
     
     select 
         id as payment_intent_id,
-        amount/100.0 as amount,
-        amount_capturable/100.0 as amount_capturable,
-        amount_received/100.0 as amount_received,
+
+        {% if var('stripe__amount_divide', True) %}
+        amount / 100.0 as amount,
+        amount_capturable / 100.0 as amount_capturable,
+        amount_received / 100.0 as amount_received,
+        application_fee_amount / 100.0 as application_fee_amount,
+        {% else %}
+        amount,
+        amount_capturable,
+        amount_received,
+        application_fee_amount,
+        {% endif %}
+
         application,
-        application_fee_amount/100.0 as application_fee_amount,
         cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cancellation_reason,
         capture_method,
