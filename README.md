@@ -1,4 +1,6 @@
-<p align="center">
+# Stripe Source dbt Package ([Docs](https://fivetran.github.io/dbt_stripe_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_stripe_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -13,7 +15,6 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Stripe Source dbt Package ([Docs](https://fivetran.github.io/dbt_stripe_source/))
 ## What does this dbt package do?
 <!--section="stripe_source_model"-->
 - Materializes [Stripe staging tables](https://fivetran.github.io/dbt_stripe_source/#!/overview/stripe_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/stripe/#schemainformation). These staging tables clean, test, and prepare your Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe) for analysis by doing the following:
@@ -180,11 +181,11 @@ vars:
 
 #### Disabling Cent to Dollar Conversion
 
-Amount-based fields, such as `amount` and `net`, are typically displayed in the smallest denomination (e.g., cents for USD). By default, these values are automatically converted to dollars by dividing by `100.0`. To disable this conversion and retain the values in their smallest denomination, set the `stripe__amount_divide` variable to `False` as shown below:
+Amount-based fields, such as `amount` and `net`, are typically displayed in the smallest denomination (e.g., cents for USD). By default, these values are automatically converted to major units (dollars for USD) by dividing by `100.0`. However, you may want to disable this default conversion if you are working in a currency that does not have minor units, such as JPY or KRW. To disable this conversion and retain the values in their smallest denomination, set the `stripe__convert_values` variable to `False` as shown below.
 
 ```yml
 vars:
-    stripe__amount_divide: False
+    stripe__convert_values: False
 ```
 
 #### Passing Through Additional Fields
