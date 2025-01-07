@@ -23,17 +23,9 @@ fields as (
 final as (
     select 
         id as balance_transaction_id,
-        
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as amount,
-        fee / 100.0 as fee,
-        net / 100.0 as net,
-        {% else %}
-        amount,
-        fee,
-        net,
-        {% endif %}
-        
+        {{ convert_values('amount') }},
+        {{ convert_values('fee') }},
+        {{ convert_values('net') }},
         cast(available_on as {{ dbt.type_timestamp() }}) as available_on,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         connected_account_id,

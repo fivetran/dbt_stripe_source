@@ -28,19 +28,10 @@ fields as (
 final as (
     select 
         id as credit_note_id,
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as credit_note_amount,
-        discount_amount / 100.0 as credit_note_discount_amount,
-        subtotal / 100.0 as credit_note_subtotal,
-        total / 100.0 as credit_note_total,
-        {% else %}
-        amount as credit_note_amount,
-        discount_amount as credit_note_discount_amount,
-        subtotal as credit_note_subtotal,
-        total as credit_note_total,
-        {% endif %}
-
+        {{ convert_values('amount') }},
+        {{ convert_values('discount_amount') }},
+        {{ convert_values('subtotal') }},
+        {{ convert_values('total') }},
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency as credit_note_currency,
         memo,

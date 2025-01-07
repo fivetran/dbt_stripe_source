@@ -27,13 +27,7 @@ final as (
     
     select 
         id as payout_id,
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as amount,
-        {% else %}
-        amount,
-        {% endif %}
-
+        {{ convert_values('amount') }},
         cast(arrival_date as {{ dbt.type_timestamp() }}) as arrival_date_at,
         automatic as is_automatic,
         balance_transaction_id,

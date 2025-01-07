@@ -29,15 +29,8 @@ final as (
     select 
         id as credit_note_line_item_id,
         credit_note_id,
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as credit_note_line_item_amount,
-        discount_amount / 100.0 as credit_note_line_item_discount_amount,
-        {% else %}
-        amount as credit_note_line_item_amount,
-        discount_amount as credit_note_line_item_discount_amount,
-        {% endif %}
-
+        {{ convert_values('amount') }},
+        {{ convert_values('discount_amount') }},
         description as credit_note_line_item_description,
         quantity,
         type as credit_note_line_item_type,

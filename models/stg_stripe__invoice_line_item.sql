@@ -30,13 +30,7 @@ final as (
         id as invoice_line_item_id,
         invoice_id,
         invoice_item_id,
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as amount,
-        {% else %}
-        amount,
-        {% endif %}
-
+        {{ convert_values('amount') }},
         currency,
         description,
         discountable as is_discountable,

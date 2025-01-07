@@ -27,15 +27,8 @@ final as (
     
     select
         id as transfer_id,
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as transfer_amount,
-        amount_reversed / 100.0 as transfer_amount_reversed,
-        {% else %}
-        amount as transfer_amount,
-        amount_reversed as transfer_amount_reversed,
-        {% endif %}
-
+        {{ convert_values('amount') }},
+        {{ convert_values('amount_reversed') }},
         balance_transaction_id,
         cast(created as {{ dbt.type_timestamp() }}) as transfer_created_at,
         currency as transfer_currency,

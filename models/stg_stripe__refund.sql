@@ -30,13 +30,7 @@ final as (
         payment_intent_id,
         balance_transaction_id,
         charge_id,
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as amount,
-        {% else %}
-        amount,
-        {% endif %}
-
+        {{ convert_values('amount') }},
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,

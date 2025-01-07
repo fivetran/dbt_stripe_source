@@ -27,17 +27,9 @@ final as (
 
     select 
         id as charge_id, 
-
-        {% if var('stripe__amount_divide', True) %}
-        amount / 100.0 as amount,
-        amount_refunded / 100.0 as amount_refunded,
-        application_fee_amount / 100.0 as application_fee_amount,
-        {% else %}
-        amount,
-        amount_refunded,
-        application_fee_amount,
-        {% endif %}
-
+        {{ convert_values('amount') }},
+        {{ convert_values('amount_refunded') }},
+        {{ convert_values('application_fee_amount') }},
         balance_transaction_id,
         captured as is_captured,
         card_id,

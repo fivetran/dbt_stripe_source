@@ -29,7 +29,7 @@ final as (
         id as discount_id,
         type,
         type_id,
-        amount,
+        {{ convert_values('amount') }},
         checkout_session_id,
         checkout_session_line_item_id,
         coupon_id,
