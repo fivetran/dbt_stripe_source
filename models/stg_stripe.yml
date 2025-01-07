@@ -14,7 +14,7 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Gross amount of the transaction, in currency units.
+        description: Gross amount of the transaction. "{{ doc('convert_values') }}"
       - name: available_on
         description: The date the transaction’s net funds will become available in the Stripe balance.
       - name: connected_account_id
@@ -28,9 +28,9 @@ models:
       - name: exchange_rate
         description: The exchange rate used, if applicable, for this transaction. Specifically, if money was converted from currency A to currency B, then the amount in currency A, times exchange_rate, would be the amount in currency B.
       - name: fee
-        description: fees (in currency units) paid for this transaction.
+        description: fees (in currency units) paid for this transaction. "{{ doc('convert_values') }}"
       - name: net
-        description: Net amount of the transaction, in currency units.
+        description: Net amount of the transaction. "{{ doc('convert_values') }}"
       - name: reporting_category
         description: Improves on the type field by providing a more-useful grouping for most finance and reporting purposes. 
       - name: source
@@ -101,11 +101,11 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Amount intended to be collected by this payment. A positive integer representing how much to charge in the major currency unit (e.g., 1 equals a charge of $1.00 or a charge ¥100, a zero-decimal currency)
+        description: Amount intended to be collected by this payment. "{{ doc('convert_values') }}"
       - name: amount_refunded
-        description: The amount of the charge, if any, that has been refunded.
+        description: The amount of the charge, if any, that has been refunded. "{{ doc('convert_values') }}"
       - name: application_fee_amount
-        description: The amount of the application fee (if any) for the charge.
+        description: The amount of the application fee (if any) for the charge. "{{ doc('convert_values') }}"
       - name: balance_transaction_id
         description: ID of the balance transaction that describes the impact of this charge on your account balance (not including refunds or disputes).
       - name: is_captured
@@ -279,7 +279,7 @@ models:
       - name: index
         description: The index of the fee within the balance transaction
       - name: amount
-        description: Amount of the fee, in currency units.
+        description: Amount of the fee. "{{ doc('convert_values') }}"
       - name: application
         description: ID of the Connect application that earned the fee.
       - name: currency
@@ -304,15 +304,15 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the major currency unit (e.g., 1 equals a charge of $1.00 or a charge of ¥100, a zero-decimal currency)
+        description: Amount intended to be collected by this PaymentIntent. A positive integer representing how much to charge in the major currency unit. "{{ doc('convert_values') }}"
       - name: amount_capturable
-        description: Amount that can be captured from this PaymentIntent.
+        description: Amount that can be captured from this PaymentIntent. "{{ doc('convert_values') }}"
       - name: amount_received
-        description: Amount that was collected by this PaymentIntent.
+        description: Amount that was collected by this PaymentIntent. "{{ doc('convert_values') }}"
       - name: application
         description: ID of the Connect application that created the PaymentIntent.
       - name: application_fee_amount
-        description: The amount of the application fee (if any) for the resulting payment.
+        description: The amount of the application fee (if any) for the resulting payment. "{{ doc('convert_values') }}"
       - name: canceled_at
         description: Populated when status is canceled, this is the time at which the PaymentIntent was canceled.
       - name: cancellation_reason
@@ -411,7 +411,7 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Amount (in currency units) to be transferred to your bank account or debit card.
+        description: Amount (in currency units) to be transferred to your bank account or debit card. "{{ doc('convert_values') }}"
       - name: arrival_date_at
         description: Date the payout is expected to arrive in the bank. This factors in delays like weekends or bank holidays.
       - name: is_automatic
@@ -454,7 +454,7 @@ models:
         tests:
           - not_null
       - name: amount
-        description: Amount, in currency units.
+        description: Amount. "{{ doc('convert_values') }}"
       - name: balance_transaction_id
         description: ID for the balance transaction that describes the impact on your account balance.
       - name: charge_id
@@ -498,7 +498,7 @@ models:
       - name: price_id
         description: ID of the price object this item pertains to
       - name: amount
-        description: The amount, in currency units.
+        description: The amount. "{{ doc('convert_values') }}"
       - name: currency
         description: Three-letter ISO currency code, in lowercase.
       - name: description
@@ -539,11 +539,11 @@ models:
         tests:
           - not_null
       - name: amount_due
-        description: Final amount due at this time for this invoice. If the invoice’s total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the amount_due may be 0. If there is a positive starting_balance for the invoice (the customer owes money), the amount_due will also take that into account. The charge that gets generated for the invoice will be for the amount specified in amount_due.
+        description: Final amount due at this time for this invoice. If the invoice’s total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the amount_due may be 0. If there is a positive starting_balance for the invoice (the customer owes money), the amount_due will also take that into account. The charge that gets generated for the invoice will be for the amount specified in amount_due. "{{ doc('convert_values') }}"
       - name: amount_paid
-        description: The amount, in currency units, that was paid.
+        description: The amount, that was paid. "{{ doc('convert_values') }}"
       - name: amount_remaining
-        description: The amount remaining, in currency units, that is due.
+        description: The amount remaining, that is due. "{{ doc('convert_values') }}"
       - name: attempt_count
         description: Number of payment attempts made for this invoice, from the perspective of the payment retry schedule.
       - name: auto_advance
@@ -577,11 +577,11 @@ models:
       - name: subtotal
         description: Total of all subscriptions, invoice items, and prorations on the invoice before any discount or tax is applied.
       - name: tax
-        description: The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice.
+        description: The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice. "{{ doc('convert_values') }}"
       - name: tax_percent
         description: The percent used to calculate the tax amount.
       - name: total
-        description: Total after discounts and taxes.
+        description: Total after discounts and taxes. "{{ doc('convert_values') }}"
       - name: period_start
         description: Start of the usage period during for which the invoice was created.
       - name: period_end
@@ -593,9 +593,9 @@ models:
       - name: subscription_id
         description: The ID of the subscription that the invoice pertains to,.
       - name: post_payment_credit_notes_amount
-        description: Total amount of all post-payment credit notes issued for this invoice.
+        description: Total amount of all post-payment credit notes issued for this invoice. "{{ doc('convert_values') }}"
       - name: pre_payment_credit_notes_amount
-        description: Total amount of all pre-payment credit notes issued for this invoice.
+        description: Total amount of all pre-payment credit notes issued for this invoice. "{{ doc('convert_values') }}"
       - name: status_transitions_finalized_at
         description: The time that the invoice draft was finalized.
       - name: status_transitions_marked_uncollectible_at
@@ -676,7 +676,7 @@ models:
       - name: is_active
         description: Whether the plan can be used for new purchases.
       - name: unit_amount
-        description: The unit amount in currency units to be charged, represented as a whole integer if possible. In the Plan source table as Amount.
+        description: The unit amount in currency units to be charged, represented as a whole integer if possible. In the Plan source table as Amount.  "{{ doc('convert_values') }}"
       - name: currency
         description: Three-letter ISO currency code, in lowercase.
       - name: recurring_interval
@@ -717,17 +717,17 @@ models:
         tests:
             - not_null
       - name: credit_note_amount 
-        description: The integer amount in currency units representing the total amount of the credit note, including tax.
+        description: The integer amount in currency units representing the total amount of the credit note, including tax.  "{{ doc('convert_values') }}"
       - name: created_at
         description: Timestamp of the when the credit_note was created.
       - name: credit_note_currency
         description: The currency of the charge. Three-letter ISO currency code, in lowercase. 
       - name: credit_note_discount_amount
-        description: The integer amount in currency units representing the total amount of discount that was credited.
+        description: The integer amount in currency units representing the total amount of discount that was credited. "{{ doc('convert_values') }}"
       - name: credit_note_subtotal 
-        description: The integer amount in currency units representing the amount of the credit note, excluding tax and invoice level discounts.
+        description: The integer amount in currency units representing the amount of the credit note, excluding tax and invoice level discounts. "{{ doc('convert_values') }}"
       - name: credit_note_total 
-        description: The integer amount in currency units representing the total amount of the credit note, including tax and all discount.
+        description: The integer amount in currency units representing the total amount of the credit note, including tax and all discount. "{{ doc('convert_values') }}"
       - name: livemode 
         description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
       - name: memo 
@@ -770,9 +770,9 @@ models:
       - name: credit_note_id 
         description: The ID of the credit note this item is a part of.
       - name: credit_note_line_item_amount 
-        description: The integer amount in currency units representing the gross amount being credited for this line item, excluding (exclusive) tax and discounts.
+        description: The integer amount in currency units representing the gross amount being credited for this line item, excluding (exclusive) tax and discounts. "{{ doc('convert_values') }}"
       - name: credit_note_line_item_discount_amount 
-        description: The integer amount in currency units representing the discount being credited for this line item.
+        description: The integer amount in currency units representing the discount being credited for this line item. "{{ doc('convert_values') }}"
       - name: credit_note_line_item_description
         description: Description of the item being credited.
       - name: quantity
@@ -780,7 +780,7 @@ models:
       - name: credit_note_line_item_type 
         description: The type of the credit note line item, one of invoice_line_item or custom_line_item. When the type is invoice_line_item there is an additional invoice_line_item property on the resource the value of which is the id of the credited line item on the invoice.
       - name: credit_note_line_item_unit_amount
-        description: The cost of each unit of product being credited.
+        description: The cost of each unit of product being credited. "{{ doc('convert_values') }}"
       - name: livemode 
         description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
       - name: source_relation
@@ -852,7 +852,7 @@ models:
       - name: dispute_id
         description: Unique identifier for the object.
       - name: dispute_amount
-        description: Disputed amount. Usually the amount of the charge, but can differ (usually because of currency fluctuation or because only part of the order is disputed).
+        description: Disputed amount. Usually the amount of the charge, but can differ (usually because of currency fluctuation or because only part of the order is disputed). "{{ doc('convert_values') }}"
       - name: balance_transaction
         description: List of zero, one, or two balance transactions that show funds withdrawn and reinstated to your Stripe account as a result of this dispute.
       - name: charge_id
@@ -947,9 +947,9 @@ models:
       - name: transfer_id
         description: Unique identifier for the object.
       - name: transfer_amount
-        description: Amount in currency units to be transferred.
+        description: Amount in currency units to be transferred. "{{ doc('convert_values') }}"
       - name: transfer_amount_reversed
-        description: Amount in currency units reversed (can be less than the amount attribute on the transfer if a partial reversal was issued).
+        description: Amount in currency units reversed (can be less than the amount attribute on the transfer if a partial reversal was issued). "{{ doc('convert_values') }}"
       - name: balance_transaction_id
         description: Balance transaction that describes the impact of this transfer on your account balance.
       - name: transfer_created_at
@@ -1041,7 +1041,7 @@ models:
       - name: type_id
         description: Identifier of the related object type (e.g., coupon ID, promotion code).
       - name: amount
-        description: The amount of discount applied.
+        description: The amount of discount applied. "{{ doc('convert_values') }}"
       - name: checkout_session_id
         description: The Checkout session that this discount is applied to, if it is applied to a particular session in payment mode.
       - name: checkout_session_line_item_id

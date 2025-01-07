@@ -37,3 +37,7 @@ ZIP or postal code.
 {% docs state -%}
 State, county, province, or region.
 {%- enddocs %}
+
+{% docs convert_values -%}
+By default, this value is divided by 100 to get the major currency unit. This works for scenarios in which the currency has a minor unit, which is displayed in the raw data, and major unit. For example, if in USD, if the raw value is 100, this represents 100 cents which then gets converted to $1 dollar, the major currency unit. If your currency does not contain minor units (for example the Japanese Yen ¥ which does not use decimals), then you should disable the variable `stripe__convert_values` to turn off the division by 100 (so that the raw value of 100 remains ¥100).
+{%- enddocs %}
