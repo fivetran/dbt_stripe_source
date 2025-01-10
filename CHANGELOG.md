@@ -1,3 +1,8 @@
+# dbt_stripe_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#88](https://github.com/fivetran/dbt_stripe_source/pull/88))
+
 # dbt_stripe_source v0.12.1
 
 ## Feature Updates
