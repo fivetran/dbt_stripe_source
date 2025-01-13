@@ -1,15 +1,22 @@
 # dbt_stripe_source v0.13.0
 [PR [#87](https://github.com/fivetran/dbt_stripe_source/pull/87)] includes the following updates:
 
-## Breaking Change
-- This package assumes that amount-based fields, such as `amount`, `net`, and `fee`, which in raw form are represented in the smallest denomination in Stripe, are cent-based (minor units). Therefore, for example, an amount of 100 cents would be equal to 1 dollar (major unit).
+## Feature Updates
+- Stripe passes amount-based fields, such as `amount`, `net`, and `fee`, in the smallest denomination as raw form. This means, if your currency has minor and major units such as USD, 100 represents 100 cents, the minor unit, or 1 USD, the major unit. Alternatively, if your currency doesn't use minor units such as JPY, 100 represents 100 JPY. 
 
-- This PR shifts the existing conversion from cents to dollars to further upstream. Previously, amount-based fields were automatically converted in downstream models, but they are now converted directly in the staging models, with an option to disable this behavior. As the values of amount-based fields have changed, this introduces a breaking change.
+- This PR introduces a variable `stripe__convert_values` (disabled by default) which allows users the option to divide all amount-based fields by 100.
+  - For information on how to enable the division, refer to the [README]((https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#enabling-cent-to-dollar-conversion)) on configuring the `stripe__convert_values` variable.
+  - Otherwise, amount-based fields will be brought through in their raw form.
+  - Examples of currencies using minor units (in which enabling `stripe__convert_values` is relevant) include USD, Euro, and CAD.
+  - Examples of currencies NOT using minor units (in which is makes more sense to keep the amount-based fields in raw form) include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
 
-- If your Stripe data is *not* using a currency involving minor units, you may want to disable this default conversion in order to retain the amount-based fields as raw form. For information on how to do so, refer to the [README]((https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#disabling-cent-to-dollar-conversion)) on disabling the `stripe__convert_values` variable.
-  - Examples of currencies using minor units include USD, Euro, and CAD.
-  - Examples of currencies NOT using minor units include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
+## Under the Hood
+  - Introduces the `convert_values` macro that holds the logic for enabling the division by 100, referenced by all amount-based fields.
+  - Updates the `run_models.sh` script to test for when `stripe__convert_values` is set to True.
+  - Updates the descriptions for all amount-based fields to specify the grain of the values and add information about the `stripe__convert_values` variable.
 
+## Notes
+- Note that in a future release, the division by 100 will be enabled by default instead.
 - Currently this package does not support multiple currencies, but we have created a [feature flag to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
 
 # dbt_stripe_source v0.12.1

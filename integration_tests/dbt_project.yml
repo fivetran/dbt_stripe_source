@@ -8,7 +8,7 @@ profile: 'integration_tests'
 
 vars:
   stripe_schema: stripe_source_integrations_tests_6
-  
+
   stripe_source:
     card_pass_through_columns:
       - name: "description"
