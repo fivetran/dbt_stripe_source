@@ -11,15 +11,15 @@
   - Examples of currencies NOT using minor units (in which is makes more sense to keep the amount-based fields in raw form) include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
 
 ## Under the Hood
-  - Introduces the `convert_values` macro that holds the logic for enabling the division by 100, referenced by all amount-based fields.
-  - Updates the `run_models.sh` script to test for when `stripe__convert_values` is set to True.
-  - Updates the descriptions for all amount-based fields to specify the grain of the values and add information about the `stripe__convert_values` variable.
+- Introduces the `convert_values` macro that holds the logic for enabling the division by 100, referenced by all amount-based fields.
+- Updates the `run_models.sh` script to test for when `stripe__convert_values` is set to True.
 
 ## Notes
 - Note that in a future release, the division by 100 will be enabled by default instead.
 - Currently this package does not support multiple currencies, but we have created a [feature flag to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
 
 ## Documentation
+- Updates the descriptions for all amount-based fields to specify the grain of the values and add information about the `stripe__convert_values` variable.
 - Corrected references to connectors and connections in the README. ([#88](https://github.com/fivetran/dbt_stripe_source/pull/88))
 
 # dbt_stripe_source v0.12.1
