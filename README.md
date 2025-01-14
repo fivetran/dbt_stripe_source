@@ -188,7 +188,7 @@ vars:
     stripe__convert_values: true  # default is false 
 ```
 
-If you are working in a currency that does not have minor units, such as JPY or KRW, it may make more sense to keep the amount-based fields in raw form. As `stripe__convert_values` is disabled by default, these fields will not be impacted.
+If you are working in a currency that does not differentiate between minor and major units, such as JPY or KRW, it may make more sense to keep the amount-based fields in raw form and therefore the package can be ran without configuration. As `stripe__convert_values` is disabled by default, these fields will not be impacted.
 
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
