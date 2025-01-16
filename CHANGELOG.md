@@ -8,7 +8,7 @@
   - For information on how to enable the division, refer to the [README]((https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#enabling-cent-to-dollar-conversion)) on configuring the `stripe__convert_values` variable.
   - Otherwise, amount-based fields will be brought through in their raw form.
   - Examples of currencies using minor units (in which enabling `stripe__convert_values` is relevant) include USD, Euro, and CAD.
-  - Examples of currencies NOT using minor units (in which is makes more sense to keep the amount-based fields in raw form) include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
+  - Examples of currencies NOT using minor units (in which it makes more sense to keep the amount-based fields in raw form) include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
 
 ## Under the Hood
 - Introduces the `convert_values` macro that holds the logic for enabling the division by 100, referenced by all amount-based fields.
