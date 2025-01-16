@@ -16,7 +16,7 @@
 
 ## Notes
 - Note that in a future release, the division by 100 will be enabled by default instead.
-- Currently this package does not support multiple currencies, but we have created a [feature flag to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
+- Currently this package does not support multiple currencies, but we have created a [feature request to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
 
 ## Documentation
 - Updates the descriptions for all amount-based fields to specify the grain of the values and add information about the `stripe__convert_values` variable.
