@@ -4,7 +4,7 @@
 ## Feature Updates: Optionally Convert Amounts to Major Units
 - Stripe passes amount-based fields, such as `amount`, `net`, and `fee`, in the smallest denomination as raw form. This means, if your currency has minor and major units such as USD, 100 represents 100 cents, the minor unit, or 1 USD, the major unit. Alternatively, if your currency doesn't use minor units such as JPY, 100 represents 100 JPY. 
 
-- This PR introduces a variable `stripe__convert_values` (disabled by default) which allows users the option to divide all amount-based fields by 100.
+- This PR introduces a variable `stripe__convert_values` (`false` by default) which allows users the option to divide all amount-based fields by 100.
   - For information on how to enable the division, refer to the [README]((https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#enabling-cent-to-dollar-conversion)) on configuring the `stripe__convert_values` variable.
   - Otherwise, amount-based fields will be brought through in their raw form.
   - Examples of currencies using minor units (in which enabling `stripe__convert_values` is relevant) include USD, Euro, and CAD.
