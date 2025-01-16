@@ -15,7 +15,6 @@
 - Updates the `run_models.sh` script to test for when `stripe__convert_values` is set to True.
 
 ## Notes
-- Note that in a future release, the division by 100 will be enabled by default instead.
 - Currently this package does not support multiple currencies, but we have created a [feature request to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
 
 ## Documentation
