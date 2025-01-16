@@ -1,7 +1,7 @@
 # dbt_stripe_source v0.12.2
 [PR [#87](https://github.com/fivetran/dbt_stripe_source/pull/87)] includes the following updates:
 
-## Feature Updates: Optionally convert Amounts to Major Units
+## Feature Updates: Optionally Convert Amounts to Major Units
 - Stripe passes amount-based fields, such as `amount`, `net`, and `fee`, in the smallest denomination as raw form. This means, if your currency has minor and major units such as USD, 100 represents 100 cents, the minor unit, or 1 USD, the major unit. Alternatively, if your currency doesn't use minor units such as JPY, 100 represents 100 JPY. 
 
 - This PR introduces a variable `stripe__convert_values` (disabled by default) which allows users the option to divide all amount-based fields by 100.
