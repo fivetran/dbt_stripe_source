@@ -7,7 +7,7 @@ Stripe passes amount-based fields, such as `amount`, `net`, and `fee`, in the sm
 - This PR introduces a variable `stripe__convert_values` (`false` by default) which allows users the option to divide all amount-based fields by 100.
   - For information on how to enable the division, refer to the [README]((https://github.com/fivetran/dbt_stripe_source?tab=readme-ov-file#enabling-cent-to-dollar-conversion)) on configuring the `stripe__convert_values` variable.
   - Otherwise, amount-based fields will be brought through in their raw form.
-  - Examples of currencies using minor units (in which enabling `stripe__convert_values` is relevant) include USD, Euro, and CAD.
+  - Examples of currencies using minor units (in which enabling `stripe__convert_values` is relevant) include United States Dollar (USD), Euro (EUR), and the Canadian Dollar (CAD).
   - Examples of currencies NOT using minor units (in which it makes more sense to keep the amount-based fields in raw form) include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
 
 ## Under the Hood
