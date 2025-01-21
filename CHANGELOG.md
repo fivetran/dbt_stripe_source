@@ -15,7 +15,7 @@ Stripe passes amount-based fields, such as `amount`, `net`, and `fee`, in the sm
 - Updates the `run_models.sh` script to test for when `stripe__convert_values` is set to True.
 
 ## Notes
-- Currently this package does not support multiple currencies, but we have created a [feature request to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
+- This update is not providing multiple currency support; however, we're interested in exploring this functionality if there's a need. As such, we have created a [feature request to support multiple currencies](https://github.com/fivetran/dbt_stripe/issues/102) where you are welcome to provide feedback or contribute to the discussion.
 
 ## Documentation
 - Updates the descriptions for all amount-based fields to specify the grain of the values and add information about the `stripe__convert_values` variable.
