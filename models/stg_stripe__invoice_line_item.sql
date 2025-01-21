@@ -30,7 +30,7 @@ final as (
         id as invoice_line_item_id,
         invoice_id,
         invoice_item_id,
-        {{ convert_values('amount') }},
+        {{ stripe_source.convert_values('amount') }},
         currency,
         description,
         discountable as is_discountable,

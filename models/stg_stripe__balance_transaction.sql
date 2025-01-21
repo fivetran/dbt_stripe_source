@@ -23,9 +23,9 @@ fields as (
 final as (
     select 
         id as balance_transaction_id,
-        {{ convert_values('amount') }},
-        {{ convert_values('fee') }},
-        {{ convert_values('net') }},
+        {{ stripe_source.convert_values('amount') }},
+        {{ stripe_source.convert_values('fee') }},
+        {{ stripe_source.convert_values('net') }},
         cast(available_on as {{ dbt.type_timestamp() }}) as available_on,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         connected_account_id,

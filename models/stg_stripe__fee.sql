@@ -28,7 +28,7 @@ final as (
     select 
         balance_transaction_id,
         index,
-        {{ convert_values('amount') }},
+        {{ stripe_source.convert_values('amount') }},
         application,
         currency,
         description,

@@ -27,9 +27,9 @@ final as (
 
     select 
         id as charge_id, 
-        {{ convert_values('amount') }},
-        {{ convert_values('amount_refunded') }},
-        {{ convert_values('application_fee_amount') }},
+        {{ stripe_source.convert_values('amount') }},
+        {{ stripe_source.convert_values('amount_refunded') }},
+        {{ stripe_source.convert_values('application_fee_amount') }},
         balance_transaction_id,
         captured as is_captured,
         card_id,

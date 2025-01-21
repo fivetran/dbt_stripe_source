@@ -26,10 +26,10 @@ final as (
     
     select 
         id as payment_intent_id,
-        {{ convert_values('amount') }},
-        {{ convert_values('amount_capturable') }},
-        {{ convert_values('amount_received') }},
-        {{ convert_values('application_fee_amount') }},
+        {{ stripe_source.convert_values('amount') }},
+        {{ stripe_source.convert_values('amount_capturable') }},
+        {{ stripe_source.convert_values('amount_received') }},
+        {{ stripe_source.convert_values('application_fee_amount') }},
         application,
         cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cancellation_reason,
