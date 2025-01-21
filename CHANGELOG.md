@@ -11,7 +11,7 @@ Stripe passes amount-based fields, such as `amount`, `net`, and `fee`, in the sm
   - Examples of currencies NOT using minor units (in which it makes more sense to keep the amount-based fields in raw form) include Japanese Yen (JPY), Indonesian Rupiah (IDR), and Korean Won (KRW).
 
 ## Under the Hood
-- Introduces the `convert_values` macro that holds the logic for enabling the division by 100, referenced by all amount-based fields.
+- Introduces the `convert_values` macro which contains the logic for enabling the division by 100, referenced by all amount-based fields.
 - Updates the `run_models.sh` script to test for when `stripe__convert_values` is set to True.
 
 ## Notes
