@@ -1,4 +1,4 @@
-# dbt_stripe_source v0.12.2
+# dbt_stripe_source v0.13.0
 [PR [#87](https://github.com/fivetran/dbt_stripe_source/pull/87)] includes the following updates:
 
 ## Feature Updates: Optionally Convert Amounts to Major Units
