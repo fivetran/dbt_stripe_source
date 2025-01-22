@@ -220,7 +220,7 @@ models:
         description: '{{ doc("postal_code") }}'
       - name: customer_address_state
         description: '{{ doc("state") }}'
-      - name: balance
+      - name: customer_balance
         description: Current balance, if any, being stored on the customer. If negative, the customer has credit to apply to their next invoice. If positive, the customer has an amount owed that will be added to their next invoice. The balance does not refer to any unpaid invoices; it solely takes into account amounts that have yet to be successfully applied to any invoice. This balance is only taken into account as invoices are finalized.
       - name: bank_account_id
         description: ID of the bank account associated with this customer.
@@ -578,8 +578,6 @@ models:
         description: Total of all subscriptions, invoice items, and prorations on the invoice before any discount or tax is applied.
       - name: tax
         description: The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice. "{{ doc('convert_values') }}"
-      - name: tax_percent
-        description: The percent used to calculate the tax amount.
       - name: total
         description: Total after discounts and taxes. "{{ doc('convert_values') }}"
       - name: period_start

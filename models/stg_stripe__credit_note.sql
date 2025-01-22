@@ -28,10 +28,10 @@ fields as (
 final as (
     select 
         id as credit_note_id,
-        {{ stripe_source.convert_values('amount') }},
-        {{ stripe_source.convert_values('discount_amount') }},
-        {{ stripe_source.convert_values('subtotal') }},
-        {{ stripe_source.convert_values('total') }},
+        {{ stripe_source.convert_values('amount', alias='credit_note_amount') }},
+        {{ stripe_source.convert_values('discount_amount', alias='credit_note_discount_amount') }},
+        {{ stripe_source.convert_values('subtotal', alias='credit_note_subtotal') }},
+        {{ stripe_source.convert_values('total', alias='credit_note_total') }},
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency as credit_note_currency,
         memo,

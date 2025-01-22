@@ -27,8 +27,8 @@ final as (
     
     select
         id as transfer_id,
-        {{ stripe_source.convert_values('amount') }},
-        {{ stripe_source.convert_values('amount_reversed') }},
+        {{ stripe_source.convert_values('amount', alias='transfer_amount') }},
+        {{ stripe_source.convert_values('amount_reversed', alias='transfer_amount_reversed') }},
         balance_transaction_id,
         cast(created as {{ dbt.type_timestamp() }}) as transfer_created_at,
         currency as transfer_currency,
