@@ -26,15 +26,14 @@ fields as (
 ),
 
 final as (
-    
     select 
         id as credit_note_id,
-        amount as credit_note_amount,
+        {{ stripe_source.convert_values('amount', alias='credit_note_amount') }},
+        {{ stripe_source.convert_values('discount_amount', alias='credit_note_discount_amount') }},
+        {{ stripe_source.convert_values('subtotal', alias='credit_note_subtotal') }},
+        {{ stripe_source.convert_values('total', alias='credit_note_total') }},
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency as credit_note_currency,
-        discount_amount as credit_note_discount_amount,
-        subtotal as credit_note_subtotal,
-        total as credit_note_total,
         memo,
         metadata,
         number as credit_note_number,

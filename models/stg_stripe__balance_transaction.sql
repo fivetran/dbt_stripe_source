@@ -1,12 +1,9 @@
-
 with base as (
-
     select * 
     from {{ ref('stg_stripe__balance_transaction_tmp') }}
 ),
 
 fields as (
-
     select
         {{
             fivetran_utils.fill_staging_columns(
@@ -24,18 +21,17 @@ fields as (
 ),
 
 final as (
-    
     select 
         id as balance_transaction_id,
-        amount,
+        {{ stripe_source.convert_values('amount') }},
+        {{ stripe_source.convert_values('fee') }},
+        {{ stripe_source.convert_values('net') }},
         cast(available_on as {{ dbt.type_timestamp() }}) as available_on,
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         connected_account_id,
         currency,
         description,
         exchange_rate,
-        fee,
-        net,
         reporting_category,
         source,
         status,

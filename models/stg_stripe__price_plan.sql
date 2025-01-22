@@ -29,7 +29,7 @@ final as (
     select 
         id as price_plan_id,
         is_active,
-        unit_amount,
+        {{ stripe_source.convert_values('unit_amount') }},
         currency,
         recurring_interval,
         recurring_interval_count,

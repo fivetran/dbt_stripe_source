@@ -29,8 +29,8 @@ final as (
     select 
         id as credit_note_line_item_id,
         credit_note_id,
-        amount as credit_note_line_item_amount,
-        discount_amount as credit_note_line_item_discount_amount,
+        {{ stripe_source.convert_values('amount', alias='credit_note_line_item_amount') }},
+        {{ stripe_source.convert_values('discount_amount', alias='credit_note_line_item_discount_amount') }},
         description as credit_note_line_item_description,
         quantity,
         type as credit_note_line_item_type,

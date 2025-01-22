@@ -1,4 +1,6 @@
-<p align="center">
+# Stripe Source dbt Package ([Docs](https://fivetran.github.io/dbt_stripe_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_stripe_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -13,7 +15,6 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Stripe Source dbt Package ([Docs](https://fivetran.github.io/dbt_stripe_source/))
 ## What does this dbt package do?
 <!--section="stripe_source_model"-->
 - Materializes [Stripe staging tables](https://fivetran.github.io/dbt_stripe_source/#!/overview/stripe_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/stripe/#schemainformation). These staging tables clean, test, and prepare your Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe) for analysis by doing the following:
@@ -45,7 +46,7 @@ If you  are **not** using the [Stripe transformation package](https://github.com
 ```yaml
 packages:
   - package: fivetran/stripe_source
-    version: [">=0.12.0", "<0.13.0"]
+    version: [">=0.13.0", "<0.14.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -177,6 +178,17 @@ Alternatively, if you only have strings in your JSON object, the metadata variab
 vars:
     stripe__subscription_metadata: ['the', 'list', 'of', 'property', 'fields'] # Note: this is case-SENSITIVE and must match the casing of the property as it appears in the JSON
 ```
+
+#### Enabling Cent to Dollar Conversion
+
+Amount-based fields, such as `amount` and `net`, are typically displayed in the smallest denomination (e.g., cents for USD). By default, amount-based fields will be in this raw form. However, some currencies use major and minor units (for example, cents and dollars when using USD). In these cases, it may be useful to divide the amounts by 100, converting amounts to major units (dollars for USD). To enable the division, configure the `stripe__convert_values` to `true` in your project.yml: 
+
+```yml
+vars:
+    stripe__convert_values: true  # default is false 
+```
+
+If you are working in a currency that does not differentiate between minor and major units, such as JPY or KRW, it may make more sense to keep the amount-based fields in raw form and therefore the package can be ran without configuration. As `stripe__convert_values` is disabled by default, these fields will not be impacted.
 
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:

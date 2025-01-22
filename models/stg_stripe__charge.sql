@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -28,9 +27,9 @@ final as (
 
     select 
         id as charge_id, 
-        amount,
-        amount_refunded,
-        application_fee_amount,
+        {{ stripe_source.convert_values('amount') }},
+        {{ stripe_source.convert_values('amount_refunded') }},
+        {{ stripe_source.convert_values('application_fee_amount') }},
         balance_transaction_id,
         captured as is_captured,
         card_id,

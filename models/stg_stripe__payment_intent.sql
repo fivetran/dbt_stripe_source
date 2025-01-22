@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -27,11 +26,11 @@ final as (
     
     select 
         id as payment_intent_id,
-        amount,
-        amount_capturable,
-        amount_received,
+        {{ stripe_source.convert_values('amount') }},
+        {{ stripe_source.convert_values('amount_capturable') }},
+        {{ stripe_source.convert_values('amount_received') }},
+        {{ stripe_source.convert_values('application_fee_amount') }},
         application,
-        application_fee_amount,
         cast(canceled_at as {{ dbt.type_timestamp() }}) as canceled_at,
         cancellation_reason,
         capture_method,

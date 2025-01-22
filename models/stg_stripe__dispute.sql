@@ -27,7 +27,7 @@ final as (
     
     select
         id as dispute_id,
-        amount as dispute_amount,
+        {{ stripe_source.convert_values('amount', alias='dispute_amount') }},
         balance_transaction,
         charge_id,
         connected_account_id,
