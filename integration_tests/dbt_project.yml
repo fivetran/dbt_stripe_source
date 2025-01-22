@@ -7,7 +7,7 @@ version: '0.13.0'
 profile: 'integration_tests'
 
 vars:
-  stripe_schema: stripe_source_integrations_tests_9
+  stripe_schema: stripe_source_integrations_tests_10
 
   stripe_source:
     card_pass_through_columns:
