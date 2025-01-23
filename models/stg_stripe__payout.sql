@@ -41,6 +41,13 @@ final as (
         source_type,
         status,
         type,
+        reconciliation_status,
+        connected_account_id,
+        failure_balance_transaction_id,
+        failure_code,
+        failure_message,
+        livemode,
+        statement_descriptor,
         source_relation
 
         {% if var('stripe__payout_metadata',[]) %}
