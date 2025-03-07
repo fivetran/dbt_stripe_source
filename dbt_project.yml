@@ -27,6 +27,7 @@ vars:
     payment_method_card: "{{ source('stripe', 'payment_method_card') }}"
     payment_method: "{{ source('stripe', 'payment_method') }}"
     payout: "{{ source('stripe', 'payout') }}"
+    payout_balance_transaction: "{{ source('stripe', 'payout_balance_transaction') }}"
     plan: "{{ source('stripe', 'plan') }}"
     price: "{{ source('stripe', 'price') }}"
     product: "{{ source('stripe', 'product') }}"

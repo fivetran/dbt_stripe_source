@@ -481,6 +481,17 @@ sources:
           - name: livemode
             description: Indicates if this is a test payout.
 
+      - name: payout_balance_transaction
+        identifier: "{{ var('stripe_payout_balance_transaction_identifier', 'payout_balance_transaction')}}"
+        description: Table that contains the complete mapping between `payout_id` and b`alance_transaction_id`, ensuring accurate relationships.
+        columns:
+          - name: payout_id
+            description: Unique identifier for the payout.
+          - name: balance_transaction_id
+            description: Unique identifier for the balance transaction.
+          - name: _fivetran_synced
+            description: Timestamp when the record was last synced.
+
       - name: refund
         identifier: "{{ var('stripe_refund_identifier', 'refund')}}"
         description: Details of transactions that have been refunded

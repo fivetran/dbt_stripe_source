@@ -1,3 +1,15 @@
+# dbt_stripe_source v0.14.0
+[PR #107](https://github.com/fivetran/dbt_stripe_source/pull/107) includes the following updates:
+
+## New Source
+- added:
+  - PAYOUT_BALANCE_TRANSACTION
+  - stg_stripe__payout_balance_transaction
+  - stg_stripe__payout_balance_transaction_tmp
+- added macro
+- added definitions
+
+
 # dbt_stripe_source v0.13.0
 [PR #87](https://github.com/fivetran/dbt_stripe_source/pull/87) includes the following updates:
 

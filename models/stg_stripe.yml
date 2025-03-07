@@ -441,6 +441,22 @@ models:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
 
+  - name: stg_stripe__payout_balance_transaction
+    description: Table that contains the complete mapping between `payout_id` and b`alance_transaction_id`, ensuring accurate relationships.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - payout_id
+            - balance_transaction_id
+            - source_relation
+    columns:
+      - name: payout_id
+        description: Unique identifier for the payout.
+      - name: balance_transaction_id
+        description: Unique identifier for the balance transaction.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
   - name: stg_stripe__refund
     description: Details of transactions that have been refunded
     tests:
