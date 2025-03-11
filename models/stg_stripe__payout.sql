@@ -30,6 +30,7 @@ final as (
         {{ stripe_source.convert_values('amount') }},
         cast(arrival_date as {{ dbt.type_timestamp() }}) as arrival_date_at,
         automatic as is_automatic,
+        balance_transaction_id, -- payout to balance_transaction is 1:many. This is the latest balance_transaction linked to the payout.
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,
@@ -40,8 +41,7 @@ final as (
         source_type,
         status,
         type,
-        source_relation,
-        balance_transaction_id -- deprecated
+        source_relation
 
         {% if var('stripe__payout_metadata',[]) %}
         , {{ fivetran_utils.pivot_json_extract(string = 'metadata', list_of_properties = var('stripe__payout_metadata')) }}

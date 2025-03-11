@@ -417,7 +417,9 @@ models:
       - name: is_automatic
         description: true if the payout was created by an automated payout schedule, and false if it was requested manually.
       - name: balance_transaction_id
-        description: ID of the balance transaction that describes the impact of this payout on your account balance.
+        description: >
+          ID of the latest balance transaction linked to this payout, describing its impact on your account balance.
+          The payout to balance_transaction relationship is 1:many.
       - name: created_at
         description: Time at which the object was created.
       - name: currency
@@ -442,7 +444,9 @@ models:
         description: "{{ doc('source_relation') }}"
 
   - name: stg_stripe__payout_balance_transaction
-    description: Table that contains the complete mapping between `payout_id` and b`alance_transaction_id`, ensuring accurate relationships.
+    description: >
+      Table that contains the complete mapping between `payout_id` and `balance_transaction_id`.
+      The payout to balance_transaction relationship is 1:many.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
