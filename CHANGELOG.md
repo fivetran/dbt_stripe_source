@@ -8,7 +8,7 @@
   - Models:
     - `stg_stripe__payout_balance_transaction`  
     - `stg_stripe__payout_balance_transaction_tmp`  
-- The new mapping table provides all associated balance transactions for a payout, supporting the 1:many `payout → balance_transaction` relationship.  
+- This is a new mapping table that provides all associated balance transactions for a payout, supporting the 1:many `payout → balance_transaction` relationship.  
   - NOTE: The existing `balance_transaction_id` in `PAYOUT` only reflects the most recent associated record, necessitating this update.  
 
 ## Documentation  
