@@ -30,7 +30,7 @@ final as (
         {{ stripe_source.convert_values('amount') }},
         cast(arrival_date as {{ dbt.type_timestamp() }}) as arrival_date_at,
         automatic as is_automatic,
-        balance_transaction_id,
+        balance_transaction_id, -- payout to balance_transaction is 1:many. This is the latest balance_transaction linked to the payout.
         cast(created as {{ dbt.type_timestamp() }}) as created_at,
         currency,
         description,

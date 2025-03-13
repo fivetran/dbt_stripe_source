@@ -481,6 +481,19 @@ sources:
           - name: livemode
             description: Indicates if this is a test payout.
 
+      - name: payout_balance_transaction
+        identifier: "{{ var('stripe_payout_balance_transaction_identifier', 'payout_balance_transaction')}}"
+        description: >
+          Table that contains the complete mapping between `payout_id` and `balance_transaction_id`.
+          The payout to balance_transaction relationship is 1:many.
+        columns:
+          - name: payout_id
+            description: Unique identifier for the payout.
+          - name: balance_transaction_id
+            description: Unique identifier for the balance transaction.
+          - name: _fivetran_synced
+            description: Timestamp when the record was last synced.
+
       - name: refund
         identifier: "{{ var('stripe_refund_identifier', 'refund')}}"
         description: Details of transactions that have been refunded
@@ -491,7 +504,9 @@ sources:
           - name: amount
             description: Amount, in cents.
           - name: balance_transaction_id
-            description: ID for the balance transaction that describes the impact on your account balance.
+            description: >
+              ID of the latest balance transaction linked to this payout, describing its impact on your account balance.
+              The payout to balance_transaction relationship is 1:many.
           - name: charge_id
             description: ID of the charge that was refunded.
           - name: created

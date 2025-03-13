@@ -1,3 +1,23 @@
+# dbt_stripe_source v0.14.0
+[PR #89](https://github.com/fivetran/dbt_stripe_source/pull/89) includes the following updates:
+
+## Breaking Changes  
+- In alignment with the Fivetran Stripe connector [March 2025 update](https://fivetran.com/docs/connectors/applications/stripe/changelog#march2025), added:  
+  - Source:
+    - `PAYOUT_BALANCE_TRANSACTION`  
+  - Models:
+    - `stg_stripe__payout_balance_transaction`  
+    - `stg_stripe__payout_balance_transaction_tmp`  
+- This is a new mapping table that provides all associated balance transactions for a payout, supporting the 1:many `payout → balance_transaction` relationship.  
+  - NOTE: The existing `balance_transaction_id` in `PAYOUT` only reflects the most recent associated record, necessitating this update.  
+
+## Documentation  
+- Added definitions for new fields and models.  
+
+## Under the Hood (Maintainers Only)  
+- Added macro `get_payout_balance_transaction_columns`.  
+- Added seed `payout_balance_transaction_data`. 
+
 # dbt_stripe_source v0.13.0
 [PR #87](https://github.com/fivetran/dbt_stripe_source/pull/87) includes the following updates:
 
