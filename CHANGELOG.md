@@ -1,5 +1,5 @@
 # dbt_stripe_source v0.14.0
-[PR #107](https://github.com/fivetran/dbt_stripe_source/pull/107) includes the following updates:
+[PR #89](https://github.com/fivetran/dbt_stripe_source/pull/89) includes the following updates:
 
 ## Breaking Changes  
 - In alignment with the Fivetran Stripe connector [March 2025 update](https://fivetran.com/docs/connectors/applications/stripe/changelog#march2025), added:  
