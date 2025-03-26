@@ -1,9 +1,11 @@
 # dbt_stripe_source v0.14.1
-[PR #90](https://github.com/fivetran/dbt_stripe_source/pull/90) includes the following updates:
+[PR #91](https://github.com/fivetran/dbt_stripe_source/pull/91) includes the following updates:
 
 ## Under the Hood (Maintainers Only)  
 - Replaced call to adapter.get_relation with api.Relation.create in does_table_exist macro to prevent quoting bug
 
+## Contributors
+- [@corbettbarr](https://github.com/corbettbarr) ([#90](https://github.com/fivetran/dbt_stripe_source/pull/90))
 
 # dbt_stripe_source v0.14.0
 [PR #89](https://github.com/fivetran/dbt_stripe_source/pull/89) includes the following updates:

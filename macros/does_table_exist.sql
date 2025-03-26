@@ -1,17 +1,24 @@
 {%- macro does_table_exist(table_name) -%}
+
+{{ adapter.dispatch('does_table_exist', 'stripe_source')(table_name) }}
+
+{%- endmacro %}
+
+{%- macro default__does_table_exist(table_name) -%}
     {%- if execute -%} -- returns true when dbt is in execute mode
     {%- set ns = namespace(has_table=false) -%} -- declare boolean namespace and default value 
         {%- for node in graph.sources.values() -%} -- grab sources from the dictionary of nodes 
         -- call the database for the matching table
-            {%- set source_relation = api.Relation.create(
-                    database=node.database,
-                    schema=node.schema,
-                    identifier=node.identifier ) -%} 
-            {%- if source_relation == None and node.name | lower == table_name | lower -%} 
+            {%- if node.name | lower == table_name | lower -%} 
+                {%- set source_relation = adapter.get_relation(
+                        database=node.database,
+                        schema=node.schema,
+                        identifier=node.identifier ) -%}
+            {% endif %}
+            {%- if source_relation == None -%} 
                 {{ return(False) }} -- return false if relation identified by the database.schema.identifier does not exist for the given table name
-            {%- elif source_relation != None and node.name | lower == table_name | lower -%} 
-                {{ return(True) }} -- otherwise return True 
             {% endif %}
         {%- endfor -%}
+        {{ return(True) }}
     {%- endif -%} 
 {%- endmacro -%}
