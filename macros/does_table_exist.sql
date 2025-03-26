@@ -3,7 +3,7 @@
     {%- set ns = namespace(has_table=false) -%} -- declare boolean namespace and default value 
         {%- for node in graph.sources.values() -%} -- grab sources from the dictionary of nodes 
         -- call the database for the matching table
-            {%- set source_relation = adapter.get_relation(
+            {%- set source_relation = api.Relation.create(
                     database=node.database,
                     schema=node.schema,
                     identifier=node.identifier ) -%} 
