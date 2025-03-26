@@ -7,6 +7,8 @@
 {%- macro default__does_table_exist(table_name) -%}
     {%- if execute -%} -- returns true when dbt is in execute mode
     {%- set ns = namespace(has_table=false) -%} -- declare boolean namespace and default value 
+    {%- set stripe_database = var('stripe_database') -%} -- get stripe database from project.yml
+    {%- set stripe_schema = var('stripe_schema') -%} -- get stripe schema from project.yml
         {%- for node in graph.sources.values() -%} -- grab sources from the dictionary of nodes 
         -- call the database for the matching table
             {%- if node.name | lower == table_name | lower -%} 
