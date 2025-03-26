@@ -1,11 +1,9 @@
 # dbt_stripe_source v0.14.1
 [PR #91](https://github.com/fivetran/dbt_stripe_source/pull/91) includes the following updates:
 
-## Under the Hood (Maintainers Only)  
-- Replaced call to adapter.get_relation with api.Relation.create in does_table_exist macro to prevent quoting bug
+## Bug Fixes
+- Updated the `does_table_exist` macro to match the latest version used across other dbt packages. This resolves a Snowflake error that occurred when running multiple packages that use quoted column or table names.
 
-## Contributors
-- [@corbettbarr](https://github.com/corbettbarr) ([#90](https://github.com/fivetran/dbt_stripe_source/pull/90))
 
 # dbt_stripe_source v0.14.0
 [PR #89](https://github.com/fivetran/dbt_stripe_source/pull/89) includes the following updates:
