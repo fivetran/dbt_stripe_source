@@ -51,7 +51,6 @@ seeds:
       _fivetran_synced: timestamp
       created: timestamp
       end: timestamp
-    credit_note_data:
       voided_at: timestamp
     account_data:
       +column_types:
