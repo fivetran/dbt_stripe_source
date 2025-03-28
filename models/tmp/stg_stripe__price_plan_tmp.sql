@@ -1,6 +1,6 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
 
-{% set price_or_plan = 'price' if (var('stripe__using_price', False) or stripe_source.does_table_exist('price')=='exists') else 'plan' %}
+{% set price_or_plan = 'price' if var('stripe__using_price', stripe_source.does_table_exist('price')=='exists') else 'plan' %}
 
 {# DEBUG #}
 {% if execute %}
