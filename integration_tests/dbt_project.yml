@@ -50,8 +50,9 @@ seeds:
     +column_types:
       _fivetran_synced: timestamp
       created: timestamp
-      voided_at: timestamp
       end: timestamp
+    credit_note_data:
+      voided_at: timestamp
     account_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"

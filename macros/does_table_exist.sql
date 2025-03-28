@@ -1,24 +1,27 @@
 {%- macro does_table_exist(table_name) -%}
-
 {{ adapter.dispatch('does_table_exist', 'stripe_source')(table_name) }}
-
 {%- endmacro %}
 
 {%- macro default__does_table_exist(table_name) -%}
-    {%- if execute -%} -- returns true when dbt is in execute mode
-    {%- set ns = namespace(has_table=false) -%} -- declare boolean namespace and default value 
+    {%- if execute -%}
+    {# {%- set ns = namespace(has_table=false) -%} -- declare boolean namespace and default value 
         {%- for node in graph.sources.values() -%} -- grab sources from the dictionary of nodes 
         -- call the database for the matching table
             {%- if node.name | lower == table_name | lower -%} 
                 {%- set source_relation = adapter.get_relation(
-                        database=node.database,
-                        schema=node.schema,
-                        identifier=node.identifier ) -%}
+                        database=var('stripe_database', node.database),
+                        schema=var('stripe_schema', node.schema),
+                        identifier=var('stripe_' ~ table_name ~ '_identifier', node.name)) -%}
+                {{ return('exists' if source_relation is not none) }}
             {% endif %}
-            {%- if source_relation == None -%} 
-                {{ return(False) }} -- return false if relation identified by the database.schema.identifier does not exist for the given table name
-            {% endif %}
-        {%- endfor -%}
-        {{ return(True) }}
-    {%- endif -%} 
+        {%- endfor -%} #}
+        
+        {%- set source_relation = adapter.get_relation(
+            database=source('stripe', table_name).database,
+            schema=source('stripe', table_name).schema,
+            identifier=var('stripe_' ~ table_name ~ '_identifier', table_name) 
+        ) -%}
+        {{ return('exists' if source_relation is not none) }}
+
+    {%- endif -%}
 {%- endmacro -%}
