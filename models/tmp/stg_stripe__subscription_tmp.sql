@@ -1,5 +1,7 @@
 {{ config(enabled=var('stripe__using_subscriptions', True)) }}
-{% set history_or_subscription = 'price' if var('stripe__using_subscription_history', stripe_source.does_table_exist('subscription_history')=='exists') else 'subscription' %}
+{%- set history_or_subscription = 'subscription_history' 
+    if var('stripe__using_subscription_history', stripe_source.does_table_exist('subscription_history')=='exists') 
+    else 'subscription' -%}
 {{
     fivetran_utils.union_data(
         table_identifier=history_or_subscription, 
