@@ -2,10 +2,15 @@
 [PR #91](https://github.com/fivetran/dbt_stripe_source/pull/91) includes the following updates:
 
 ## Bug Fixes
-- Updated the `does_table_exist` macro to align with the version used in other dbt packages. This resolves a Snowflake error that could occur when multiple packages using quoted column or table names were run concurrently.
+- Fixed a Snowflake error in the `does_table_exist` macro that could occur when another package using quoted table or column names runs concurrently.
+- Updated the following models to dynamically select the correct source based on available tables:
+  - `stg_stripe__price_plan_tmp`
+  - `stg_stripe__subscription_tmp`
 
 ## Under the Hood
-- Added a dispatch for the `does_table_exist` macro to avoid potential conflicts with macros of the same name in other packages.
+- Improved the `does_table_exist` macro:
+  - Added a `dispatch` to prevent conflicts with macros of the same name in other packages.
+  - Now returns `'exists'` only when the table is present, instead of returning `'True'` or `'False'`. This avoids issues where Jinja interpreted those strings as truthy values rather than actual booleans.
 
 # dbt_stripe_source v0.14.0
 [PR #89](https://github.com/fivetran/dbt_stripe_source/pull/89) includes the following updates:
