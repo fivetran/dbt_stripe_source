@@ -10,7 +10,8 @@
 ## Under the Hood
 - Improved the `does_table_exist` macro:
   - Added a `dispatch` to prevent conflicts with macros of the same name in other packages.
-  - Now returns `'exists'` only when the table is present, instead of returning `'True'` or `'False'`. This avoids issues where Jinja interpreted both those strings as truthy values rather than actual booleans. The `'exists'` output is then used as an exact match to determine variable configurations depending on the presence of tables. 
+  - Updated logic to return `'exists'` only when the table is present, replacing `'True'`/`'False'` string outputs. This prevents Jinja from misinterpreting them as truthy values and ensures reliable variable configuration based on exact `'exists'` matching.
+
 
 # dbt_stripe_source v0.14.0
 [PR #89](https://github.com/fivetran/dbt_stripe_source/pull/89) includes the following updates:
