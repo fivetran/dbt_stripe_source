@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.14.0'
+version: '0.14.1'
 
 profile: 'integration_tests'
 
@@ -50,8 +50,8 @@ seeds:
     +column_types:
       _fivetran_synced: timestamp
       created: timestamp
-      voided_at: timestamp
       end: timestamp
+      voided_at: timestamp
     account_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
