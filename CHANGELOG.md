@@ -1,3 +1,12 @@
+# dbt_stripe_source v0.14.2
+
+## Under the Hood
+- Prepends `materialized` configs in the package's `dbt_project.yml` file with `+` to improve compatibility with the newer versions of dbt-core starting with v1.10.0. ([PR #92](https://github.com/fivetran/dbt_stripe_source/pull/92))
+- Updates the package maintainer pull request template. ([PR #93](https://github.com/fivetran/dbt_stripe_source/pull/93))
+
+## Contributors
+- [@b-per](https://github.com/b-per) ([PR #92](https://github.com/fivetran/dbt_stripe_source/pull/92))
+
 # dbt_stripe_source v0.14.1
 [PR #91](https://github.com/fivetran/dbt_stripe_source/pull/91) includes the following updates:
 
