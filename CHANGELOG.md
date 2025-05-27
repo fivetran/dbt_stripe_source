@@ -1,7 +1,7 @@
 # dbt_stripe_source v0.14.2
 
 ## Under the Hood
-- Prepends `materialized` configs in the package's `dbt_project.yml` file with `+` to improve compatibility with the new dbt engine being released on 5/28 at the dbt Launch Showcase. ([PR #92](https://github.com/fivetran/dbt_stripe_source/pull/92))
+- Prepends `materialized` configs in the package's `dbt_project.yml` file with `+` to improve compatibility with the newer versions of dbt-core starting with v1.10.0. ([PR #92](https://github.com/fivetran/dbt_stripe_source/pull/92))
 - Updates the package maintainer pull request template. ([PR #93](https://github.com/fivetran/dbt_stripe_source/pull/93))
 
 ## Contributors
