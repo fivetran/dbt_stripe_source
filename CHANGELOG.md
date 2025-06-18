@@ -17,8 +17,8 @@ into the `config` of `stripe`.
 
 If you are using dbt Core < 1.9.5 and want to continue running Stripe freshness tests, please elect **one** of the following options:
   1. (Recommended) Upgrade to dbt Core >= 1.9.5
-  2. Do not upgrade your installed version of the `stripe_source` package. Pin your dependency on v0.8.0 in your `packages.yml` file.
-  3. Utilize a dbt [override](https://docs.getdbt.com/reference/resource-properties/overrides) to overwrite the package's `stripe` source and apply freshness via the [old](https://github.com/fivetran/dbt_stripe_source/blob/v0.8.0/models/src_stripe.yml#L11-L13) top-level property route. This will require you to copy and paste the entirety of the `src_stripe.yml` [file](https://github.com/fivetran/dbt_stripe_source/blob/v0.8.0/models/src_stripe.yml#L18-L732) and add an `overrides: stripe_source` property.
+  2. Do not upgrade your installed version of the `stripe_source` package. Pin your dependency on v0.14.2 in your `packages.yml` file.
+  3. Utilize a dbt [override](https://docs.getdbt.com/reference/resource-properties/overrides) to overwrite the package's `stripe` source and apply freshness via the [old](https://github.com/fivetran/dbt_stripe_source/blob/v0.14.2/models/src_stripe.yml#L10-L12) top-level property route. This will require you to copy and paste the entirety of the `src_stripe.yml` [file](https://github.com/fivetran/dbt_stripe_source/blob/v0.14.2/models/src_stripe.yml) and add an `overrides: stripe_source` property.
 
 # dbt_stripe_source v0.14.2
 
