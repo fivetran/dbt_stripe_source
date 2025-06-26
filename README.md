@@ -19,7 +19,7 @@
 <!--section="stripe_source_model"-->
 - Materializes [Stripe staging tables](https://fivetran.github.io/dbt_stripe_source/#!/overview/stripe_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/stripe/#schemainformation). These staging tables clean, test, and prepare your Stripe data from [Fivetran's connector](https://fivetran.com/docs/applications/stripe) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
-  - Adds freshness tests to source data
+    - Adds freshness tests to source data. dbt Core >= 1.9.6 is required to run freshness tests out of the box.
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Stripe data through the [dbt docs site](https://fivetran.github.io/dbt_stripe_source/).
 - These tables are designed to work simultaneously with our [Stripe transformation package](https://github.com/fivetran/dbt_stripe).
@@ -46,7 +46,7 @@ If you  are **not** using the [Stripe transformation package](https://github.com
 ```yaml
 packages:
   - package: fivetran/stripe_source
-    version: [">=0.14.0", "<0.15.0"]
+    version: [">=0.15.0", "<0.16.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `stripe` schema. If this is not where your stripe data is (for example, if your stripe schema is named `stripe_fivetran`), add the following configuration to your root `dbt_project.yml` file:

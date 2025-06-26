@@ -7,9 +7,10 @@ sources:
     loader: fivetran
     loaded_at_field: _fivetran_synced
 
-    freshness:
-      warn_after: { count: 72, period: hour }
-      error_after: { count: 168, period: hour }
+    config:
+      freshness:
+        warn_after: { count: 72, period: hour }
+        error_after: { count: 168, period: hour }
 
     tables:
       - name: balance_transaction
@@ -194,7 +195,8 @@ sources:
       - name: customer
         identifier: "{{ var('stripe_customer_identifier', 'customer')}}"
         description: Customer objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -368,7 +370,8 @@ sources:
       - name: payment_intent
         identifier: "{{ var('stripe_payment_intent_identifier', 'payment_intent')}}"
         description: A Payment Intent guides you through the process of collecting a payment from your customer.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -429,7 +432,8 @@ sources:
       - name: payment_method
         identifier: "{{ var('stripe_payment_method_identifier', 'payment_method')}}"
         description: PaymentMethod objects represent your customer's payment instruments. They can be used with PaymentIntents to collect payments or saved to Customer objects to store instrument details for future payments.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -497,7 +501,8 @@ sources:
       - name: refund
         identifier: "{{ var('stripe_refund_identifier', 'refund')}}"
         description: Details of transactions that have been refunded
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -529,7 +534,8 @@ sources:
       - name: invoice_line_item
         identifier: "{{ var('stripe_invoice_line_item_identifier', 'invoice_line_item')}}"
         description: The different items that an invoice contains
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -567,7 +573,8 @@ sources:
       - name: invoice
         identifier: "{{ var('stripe_invoice_identifier', 'invoice')}}"
         description: Invoices are statements of amounts owed by a customer, and are either generated one-off, or generated periodically from a subscription.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -643,7 +650,8 @@ sources:
       - name: subscription_history
         identifier: "{{ var('stripe_subscription_history_identifier', 'subscription_history')}}"
         description: Subscriptions allow you to charge a customer on a recurring basis. Please note this source table is used only on connectors setup **after** February 09, 2022.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -695,7 +703,8 @@ sources:
       - name: subscription
         identifier: "{{ var('stripe_subscription_identifier', 'subscription')}}"
         description: Subscriptions allow you to charge a customer on a recurring basis. Please note this source table is only present in connectors setup **before** February 09, 2022.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -737,7 +746,8 @@ sources:
       - name: plan
         identifier: "{{ var('stripe_plan_identifier', 'plan')}}"
         description: Plans define the base price, currency, and billing cycle for recurring purchases of products.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -763,7 +773,8 @@ sources:
       - name: credit_note
         identifier: "{{ var('stripe_credit_note_identifier', 'credit_note')}}"
         description: Credit notes are documents that decrease the amount owed on an invoice. They’re the only way to adjust the amount of a finalized invoice other than voiding and recreating the invoice.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -807,7 +818,8 @@ sources:
       - name: credit_note_line_item
         identifier: "{{ var('stripe_credit_note_line_item_identifier', 'credit_note_line_item')}}"
         description: The different items that a credit note contains.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id 
             description: Unique identifier for the object.
@@ -833,7 +845,8 @@ sources:
       - name: price
         identifier: "{{ var('stripe_price_identifier', 'price')}}"
         description: Prices define the unit cost, currency, and (optional) billing cycle for both recurring and one-time purchases of products. 
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: active
             description: Whether the price can be used for new purchases.
@@ -883,7 +896,8 @@ sources:
       - name: account
         identifier: "{{ var('stripe_account_identifier', 'account')}}"
         description: Prices define the unit cost, currency, and (optional) billing cycle for both recurring and one-time purchases of products. 
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -971,7 +985,8 @@ sources:
       - name: product
         identifier: "{{ var('stripe_product_identifier', 'product') }}"
         description: A product object represents an individual product to be sold, with various attributes detailing its properties and behaviors.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique identifier for the object.
@@ -1012,7 +1027,8 @@ sources:
       - name: discount
         identifier: "{{ var('stripe_discount_identifier', 'discount') }}"
         description: A discount represents the actual application of a coupon or promotion code. It contains information about when the discount began, when it will end, and what it is applied to.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: The ID of the discount object.
