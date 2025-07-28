@@ -1,3 +1,8 @@
+# dbt_stripe_source v0.15.1
+
+## Under the Hood
+- Removed trailing spaces from YML files to ensure clean documentation and proper compilation.
+
 # dbt_stripe_source v0.15.0
 
 [PR #96](https://github.com/fivetran/dbt_stripe_source/pull/96) includes the following updates:
