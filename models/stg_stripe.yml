@@ -32,7 +32,7 @@ models:
       - name: net
         description: Net amount of the transaction. "{{ doc('convert_values') }}"
       - name: reporting_category
-        description: Improves on the type field by providing a more-useful grouping for most finance and reporting purposes. 
+        description: Improves on the type field by providing a more-useful grouping for most finance and reporting purposes.
       - name: source
         description: The Stripe object to which this transaction is related.
       - name: status
@@ -161,7 +161,7 @@ models:
       - name: source_id
         description: ID of the source associated. Source objects allow you to accept a variety of payment methods. They represent a cu
       - name: source_transfer
-        description: The transfer ID which created this charge. Only present if the charge came from another Stripe account. 
+        description: The transfer ID which created this charge. Only present if the charge came from another Stripe account.
       - name: statement_descriptor
         description: Extra information about a source. This will appear on your customer’s statement every time you charge the source.
       - name: invoice_id
@@ -639,13 +639,13 @@ models:
         tests:
           - not_null
       - name: latest_invoice_id
-        description: ID of the latest invoice for this subscription. 
+        description: ID of the latest invoice for this subscription.
       - name: customer_id
         description: ID of customer this subscription belongs to.
       - name: default_payment_method_id
         description: ID of the default payment method for this subscription.
       - name: pending_setup_intent_id
-        description: ID of the payment setup intent for this subscription. 
+        description: ID of the payment setup intent for this subscription.
       - name: status
         description: Possible values are incomplete, incomplete_expired, trialing, active, past_due, canceled, or unpaid.
       - name: billing
@@ -727,40 +727,40 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - credit_note_id 
+            - credit_note_id
             - source_relation
     columns:
-      - name: credit_note_id 
+      - name: credit_note_id
         description: Unique identifier for the object.
         tests:
             - not_null
-      - name: credit_note_amount 
+      - name: credit_note_amount
         description: The integer amount in currency units representing the total amount of the credit note, including tax.  "{{ doc('convert_values') }}"
       - name: created_at
         description: Timestamp of the when the credit_note was created.
       - name: credit_note_currency
-        description: The currency of the charge. Three-letter ISO currency code, in lowercase. 
+        description: The currency of the charge. Three-letter ISO currency code, in lowercase.
       - name: credit_note_discount_amount
         description: The integer amount in currency units representing the total amount of discount that was credited. "{{ doc('convert_values') }}"
-      - name: credit_note_subtotal 
+      - name: credit_note_subtotal
         description: The integer amount in currency units representing the amount of the credit note, excluding tax and invoice level discounts. "{{ doc('convert_values') }}"
-      - name: credit_note_total 
+      - name: credit_note_total
         description: The integer amount in currency units representing the total amount of the credit note, including tax and all discount. "{{ doc('convert_values') }}"
-      - name: livemode 
+      - name: livemode
         description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
-      - name: memo 
+      - name: memo
         description: Customer-facing text that appears on the credit note PDF.
-      - name: metadata 
+      - name: metadata
         description: Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
-      - name: credit_note_number 
+      - name: credit_note_number
         description: A unique number that identifies this particular credit note and appears on the PDF of the credit note and its associated invoice.
-      - name: pdf 
+      - name: pdf
         description: The link to download the PDF of the credit note.
-      - name: credit_note_reason 
+      - name: credit_note_reason
         description: Reason for issuing this credit note, one of duplicate, fraudulent, order_change, or product_unsatisfactory
-      - name: credit_note_status 
+      - name: credit_note_status
         description: Status of this credit note, one of issued or void.
-      - name: credit_note_type 
+      - name: credit_note_type
         description: Type of this credit note, one of pre_payment or post_payment. A pre_payment credit note means it was issued when the invoice was open. A post_payment credit note means it was issued when the invoice was paid.
       - name: voided_at
         description: The time that the credit note was voided.
@@ -778,28 +778,28 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - credit_note_line_item_id 
+            - credit_note_line_item_id
             - source_relation
     columns:
-      - name: credit_note_line_item_id 
+      - name: credit_note_line_item_id
         description: Unique identifier for the object.
         tests:
             - not_null
-      - name: credit_note_id 
+      - name: credit_note_id
         description: The ID of the credit note this item is a part of.
-      - name: credit_note_line_item_amount 
+      - name: credit_note_line_item_amount
         description: The integer amount in currency units representing the gross amount being credited for this line item, excluding (exclusive) tax and discounts. "{{ doc('convert_values') }}"
-      - name: credit_note_line_item_discount_amount 
+      - name: credit_note_line_item_discount_amount
         description: The integer amount in currency units representing the discount being credited for this line item. "{{ doc('convert_values') }}"
       - name: credit_note_line_item_description
         description: Description of the item being credited.
       - name: quantity
         description: The number of units of product being credited.
-      - name: credit_note_line_item_type 
+      - name: credit_note_line_item_type
         description: The type of the credit note line item, one of invoice_line_item or custom_line_item. When the type is invoice_line_item there is an additional invoice_line_item property on the resource the value of which is the id of the credited line item on the invoice.
       - name: credit_note_line_item_unit_amount
         description: The cost of each unit of product being credited. "{{ doc('convert_values') }}"
-      - name: livemode 
+      - name: livemode
         description: Has the value true if the object exists in live mode or the value false if the object exists in test mode.
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -809,7 +809,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - account_id 
+            - account_id
             - source_relation
     columns:
       - name: account_id
@@ -864,7 +864,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - dispute_id 
+            - dispute_id
             - source_relation
     columns:
       - name: dispute_id
@@ -948,7 +948,7 @@ models:
       - name: dispute_metadata
         description: Custom metadata added to the record, in JSON string format
       - name: dispute_reason
-        description: Reason given by cardholder for dispute. Possible values are bank_cannot_process, check_returned, credit_not_processed, customer_initiated, debit_not_authorized, duplicate, fraudulent, general, incorrect_account_details, insufficient_funds, product_not_received, product_unacceptable, subscription_canceled, or unrecognized. 
+        description: Reason given by cardholder for dispute. Possible values are bank_cannot_process, check_returned, credit_not_processed, customer_initiated, debit_not_authorized, duplicate, fraudulent, general, incorrect_account_details, insufficient_funds, product_not_received, product_unacceptable, subscription_canceled, or unrecognized.
       - name: dispute_status
         description: Current status of dispute. Possible values are warning_needs_response, warning_under_review, warning_closed, needs_response, under_review, won, or lost.
       - name: source_relation
@@ -959,7 +959,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - transfer_id 
+            - transfer_id
             - source_relation
     columns:
       - name: transfer_id
@@ -1002,7 +1002,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - product_id 
+            - product_id
             - source_relation
     columns:
       - name: product_id
