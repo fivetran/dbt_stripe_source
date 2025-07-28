@@ -4,6 +4,12 @@
 
 ## Under the Hood
 - Removed trailing spaces from YML files to ensure clean documentation and proper compilation.
+- Updated conditions in `.github/workflows/auto-release.yml`.
+- Added `.github/workflows/generate-docs.yml`.
+- Added `+docs: show: False` to `integration_tests/dbt_project.yml`.
+- Migrated `flags` (e.g., `send_anonymous_usage_stats`, `use_colors`) from `sample.profiles.yml` to `integration_tests/dbt_project.yml`.
+- Updated `maintainer_pull_request_template.md` with improved checklist.
+- Updated `.gitignore` to exclude additional DBT, Python, and system artifacts.
 
 # dbt_stripe_source v0.15.0
 

@@ -45,6 +45,8 @@ vars:
     stripe_credit_note_line_item_identifier: "credit_note_line_item_data"
     
 seeds:
+  +docs:
+    show: False
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   stripe_source_integration_tests:
     +column_types:
@@ -76,3 +78,5 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+
+  use_colors: True
