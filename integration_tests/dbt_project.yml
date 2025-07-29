@@ -61,7 +61,7 @@ seeds:
         individual_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
     invoice_data:
       +column_types:
-        id: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
+        id: "{{ 'varchar(100)' if target.type in ('redshift', 'postgres') else 'string' }}"
     discount_data:
       +enabled: "{{ true if target.type not in ('snowflake', 'postgres') else false }}"
     discount_data_snowflake:
