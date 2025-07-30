@@ -1,7 +1,7 @@
 config-version: 2
 
 name: 'stripe_source_integration_tests'
-version: '0.15.0'
+version: '0.15.1'
 
 profile: 'integration_tests'
 
@@ -45,6 +45,8 @@ vars:
     stripe_credit_note_line_item_identifier: "credit_note_line_item_data"
     
 seeds:
+  +docs:
+    show: False
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   stripe_source_integration_tests:
     +column_types:
@@ -59,7 +61,7 @@ seeds:
         individual_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
     invoice_data:
       +column_types:
-        id: "{{ 'varchar(100)' if target.name in ('redshift', 'postgres') else 'string' }}"
+        id: "{{ 'varchar(100)' if target.type in ('redshift', 'postgres') else 'string' }}"
     discount_data:
       +enabled: "{{ true if target.type not in ('snowflake', 'postgres') else false }}"
     discount_data_snowflake:
@@ -76,3 +78,5 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+
+  use_colors: True
